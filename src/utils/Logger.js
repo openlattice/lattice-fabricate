@@ -2,11 +2,11 @@
  * @flow
  */
 
-import format from 'date-fns/format';
 import isEmpty from 'lodash/isEmpty';
 import isError from 'lodash/isError';
 import isString from 'lodash/isString';
 import log from 'loglevel';
+import { format } from 'date-fns';
 
 // injected by Webpack.DefinePlugin
 declare var __ENV_DEV__ :boolean;
