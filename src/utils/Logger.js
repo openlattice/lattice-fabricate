@@ -6,7 +6,7 @@ import isEmpty from 'lodash/isEmpty';
 import isError from 'lodash/isError';
 import isString from 'lodash/isString';
 import log from 'loglevel';
-import { format } from 'date-fns';
+import { DateTime } from 'luxon';
 
 // injected by Webpack.DefinePlugin
 declare var __ENV_DEV__ :boolean;
@@ -40,7 +40,7 @@ function isNonEmptyString(value :any) {
 
 function getMessagePrefix(loggerLevel :string, loggerName :string) {
 
-  return `[${format(new Date(), TIMESTAMP_FORMAT)} ${loggerLevel.toUpperCase()} ${__PACKAGE__}] ${loggerName}`;
+  return `[${DateTime.local().toSQL({ includeOffset: false })} ${loggerLevel.toUpperCase()} ${__PACKAGE__}] ${loggerName}`;
 }
 
 export default class Logger {
