@@ -21,8 +21,6 @@ const LOG_LEVELS = {
   ERROR: 'error',
 };
 
-const TIMESTAMP_FORMAT = 'YYYY-MM-DD HH:mm:ss';
-
 if (__ENV_DEV__) {
   log.setLevel(log.levels.TRACE);
 }
@@ -40,6 +38,7 @@ function isNonEmptyString(value :any) {
 
 function getMessagePrefix(loggerLevel :string, loggerName :string) {
 
+  // eslint-disable-next-line max-len
   return `[${DateTime.local().toSQL({ includeOffset: false })} ${loggerLevel.toUpperCase()} ${__PACKAGE__}] ${loggerName}`;
 }
 
