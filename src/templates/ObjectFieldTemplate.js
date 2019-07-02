@@ -1,15 +1,15 @@
 // @flow
 import React, { Component } from 'react';
-import type { ElementType } from 'react';
+import type { ComponentType } from 'react';
 
 type Props = {
   description :string;
-  DescriptionField :ElementType;
+  DescriptionField :ComponentType<any>;
   idSchema :Object;
   properties :Object[];
   required :string;
   title :string;
-  TitleField :ElementType;
+  TitleField :ComponentType<any>;
   uiSchema :Object;
 };
 
