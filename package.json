@@ -28,9 +28,11 @@
   "license": "Apache-2.0",
   "dependencies": {
     "immutable": "4.0.0-rc.9",
+    "lattice-ui-kit": "~0.6.0",
     "lodash": "~4.17.0",
     "loglevel": "~1.6.0",
-    "luxon": "~1.16.0"
+    "luxon": "~1.16.0",
+    "react-jsonschema-form": "~1.6.1"
   },
   "devDependencies": {
     "@babel/cli": "~7.2.0",
