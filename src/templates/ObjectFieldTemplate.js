@@ -1,23 +1,19 @@
 // @flow
-import * as React from 'react';
-import styled from 'styled-components';
-
-const GridDiv = styled.div`
-  display: grid;
-`;
+import React, { Component } from 'react';
+import type { ElementType } from 'react';
 
 type Props = {
   description :string;
-  DescriptionField :React.ElementType;
+  DescriptionField :ElementType;
   idSchema :Object;
   properties :Object[];
   required :string;
   title :string;
-  TitleField :React.ElementType;
+  TitleField :ElementType;
   uiSchema :Object;
 };
 
-class ObjectFieldTemplate extends React.Component<Props> {
+class ObjectFieldTemplate extends Component<Props> {
 
   renderTitleField = () => {
     const {
@@ -28,6 +24,7 @@ class ObjectFieldTemplate extends React.Component<Props> {
       required,
     } = this.props;
     if (uiSchema['ui:title'] || title) {
+      // Title field renders 'legend'
       return (
         <TitleField
             id={`${idSchema.$id}__title`}
@@ -54,11 +51,11 @@ class ObjectFieldTemplate extends React.Component<Props> {
   render() {
     const { properties } = this.props;
     return (
-      <GridDiv>
+      <div>
         { this.renderTitleField() }
         { this.renderDescriptionField() }
         {properties.map(prop => prop.content)}
-      </GridDiv>
+      </div>
     );
   }
 }
