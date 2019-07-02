@@ -47,25 +47,19 @@ export const schema = {
       type: 'object',
       title: 'Mailing Address',
       properties: {
-        resident: {
-          type: 'object',
-          title: ' ',
-          properties: {
-            residentOfState: {
-              type: 'boolean',
-              title: 'Is the client a resident of the state?',
-              enum: [
-                true,
-                false
-              ],
-              enumNames: YES_NO
-            },
-            homeless: {
-              type: 'string',
-              title: 'Is the client homeless?',
-              enum: YES_NO
-            },
-          }
+        residentOfState: {
+          type: 'boolean',
+          title: 'Is the client a resident of the state?',
+          enum: [
+            true,
+            false
+          ],
+          enumNames: YES_NO
+        },
+        homeless: {
+          type: 'string',
+          title: 'Is the client homeless?',
+          enum: YES_NO
         },
         street: {
           type: 'string',
@@ -96,7 +90,7 @@ export const schema = {
     },
     billingAddress: {
       type: 'object',
-      title: 'Physical address (current or last known)',
+      title: 'Billing Address',
       properties: {
         sameAsMailing: {
           type: 'boolean',
@@ -164,21 +158,18 @@ export const uiSchema = {
   },
   mailingAddress: {
     classNames: 'column-span-12 grid-container',
-    resident: {
-      classNames: 'column-span-12 grid-container',
-      residentOfState: {
-        'ui:widget': 'radio',
-        'ui:options': {
-          inline: true
-        },
-        classNames: 'column-span-6'
+    residentOfState: {
+      'ui:widget': 'radio',
+      'ui:options': {
+        inline: true
       },
-      homeless: {
-        classNames: 'column-span-6',
-        'ui:widget': 'radio',
-        'ui:options': {
-          inline: true
-        },
+      classNames: 'column-span-6'
+    },
+    homeless: {
+      classNames: 'column-span-6',
+      'ui:widget': 'radio',
+      'ui:options': {
+        inline: true
       },
     },
     street: {
