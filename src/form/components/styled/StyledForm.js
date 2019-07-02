@@ -16,8 +16,6 @@ const StyledForm = styled(Form)`
   }
 
   label.control-label {
-    display: inline-block;
-    color: #555e6f;
     font-size: 14px;
     line-height: normal;
     margin-bottom: 10px;
@@ -31,7 +29,6 @@ const StyledForm = styled(Form)`
   > div.form-group.field.field-object > :first-child {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-gap: 0 30px;
 
     & > * {
       border-bottom: 1px solid #e1e1eb;
@@ -101,7 +98,6 @@ const StyledForm = styled(Form)`
 
   .grid-container {
     display: flex;
-    width: 100%;
 
     > :first-child {
       display: grid;
@@ -109,64 +105,6 @@ const StyledForm = styled(Form)`
       grid-gap: 20px 30px;
       width: 100%;
     }
-
-    .divider {
-      margin-top: 15px;
-    }
-  }
-
-  .display-none {
-    display: none;
-  }
-
-  .grid-spread {
-    border-bottom: 1px solid #e1e1eb;
-
-    & > * {
-      padding: 5px;
-    }
-
-    :last-of-type {
-      border-bottom: 0;
-    }
-  }
-
-  center {
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    align-items: center;
-  }
-
-  .section-spacing {
-    margin-top: 30px;
-  }
-
-  .hide-title {
-    > label {
-      display: none;
-    }
-  }
-
-  .compact-container {
-    > :first-child {
-      grid-gap: 10px 20px;
-    }
-  }
-
-  .subsection {
-    padding-bottom: 20px;
-    border-bottom: 1px #e1e1eb solid;
-
-    :last-of-type {
-      border-bottom: 0;
-      padding-bottom: 0;
-    }
-  }
-
-  .divider {
-    border-top: 1px solid #e1e1eb;
-    padding-top: 30px;
   }
 `;
 
