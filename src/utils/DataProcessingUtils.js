@@ -31,6 +31,8 @@ function getPageSectionKey(page :number, section :number) :string {
   return `page${page}_section${section}`;
 }
 
+declare type UUID = string;
+
 export type EntityAddress = {|
   entityIndex ? :number;
   entityKeyId ? :UUID;
