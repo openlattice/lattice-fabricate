@@ -10,15 +10,21 @@ export const schema = {
         properties: {
           taskName: {
             type: 'string',
-            title: 'Task Name'
+            title: 'Task Name',
+            default: ''
           },
           taskDescription: {
             type: 'string',
-            title: 'Task Description'
+            title: 'Task Description',
+            default: ''
           }
         }
-      }
-    }
+      },
+      default: [{
+        taskName: '',
+        taskDescription: ''
+      }]
+    },
   }
 };
 
