@@ -1,8 +1,7 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import { faTrash } from '@fortawesome/pro-solid-svg-icons';
-import { faChevronUp, faChevronDown } from '@fortawesome/pro-light-svg-icons';
+import { faTrash, faChevronUp, faChevronDown } from '@fortawesome/pro-solid-svg-icons';
 import IconButton from './IconButton';
 
 
@@ -13,77 +12,72 @@ const ItemWrapper = styled.div`
 const ActionGutter = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 5px;
+  margin: 0 10px;
+  align-items: center;
+  text-align: center;
 `;
 
 type DefaultArrayItemProps = {
   index :number;
   children :React.ChildrenArray<any> | React.Element<any>;
   className :string;
-  hasRemove ? :boolean;
-  disabled ? :boolean;
-  readonly ? :boolean;
-  onDropIndexClick :(index :number) => void;
-  removeButtonText ? :string;
+  hasRemove :boolean;
+  hasMoveUp :boolean;
+  hasMoveDown :boolean;
+  disabled :boolean;
+  readonly :boolean;
+  onDropIndexClick :(index :number) => Function;
+  onReorderClick :(index :number, newIndex :number) => Function;
+  orderable :boolean;
+  withIndex ? :boolean;
 }
 
 const DefaultArrayItem = (props :DefaultArrayItemProps) => {
   const {
-    index,
-    className,
     children,
-    hasRemove,
-    hasMoveUp,
-    hasMoveDown,
-    hasToolbar,
+    className,
     disabled,
-    readonly,
+    hasMoveDown,
+    hasMoveUp,
+    hasRemove,
+    index,
     onDropIndexClick,
     onReorderClick,
-    removeButtonText
+    orderable,
+    readonly,
+    withIndex
   } = props;
-  console.log('arrayItemProps', props);
+
   return (
     <ItemWrapper key={index} className={className}>
-      <ActionGutter>
-        {hasToolbar && (
+      { orderable && (
+        <ActionGutter>
           <IconButton
               icon={faChevronUp}
-              tabIndex="0"
               disabled={disabled || readonly || !hasMoveUp}
-              onClick={onReorderClick(index, index - 1)}>
-            {removeButtonText}
-          </IconButton>
-        )}
-        {hasToolbar && (
+              onClick={onReorderClick(index, index - 1)} />
+          { withIndex && index + 1 }
           <IconButton
               icon={faChevronDown}
-              tabIndex="0"
               disabled={disabled || readonly || !hasMoveDown}
-              onClick={onReorderClick(index, index + 1)}>
-            {removeButtonText}
-          </IconButton>
-        )}
-        {(hasRemove && !disabled) && (
+              onClick={onReorderClick(index, index + 1)} />
+        </ActionGutter>
+      )}
+      {children}
+      {(hasRemove && !disabled) && (
+        <ActionGutter>
           <IconButton
               icon={faTrash}
-              tabIndex="0"
               disabled={disabled || readonly}
-              onClick={onDropIndexClick(index)}>
-            {removeButtonText}
-          </IconButton>
-        )}
-      </ActionGutter>
-      {children}
+              onClick={onDropIndexClick(index)} />
+        </ActionGutter>
+      )}
     </ItemWrapper>
   );
 };
 
 DefaultArrayItem.defaultProps = {
-  disabled: false,
-  readonly: false,
-  hasRemove: true,
-  removeButtonText: 'Remove'
+  withIndex: false,
 };
 
 export default DefaultArrayItem;

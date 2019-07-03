@@ -60,14 +60,12 @@ const ArrayFieldTemplate = (props :ArrayFieldTemplateProps) => {
     uiSchema,
   } = props;
 
-  const uiOptions = uiSchema['ui:options'] || {};
-  const buttonText = {
-    removeButtonText: 'Remove',
-    addButtonText: 'Add',
-    ...uiOptions
-  };
-
-  const { removeButtonText, addButtonText } = buttonText;
+  const {
+    addButtonText = 'Add',
+    compact,
+    orderable = true,
+    withIndex = true
+  } = uiSchema['ui:options'] || {};
 
   return (
     <div className={className}>
@@ -88,12 +86,14 @@ const ArrayFieldTemplate = (props :ArrayFieldTemplateProps) => {
             } />
       )}
       <ArrayList
-          compact={uiOptions.compact}
+          compact={compact}
           key={`array-item-list-${idSchema.$id}`}>
-        {items && items.map(itemProps => <DefaultArrayItem {...itemProps} removeButtonText={removeButtonText} />)}
+        {items && items.map(itemProps => (
+          <DefaultArrayItem {...itemProps} orderable={orderable} withIndex={withIndex} />
+        ))}
         {(canAdd && !disabled) && (
           <MarginButton
-              tabIndex="0"
+              mode="subtle"
               onClick={onAddClick}
               disabled={disabled || readonly}>
             {addButtonText}
