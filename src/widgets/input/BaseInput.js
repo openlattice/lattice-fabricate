@@ -46,7 +46,6 @@ class BaseInput extends Component<WidgetProps> {
     const {
       autofocus,
       disabled,
-      id,
       onBlur,
       onFocus,
       onChange,
