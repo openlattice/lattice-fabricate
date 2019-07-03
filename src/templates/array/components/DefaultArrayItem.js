@@ -51,7 +51,7 @@ const DefaultArrayItem = (props :DefaultArrayItemProps) => {
               icon={faChevronUp}
               tabIndex="0"
               disabled={disabled || readonly || !hasMoveUp}
-              onClick={onReorderClick(index, index + 1)}>
+              onClick={onReorderClick(index, index - 1)}>
             {removeButtonText}
           </IconButton>
         )}
@@ -60,7 +60,7 @@ const DefaultArrayItem = (props :DefaultArrayItemProps) => {
               icon={faChevronDown}
               tabIndex="0"
               disabled={disabled || readonly || !hasMoveDown}
-              onClick={onReorderClick(index, index - 1)}>
+              onClick={onReorderClick(index, index + 1)}>
             {removeButtonText}
           </IconButton>
         )}
