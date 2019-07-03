@@ -1,16 +1,15 @@
 // @flow
-
 import React, { Component } from 'react';
-import { Input } from 'lattice-ui-kit';
+import { TextArea } from 'lattice-ui-kit';
 
 import KeyCodes from '../constants/KeyCodes';
 import type { WidgetProps } from '../types';
 
-class BaseInput extends Component<WidgetProps> {
+class TextareaWidget extends Component<WidgetProps> {
 
   static defaultProps = {
     value: ''
-  }
+  };
 
   onChange = (event :SyntheticEvent<*>) => {
     const { onChange, options } = this.props;
@@ -48,30 +47,28 @@ class BaseInput extends Component<WidgetProps> {
       disabled,
       id,
       onBlur,
-      onFocus,
       onChange,
+      onFocus,
       options,
       readonly,
       value,
-      ...inputProps
+      ...restProps
     } = this.props;
 
-    const inputType = options.inputType || inputProps.type || 'text';
-
     return (
-      <Input
-          autoFocus={autofocus}
-          disabled={disabled}
-          onBlur={this.onBlur}
-          onChange={this.onChange}
-          onFocus={this.onFocus}
-          onKeyDown={this.onKeyDown}
-          readOnly={readonly}
-          type={inputType}
+      <TextArea
+          id={id}
           value={value}
-          {...inputProps} />
+          disabled={disabled}
+          readOnly={readonly}
+          autoFocus={autofocus}
+          rows={options.rows}
+          onBlur={this.onBlur}
+          onFocus={this.onFocus}
+          onChange={this.onChange}
+          {...restProps} />
     );
   }
 }
 
-export default BaseInput;
+export default TextareaWidget;
