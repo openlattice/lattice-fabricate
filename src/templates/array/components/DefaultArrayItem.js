@@ -1,10 +1,19 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import { Button } from 'lattice-ui-kit';
+import { faTrash } from '@fortawesome/pro-solid-svg-icons';
+import { faChevronUp, faChevronDown } from '@fortawesome/pro-light-svg-icons';
+import IconButton from './IconButton';
 
-const MarginButton = styled(Button)`
-  margin-top: 10px;
+
+const ItemWrapper = styled.div`
+  display: flex;
+`;
+
+const ActionGutter = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 0 5px;
 `;
 
 type DefaultArrayItemProps = {
@@ -30,21 +39,43 @@ const DefaultArrayItem = (props :DefaultArrayItemProps) => {
     disabled,
     readonly,
     onDropIndexClick,
+    onReorderClick,
     removeButtonText
   } = props;
+  console.log('arrayItemProps', props);
   return (
-    <div key={index} className={className}>
-      something
+    <ItemWrapper key={index} className={className}>
+      <ActionGutter>
+        {hasToolbar && (
+          <IconButton
+              icon={faChevronUp}
+              tabIndex="0"
+              disabled={disabled || readonly || !hasMoveUp}
+              onClick={onReorderClick(index, index + 1)}>
+            {removeButtonText}
+          </IconButton>
+        )}
+        {hasToolbar && (
+          <IconButton
+              icon={faChevronDown}
+              tabIndex="0"
+              disabled={disabled || readonly || !hasMoveDown}
+              onClick={onReorderClick(index, index - 1)}>
+            {removeButtonText}
+          </IconButton>
+        )}
+        {(hasRemove && !disabled) && (
+          <IconButton
+              icon={faTrash}
+              tabIndex="0"
+              disabled={disabled || readonly}
+              onClick={onDropIndexClick(index)}>
+            {removeButtonText}
+          </IconButton>
+        )}
+      </ActionGutter>
       {children}
-      {(hasRemove && !disabled) && (
-        <MarginButton
-            tabIndex="-1"
-            disabled={disabled || readonly}
-            onClick={onDropIndexClick(index)}>
-          {removeButtonText}
-        </MarginButton>
-      )}
-    </div>
+    </ItemWrapper>
   );
 };
 
