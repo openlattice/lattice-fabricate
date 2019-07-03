@@ -72,8 +72,14 @@ module.exports = (env) => {
 
   const externals = {
     immutable: 'immutable',
+    'lattice-ui-kit': 'lattice-ui-kit',
     react: 'react',
     'react-dom': 'react-dom',
+    'styled-components': {
+      amd: 'styled-components',
+      commonjs: 'styled-components',
+      commonjs2: 'styled-components',
+    },
   };
 
   return {
