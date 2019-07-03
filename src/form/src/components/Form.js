@@ -1,9 +1,13 @@
 // @flow
 import React from 'react';
 import StyledForm from './styled/StyledForm';
-import { ObjectFieldTemplate } from '../../templates';
+import { ArrayFieldTemplate, ObjectFieldTemplate } from '../../../templates';
 
-import { BaseInput, CheckboxWidget } from '../../widgets';
+import {
+  BaseInput,
+  CheckboxWidget,
+  TextareaWidget
+} from '../../../widgets';
 
 const widgets = {
   BaseInput,
@@ -18,7 +22,7 @@ const widgets = {
   // RadioWidget,
   // SelectWidget,
   // SignatureWidget,
-  // TextareaWidget,
+  TextareaWidget,
   // TimeWidget,
 };
 const fields = {
@@ -39,6 +43,7 @@ type Props = {
 const Form = (props :Props) => (
   <StyledForm
       ObjectFieldTemplate={ObjectFieldTemplate}
+      ArrayFieldTemplate={ArrayFieldTemplate}
       widgets={widgets}
       fields={fields}
       {...props} />
