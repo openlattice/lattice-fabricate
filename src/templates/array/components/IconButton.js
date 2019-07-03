@@ -1,8 +1,13 @@
 // @flow
 import React from 'react';
+import styled from 'styled-components';
 import { Button } from 'lattice-ui-kit';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+
+const StyledButton = styled(Button)`
+  padding: 5px;
+`;
 
 type Props = {
   onClick :() => void;
@@ -12,9 +17,9 @@ type Props = {
 const IconButton = (props :Props) => {
   const { icon, onClick, ...restProps } = props;
   return (
-    <Button mode="subtle" onClick={onClick} {...restProps}>
+    <StyledButton mode="subtle" onClick={onClick} {...restProps}>
       <FontAwesomeIcon icon={icon} fixedWidth />
-    </Button>
+    </StyledButton>
   );
 };
 
