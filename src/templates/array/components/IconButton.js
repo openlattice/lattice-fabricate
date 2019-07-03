@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 const StyledButton = styled(Button)`
-  padding: 5px;
+  padding: 0;
 `;
 
 type Props = {
