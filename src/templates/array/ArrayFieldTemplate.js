@@ -1,7 +1,8 @@
 // @flow
-import React, { type ComponentType } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Button } from 'lattice-ui-kit';
+import type { ComponentType } from 'react';
 
 import { ArrayFieldDescription, ArrayFieldTitle, DefaultArrayItem } from './components';
 

@@ -1,5 +1,6 @@
 // @flow
-import React, { type ComponentType } from 'react';
+import React from 'react';
+import type { ComponentType } from 'react';
 
 type ArrayFieldTitleProps = {
   required ? :boolean;

@@ -1,7 +1,9 @@
 // @flow
-import React, { type ChildrenArray } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { faTrash, faChevronUp, faChevronDown } from '@fortawesome/pro-solid-svg-icons';
+import type { ChildrenArray } from 'react';
+
 import IconButton from './IconButton';
 import IndexCircle from './IndexCircle';
 
