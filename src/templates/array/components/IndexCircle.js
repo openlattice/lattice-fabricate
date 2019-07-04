@@ -7,20 +7,25 @@ import { Colors } from 'lattice-ui-kit';
 
 const { PURPLES } = Colors;
 
+const IconLayer = styled.span`
+  visibility: ${props => !props.visible && 'hidden'};
+`;
+
 const Index = styled.span`
   font-size: 12px;
   font-weight: bold;
 `;
 
 type Props = {
-  index :number
+  index :number;
+  visible :boolean;
 };
 
-const IndexCircle = ({ index } :Props) => (
-  <span className="fa-layers fa-lg fa-fw">
+const IndexCircle = ({ index, visible } :Props) => (
+  <IconLayer className="fa-layers fa-lg fa-fw" visible={visible}>
     <FontAwesomeIcon icon={faCircle} color={PURPLES[2]} />
     <Index className="fa-layers-text fa-inverse">{index}</Index>
-  </span>
+  </IconLayer>
 );
 
 export default IndexCircle;

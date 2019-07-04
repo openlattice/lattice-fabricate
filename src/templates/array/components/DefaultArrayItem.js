@@ -30,7 +30,7 @@ type DefaultArrayItemProps = {
   onDropIndexClick :(index :number) => Function;
   onReorderClick :(index :number, newIndex :number) => Function;
   orderable :boolean;
-  withIndex ? :boolean;
+  showIndex ? :boolean;
 }
 
 const DefaultArrayItem = (props :DefaultArrayItemProps) => {
@@ -46,7 +46,7 @@ const DefaultArrayItem = (props :DefaultArrayItemProps) => {
     onReorderClick,
     orderable,
     readonly,
-    withIndex
+    showIndex
   } = props;
 
   return (
@@ -57,7 +57,7 @@ const DefaultArrayItem = (props :DefaultArrayItemProps) => {
               icon={faChevronUp}
               disabled={disabled || readonly || !hasMoveUp}
               onClick={onReorderClick(index, index - 1)} />
-          { withIndex && <IndexCircle index={index + 1} />}
+          <IndexCircle index={index + 1} visible={showIndex} />
           <IconButton
               icon={faChevronDown}
               disabled={disabled || readonly || !hasMoveDown}
@@ -78,7 +78,7 @@ const DefaultArrayItem = (props :DefaultArrayItemProps) => {
 };
 
 DefaultArrayItem.defaultProps = {
-  withIndex: false,
+  showIndex: false,
 };
 
 export default DefaultArrayItem;

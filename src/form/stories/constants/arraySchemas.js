@@ -121,7 +121,7 @@ export const uiSchema = {
     classNames: 'column-span-12',
     'ui:options': {
       addButtonText: '+ Add Task',
-      withIndex: false
+      showIndex: false
     },
     items: {
       classNames: 'grid-container',
