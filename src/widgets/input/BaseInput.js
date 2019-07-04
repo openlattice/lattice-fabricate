@@ -46,6 +46,7 @@ class BaseInput extends Component<WidgetProps> {
     const {
       autofocus,
       disabled,
+      id,
       onBlur,
       onFocus,
       onChange,
@@ -61,6 +62,7 @@ class BaseInput extends Component<WidgetProps> {
       <Input
           autoFocus={autofocus}
           disabled={disabled}
+          id={id}
           onBlur={this.onBlur}
           onChange={this.onChange}
           onFocus={this.onFocus}
