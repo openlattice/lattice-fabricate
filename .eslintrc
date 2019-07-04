@@ -19,7 +19,7 @@
     },
     "import/resolver": {
       "webpack": {
-        "config": "config/webpack/webpack.config.app.js"
+        "config": "config/webpack/webpack.config.js"
       }
     }
   },
@@ -90,8 +90,8 @@
       {
         "devDependencies": [
           "config/**",
-          "src/utils/testing/**",
-          "**/*.test.js"
+          "**/*.test.js",
+          "**/*.stories.js"
         ]
       }
     ],
