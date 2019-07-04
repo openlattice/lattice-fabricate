@@ -1,6 +1,6 @@
 // @flow
 import React, { type ComponentType } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { Button } from 'lattice-ui-kit';
 
 import { ArrayFieldDescription, ArrayFieldTitle, DefaultArrayItem } from './components';
@@ -11,7 +11,7 @@ const MarginButton = styled(Button)`
   margin-top: 10px;
 `;
 
-const arrayListCss = css`
+const ArrayList = styled.div`
   > div {
     border-bottom: 1px solid #e1e1eb;
     padding: 20px 0;
@@ -21,10 +21,6 @@ const arrayListCss = css`
     border-bottom: 0;
     padding-bottom: 0;
   }
-`;
-
-const ArrayList = styled.div`
-  ${props => (!props.compact ? arrayListCss : null)}
 `;
 
 type ArrayFieldTemplateProps = {
