@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { faTrash, faChevronUp, faChevronDown } from '@fortawesome/pro-solid-svg-icons';
 import IconButton from './IconButton';
+import IndexCircle from './IndexCircle';
 
 
 const ItemWrapper = styled.div`
@@ -10,10 +11,10 @@ const ItemWrapper = styled.div`
 `;
 
 const ActionGutter = styled.div`
+  align-items: center;
   display: flex;
   flex-direction: column;
   margin: 0 10px;
-  align-items: center;
   text-align: center;
 `;
 
@@ -56,7 +57,7 @@ const DefaultArrayItem = (props :DefaultArrayItemProps) => {
               icon={faChevronUp}
               disabled={disabled || readonly || !hasMoveUp}
               onClick={onReorderClick(index, index - 1)} />
-          { withIndex && index + 1 }
+          { withIndex && <IndexCircle index={index + 1} />}
           <IconButton
               icon={faChevronDown}
               disabled={disabled || readonly || !hasMoveDown}
