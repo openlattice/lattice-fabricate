@@ -9,6 +9,7 @@ const { PURPLES } = Colors;
 
 const IconLayer = styled.span`
   visibility: ${props => !props.visible && 'hidden'};
+  margin: 5px 0;
 `;
 
 const Index = styled.span`
