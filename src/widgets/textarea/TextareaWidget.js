@@ -57,15 +57,15 @@ class TextareaWidget extends Component<WidgetProps> {
 
     return (
       <TextArea
-          id={id}
-          value={value}
-          disabled={disabled}
-          readOnly={readonly}
           autoFocus={autofocus}
-          rows={options.rows}
+          disabled={disabled}
+          id={id}
           onBlur={this.onBlur}
-          onFocus={this.onFocus}
           onChange={this.onChange}
+          onFocus={this.onFocus}
+          readOnly={readonly}
+          rows={options.rows}
+          value={value}
           {...restProps} />
     );
   }
