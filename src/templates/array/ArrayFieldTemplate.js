@@ -1,5 +1,5 @@
 // @flow
-import * as React from 'react';
+import React, { type ComponentType } from 'react';
 import styled, { css } from 'styled-components';
 import { Button } from 'lattice-ui-kit';
 
@@ -30,7 +30,7 @@ const ArrayList = styled.div`
 type ArrayFieldTemplateProps = {
   canAdd ? :boolean,
   className :string,
-  DescriptionField :Class<React.Component<*, *>> | React.StatelessFunctionalComponent<*>;
+  DescriptionField :ComponentType<any>;
   disabled ? :boolean,
   idSchema :{ $id :string };
   items :Object[],
@@ -39,7 +39,7 @@ type ArrayFieldTemplateProps = {
   required ? :boolean;
   schema :Object;
   title ? :string,
-  TitleField :Class<React.Component<*, *>> | React.StatelessFunctionalComponent<*>;
+  TitleField :ComponentType<any>;
   uiSchema :Object;
 }
 

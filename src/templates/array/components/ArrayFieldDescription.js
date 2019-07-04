@@ -1,8 +1,8 @@
 // @flow
-import React from 'react';
+import React, { type ComponentType } from 'react';
 
 type ArrayFieldDescriptionProps = {
-  DescriptionField :Class<React.Component<*, *>> | React.StatelessFunctionalComponent<*>;
+  DescriptionField :ComponentType<any>;
   idSchema :{ $id :string };
   description ? :string;
 };

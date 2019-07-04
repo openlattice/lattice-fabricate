@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import React, { type ChildrenArray } from 'react';
 import styled from 'styled-components';
 import { faTrash, faChevronUp, faChevronDown } from '@fortawesome/pro-solid-svg-icons';
 import IconButton from './IconButton';
@@ -20,7 +20,7 @@ const ActionGutter = styled.div`
 
 type DefaultArrayItemProps = {
   index :number;
-  children :React.ChildrenArray<any> | React.Element<any>;
+  children :ChildrenArray<any>;
   className :string;
   hasRemove :boolean;
   hasMoveUp :boolean;

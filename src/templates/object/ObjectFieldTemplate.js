@@ -1,6 +1,5 @@
 // @flow
-import React, { Component } from 'react';
-import type { ComponentType } from 'react';
+import React, { type ComponentType, Component } from 'react';
 
 type Props = {
   description :string;

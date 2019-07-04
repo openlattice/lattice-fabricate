@@ -1,9 +1,9 @@
 // @flow
-import React from 'react';
+import React, { type ComponentType } from 'react';
 
 type ArrayFieldTitleProps = {
   required ? :boolean;
-  TitleField :Class<React.Component<*, *>> | React.StatelessFunctionalComponent<*>;
+  TitleField :ComponentType<any>;
   idSchema :{ $id :string };
   title :string;
 };
