@@ -8,6 +8,7 @@ declare type WidgetProps = {
   onChange :(value :any) => void;
   onFocus :(id :string, value :any) => void;
   options :Object;
+  rawErrors :string[];
   readonly :boolean;
   registry :Object;
   required :boolean;

@@ -15,6 +15,10 @@ storiesOf('Form', module)
   ))
   .add('Array', () => (
     <Form
+        // https://react-jsonschema-form.readthedocs.io/en/latest/validation/#live-validation
+        // liveValidate is expensive as RJSF checks all fields for each update.
+        // Consider only doing so when a submit has already occurred or debounce/onBlur
+        liveValidate
         ObjectFieldTemplate={ObjectFieldTemplate}
         schema={arraySchema}
         uiSchema={arrayUiSchema} />

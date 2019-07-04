@@ -50,6 +50,7 @@ class TextareaWidget extends Component<WidgetProps> {
       onChange,
       onFocus,
       options,
+      rawErrors,
       readonly,
       value,
       ...restProps
@@ -60,6 +61,7 @@ class TextareaWidget extends Component<WidgetProps> {
           autoFocus={autofocus}
           disabled={disabled}
           id={id}
+          invalid={rawErrors && rawErrors.length}
           onBlur={this.onBlur}
           onChange={this.onChange}
           onFocus={this.onFocus}

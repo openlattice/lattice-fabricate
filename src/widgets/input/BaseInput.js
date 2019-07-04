@@ -51,6 +51,7 @@ class BaseInput extends Component<WidgetProps> {
       onFocus,
       onChange,
       options,
+      rawErrors,
       readonly,
       value,
       ...inputProps
@@ -63,6 +64,7 @@ class BaseInput extends Component<WidgetProps> {
           autoFocus={autofocus}
           disabled={disabled}
           id={id}
+          invalid={rawErrors && rawErrors.length}
           onBlur={this.onBlur}
           onChange={this.onChange}
           onFocus={this.onFocus}

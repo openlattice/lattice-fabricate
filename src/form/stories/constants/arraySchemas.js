@@ -4,16 +4,15 @@ export const schema = {
       type: 'object',
       properties: {
         taskName: {
-          type: 'string',
+          type: 'number',
           title: 'Task Name',
-          default: ''
         },
         taskDescription: {
           type: 'string',
           title: 'Task Description',
-          default: ''
         }
-      }
+      },
+      required: ['taskName']
     }
   },
   type: 'object',
@@ -25,10 +24,7 @@ export const schema = {
       items: {
         $ref: '#/definitions/taskItems'
       },
-      default: [{
-        taskName: '',
-        taskDescription: ''
-      }]
+      default: [{}]
     },
     unorderable: {
       title: 'Unorderable',
@@ -36,10 +32,7 @@ export const schema = {
       items: {
         $ref: '#/definitions/taskItems'
       },
-      default: [{
-        taskName: '',
-        taskDescription: ''
-      }]
+      default: [{}]
     },
     unremovable: {
       title: 'Unremovable',
@@ -47,10 +40,7 @@ export const schema = {
       items: {
         $ref: '#/definitions/taskItems'
       },
-      default: [{
-        taskName: '',
-        taskDescription: ''
-      }]
+      default: [{}]
     },
     unindexed: {
       title: 'Without Index',
@@ -58,10 +48,7 @@ export const schema = {
       items: {
         $ref: '#/definitions/taskItems'
       },
-      default: [{
-        taskName: '',
-        taskDescription: ''
-      }]
+      default: [{}]
     }
   }
 };
