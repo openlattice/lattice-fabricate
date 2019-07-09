@@ -5,7 +5,15 @@
 
 import isFunction from 'lodash/isFunction';
 import isInteger from 'lodash/isInteger';
-import Immutable, { List, Map } from 'immutable';
+import Immutable, {
+  get,
+  getIn,
+  hasIn,
+  List,
+  Map,
+  set,
+  setIn,
+} from 'immutable';
 import { Models } from 'lattice';
 import type { FQN } from 'lattice';
 
@@ -27,7 +35,6 @@ const VALUE_MAPPERS :'VALUE_MAPPERS' = 'VALUE_MAPPERS';
 const { FullyQualifiedName } = Models;
 
 function getPageSectionKey(page :number, section :number) :string {
-
   return `page${page}_section${section}`;
 }
 
@@ -132,7 +139,7 @@ function isValidEntityAddressKey(value :any) :boolean {
   return false;
 }
 
-function processEntityIndex(key :string, index :?number, mappers :Map) :number {
+function processEntityIndex(key :string, index :?number, mappers :Map | Object) :number {
 
   let { entityIndex } = parseEntityAddressKey(key);
 
@@ -144,8 +151,8 @@ function processEntityIndex(key :string, index :?number, mappers :Map) :number {
     entityIndex = index;
   }
 
-  if (mappers.hasIn([INDEX_MAPPERS, key])) {
-    const indexMapper = mappers.getIn([INDEX_MAPPERS, key]);
+  if (hasIn(mappers, [INDEX_MAPPERS, key])) {
+    const indexMapper = getIn(mappers, [INDEX_MAPPERS, key]);
     if (isFunction(indexMapper)) {
       entityIndex = indexMapper(index);
     }
@@ -162,12 +169,12 @@ function processEntityIndex(key :string, index :?number, mappers :Map) :number {
   return entityIndex;
 }
 
-function processEntityValue(key :string, value :any, mappers :Map) :any {
+function processEntityValue(key :string, value :any, mappers :Map | Object) :any {
 
   let processedValue :any = value;
 
-  if (mappers.hasIn([VALUE_MAPPERS, key])) {
-    const valueMapper = mappers.getIn([VALUE_MAPPERS, key]);
+  if (hasIn(mappers, [VALUE_MAPPERS, key])) {
+    const valueMapper = getIn(mappers, [VALUE_MAPPERS, key]);
     if (isFunction(valueMapper)) {
       // TODO: what params should be passed along to the mapper?
       processedValue = valueMapper(processedValue);
@@ -218,8 +225,8 @@ function processEntityValueMap(
 
   valueMap.forEach((valueInMap :any, key :string) => {
     let localValue = valueInMap;
-    if (isValidEntityAddressKey(key) && mappers.hasIn([KEY_MAPPERS, key])) {
-      const mapper = mappers.getIn([KEY_MAPPERS, key]);
+    if (isValidEntityAddressKey(key) && hasIn(mappers, [KEY_MAPPERS, key])) {
+      const mapper = getIn(mappers, [KEY_MAPPERS, key]);
       if (isFunction(mapper)) {
         localValue = mapper(valueInMap);
       }
