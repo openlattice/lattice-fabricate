@@ -9,13 +9,13 @@ const PROPERTY_TYPE_FQNS = {
 };
 
 const ENTITY_SET_NAMES = {
-  PERSON_ESN: 'mock.person',
-  TASK_ESN: 'mock.task',
-  TASK_LIST_ESN: 'mock.tasklist'
+  PERSON_ESN: 'mock_person',
+  TASK_ESN: 'mock_task',
+  TASK_LIST_ESN: 'mock_tasklist'
 };
 
 const ASSOCIATION_ENTITY_SET_NAMES = {
-  INCLUDES_ESN: 'mock.includes'
+  INCLUDES_ESN: 'mock_includes'
 };
 
 export {
