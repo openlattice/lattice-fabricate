@@ -66,20 +66,18 @@ const ArrayFieldTemplate = (props :ArrayFieldTemplateProps) => {
   return (
     <div className={className}>
       <ArrayFieldTitle
-          key={`array-field-title-${idSchema.$id}`}
-          TitleField={TitleField}
           idSchema={idSchema}
+          key={`array-field-title-${idSchema.$id}`}
+          required={required}
           title={uiSchema['ui:title'] || title}
-          required={required} />
+          TitleField={TitleField} />
 
       {(uiSchema['ui:description'] || schema.description) && (
         <ArrayFieldDescription
-            key={`array-field-description-${idSchema.$id}`}
+            description={uiSchema['ui:description'] || schema.description}
             DescriptionField={DescriptionField}
             idSchema={idSchema}
-            description={
-              uiSchema['ui:description'] || schema.description
-            } />
+            key={`array-field-description-${idSchema.$id}`} />
       )}
       <ArrayList
           key={`array-item-list-${idSchema.$id}`}>
@@ -88,9 +86,9 @@ const ArrayFieldTemplate = (props :ArrayFieldTemplateProps) => {
         ))}
         {(canAdd && !disabled) && (
           <MarginButton
+              disabled={disabled || readonly}
               mode="subtle"
-              onClick={onAddClick}
-              disabled={disabled || readonly}>
+              onClick={onAddClick}>
             {addButtonText}
           </MarginButton>
         )}
@@ -100,11 +98,11 @@ const ArrayFieldTemplate = (props :ArrayFieldTemplateProps) => {
 };
 
 ArrayFieldTemplate.defaultProps = {
-  title: '',
+  canAdd: true,
   disabled: false,
   readonly: false,
-  canAdd: true,
   required: false,
+  title: '',
 };
 
 export default ArrayFieldTemplate;
