@@ -59,7 +59,6 @@ const ArrayFieldTemplate = (props :ArrayFieldTemplateProps) => {
 
   const {
     addButtonText = 'Add',
-    compact,
     orderable = true,
     showIndex = true
   } = uiSchema['ui:options'] || {};
@@ -83,7 +82,6 @@ const ArrayFieldTemplate = (props :ArrayFieldTemplateProps) => {
             } />
       )}
       <ArrayList
-          compact={compact}
           key={`array-item-list-${idSchema.$id}`}>
         {items && items.map(itemProps => (
           <DefaultArrayItem {...itemProps} orderable={orderable} showIndex={showIndex} />
