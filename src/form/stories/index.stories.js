@@ -5,6 +5,7 @@ import { schema as arraySchema, uiSchema as arrayUiSchema } from './constants/ar
 import { ObjectFieldTemplate } from '../../templates';
 
 import Form from '..';
+import FormContainer from './FormContainer';
 
 storiesOf('Form', module)
   .add('Simple', () => (
@@ -22,4 +23,7 @@ storiesOf('Form', module)
         ObjectFieldTemplate={ObjectFieldTemplate}
         schema={arraySchema}
         uiSchema={arrayUiSchema} />
+  ))
+  .add('Data Processing', () => (
+    <FormContainer />
   ));
