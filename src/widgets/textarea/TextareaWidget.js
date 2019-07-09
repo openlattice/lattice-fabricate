@@ -11,7 +11,7 @@ class TextareaWidget extends Component<WidgetProps> {
     value: ''
   };
 
-  onChange = (event :SyntheticEvent<*>) => {
+  onChange = (event :SyntheticEvent<HTMLInputElement>) => {
     const { onChange, options } = this.props;
     const { value } :HTMLInputElement = event.currentTarget;
     if (onChange) {
@@ -19,13 +19,13 @@ class TextareaWidget extends Component<WidgetProps> {
     }
   }
 
-  onKeyDown = (e :SyntheticKeyboardEvent<*>) => {
+  onKeyDown = (e :SyntheticKeyboardEvent<HTMLInputElement>) => {
     if (e.key === KeyCodes.ENTER) {
       e.preventDefault();
     }
   }
 
-  onFocus = (e :SyntheticFocusEvent<*>) => {
+  onFocus = (e :SyntheticFocusEvent<HTMLInputElement>) => {
     const { onFocus, id } = this.props;
     const { value } = e.currentTarget;
     if (onFocus) {
@@ -33,7 +33,7 @@ class TextareaWidget extends Component<WidgetProps> {
     }
   }
 
-  onBlur = (e :SyntheticFocusEvent<*>) => {
+  onBlur = (e :SyntheticFocusEvent<HTMLInputElement>) => {
     const { onBlur, id } = this.props;
     const { value } = e.currentTarget;
     if (onBlur) {
