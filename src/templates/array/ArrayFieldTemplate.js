@@ -59,7 +59,6 @@ const ArrayFieldTemplate = (props :ArrayFieldTemplateProps) => {
 
   const {
     addButtonText = 'Add',
-    compact,
     orderable = true,
     showIndex = true
   } = uiSchema['ui:options'] || {};
@@ -67,32 +66,29 @@ const ArrayFieldTemplate = (props :ArrayFieldTemplateProps) => {
   return (
     <div className={className}>
       <ArrayFieldTitle
-          key={`array-field-title-${idSchema.$id}`}
-          TitleField={TitleField}
           idSchema={idSchema}
+          key={`array-field-title-${idSchema.$id}`}
+          required={required}
           title={uiSchema['ui:title'] || title}
-          required={required} />
+          TitleField={TitleField} />
 
       {(uiSchema['ui:description'] || schema.description) && (
         <ArrayFieldDescription
-            key={`array-field-description-${idSchema.$id}`}
+            description={uiSchema['ui:description'] || schema.description}
             DescriptionField={DescriptionField}
             idSchema={idSchema}
-            description={
-              uiSchema['ui:description'] || schema.description
-            } />
+            key={`array-field-description-${idSchema.$id}`} />
       )}
       <ArrayList
-          compact={compact}
           key={`array-item-list-${idSchema.$id}`}>
         {items && items.map(itemProps => (
           <DefaultArrayItem {...itemProps} orderable={orderable} showIndex={showIndex} />
         ))}
         {(canAdd && !disabled) && (
           <MarginButton
+              disabled={disabled || readonly}
               mode="subtle"
-              onClick={onAddClick}
-              disabled={disabled || readonly}>
+              onClick={onAddClick}>
             {addButtonText}
           </MarginButton>
         )}
@@ -102,11 +98,11 @@ const ArrayFieldTemplate = (props :ArrayFieldTemplateProps) => {
 };
 
 ArrayFieldTemplate.defaultProps = {
-  title: '',
+  canAdd: true,
   disabled: false,
   readonly: false,
-  canAdd: true,
   required: false,
+  title: '',
 };
 
 export default ArrayFieldTemplate;
