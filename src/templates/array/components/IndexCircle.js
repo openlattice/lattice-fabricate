@@ -19,7 +19,7 @@ const Index = styled.span`
 
 type Props = {
   index :number;
-  visible :boolean;
+  visible ? :boolean;
 };
 
 const IndexCircle = ({ index, visible } :Props) => (
@@ -28,5 +28,9 @@ const IndexCircle = ({ index, visible } :Props) => (
     <Index className="fa-layers-text fa-inverse">{index}</Index>
   </IconLayer>
 );
+
+IndexCircle.defaultProps = {
+  visible: true
+};
 
 export default IndexCircle;

@@ -80,7 +80,7 @@ const DefaultArrayItem = (props :DefaultArrayItemProps) => {
 };
 
 DefaultArrayItem.defaultProps = {
-  showIndex: false,
+  showIndex: true,
 };
 
 export default DefaultArrayItem;
