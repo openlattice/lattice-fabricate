@@ -51,40 +51,32 @@ type Props = {
   onDiscard :() => void;
 };
 
-class Form extends React.Component<Props> {
-  
-  state = {
-    data: {}
-  };
+const Form = (props :Props) => {
 
-  render() {
-    const {
-      onChange,
-      onDiscard,
-      onSubmit,
-      ...restProps
-    } = this.props;
-    const { data } = this.state;
+  const {
+    onChange,
+    onDiscard,
+    onSubmit,
+    ...restProps
+  } = props;
 
-    return (
-      <StyledForm
-          ArrayFieldTemplate={ArrayFieldTemplate}
-          fields={fields}
-          FieldTemplate={FieldTemplate}
-          ObjectFieldTemplate={ObjectFieldTemplate}
-          onChange={onChange}
-          showErrorList={false}
-          widgets={widgets}
-          formData={data}
-          {...restProps}>
-        <ActionGroup>
-          <Button mode="primary" type="submit" onClick={onSubmit}>Submit</Button>
-          <Button type="button" onClick={onDiscard}>Discard</Button>
-        </ActionGroup>
-      </StyledForm>
-    );
-  }
-}
-
+  return (
+    <StyledForm
+        ArrayFieldTemplate={ArrayFieldTemplate}
+        fields={fields}
+        FieldTemplate={FieldTemplate}
+        ObjectFieldTemplate={ObjectFieldTemplate}
+        onChange={onChange}
+        onSubmit={onSubmit}
+        showErrorList={false}
+        widgets={widgets}
+        {...restProps}>
+      <ActionGroup>
+        <Button mode="primary" type="submit">Submit</Button>
+        <Button type="button" onClick={onDiscard}>Discard</Button>
+      </ActionGroup>
+    </StyledForm>
+  );
+};
 
 export default Form;
