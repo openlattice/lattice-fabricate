@@ -11,12 +11,14 @@ import {
 import { ASSOCIATION_ENTITY_SET_NAMES, ENTITY_SET_NAMES, PROPERTY_TYPE_FQNS } from './constants/mockFQNs';
 import { entitySetIds, propertyTypeIds } from './constants/mockEDM';
 
+import type { EdgeDefinition } from '../../utils/DataProcessingUtils';
+
 const { INCLUDES_ESN } = ASSOCIATION_ENTITY_SET_NAMES;
 const { TASK_LIST_ESN, TASK_ESN } = ENTITY_SET_NAMES;
 const { COMPLETED_DT_FQN } = PROPERTY_TYPE_FQNS;
 
 type Props = {
-
+  submitAction :(any) => void;
 };
 
 type State = {
@@ -25,7 +27,7 @@ type State = {
 
 class FormContainer extends Component<Props, State> {
 
-  getAssociations = () => {
+  getAssociations = () :EdgeDefinition[] => {
     const taskListEKID :string = '00000000-0000-0000-0000-000000000000';
     const nowAsIsoString :string = DateTime.local().toString();
     return [
@@ -36,12 +38,10 @@ class FormContainer extends Component<Props, State> {
   }
 
   handleSubmit = ({ formData } :Object) => {
-    console.log(formData);
-
+    const { submitAction } = this.props;
     const entityData = processEntityData(formData, entitySetIds, propertyTypeIds);
-    console.log(entityData);
-    // const associationData = processAssociationEntityData(this.getAssociations(), entitySetIds, propertyTypeIds);
-    // console.log(associationData);
+    const associationData = processAssociationEntityData(this.getAssociations(), entitySetIds, propertyTypeIds);
+    submitAction({ entityData, associationData });
   }
 
   render() {

@@ -7,6 +7,7 @@ import isFunction from 'lodash/isFunction';
 import isInteger from 'lodash/isInteger';
 import isPlainObject from 'lodash/isPlainObject';
 import isEmpty from 'lodash/isEmpty';
+import mapKeys from 'lodash/mapKeys';
 import Immutable, {
   get,
   getIn,
@@ -370,8 +371,12 @@ function processEntityData(
   return processedData;
 }
 
+type EdgeId = UUID | number;
+type EntityData = { [UUID] :any[] };
+type EdgeDefinition = [string, EdgeId, string, EdgeId, string, EntityData];
+
 function processAssociationEntityData(
-  data :List,
+  data :EdgeDefinition[] | List,
   entitySetIds :Object | Map, // { <entitySetName>: <UUID> }
   propertyTypeIds :Object | Map, // { <propertyTypeFQN>: <UUID> }
 ) :Object {
@@ -391,39 +396,43 @@ function processAssociationEntityData(
     const destinationEntitySetName :string = get(parts, 4);
     const destinationEntitySetId :UUID = get(entitySetIds, destinationEntitySetName);
 
-    const associationData :Map = get(parts, 5, Map()).mapKeys((key :FQN) => get(propertyTypeIds, key));
+    const rawAssociationData :Object | Map = get(parts, 5, {});
+    const fqnsToPropertyTypeIds = (key :FQN) => get(propertyTypeIds, key);
+    const associationData = Map.isMap(rawAssociationData)
+      ? rawAssociationData.mapKeys(fqnsToPropertyTypeIds).toJS()
+      : mapKeys(fqnsToPropertyTypeIds);
 
-    const associationEntity :Map = Map().asMutable();
-    associationEntity.set('data', associationData);
-    associationEntity.set('srcEntitySetId', sourceEntitySetId);
-    associationEntity.set('dstEntitySetId', destinationEntitySetId);
+    const associationEntity = {};
+    associationEntity.data = associationData;
+    associationEntity.srcEntitySetId = sourceEntitySetId;
+    associationEntity.dstEntitySetId = destinationEntitySetId;
 
     if (isValidUUID(sourceIndexOrId)) {
-      associationEntity.set('srcEntityKeyId', sourceIndexOrId);
+      associationEntity.srcEntityKeyId = sourceIndexOrId;
     }
     else if (isInteger(sourceIndexOrId) && sourceIndexOrId >= 0) {
-      associationEntity.set('srcEntityIndex', sourceIndexOrId);
+      associationEntity.srcEntityIndex = sourceIndexOrId;
     }
     else {
       LOG.error('unable to set neither "srcEntityIndex" nor "srcEntityKeyId"', sourceIndexOrId);
     }
 
     if (isValidUUID(destinationIndexOrId)) {
-      associationEntity.set('dstEntityKeyId', destinationIndexOrId);
+      associationEntity.dstEntityKeyId = destinationIndexOrId;
     }
     else if (isInteger(destinationIndexOrId) && destinationIndexOrId >= 0) {
-      associationEntity.set('dstEntityIndex', destinationIndexOrId);
+      associationEntity.dstEntityIndex = destinationIndexOrId;
     }
     else {
       LOG.error('unable to set neither "dstEntityIndex" nor "dstEntityKeyId"', destinationIndexOrId);
     }
 
-    let associations :List = processedData.get(edgeEntitySetId, List());
-    associations = associations.push(associationEntity.asImmutable());
-    processedData = processedData.set(edgeEntitySetId, associations);
+    const associations :Object[] = get(processedData, edgeEntitySetId, []);
+    associations.push(associationEntity);
+    processedData = set(processedData, edgeEntitySetId, associations);
   });
 
-  return processedData.toJS();
+  return processedData;
 }
 
 function processEntityDataForPartialReplace(data :Map, originalData :Map, edm :Map, mappers :Map = Map()) :{} {
@@ -516,4 +525,10 @@ export {
   processEntityData,
   processEntityDataForPartialReplace,
   replaceEntityAddressKeys,
+};
+
+export type {
+  EdgeDefinition,
+  EdgeId,
+  EntityData,
 };

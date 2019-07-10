@@ -1,5 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import { schema as simpleSchema, uiSchema as simpleUiSchema } from './constants/simpleSchemas';
 import { schema as arraySchema, uiSchema as arrayUiSchema } from './constants/arraySchemas';
 import { ObjectFieldTemplate } from '../../templates';
@@ -25,5 +26,5 @@ storiesOf('Form', module)
         uiSchema={arrayUiSchema} />
   ))
   .add('Data Processing', () => (
-    <FormContainer />
+    <FormContainer submitAction={action('Submit Form')} />
   ));
