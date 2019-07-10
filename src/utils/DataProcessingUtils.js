@@ -41,8 +41,11 @@ function getPageSectionKey(page :number, section :number) :string {
 }
 
 declare type UUID = string;
+type IndexOrId = number | UUID;
+type EntityData = { [UUID] :any[] };
+type EdgeDefinition = [string, IndexOrId, string, IndexOrId, string, EntityData];
 
-export type EntityAddress = {|
+type EntityAddress = {|
   entityIndex ? :number;
   entityKeyId ? :UUID;
   entitySetName :string;
@@ -50,7 +53,7 @@ export type EntityAddress = {|
 |};
 
 function getEntityAddressKey(
-  indexOrEntityKeyId :number | UUID,
+  indexOrEntityKeyId :IndexOrId,
   entitySetName :string,
   fqn :FQN | string
 ) :string {
@@ -371,10 +374,6 @@ function processEntityData(
   return processedData;
 }
 
-type EdgeId = UUID | number;
-type EntityData = { [UUID] :any[] };
-type EdgeDefinition = [string, EdgeId, string, EdgeId, string, EntityData];
-
 function processAssociationEntityData(
   data :EdgeDefinition[] | List,
   entitySetIds :Object | Map, // { <entitySetName>: <UUID> }
@@ -388,11 +387,11 @@ function processAssociationEntityData(
     const edgeEntitySetName :string = get(parts, 0);
     const edgeEntitySetId :UUID = get(entitySetIds, edgeEntitySetName);
 
-    const sourceIndexOrId :number | UUID = get(parts, 1);
+    const sourceIndexOrId :IndexOrId = get(parts, 1);
     const sourceEntitySetName :string = get(parts, 2);
     const sourceEntitySetId :UUID = get(entitySetIds, sourceEntitySetName);
 
-    const destinationIndexOrId :number | UUID = get(parts, 3);
+    const destinationIndexOrId :IndexOrId = get(parts, 3);
     const destinationEntitySetName :string = get(parts, 4);
     const destinationEntitySetId :UUID = get(entitySetIds, destinationEntitySetName);
 
@@ -529,6 +528,7 @@ export {
 
 export type {
   EdgeDefinition,
-  EdgeId,
+  IndexOrId,
+  EntityAddress,
   EntityData,
 };
