@@ -15,12 +15,6 @@ const StyledForm = styled(Form)`
     grid-column: 1 / -1;
   }
 
-  label.control-label {
-    font-size: 14px;
-    line-height: normal;
-    margin-bottom: 10px;
-  }
-
   /*
     parent object is a grid container
     cannot normally assign through uiSchema
@@ -98,6 +92,7 @@ const StyledForm = styled(Form)`
 
   .grid-container {
     display: flex;
+    flex: 1 0 auto;
 
     > :first-child {
       display: grid;

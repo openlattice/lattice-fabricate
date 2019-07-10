@@ -1,18 +1,17 @@
 // @flow
-
 import React, { Component } from 'react';
-import { Input } from 'lattice-ui-kit';
+import { TextArea } from 'lattice-ui-kit';
 
 import KeyCodes from '../constants/KeyCodes';
 import type { WidgetProps } from '../types';
 
-class BaseInput extends Component<WidgetProps> {
+class TextareaWidget extends Component<WidgetProps> {
 
   static defaultProps = {
     value: ''
-  }
+  };
 
-  onChange = (event :SyntheticEvent<*>) => {
+  onChange = (event :SyntheticInputEvent<HTMLInputElement>) => {
     const { onChange, options } = this.props;
     const { value } :HTMLInputElement = event.currentTarget;
     if (onChange) {
@@ -20,13 +19,13 @@ class BaseInput extends Component<WidgetProps> {
     }
   }
 
-  onKeyDown = (e :SyntheticKeyboardEvent<*>) => {
+  onKeyDown = (e :SyntheticKeyboardEvent<HTMLInputElement>) => {
     if (e.key === KeyCodes.ENTER) {
       e.preventDefault();
     }
   }
 
-  onFocus = (e :SyntheticFocusEvent<*>) => {
+  onFocus = (e :SyntheticFocusEvent<HTMLInputElement>) => {
     const { onFocus, id } = this.props;
     const { value } = e.currentTarget;
     if (onFocus) {
@@ -34,7 +33,7 @@ class BaseInput extends Component<WidgetProps> {
     }
   }
 
-  onBlur = (e :SyntheticFocusEvent<*>) => {
+  onBlur = (e :SyntheticFocusEvent<HTMLInputElement>) => {
     const { onBlur, id } = this.props;
     const { value } = e.currentTarget;
     if (onBlur) {
@@ -48,19 +47,17 @@ class BaseInput extends Component<WidgetProps> {
       disabled,
       id,
       onBlur,
-      onFocus,
       onChange,
+      onFocus,
       options,
       rawErrors,
       readonly,
       value,
-      ...inputProps
+      ...restProps
     } = this.props;
 
-    const inputType = options.inputType || inputProps.type || 'text';
-
     return (
-      <Input
+      <TextArea
           autoFocus={autofocus}
           disabled={disabled}
           id={id}
@@ -68,13 +65,12 @@ class BaseInput extends Component<WidgetProps> {
           onBlur={this.onBlur}
           onChange={this.onChange}
           onFocus={this.onFocus}
-          onKeyDown={this.onKeyDown}
           readOnly={readonly}
-          type={inputType}
+          rows={options.rows}
           value={value}
-          {...inputProps} />
+          {...restProps} />
     );
   }
 }
 
-export default BaseInput;
+export default TextareaWidget;

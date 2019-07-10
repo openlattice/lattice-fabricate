@@ -71,9 +71,20 @@ module.exports = (env) => {
    */
 
   const externals = {
-    immutable: 'immutable',
-    react: 'react',
+    '@fortawesome/fontawesome-svg-core': '@fortawesome/fontawesome-svg-core',
+    '@fortawesome/pro-light-svg-icons': '@fortawesome/pro-light-svg-icons',
+    '@fortawesome/pro-regular-svg-icons': '@fortawesome/pro-regular-svg-icons',
+    '@fortawesome/pro-solid-svg-icons': '@fortawesome/pro-solid-svg-icons',
+    '@fortawesome/react-fontawesome': '@fortawesome/react-fontawesome',
+    'lattice-ui-kit': 'lattice-ui-kit',
     'react-dom': 'react-dom',
+    'styled-components': {
+      amd: 'styled-components',
+      commonjs: 'styled-components',
+      commonjs2: 'styled-components',
+    },
+    immutable: 'immutable',
+    react: 'react'
   };
 
   return {
