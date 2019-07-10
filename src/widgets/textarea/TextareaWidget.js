@@ -11,7 +11,7 @@ class TextareaWidget extends Component<WidgetProps> {
     value: ''
   };
 
-  onChange = (event :SyntheticEvent<HTMLInputElement>) => {
+  onChange = (event :SyntheticInputEvent<HTMLInputElement>) => {
     const { onChange, options } = this.props;
     const { value } :HTMLInputElement = event.currentTarget;
     if (onChange) {
