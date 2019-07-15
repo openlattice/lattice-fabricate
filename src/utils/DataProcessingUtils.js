@@ -54,7 +54,7 @@ type EntityAddress = {|
 
 function getEntityAddressKey(
   indexOrEntityKeyId :IndexOrId,
-  entitySetName :string,
+  entitySetName :FQN | string,
   fqn :FQN | string
 ) :string {
 
@@ -66,8 +66,8 @@ function getEntityAddressKey(
     throw new Error(errorMsg);
   }
 
-  if (!isNonEmptyString(entitySetName)) {
-    errorMsg = 'invalid param: entitySetName must be a non-empty string';
+  if (!(FullyQualifiedName.isValid(entitySetName) || isNonEmptyString(entitySetName))) {
+    errorMsg = 'invalid param: entitySetName must be a non-empty string or a valid FullyQualifiedName';
     LOG.error(errorMsg, entitySetName);
     throw new Error(errorMsg);
   }
@@ -78,7 +78,7 @@ function getEntityAddressKey(
     throw new Error(errorMsg);
   }
 
-  return `${indexOrEntityKeyId}${ATAT}${entitySetName}${ATAT}${fqn.toString()}`;
+  return `${indexOrEntityKeyId}${ATAT}${entitySetName.toString()}${ATAT}${fqn.toString()}`;
 }
 
 function parseEntityAddressKey(entityAddressKey :string) :EntityAddress {
