@@ -16,7 +16,7 @@ const ActionGutter = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin: 0 10px;
+  margin: 0 5px;
   text-align: center;
 `;
 
@@ -52,7 +52,7 @@ const DefaultArrayItem = (props :DefaultArrayItemProps) => {
   } = props;
 
   return (
-    <ItemWrapper key={index} className={className}>
+    <ItemWrapper className={className}>
       { orderable && (
         <ActionGutter>
           <IconButton

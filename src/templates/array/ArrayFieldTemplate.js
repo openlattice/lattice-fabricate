@@ -82,7 +82,7 @@ const ArrayFieldTemplate = (props :ArrayFieldTemplateProps) => {
       <ArrayList
           key={`array-item-list-${idSchema.$id}`}>
         {items && items.map(itemProps => (
-          <DefaultArrayItem {...itemProps} orderable={orderable} showIndex={showIndex} />
+          <DefaultArrayItem key={`array-item-${idSchema.$id}-${itemProps.index}`} {...itemProps} orderable={orderable} showIndex={showIndex} />
         ))}
         {(canAdd && !disabled) && (
           <MarginButton
