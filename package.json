@@ -26,6 +26,7 @@
     "url": "https://github.com/openlattice/lattice-fabricate/issues"
   },
   "license": "Apache-2.0",
+  "main": "build/lattice-fabricate.js",
   "dependencies": {
     "immutable": "4.0.0-rc.9",
     "lattice": "~0.62.0",
