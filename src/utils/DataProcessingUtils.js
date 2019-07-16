@@ -9,11 +9,11 @@ import isPlainObject from 'lodash/isPlainObject';
 import isEmpty from 'lodash/isEmpty';
 import mapKeys from 'lodash/mapKeys';
 import Immutable, {
+  List,
+  Map,
   get,
   getIn,
   hasIn,
-  List,
-  Map,
   set
 } from 'immutable';
 import { Models } from 'lattice';
