@@ -19,30 +19,8 @@ const ActionGroup = styled.div`
 
 const widgets = {
   BaseInput,
-  // CameraWidget,
   CheckboxWidget,
-  // CounterWidget,
-  // DateTimeWidget,
-  // DateWidget,
-  // DigestedInput,
-  // FakeDateTimeWidget,
-  // ImageWidget,
-  // RadioWidget,
-  // SelectWidget,
-  // SignatureWidget,
   TextareaWidget,
-  // TimeWidget,
-};
-
-const fields = {
-  // BulletField,
-  // CheckboxesField,
-  // CheckboxField,
-  // DateTimeField,
-  // DescriptionField,
-  // InformationField,
-  // PrescriptionField,
-  // VerticalTableField,
 };
 
 type Props = {
@@ -63,7 +41,6 @@ const Form = (props :Props) => {
   return (
     <StyledForm
         ArrayFieldTemplate={ArrayFieldTemplate}
-        fields={fields}
         FieldTemplate={FieldTemplate}
         ObjectFieldTemplate={ObjectFieldTemplate}
         onChange={onChange}
