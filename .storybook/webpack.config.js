@@ -14,9 +14,6 @@ module.exports = function({ config, mode }) {
     enforce: 'pre',
   });
 
-  const ENV_DEV = 'development';
-  const ENV_PROD = 'production';
-
   const DEFINE_PLUGIN = new Webpack.DefinePlugin({
     __ENV_DEV__: JSON.stringify(mode === 'DEVELOPMENT'),
     __ENV_PROD__: JSON.stringify(mode === 'PRODUCTION'),
