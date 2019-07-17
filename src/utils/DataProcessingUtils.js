@@ -3,12 +3,12 @@
  * @flow
  */
 
+import isEmpty from 'lodash/isEmpty';
 import isFunction from 'lodash/isFunction';
 import isInteger from 'lodash/isInteger';
 import isPlainObject from 'lodash/isPlainObject';
-import isEmpty from 'lodash/isEmpty';
 import mapKeys from 'lodash/mapKeys';
-import Immutable, {
+import {
   List,
   Map,
   get,
@@ -358,7 +358,7 @@ function processEntityData(
 
   let processedData = {};
 
-  const valueSequence = Immutable.isImmutable(data) ? data.valueSeq() : Object.values(data);
+  const valueSequence = Map.isMap(data) ? data.valueSeq() : Object.values(data);
   valueSequence
     .forEach((value :any) => {
       if (List.isList(value) || Array.isArray(value)) {
@@ -442,7 +442,7 @@ function processEntityDataForPartialReplace(data :Map, originalData :Map, edm :M
 
   const mutatedData :Map = Map().withMutations((map :Map) => {
     data
-      .filter((entityData :?Map) => Immutable.isImmutable(entityData))
+      .filter((entityData :?Map) => Map.isMap(entityData))
       .forEach((entityData :Map, pageSectionKey :string) => {
         entityData.forEach((value :any, entityAddressKey :string) => {
           const key = [pageSectionKey, entityAddressKey];
