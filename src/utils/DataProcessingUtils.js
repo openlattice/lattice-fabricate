@@ -3,7 +3,6 @@
  * @flow
  */
 
-import isEmpty from 'lodash/isEmpty';
 import isFunction from 'lodash/isFunction';
 import isInteger from 'lodash/isInteger';
 import isPlainObject from 'lodash/isPlainObject';
@@ -20,7 +19,13 @@ import { Models } from 'lattice';
 import type { FQN } from 'lattice';
 
 import Logger from './Logger';
-import { isDefined, isDigitOnlyString, isNonEmptyString } from './LangUtils';
+import {
+  isDefined,
+  isDigitOnlyString,
+  isEmptyImmutableMap,
+  isEmptyObject,
+  isNonEmptyString,
+} from './LangUtils';
 import {
   isValidDataPrimitive,
   isValidDataPrimitiveArray,
@@ -223,7 +228,7 @@ function processEntityValueMap(
     return processedData;
   }
 
-  if (isEmpty(valueMap) || (Map.isMap(valueMap) && valueMap.isEmpty())) {
+  if (isEmptyObject(valueMap) || isEmptyImmutableMap(valueMap)) {
     return processedData;
   }
 
@@ -338,23 +343,29 @@ function processEntityData(
   mappers :Object | Map = {}
 ) :Object {
 
-  // if (!Immutable.isMap(data) || data.isEmpty()) {
-  //   const errorMsg :string = '"data" param must be a non-empty immutable map';
-  //   LOG.error(errorMsg, data);
-  //   throw new Error(errorMsg);
-  // }
+  if (isEmptyObject(data) || isEmptyImmutableMap(data)) {
+    const errorMsg :string = '"data" param must be a non-empty object or immutable map';
+    LOG.error(errorMsg, data);
+    throw new Error(errorMsg);
+  }
 
-  // if (!Immutable.isMap(edm) || edm.isEmpty()) {
-  //   const errorMsg :string = '"edm" param must be a non-empty immutable map';
-  //   LOG.error(errorMsg, edm);
-  //   throw new Error(errorMsg);
-  // }
+  if (isEmptyObject(entitySetIds) || isEmptyImmutableMap(entitySetIds)) {
+    const errorMsg :string = '"entitySetIds" param must be a non-empty object or immutable map';
+    LOG.error(errorMsg, entitySetIds);
+    throw new Error(errorMsg);
+  }
 
-  // if (!Immutable.isMap(mappers)) {
-  //   const errorMsg :string = '"mappers" param must be an immutable map';
-  //   LOG.error(errorMsg, mappers);
-  //   throw new Error(errorMsg);
-  // }
+  if (isEmptyObject(propertyTypeIds) || isEmptyImmutableMap(propertyTypeIds)) {
+    const errorMsg :string = '"propertyTypeIds" param must be a non-empty object or immutable map';
+    LOG.error(errorMsg, propertyTypeIds);
+    throw new Error(errorMsg);
+  }
+
+  if (!(isPlainObject(mappers) || Map.isMap(mappers))) {
+    const errorMsg :string = '"mappers" param must be an object or immutable map';
+    LOG.error(errorMsg, mappers);
+    throw new Error(errorMsg);
+  }
 
   let processedData = {};
 
