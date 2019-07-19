@@ -3,9 +3,10 @@ import { Models } from 'lattice';
 const { FullyQualifiedName } = Models;
 
 const PROPERTY_TYPE_FQNS = {
-  NAME_FQN: new FullyQualifiedName('mock.name'),
+  COMPLETED_DT_FQN: new FullyQualifiedName('mock.completeddatetime'),
   DESCRIPTION_FQN: new FullyQualifiedName('mock.description'),
-  COMPLETED_DT_FQN: new FullyQualifiedName('mock.completeddatetime')
+  INDEX_FQN: new FullyQualifiedName('mock.index'),
+  NAME_FQN: new FullyQualifiedName('mock.name'),
 };
 
 const ENTITY_SET_NAMES = {
