@@ -25,6 +25,6 @@ storiesOf('Form', module)
         schema={arraySchema}
         uiSchema={arrayUiSchema} />
   ))
-  .add('Data Processing', () => (
+  .add('Data Processing w/ Edits & Delete', () => (
     <FormContainer submitAction={action('Submit Form')} />
   ));

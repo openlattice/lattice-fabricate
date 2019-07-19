@@ -37,9 +37,10 @@ export const schema = {
         $ref: '#/definitions/taskItems'
       },
       default: [{
-        [getEntityAddressKey(-1, TASK_ESN, NAME_FQN)]: undefined,
+        [getEntityAddressKey(-1, TASK_ESN, NAME_FQN)]: 'something',
         [getEntityAddressKey(-1, TASK_ESN, DESCRIPTION_FQN)]: undefined,
-      }]
+      }],
+      indexProperty: 'something'
     }
   }
 };
@@ -58,6 +59,9 @@ export const uiSchema = {
       [getEntityAddressKey(-1, TASK_ESN, DESCRIPTION_FQN)]: {
         classNames: 'column-span-12',
         'ui:widget': 'textarea'
+      },
+      'ui:options': {
+        editable: true
       }
     }
   }

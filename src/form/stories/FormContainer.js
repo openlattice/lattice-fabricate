@@ -47,6 +47,7 @@ class FormContainer extends Component<Props, State> {
   render() {
     return (
       <Form
+          disabled
           schema={schema}
           onSubmit={this.handleSubmit}
           uiSchema={uiSchema} />
