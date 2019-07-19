@@ -1,14 +1,15 @@
 // @flow
 import React, { Component } from 'react';
 import type { ComponentType } from 'react';
-import { fromJS, set } from 'immutable';
-import { faPen } from '@fortawesome/pro-solid-svg-icons';
-import { getUiOptions } from 'react-jsonschema-form/lib/utils';
 import { Button } from 'lattice-ui-kit';
+import { faPen } from '@fortawesome/pro-solid-svg-icons';
+import { fromJS, set } from 'immutable';
+import { getUiOptions } from 'react-jsonschema-form/lib/utils';
 
 import IconButton from '../components/IconButton';
 import ActionGutter from '../components/styled/ActionGutter';
 import { ActionGroup } from '../../form/src/components/styled';
+import { parseIdIndex } from './utils';
 
 type Props = {
   DescriptionField :ComponentType<any>;
@@ -19,6 +20,7 @@ type Props = {
   idSchema :Object;
   properties :Object[];
   required :string;
+  schema :Object;
   title :string;
   uiSchema :Object;
 };
@@ -100,11 +102,28 @@ class ObjectFieldTemplate extends Component<Props, State> {
       : null;
   }
 
+  commitDraftFormData = () => {
+    const { draftFormData } = this.state;
+    const { properties } = this.props;
+    console.log('commit draftFormData');
+    properties.forEach((property) => {
+      const { content } = property;
+      const { props: contentProps } = content;
+      const draftValue = draftFormData[contentProps.name];
+      console.log(draftValue);
+      // call each child's onChange with the relevant data
+      // but the first change does not merge in time before the next one occurs
+      // so only the last is committed.
+      contentProps.onChange(draftValue, contentProps.errorSchema);
+    });
+  };
+
   renderSubmitSection = () => {
     const { isEditing } = this.state;
+
     return isEditing && (
       <ActionGroup className="column-span-12" noPadding>
-        <Button mode="primary">Submit</Button>
+        <Button mode="primary" onClick={this.commitDraftFormData}>Submit</Button>
         <Button onClick={this.disableFields}>Discard</Button>
       </ActionGroup>
     );
@@ -118,9 +137,19 @@ class ObjectFieldTemplate extends Component<Props, State> {
   }
 
   render() {
-    const { disabled, properties, uiSchema } = this.props;
+    const {
+      disabled,
+      formData,
+      idSchema,
+      properties,
+      schema,
+      uiSchema,
+    } = this.props;
     const { isEditing, draftFormData } = this.state;
     const { editable } :Object = getUiOptions(uiSchema);
+
+    // const index = parseIdIndex(idSchema);
+
     return (
       <>
         <div>
@@ -130,10 +159,15 @@ class ObjectFieldTemplate extends Component<Props, State> {
             const { content } = property;
             const { props: contentProps } = content;
             const contentName = contentProps.name;
-            const tempFormData = draftFormData[contentName];
 
             let state = contentProps;
+            // Inject index data
+            // if ((typeof index === 'number') && schema.indexProperty && (contentName === schema.indexProperty)) {
+            //   state = set(state, 'formData', index);
+            // }
+
             if (editable && isEditing) {
+              const tempFormData = draftFormData[contentName];
               // temporarily inject override props to children
               state = {
                 ...contentProps,
@@ -141,9 +175,16 @@ class ObjectFieldTemplate extends Component<Props, State> {
                 formData: tempFormData,
                 onChange: this.createDraftChangeHandler(contentName)
               };
+              return React.cloneElement(content, state);
             }
 
-            return React.cloneElement(content, state);
+            const wrappedOnChange = (...rest) => {
+              // just wanna log what this on change is expecting
+              console.log('inside', rest);
+              contentProps.onChange(...rest);
+            };
+
+            return React.cloneElement(content, { state, onChange: wrappedOnChange });
           })}
           { this.renderSubmitSection() }
         </div>

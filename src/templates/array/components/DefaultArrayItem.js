@@ -7,21 +7,14 @@ import type { ChildrenArray } from 'react';
 import ConfirmDeleteModal from './ConfirmDeleteModal';
 import IconButton from '../../components/IconButton';
 import IndexCircle from '../../components/IndexCircle';
+import ActionGutter from '../../components/styled/ActionGutter';
 
 
 const ItemWrapper = styled.div`
   display: flex;
 `;
 
-const ActionGutter = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  margin: 0 5px;
-  text-align: center;
-`;
-
-type DefaultArrayItemProps = {
+type Props = {
   children :ChildrenArray<any>;
   className :string;
   disabled :boolean;
@@ -41,7 +34,7 @@ type State = {
   isVisible :boolean;
 }
 
-class DefaultArrayItem extends Component <DefaultArrayItemProps, State> {
+class DefaultArrayItem extends Component <Props, State> {
 
   static defaultProps = {
     showIndex: true,
@@ -64,9 +57,10 @@ class DefaultArrayItem extends Component <DefaultArrayItemProps, State> {
   }
 
   handleConfirmDelete = () => {
-    const { index, onDropIndexClick, formContext } = this.props;
-    const { deleteAction } = formContext;
-    console.log('clicking', index);
+    const { index, onDropIndexClick } = this.props;
+    // const { deleteAction } = formContext;
+    // calling deleteAction also needs to call edit for all the other entities in an orderable list
+    console.log('onClick');
     onDropIndexClick(index)();
     this.closeDeleteModal();
   }
@@ -86,7 +80,7 @@ class DefaultArrayItem extends Component <DefaultArrayItemProps, State> {
       showIndex
     } = this.props;
     const { isVisible } = this.state;
-  
+
     return (
       <ItemWrapper className={className}>
         { orderable && (

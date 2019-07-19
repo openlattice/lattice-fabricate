@@ -37,6 +37,10 @@ class FormContainer extends Component<Props, State> {
     ];
   }
 
+  handleOnChange = ({formData}) => {
+    console.log(formData);
+  }
+
   handleSubmit = ({ formData } :Object) => {
     const { submitAction } = this.props;
     const entityData = processEntityData(formData, entitySetIds, propertyTypeIds);
@@ -47,9 +51,10 @@ class FormContainer extends Component<Props, State> {
   render() {
     return (
       <Form
-          disabled
+          // disabled
           schema={schema}
           onSubmit={this.handleSubmit}
+          onChange={this.handleOnChange}
           uiSchema={uiSchema} />
     );
   }
