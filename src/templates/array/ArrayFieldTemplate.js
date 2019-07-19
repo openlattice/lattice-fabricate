@@ -1,12 +1,14 @@
 // @flow
 import React from 'react';
 import styled from 'styled-components';
-import { Button } from 'lattice-ui-kit';
+import { Button, Colors } from 'lattice-ui-kit';
 import type { ComponentType } from 'react';
 
 import { ArrayFieldDescription, ArrayFieldTitle, DefaultArrayItem } from './components';
 
 // modified RJSF ArrayTemplate
+
+const { NEUTRALS } = Colors;
 
 const MarginButton = styled(Button)`
   margin-top: 10px;
@@ -14,7 +16,7 @@ const MarginButton = styled(Button)`
 
 const ArrayList = styled.div`
   > div {
-    border-bottom: 1px solid #e1e1eb;
+    border-bottom: 1px solid ${NEUTRALS[4]};
     padding: 20px 0;
   }
 
@@ -28,11 +30,11 @@ type ArrayFieldTemplateProps = {
   canAdd ? :boolean,
   className :string,
   DescriptionField :ComponentType<any>;
-  disabled ? :boolean,
+  // disabled ? :boolean,
   idSchema :{ $id :string };
   items :Object[],
   onAddClick :() => void;
-  readonly ? :boolean,
+  // readonly ? :boolean,
   required ? :boolean;
   schema :Object;
   title ? :string,
@@ -45,11 +47,11 @@ const ArrayFieldTemplate = (props :ArrayFieldTemplateProps) => {
     canAdd,
     className,
     DescriptionField,
-    disabled,
+    // disabled,
     idSchema,
     items,
     onAddClick,
-    readonly,
+    // readonly,
     required,
     schema,
     title,
@@ -88,9 +90,8 @@ const ArrayFieldTemplate = (props :ArrayFieldTemplateProps) => {
               orderable={orderable}
               showIndex={showIndex} />
         ))}
-        {(canAdd && !disabled) && (
+        {(canAdd) && (
           <MarginButton
-              disabled={disabled || readonly}
               mode="subtle"
               onClick={onAddClick}>
             {addButtonText}
@@ -103,8 +104,8 @@ const ArrayFieldTemplate = (props :ArrayFieldTemplateProps) => {
 
 ArrayFieldTemplate.defaultProps = {
   canAdd: true,
-  disabled: false,
-  readonly: false,
+  // disabled: false,
+  // readonly: false,
   required: false,
   title: '',
 };
