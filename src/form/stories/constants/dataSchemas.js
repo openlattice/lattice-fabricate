@@ -8,6 +8,7 @@ const {
 const {
   NAME_FQN,
   DESCRIPTION_FQN,
+  INDEX_FQN
 } = PROPERTY_TYPE_FQNS;
 
 export const schema = {
@@ -22,9 +23,13 @@ export const schema = {
         [getEntityAddressKey(-1, TASK_ESN, DESCRIPTION_FQN)]: {
           type: 'string',
           title: 'Task Description',
+        },
+        [getEntityAddressKey(-1, TASK_ESN, INDEX_FQN)]: {
+          type: 'number',
+          title: 'Task #',
         }
       },
-      required: [getEntityAddressKey(-1, TASK_ESN, NAME_FQN)]
+      required: [getEntityAddressKey(-1, TASK_ESN, NAME_FQN)],
     }
   },
   type: 'object',
@@ -37,10 +42,9 @@ export const schema = {
         $ref: '#/definitions/taskItems'
       },
       default: [{
-        [getEntityAddressKey(-1, TASK_ESN, NAME_FQN)]: 'something',
+        [getEntityAddressKey(-1, TASK_ESN, NAME_FQN)]: 123,
         [getEntityAddressKey(-1, TASK_ESN, DESCRIPTION_FQN)]: undefined,
       }],
-      indexProperty: 'something'
     }
   }
 };
@@ -59,6 +63,10 @@ export const uiSchema = {
       [getEntityAddressKey(-1, TASK_ESN, DESCRIPTION_FQN)]: {
         classNames: 'column-span-12',
         'ui:widget': 'textarea'
+      },
+      [getEntityAddressKey(-1, TASK_ESN, INDEX_FQN)]: {
+        classNames: 'column-span-12',
+        'ui:widget': 'hidden'
       },
       'ui:options': {
         editable: true
