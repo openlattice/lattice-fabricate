@@ -445,11 +445,33 @@ function processAssociationEntityData(
   return processedData;
 }
 
-function processEntityDataForPartialReplace(data :Map, originalData :Map, edm :Map, mappers :Map = Map()) :{} {
+function processEntityDataForPartialReplace(
+  data :Object | Map,
+  originalData :Object | Map,
+  entitySetIds :Object | Map, // { <entitySetName>: <UUID> }
+  propertyTypeIds :Object | Map, // { <propertyTypeFQN>: <UUID> }
+  mappers :Object | Map = {}
+) :{} {
 
   // NOTE: not yet ready to use for more general cases
 
-  let processedData :Map = Map();
+  let processedData = {};
+  let diffData = {};
+
+  const entitySequence = Map.isMap(data) ? data.valueSeq() : Object.values(data);
+  entitySequence
+    .filter((entityData :any) => isPlainObject(entityData) || Map.isMap(entityData))
+    .forEach((entityData :Object | Map, pageSectionKey :string) => {
+      const propertySequence = Map.isMap(entityData) ? entityData.valueSeq() : Object.values(entityData);
+      propertySequence.forEach((value :any, entityAddressKey :string) => {
+        const key = [pageSectionKey, entityAddressKey];
+        const originalValue :any = getIn(originalData, key);
+
+        if (value !== originalValue) {
+          diffData = diffData.set(entityAddressKey, value);
+        }
+      });
+    });
 
   const mutatedData :Map = Map().withMutations((map :Map) => {
     data
@@ -470,8 +492,8 @@ function processEntityDataForPartialReplace(data :Map, originalData :Map, edm :M
 
     let localValue = valueInMap;
     if (isValidEntityAddressKey(key)) {
-      if (mappers.hasIn([KEY_MAPPERS, key])) {
-        const mapper = mappers.getIn([KEY_MAPPERS, key]);
+      if (hasIn(mappers, [KEY_MAPPERS, key])) {
+        const mapper = getIn(mappers, [KEY_MAPPERS, key]);
         if (isFunction(mapper)) {
           localValue = mapper(valueInMap);
         }
@@ -487,12 +509,12 @@ function processEntityDataForPartialReplace(data :Map, originalData :Map, edm :M
         propertyTypeFQN,
       } = parseEntityAddressKey(key);
       const indexOrId = entityKeyId || entityIndex;
-      const entitySetId :UUID = edm.getIn(['entitySetIdsByName', entitySetName]);
-      const propertyTypeId :UUID = edm.getIn(['typeIdsByFqn', propertyTypeFQN]);
+      const entitySetId :UUID = get(entitySetIds, entitySetName);
+      const propertyTypeId :UUID = get(propertyTypeIds, propertyTypeFQN);
 
       const processedValue :any = processEntityValue(key, localValue, mappers);
-      let entitySetData :Map = processedData.get(entitySetId, Map());
-      let entity :Map = entitySetData.get(indexOrId, Map());
+      let entitySetData :Map = get(processedData, entitySetId, {});
+      let entity :Map = get(entitySetData, indexOrId, {});
 
       if (isDefined(processedValue)) {
         entity = entity.set(propertyTypeId, processedValue);

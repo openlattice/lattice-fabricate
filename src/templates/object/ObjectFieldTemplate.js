@@ -104,18 +104,10 @@ class ObjectFieldTemplate extends Component<Props, State> {
 
   commitDraftFormData = () => {
     const { draftFormData } = this.state;
-    const { properties } = this.props;
+    const { formData } = this.props;
     console.log('commit draftFormData');
-    properties.forEach((property) => {
-      const { content } = property;
-      const { props: contentProps } = content;
-      const draftValue = draftFormData[contentProps.name];
-      console.log(draftValue);
-      // call each child's onChange with the relevant data
-      // but the first change does not merge in time before the next one occurs
-      // so only the last is committed.
-      contentProps.onChange(draftValue, contentProps.errorSchema);
-    });
+    console.log('formData', formData);
+    console.log('draftFormData', draftFormData);
   };
 
   renderSubmitSection = () => {
