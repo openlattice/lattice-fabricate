@@ -41,10 +41,16 @@ export const schema = {
       items: {
         $ref: '#/definitions/taskItems'
       },
-      default: [{
-        [getEntityAddressKey(-1, TASK_ESN, NAME_FQN)]: 123,
-        [getEntityAddressKey(-1, TASK_ESN, DESCRIPTION_FQN)]: undefined,
-      }],
+      default: [
+        {
+          [getEntityAddressKey(-1, TASK_ESN, NAME_FQN)]: 123,
+          [getEntityAddressKey(-1, TASK_ESN, DESCRIPTION_FQN)]: undefined,
+        },
+        {
+          [getEntityAddressKey(-1, TASK_ESN, NAME_FQN)]: 456,
+          [getEntityAddressKey(-1, TASK_ESN, DESCRIPTION_FQN)]: undefined,
+        }
+      ]
     }
   }
 };
