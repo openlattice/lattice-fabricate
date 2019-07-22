@@ -147,10 +147,10 @@ class ObjectFieldTemplate extends Component<Props, State> {
     const { draftFormData } = this.state;
     const { formData, formContext, idSchema } = this.props;
     const {
+      editAction,
       entitySetIds,
-      propertyTypeIds,
       mappers,
-      editAction
+      propertyTypeIds,
     } = formContext;
 
     // get array index if relevant
@@ -212,8 +212,6 @@ class ObjectFieldTemplate extends Component<Props, State> {
     } = this.props;
     const { isEditing, draftFormData } = this.state;
     const { editable } :Object = getUiOptions(uiSchema);
-
-    // const index = parseIdIndex(idSchema);
 
     return (
       <>
