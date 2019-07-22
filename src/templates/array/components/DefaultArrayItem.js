@@ -60,7 +60,6 @@ class DefaultArrayItem extends Component <Props, State> {
     const { index, onDropIndexClick } = this.props;
     // const { deleteAction } = formContext;
     // calling deleteAction also needs to call edit for all the other entities in an orderable list
-    console.log('onClick');
     onDropIndexClick(index)();
     this.closeDeleteModal();
   }
