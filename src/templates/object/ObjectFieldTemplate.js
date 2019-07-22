@@ -1,26 +1,38 @@
 // @flow
 import React, { Component } from 'react';
 import type { ComponentType } from 'react';
+
+import isFunction from 'lodash/isFunction';
 import { Button } from 'lattice-ui-kit';
 import { faPen } from '@fortawesome/pro-solid-svg-icons';
-import { fromJS, set } from 'immutable';
+import { fromJS, getIn, set } from 'immutable';
 import { getUiOptions } from 'react-jsonschema-form/lib/utils';
 
 import IconButton from '../components/IconButton';
 import ActionGutter from '../components/styled/ActionGutter';
 import { ActionGroup } from '../../form/src/components/styled';
 import { parseIdIndex } from './utils';
+import { isValidUUID } from '../../utils/ValidationUtils';
+import {
+  getEntityAddressKey,
+  getPageSectionKey,
+  isValidEntityAddressKey,
+  parseEntityAddressKey,
+  processEntityDataForPartialReplace,
+  replaceEntityAddressKeys,
+} from '../../utils/DataProcessingUtils';
+import type { EntityAddress } from '../../utils/DataProcessingUtils';
 
 type Props = {
   DescriptionField :ComponentType<any>;
   TitleField :ComponentType<any>;
-  disabled :boolean;
   description :string;
+  disabled :boolean;
+  formContext :Object;
   formData :Object;
   idSchema :Object;
   properties :Object[];
   required :string;
-  schema :Object;
   title :string;
   uiSchema :Object;
 };
@@ -44,6 +56,7 @@ class ObjectFieldTemplate extends Component<Props, State> {
     const { formData } = this.props;
     this.setState({
       isEditing: true,
+      // deep copy formData
       draftFormData: fromJS(formData).toJS()
     });
   }
@@ -102,12 +115,75 @@ class ObjectFieldTemplate extends Component<Props, State> {
       : null;
   }
 
+  findEntityAddressKeyFromMap = (arrayIndex ? :number) => (key :string) :string => {
+    const { formContext } = this.props;
+    const { entityAddressToIdMap } = formContext;
+
+    if (isValidEntityAddressKey(key)) {
+      const {
+        entityIndex,
+        entitySetName,
+        propertyTypeFQN
+      } :EntityAddress = parseEntityAddressKey(key);
+      let entityKeyId = getIn(entityAddressToIdMap, [entitySetName, entityIndex]);
+      if (entityIndex !== undefined && entityIndex < 0 && arrayIndex !== undefined) {
+        entityKeyId = getIn(entityAddressToIdMap, [entitySetName, entityIndex, arrayIndex]);
+      }
+
+      if (isValidUUID(entityKeyId)) {
+        return getEntityAddressKey(entityKeyId, entitySetName, propertyTypeFQN);
+      }
+    }
+    return key;
+  };
+
+  formatFormData = (formData :Object) => {
+    let formattedFormData = {};
+    formattedFormData = set(formattedFormData, getPageSectionKey(1, 1), formData);
+    return formattedFormData;
+  }
+
   commitDraftFormData = () => {
     const { draftFormData } = this.state;
-    const { formData } = this.props;
-    console.log('commit draftFormData');
-    console.log('formData', formData);
-    console.log('draftFormData', draftFormData);
+    const { formData, formContext, idSchema } = this.props;
+    const {
+      entitySetIds,
+      propertyTypeIds,
+      mappers,
+      editAction
+    } = formContext;
+
+    // get array index if relevant
+    const arrayIndex = parseIdIndex(idSchema);
+
+    // wrap formData in pageSection
+    const formattedDraft = this.formatFormData(draftFormData);
+    const formattedOriginal = this.formatFormData(formData);
+
+    // replace address keys with entityKeyId
+    const draftWithKeys = replaceEntityAddressKeys(
+      formattedDraft,
+      this.findEntityAddressKeyFromMap(arrayIndex)
+    );
+
+    const standardwithKeys = replaceEntityAddressKeys(
+      formattedOriginal,
+      this.findEntityAddressKeyFromMap(arrayIndex)
+    );
+
+    // process for partial replace
+    const editedEntityData = processEntityDataForPartialReplace(
+      draftWithKeys,
+      standardwithKeys,
+      entitySetIds,
+      propertyTypeIds,
+      mappers
+    );
+
+    if (isFunction(editAction)) {
+      editAction({ entityData: editedEntityData });
+    }
+
   };
 
   renderSubmitSection = () => {
@@ -131,10 +207,7 @@ class ObjectFieldTemplate extends Component<Props, State> {
   render() {
     const {
       disabled,
-      formData,
-      idSchema,
       properties,
-      schema,
       uiSchema,
     } = this.props;
     const { isEditing, draftFormData } = this.state;
@@ -153,10 +226,6 @@ class ObjectFieldTemplate extends Component<Props, State> {
             const contentName = contentProps.name;
 
             let state = contentProps;
-            // Inject index data
-            // if ((typeof index === 'number') && schema.indexProperty && (contentName === schema.indexProperty)) {
-            //   state = set(state, 'formData', index);
-            // }
 
             if (editable && isEditing) {
               const tempFormData = draftFormData[contentName];
@@ -167,16 +236,9 @@ class ObjectFieldTemplate extends Component<Props, State> {
                 formData: tempFormData,
                 onChange: this.createDraftChangeHandler(contentName)
               };
-              return React.cloneElement(content, state);
             }
 
-            const wrappedOnChange = (...rest) => {
-              // just wanna log what this on change is expecting
-              console.log('inside', rest);
-              contentProps.onChange(...rest);
-            };
-
-            return React.cloneElement(content, { state, onChange: wrappedOnChange });
+            return React.cloneElement(content, state);
           })}
           { this.renderSubmitSection() }
         </div>
