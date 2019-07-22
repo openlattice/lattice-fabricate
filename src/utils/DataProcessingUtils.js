@@ -5,12 +5,28 @@
 
 import isFunction from 'lodash/isFunction';
 import isInteger from 'lodash/isInteger';
-import Immutable, { List, Map } from 'immutable';
+import isPlainObject from 'lodash/isPlainObject';
+import mapKeys from 'lodash/mapKeys';
+import transform from 'lodash/transform';
+import {
+  List,
+  Map,
+  get,
+  getIn,
+  hasIn,
+  set
+} from 'immutable';
 import { Models } from 'lattice';
 import type { FQN } from 'lattice';
 
 import Logger from './Logger';
-import { isDefined, isDigitOnlyString, isNonEmptyString } from './LangUtils';
+import {
+  isDefined,
+  isDigitOnlyString,
+  isEmptyImmutableMap,
+  isEmptyObject,
+  isNonEmptyString,
+} from './LangUtils';
 import {
   isValidDataPrimitive,
   isValidDataPrimitiveArray,
@@ -27,13 +43,15 @@ const VALUE_MAPPERS :'VALUE_MAPPERS' = 'VALUE_MAPPERS';
 const { FullyQualifiedName } = Models;
 
 function getPageSectionKey(page :number, section :number) :string {
-
   return `page${page}_section${section}`;
 }
 
 declare type UUID = string;
+type IndexOrId = number | UUID;
+type EntityData = { [UUID] :any[] };
+type EdgeDefinition = [string, IndexOrId, string, IndexOrId, string, EntityData];
 
-export type EntityAddress = {|
+type EntityAddress = {|
   entityIndex ? :number;
   entityKeyId ? :UUID;
   entitySetName :string;
@@ -41,8 +59,8 @@ export type EntityAddress = {|
 |};
 
 function getEntityAddressKey(
-  indexOrEntityKeyId :number | UUID,
-  entitySetName :string,
+  indexOrEntityKeyId :IndexOrId,
+  entitySetName :FQN | string,
   fqn :FQN | string
 ) :string {
 
@@ -54,8 +72,8 @@ function getEntityAddressKey(
     throw new Error(errorMsg);
   }
 
-  if (!isNonEmptyString(entitySetName)) {
-    errorMsg = 'invalid param: entitySetName must be a non-empty string';
+  if (!(FullyQualifiedName.isValid(entitySetName) || isNonEmptyString(entitySetName))) {
+    errorMsg = 'invalid param: entitySetName must be a non-empty string or a valid FullyQualifiedName';
     LOG.error(errorMsg, entitySetName);
     throw new Error(errorMsg);
   }
@@ -66,7 +84,7 @@ function getEntityAddressKey(
     throw new Error(errorMsg);
   }
 
-  return `${indexOrEntityKeyId}${ATAT}${entitySetName}${ATAT}${fqn.toString()}`;
+  return `${indexOrEntityKeyId}${ATAT}${entitySetName.toString()}${ATAT}${fqn.toString()}`;
 }
 
 function parseEntityAddressKey(entityAddressKey :string) :EntityAddress {
@@ -132,7 +150,7 @@ function isValidEntityAddressKey(value :any) :boolean {
   return false;
 }
 
-function processEntityIndex(key :string, index :?number, mappers :Map) :number {
+function processEntityIndex(key :string, index :?number, mappers :Map | Object) :number {
 
   let { entityIndex } = parseEntityAddressKey(key);
 
@@ -144,8 +162,8 @@ function processEntityIndex(key :string, index :?number, mappers :Map) :number {
     entityIndex = index;
   }
 
-  if (mappers.hasIn([INDEX_MAPPERS, key])) {
-    const indexMapper = mappers.getIn([INDEX_MAPPERS, key]);
+  if (hasIn(mappers, [INDEX_MAPPERS, key])) {
+    const indexMapper = getIn(mappers, [INDEX_MAPPERS, key]);
     if (isFunction(indexMapper)) {
       entityIndex = indexMapper(index);
     }
@@ -162,12 +180,12 @@ function processEntityIndex(key :string, index :?number, mappers :Map) :number {
   return entityIndex;
 }
 
-function processEntityValue(key :string, value :any, mappers :Map) :any {
+function processEntityValue(key :string, value :any, mappers :Map | Object) :any {
 
   let processedValue :any = value;
 
-  if (mappers.hasIn([VALUE_MAPPERS, key])) {
-    const valueMapper = mappers.getIn([VALUE_MAPPERS, key]);
+  if (hasIn(mappers, [VALUE_MAPPERS, key])) {
+    const valueMapper = getIn(mappers, [VALUE_MAPPERS, key]);
     if (isFunction(valueMapper)) {
       // TODO: what params should be passed along to the mapper?
       processedValue = valueMapper(processedValue);
@@ -184,10 +202,10 @@ function processEntityValue(key :string, value :any, mappers :Map) :any {
     if (isValidDataPrimitiveArray(processedValue)) {
       return processedValue;
     }
-    if (Immutable.isList(processedValue)) {
+    if (List.isList(processedValue)) {
       LOG.error('entity values as immutable lists are not supported', processedValue);
     }
-    if (Immutable.isMap(processedValue)) {
+    if (Map.isMap(processedValue)) {
       LOG.error('entity values as immutable maps are not supported', processedValue);
     }
     LOG.warn('processEntityValue() - unable to process value', processedValue);
@@ -198,28 +216,30 @@ function processEntityValue(key :string, value :any, mappers :Map) :any {
 }
 
 function processEntityValueMap(
-  edm :Map,
-  mappers :Map,
-  processedData :Map,
-  valueMap :Map,
+  entitySetIds :Object | Map,
+  propertyTypeIds :Object | Map,
+  mappers :Object | Map,
+  processedData :Object | Map,
+  valueMap :Object | Map,
   listIndex :?number,
 ) {
 
-  if (!Immutable.isMap(valueMap)) {
-    LOG.warn('processEntityValueMap() - expected value to be an immutable map', valueMap);
+  if (!isPlainObject(valueMap) && !Map.isMap(valueMap)) {
+    LOG.warn('processEntityValueMap() - expected value to be an object/immutable map', valueMap);
     return processedData;
   }
 
-  if (valueMap.isEmpty()) {
+  if (isEmptyObject(valueMap) || isEmptyImmutableMap(valueMap)) {
     return processedData;
   }
 
-  let localProcessedData :Map = processedData;
+  let localProcessedData :Map | Object = processedData;
 
-  valueMap.forEach((valueInMap :any, key :string) => {
-    let localValue = valueInMap;
-    if (isValidEntityAddressKey(key) && mappers.hasIn([KEY_MAPPERS, key])) {
-      const mapper = mappers.getIn([KEY_MAPPERS, key]);
+  const entrySequence = isPlainObject(valueMap) ? Object.entries(valueMap) : valueMap.entrySeq();
+  entrySequence.forEach(([key, valueInMap]) => {
+    let localValue :Object | Map = valueInMap;
+    if (isValidEntityAddressKey(key) && hasIn(mappers, [KEY_MAPPERS, key])) {
+      const mapper = getIn(mappers, [KEY_MAPPERS, key]);
       if (isFunction(mapper)) {
         localValue = mapper(valueInMap);
       }
@@ -228,45 +248,66 @@ function processEntityValueMap(
       }
     }
 
-    if (Immutable.isMap(localValue)) {
+    if (isPlainObject(localValue) || Map.isMap(localValue)) {
       if (typeof listIndex === 'number') {
         // NOTE: we pass along the list index for nested maps
         // TODO: this behavior needs to be better defined for deeply nested structures
-        localProcessedData = processEntityValueMap(edm, mappers, localProcessedData, localValue, listIndex);
+        localProcessedData = processEntityValueMap(
+          entitySetIds,
+          propertyTypeIds,
+          mappers,
+          localProcessedData,
+          localValue,
+          listIndex
+        );
       }
       else {
-        localProcessedData = processEntityValueMap(edm, mappers, localProcessedData, localValue, undefined);
+        localProcessedData = processEntityValueMap(
+          entitySetIds,
+          propertyTypeIds,
+          mappers,
+          localProcessedData,
+          localValue,
+          undefined
+        );
       }
     }
-    else if (Immutable.isList(localValue)) {
+    else if (Array.isArray(localValue) || List.isList(localValue)) {
       localValue.forEach((valueInList :Map, index :number) => {
         // NOTE: the index is meant to represent the entity index, but it's not guaranteed to be the correct index
         // TODO: this behavior needs to be better defined for deeply nested structures
-        localProcessedData = processEntityValueMap(edm, mappers, localProcessedData, valueInList, index);
+        localProcessedData = processEntityValueMap(
+          entitySetIds,
+          propertyTypeIds,
+          mappers,
+          localProcessedData,
+          valueInList,
+          index
+        );
       });
     }
     else {
 
       const { entitySetName, propertyTypeFQN } = parseEntityAddressKey(key);
-      const entitySetId :UUID = edm.getIn(['entitySetIdsByName', entitySetName]);
-      const propertyTypeId :UUID = edm.getIn(['typeIdsByFqn', propertyTypeFQN]);
+      const entitySetId :UUID = get(entitySetIds, entitySetName);
+      const propertyTypeId :UUID = get(propertyTypeIds, propertyTypeFQN);
 
       const entityIndex :number = processEntityIndex(key, listIndex, mappers);
       const processedValue :any = processEntityValue(key, localValue, mappers);
-      let entities :List = localProcessedData.get(entitySetId, List());
-      let entity :Map = entities.get(entityIndex, Map());
+      let entities :Object[] = get(localProcessedData, entitySetId, []);
+      let entity :Object = get(entities, entityIndex, {});
 
       // NOTE: entity is "undefined" when the data gets processed in a random order
       if (!isDefined(entity)) {
-        entity = Map();
+        entity = {};
       }
 
       if (isDefined(processedValue)) {
-        entity = entity.set(propertyTypeId, processedValue);
+        entity = set(entity, propertyTypeId, processedValue);
       }
 
-      entities = entities.set(entityIndex, entity);
-      localProcessedData = localProcessedData.set(entitySetId, entities);
+      entities = set(entities, entityIndex, entity);
+      localProcessedData = set(localProcessedData, entitySetId, entities);
     }
   });
 
@@ -296,123 +337,149 @@ function processEntityValueMap(
  * the "page1_section1" keys are ignored. the "__@@__" keys are the hacky strings that hold hints for correctly
  * processing the entity data.
  */
-function processEntityData(data :Map, edm :Map, mappers :Map = Map()) :{} {
+function processEntityData(
+  data :Object | Map,
+  entitySetIds :Object | Map, // { <entitySetName>: <UUID> }
+  propertyTypeIds :Object | Map, // { <propertyTypeFQN>: <UUID> }
+  mappers :Object | Map = {}
+) :Object {
 
-  if (!Immutable.isMap(data) || data.isEmpty()) {
-    const errorMsg :string = '"data" param must be a non-empty immutable map';
+  if (isEmptyObject(data) || isEmptyImmutableMap(data)) {
+    const errorMsg :string = '"data" param must be a non-empty object or immutable map';
     LOG.error(errorMsg, data);
     throw new Error(errorMsg);
   }
 
-  if (!Immutable.isMap(edm) || edm.isEmpty()) {
-    const errorMsg :string = '"edm" param must be a non-empty immutable map';
-    LOG.error(errorMsg, edm);
+  if (isEmptyObject(entitySetIds) || isEmptyImmutableMap(entitySetIds)) {
+    const errorMsg :string = '"entitySetIds" param must be a non-empty object or immutable map';
+    LOG.error(errorMsg, entitySetIds);
     throw new Error(errorMsg);
   }
 
-  if (!Immutable.isMap(mappers)) {
-    const errorMsg :string = '"mappers" param must be an immutable map';
+  if (isEmptyObject(propertyTypeIds) || isEmptyImmutableMap(propertyTypeIds)) {
+    const errorMsg :string = '"propertyTypeIds" param must be a non-empty object or immutable map';
+    LOG.error(errorMsg, propertyTypeIds);
+    throw new Error(errorMsg);
+  }
+
+  if (!(isPlainObject(mappers) || Map.isMap(mappers))) {
+    const errorMsg :string = '"mappers" param must be an object or immutable map';
     LOG.error(errorMsg, mappers);
     throw new Error(errorMsg);
   }
 
-  let processedData :Map = Map();
+  let processedData = {};
 
-  data
-    .valueSeq()
+  const valueSequence = Map.isMap(data) ? data.valueSeq() : Object.values(data);
+  valueSequence
     .forEach((value :any) => {
-      if (Immutable.isList(value)) {
-        value.forEach((valueMap :Map, index :number) => {
-          processedData = processEntityValueMap(edm, mappers, processedData, valueMap, index);
+      if (List.isList(value) || Array.isArray(value)) {
+        value.forEach((valueMap :Map | Object, index :number) => {
+          processedData = processEntityValueMap(entitySetIds, propertyTypeIds, mappers, processedData, valueMap, index);
         });
       }
       else {
-        processedData = processEntityValueMap(edm, mappers, processedData, value, undefined);
+        processedData = processEntityValueMap(entitySetIds, propertyTypeIds, mappers, processedData, value, undefined);
       }
     });
 
-  return processedData.toJS();
+  return processedData;
 }
 
-function processAssociationEntityData(data :List, edm :Map) :{} {
+function processAssociationEntityData(
+  data :EdgeDefinition[] | List,
+  entitySetIds :Object | Map, // { <entitySetName>: <UUID> }
+  propertyTypeIds :Object | Map, // { <propertyTypeFQN>: <UUID> }
+) :Object {
 
-  let processedData :Map = Map();
+  let processedData = {};
 
   data.forEach((parts) => {
 
-    const edgeEntitySetName :string = parts.get(0);
-    const edgeEntitySetId :UUID = edm.getIn(['entitySetIdsByName', edgeEntitySetName]);
+    const edgeEntitySetName :string = get(parts, 0);
+    const edgeEntitySetId :UUID = get(entitySetIds, edgeEntitySetName);
 
-    const sourceIndexOrId :number | UUID = parts.get(1);
-    const sourceEntitySetName :string = parts.get(2);
-    const sourceEntitySetId :UUID = edm.getIn(['entitySetIdsByName', sourceEntitySetName]);
+    const sourceIndexOrId :IndexOrId = get(parts, 1);
+    const sourceEntitySetName :string = get(parts, 2);
+    const sourceEntitySetId :UUID = get(entitySetIds, sourceEntitySetName);
 
-    const destinationIndexOrId :number | UUID = parts.get(3);
-    const destinationEntitySetName :string = parts.get(4);
-    const destinationEntitySetId :UUID = edm.getIn(['entitySetIdsByName', destinationEntitySetName]);
+    const destinationIndexOrId :IndexOrId = get(parts, 3);
+    const destinationEntitySetName :string = get(parts, 4);
+    const destinationEntitySetId :UUID = get(entitySetIds, destinationEntitySetName);
 
-    const associationData :Map = parts.get(5, Map()).mapKeys((key :FQN) => edm.getIn(['typeIdsByFqn', key]));
+    const rawAssociationData :Object | Map = get(parts, 5, {});
+    const fqnsToPropertyTypeIds = (key :FQN) => get(propertyTypeIds, key);
+    const associationData = Map.isMap(rawAssociationData)
+      ? rawAssociationData.mapKeys(fqnsToPropertyTypeIds).toJS()
+      : mapKeys(fqnsToPropertyTypeIds);
 
-    const associationEntity :Map = Map().asMutable();
-    associationEntity.set('data', associationData);
-    associationEntity.set('srcEntitySetId', sourceEntitySetId);
-    associationEntity.set('dstEntitySetId', destinationEntitySetId);
+    const associationEntity = {};
+    associationEntity.data = associationData;
+    associationEntity.srcEntitySetId = sourceEntitySetId;
+    associationEntity.dstEntitySetId = destinationEntitySetId;
 
     if (isValidUUID(sourceIndexOrId)) {
-      associationEntity.set('srcEntityKeyId', sourceIndexOrId);
+      associationEntity.srcEntityKeyId = sourceIndexOrId;
     }
     else if (isInteger(sourceIndexOrId) && sourceIndexOrId >= 0) {
-      associationEntity.set('srcEntityIndex', sourceIndexOrId);
+      associationEntity.srcEntityIndex = sourceIndexOrId;
     }
     else {
       LOG.error('unable to set neither "srcEntityIndex" nor "srcEntityKeyId"', sourceIndexOrId);
     }
 
     if (isValidUUID(destinationIndexOrId)) {
-      associationEntity.set('dstEntityKeyId', destinationIndexOrId);
+      associationEntity.dstEntityKeyId = destinationIndexOrId;
     }
     else if (isInteger(destinationIndexOrId) && destinationIndexOrId >= 0) {
-      associationEntity.set('dstEntityIndex', destinationIndexOrId);
+      associationEntity.dstEntityIndex = destinationIndexOrId;
     }
     else {
       LOG.error('unable to set neither "dstEntityIndex" nor "dstEntityKeyId"', destinationIndexOrId);
     }
 
-    let associations :List = processedData.get(edgeEntitySetId, List());
-    associations = associations.push(associationEntity.asImmutable());
-    processedData = processedData.set(edgeEntitySetId, associations);
+    const associations :Object[] = get(processedData, edgeEntitySetId, []);
+    associations.push(associationEntity);
+    processedData = set(processedData, edgeEntitySetId, associations);
   });
 
-  return processedData.toJS();
+  return processedData;
 }
 
-function processEntityDataForPartialReplace(data :Map, originalData :Map, edm :Map, mappers :Map = Map()) :{} {
+function processEntityDataForPartialReplace(
+  data :Object | Map,
+  originalData :Object | Map,
+  entitySetIds :Object | Map, // { <entitySetName>: <UUID> }
+  propertyTypeIds :Object | Map, // { <propertyTypeFQN>: <UUID> }
+  mappers :Object | Map = {}
+) :{} {
 
   // NOTE: not yet ready to use for more general cases
 
-  let processedData :Map = Map();
+  let processedData = {};
+  let diffData = {};
 
-  const mutatedData :Map = Map().withMutations((map :Map) => {
-    data
-      .filter((entityData :?Map) => Immutable.isImmutable(entityData))
-      .forEach((entityData :Map, pageSectionKey :string) => {
-        entityData.forEach((value :any, entityAddressKey :string) => {
-          const key = [pageSectionKey, entityAddressKey];
-          const originalValue :any = originalData.getIn(key);
-          // TODO: need a more robust way of checking for a change in value
-          if (value !== originalValue) {
-            map.set(entityAddressKey, value);
-          }
-        });
+  const entitySequence = Map.isMap(data) ? data.entrySeq() : Object.entries(data);
+  entitySequence
+  // eslint-disable-next-line no-unused-vars
+    .filter(([key, entityData] :[string, Object | Map]) => isPlainObject(entityData) || Map.isMap(entityData))
+    .forEach(([pageSectionKey, entityData] :[string, Object | Map]) => {
+      const propertySequence = Map.isMap(entityData) ? entityData.entrySeq() : Object.entries(entityData);
+      propertySequence.forEach(([entityAddressKey, value] :[string, Object | Map]) => {
+        const key = [pageSectionKey, entityAddressKey];
+        const originalValue :any = getIn(originalData, key);
+
+        if (value !== originalValue) {
+          diffData = set(diffData, entityAddressKey, value);
+        }
       });
-  });
+    });
 
-  mutatedData.forEach((valueInMap :any, key :string) => {
-
+  Object.entries(diffData).forEach(([key, valueInMap]) => {
     let localValue = valueInMap;
     if (isValidEntityAddressKey(key)) {
-      if (mappers.hasIn([KEY_MAPPERS, key])) {
-        const mapper = mappers.getIn([KEY_MAPPERS, key]);
+      if (hasIn(mappers, [KEY_MAPPERS, key])) {
+        const mapper = getIn(mappers, [KEY_MAPPERS, key]);
         if (isFunction(mapper)) {
           localValue = mapper(valueInMap);
         }
@@ -428,41 +495,52 @@ function processEntityDataForPartialReplace(data :Map, originalData :Map, edm :M
         propertyTypeFQN,
       } = parseEntityAddressKey(key);
       const indexOrId = entityKeyId || entityIndex;
-      const entitySetId :UUID = edm.getIn(['entitySetIdsByName', entitySetName]);
-      const propertyTypeId :UUID = edm.getIn(['typeIdsByFqn', propertyTypeFQN]);
+      const entitySetId :UUID = get(entitySetIds, entitySetName);
+      const propertyTypeId :UUID = get(propertyTypeIds, propertyTypeFQN);
 
       const processedValue :any = processEntityValue(key, localValue, mappers);
-      let entitySetData :Map = processedData.get(entitySetId, Map());
-      let entity :Map = entitySetData.get(indexOrId, Map());
+      let entitySetData :Object | Map = get(processedData, entitySetId, {});
+      let entity :Object | Map = get(entitySetData, indexOrId, {});
 
       if (isDefined(processedValue)) {
-        entity = entity.set(propertyTypeId, processedValue);
+        entity = set(entity, propertyTypeId, processedValue);
       }
       else {
-        entity = entity.set(propertyTypeId, []);
+        entity = set(entity, propertyTypeId, []);
       }
 
-      entitySetData = entitySetData.set(indexOrId, entity);
-      processedData = processedData.set(entitySetId, entitySetData);
+      entitySetData = set(entitySetData, indexOrId, entity);
+      processedData = set(processedData, entitySetId, entitySetData);
     }
   });
 
-  return processedData.toJS();
+  return processedData;
 }
 
 type Replacer = (key :string) => string;
 
-const replaceEntityAddressKeys = (input :Map, replacer :Replacer) => {
-  if (!Immutable.isMap(input)) {
+const replaceEntityAddressKeys = (input :Object | Map, replacer :Replacer) => {
+  if (!Map.isMap(input) && !isPlainObject(input)) {
     return input;
   }
 
-  return input.mapEntries(([key, value]) => [
-    replacer(key),
-    replaceEntityAddressKeys(value, replacer)
-  ]);
+  if (Map.isMap(input)) {
+    return input.mapEntries(([key, value]) => [
+      replacer(key),
+      replaceEntityAddressKeys(value, replacer)
+    ]);
+  }
 
+  return transform(input, (result :Object, value :any, key :string) => {
+    const newKey = replacer(key);
+    const newValue = replaceEntityAddressKeys(value, replacer);
+
+    /* eslint no-param-reassign: ["error", { "props": false }] */
+    result[newKey] = newValue;
+    return result;
+  }, {});
 };
+
 export {
   ATAT,
   INDEX_MAPPERS,
@@ -476,4 +554,11 @@ export {
   processEntityData,
   processEntityDataForPartialReplace,
   replaceEntityAddressKeys,
+};
+
+export type {
+  EdgeDefinition,
+  IndexOrId,
+  EntityAddress,
+  EntityData,
 };

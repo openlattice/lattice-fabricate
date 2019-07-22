@@ -9,6 +9,7 @@ import isPlainObject from 'lodash/isPlainObject';
 import isString from 'lodash/isString';
 import isUndefined from 'lodash/isUndefined';
 import trim from 'lodash/trim';
+import { Map } from 'immutable';
 
 function isDefined(value :any) :boolean {
 
@@ -18,6 +19,11 @@ function isDefined(value :any) :boolean {
 function isEmptyArray(value :any) :boolean {
 
   return isArray(value) && isEmpty(value);
+}
+
+function isEmptyImmutableMap(value :any) :boolean {
+
+  return Map.isMap(value) && value.isEmpty();
 }
 
 function isEmptyObject(value :any) :boolean {
@@ -69,6 +75,7 @@ export {
   isDefined,
   isDigitOnlyString,
   isEmptyArray,
+  isEmptyImmutableMap,
   isEmptyObject,
   isEmptyString,
   isNonEmptyArray,

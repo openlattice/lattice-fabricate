@@ -1,8 +1,9 @@
 // @flow
 import React from 'react';
-import StyledForm from './styled/StyledForm';
-import { ArrayFieldTemplate, FieldTemplate, ObjectFieldTemplate } from '../../../templates';
+import { Button } from 'lattice-ui-kit';
 
+import { ActionGroup, StyledForm } from './styled';
+import { ArrayFieldTemplate, FieldTemplate, ObjectFieldTemplate } from '../../../templates';
 import {
   BaseInput,
   CheckboxWidget,
@@ -11,43 +12,41 @@ import {
 
 const widgets = {
   BaseInput,
-  // CameraWidget,
   CheckboxWidget,
-  // CounterWidget,
-  // DateTimeWidget,
-  // DateWidget,
-  // DigestedInput,
-  // FakeDateTimeWidget,
-  // ImageWidget,
-  // RadioWidget,
-  // SelectWidget,
-  // SignatureWidget,
   TextareaWidget,
-  // TimeWidget,
-};
-const fields = {
-  // BulletField,
-  // CheckboxesField,
-  // CheckboxField,
-  // DateTimeField,
-  // DescriptionField,
-  // InformationField,
-  // PrescriptionField,
-  // VerticalTableField,
 };
 
 type Props = {
-
+  onSubmit :() => void;
+  onChange :() => void;
+  onDiscard :() => void;
 };
 
-const Form = (props :Props) => (
-  <StyledForm
-      FieldTemplate={FieldTemplate}
-      ObjectFieldTemplate={ObjectFieldTemplate}
-      ArrayFieldTemplate={ArrayFieldTemplate}
-      widgets={widgets}
-      fields={fields}
-      {...props} />
-);
+const Form = (props :Props) => {
+
+  const {
+    onChange,
+    onDiscard,
+    onSubmit,
+    ...restProps
+  } = props;
+
+  return (
+    <StyledForm
+        ArrayFieldTemplate={ArrayFieldTemplate}
+        FieldTemplate={FieldTemplate}
+        ObjectFieldTemplate={ObjectFieldTemplate}
+        onChange={onChange}
+        onSubmit={onSubmit}
+        showErrorList={false}
+        widgets={widgets}
+        {...restProps}>
+      <ActionGroup>
+        <Button mode="primary" type="submit">Submit</Button>
+        <Button onClick={onDiscard}>Discard</Button>
+      </ActionGroup>
+    </StyledForm>
+  );
+};
 
 export default Form;

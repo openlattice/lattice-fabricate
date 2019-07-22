@@ -122,11 +122,7 @@ export const schema = {
         billingAddressId: {
           type: 'string'
         }
-      },
-    },
-    formName: {
-      type: 'string',
-      default: 'PROFILE'
+      }
     }
   }
 };
@@ -214,8 +210,5 @@ export const uiSchema = {
     billingAddressId: {
       'ui:widget': 'hidden'
     }
-  },
-  formName: {
-    'ui:widget': 'hidden'
   }
 };
