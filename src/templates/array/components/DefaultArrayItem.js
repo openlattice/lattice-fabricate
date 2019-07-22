@@ -18,7 +18,7 @@ type Props = {
   children :ChildrenArray<any>;
   className :string;
   disabled :boolean;
-  formContext :Object;
+  // formContext :Object;
   hasMoveDown :boolean;
   hasMoveUp :boolean;
   hasRemove :boolean;
