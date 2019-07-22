@@ -7,6 +7,7 @@ import isFunction from 'lodash/isFunction';
 import isInteger from 'lodash/isInteger';
 import isPlainObject from 'lodash/isPlainObject';
 import mapKeys from 'lodash/mapKeys';
+import transform from 'lodash/transform';
 import {
   List,
   Map,
@@ -458,38 +459,23 @@ function processEntityDataForPartialReplace(
   let processedData = {};
   let diffData = {};
 
-  const entitySequence = Map.isMap(data) ? data.valueSeq() : Object.values(data);
+  const entitySequence = Map.isMap(data) ? data.entrySeq() : Object.entries(data);
   entitySequence
-    .filter((entityData :any) => isPlainObject(entityData) || Map.isMap(entityData))
-    .forEach((entityData :Object | Map, pageSectionKey :string) => {
-      const propertySequence = Map.isMap(entityData) ? entityData.valueSeq() : Object.values(entityData);
-      propertySequence.forEach((value :any, entityAddressKey :string) => {
+  // eslint-disable-next-line no-unused-vars
+    .filter(([key, entityData] :[string, Object | Map]) => isPlainObject(entityData) || Map.isMap(entityData))
+    .forEach(([pageSectionKey, entityData] :[string, Object | Map]) => {
+      const propertySequence = Map.isMap(entityData) ? entityData.entrySeq() : Object.entries(entityData);
+      propertySequence.forEach(([entityAddressKey, value] :[string, Object | Map]) => {
         const key = [pageSectionKey, entityAddressKey];
         const originalValue :any = getIn(originalData, key);
 
         if (value !== originalValue) {
-          diffData = diffData.set(entityAddressKey, value);
+          diffData = set(diffData, entityAddressKey, value);
         }
       });
     });
 
-  const mutatedData :Map = Map().withMutations((map :Map) => {
-    data
-      .filter((entityData :?Map) => Map.isMap(entityData))
-      .forEach((entityData :Map, pageSectionKey :string) => {
-        entityData.forEach((value :any, entityAddressKey :string) => {
-          const key = [pageSectionKey, entityAddressKey];
-          const originalValue :any = originalData.getIn(key);
-          // TODO: need a more robust way of checking for a change in value
-          if (value !== originalValue) {
-            map.set(entityAddressKey, value);
-          }
-        });
-      });
-  });
-
-  mutatedData.forEach((valueInMap :any, key :string) => {
-
+  Object.entries(diffData).forEach(([key, valueInMap]) => {
     let localValue = valueInMap;
     if (isValidEntityAddressKey(key)) {
       if (hasIn(mappers, [KEY_MAPPERS, key])) {
@@ -513,37 +499,48 @@ function processEntityDataForPartialReplace(
       const propertyTypeId :UUID = get(propertyTypeIds, propertyTypeFQN);
 
       const processedValue :any = processEntityValue(key, localValue, mappers);
-      let entitySetData :Map = get(processedData, entitySetId, {});
-      let entity :Map = get(entitySetData, indexOrId, {});
+      let entitySetData :Object | Map = get(processedData, entitySetId, {});
+      let entity :Object | Map = get(entitySetData, indexOrId, {});
 
       if (isDefined(processedValue)) {
-        entity = entity.set(propertyTypeId, processedValue);
+        entity = set(entity, propertyTypeId, processedValue);
       }
       else {
-        entity = entity.set(propertyTypeId, []);
+        entity = set(entity, propertyTypeId, []);
       }
 
-      entitySetData = entitySetData.set(indexOrId, entity);
-      processedData = processedData.set(entitySetId, entitySetData);
+      entitySetData = set(entitySetData, indexOrId, entity);
+      processedData = set(processedData, entitySetId, entitySetData);
     }
   });
 
-  return processedData.toJS();
+  return processedData;
 }
 
 type Replacer = (key :string) => string;
 
-const replaceEntityAddressKeys = (input :Map, replacer :Replacer) => {
-  if (!Map.isMap(input)) {
+const replaceEntityAddressKeys = (input :Object | Map, replacer :Replacer) => {
+  if (!Map.isMap(input) && !isPlainObject(input)) {
     return input;
   }
 
-  return input.mapEntries(([key, value]) => [
-    replacer(key),
-    replaceEntityAddressKeys(value, replacer)
-  ]);
+  if (Map.isMap(input)) {
+    return input.mapEntries(([key, value]) => [
+      replacer(key),
+      replaceEntityAddressKeys(value, replacer)
+    ]);
+  }
 
+  return transform(input, (result :Object, value :any, key :string) => {
+    const newKey = replacer(key);
+    const newValue = replaceEntityAddressKeys(value, replacer);
+
+    /* eslint no-param-reassign: ["error", { "props": false }] */
+    result[newKey] = newValue;
+    return result;
+  }, {});
 };
+
 export {
   ATAT,
   INDEX_MAPPERS,
