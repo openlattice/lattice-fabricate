@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import { DateTime } from 'luxon';
+import { action } from '@storybook/addon-actions';
 
 import Form from '..';
 import { schema, uiSchema } from './constants/dataSchemas';
@@ -10,7 +11,7 @@ import {
 } from '../../utils/DataProcessingUtils';
 import { ASSOCIATION_ENTITY_SET_NAMES, ENTITY_SET_NAMES, PROPERTY_TYPE_FQNS } from './constants/mockFQNs';
 import { entitySetIds, propertyTypeIds } from './constants/mockEDM';
-
+import entityAddressToIdMap from './constants/entityAddressToIdMap';
 import type { EdgeDefinition } from '../../utils/DataProcessingUtils';
 
 const { INCLUDES_ESN } = ASSOCIATION_ENTITY_SET_NAMES;
@@ -37,10 +38,6 @@ class FormContainer extends Component<Props, State> {
     ];
   }
 
-  handleOnChange = ({formData}) => {
-    console.log(formData);
-  }
-
   handleSubmit = ({ formData } :Object) => {
     const { submitAction } = this.props;
     const entityData = processEntityData(formData, entitySetIds, propertyTypeIds);
@@ -49,12 +46,20 @@ class FormContainer extends Component<Props, State> {
   }
 
   render() {
+    const formContext = {
+      editAction: action('Submitting data for partialReplace'),
+      entityAddressToIdMap,
+      entitySetIds,
+      mappers: {},
+      propertyTypeIds,
+    };
+
     return (
       <Form
           disabled
           schema={schema}
+          formContext={formContext}
           onSubmit={this.handleSubmit}
-          onChange={this.handleOnChange}
           uiSchema={uiSchema} />
     );
   }
