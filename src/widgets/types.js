@@ -18,5 +18,6 @@ declare type WidgetProps = {
 };
 
 export type {
+  // eslint-disable-next-line import/prefer-default-export
   WidgetProps
 };
