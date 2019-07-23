@@ -117,7 +117,7 @@ class ObjectFieldTemplate extends Component<Props, State> {
 
   findEntityAddressKeyFromMap = (arrayIndex ? :number) => (key :string) :string => {
     const { formContext } = this.props;
-    const { entityAddressToIdMap } = formContext;
+    const { entityIndexToIdMap } = formContext;
 
     if (isValidEntityAddressKey(key)) {
       const {
@@ -125,11 +125,12 @@ class ObjectFieldTemplate extends Component<Props, State> {
         entitySetName,
         propertyTypeFQN
       } :EntityAddress = parseEntityAddressKey(key);
-      let entityKeyId = getIn(entityAddressToIdMap, [entitySetName, entityIndex]);
-      if (entityIndex !== undefined && entityIndex < 0 && arrayIndex !== undefined) {
-        entityKeyId = getIn(entityAddressToIdMap, [entitySetName, entityIndex, arrayIndex]);
-      }
 
+      let entityKeyId = getIn(entityIndexToIdMap, [entitySetName, entityIndex]);
+      if (entityIndex !== undefined && entityIndex < 0 && arrayIndex !== undefined) {
+
+        entityKeyId = getIn(entityIndexToIdMap, [entitySetName, entityIndex, arrayIndex]);
+      }
       if (isValidUUID(entityKeyId)) {
         return getEntityAddressKey(entityKeyId, entitySetName, propertyTypeFQN);
       }
@@ -166,7 +167,7 @@ class ObjectFieldTemplate extends Component<Props, State> {
       this.findEntityAddressKeyFromMap(arrayIndex)
     );
 
-    const standardwithKeys = replaceEntityAddressKeys(
+    const standardWithKeys = replaceEntityAddressKeys(
       formattedOriginal,
       this.findEntityAddressKeyFromMap(arrayIndex)
     );
@@ -174,7 +175,7 @@ class ObjectFieldTemplate extends Component<Props, State> {
     // process for partial replace
     const editedEntityData = processEntityDataForPartialReplace(
       draftWithKeys,
-      standardwithKeys,
+      standardWithKeys,
       entitySetIds,
       propertyTypeIds,
       mappers
@@ -188,10 +189,17 @@ class ObjectFieldTemplate extends Component<Props, State> {
 
   renderSubmitSection = () => {
     const { isEditing } = this.state;
+    const { formContext } = this.props;
+    const { updateState } = formContext;
 
     return isEditing && (
       <ActionGroup className="column-span-12" noPadding>
-        <Button mode="primary" onClick={this.commitDraftFormData}>Submit</Button>
+        <Button
+            mode="primary"
+            onClick={this.commitDraftFormData}
+            isLoading={updateState}>
+              Submit
+        </Button>
         <Button onClick={this.disableFields}>Discard</Button>
       </ActionGroup>
     );
