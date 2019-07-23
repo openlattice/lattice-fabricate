@@ -11,7 +11,7 @@ import {
 } from '../../utils/DataProcessingUtils';
 import { ASSOCIATION_ENTITY_SET_NAMES, ENTITY_SET_NAMES, PROPERTY_TYPE_FQNS } from './constants/mockFQNs';
 import { entitySetIds, propertyTypeIds } from './constants/mockEDM';
-import entityAddressToIdMap from './constants/entityAddressToIdMap';
+import entityIndexToIdMap from './constants/entityIndexToIdMap';
 import type { EdgeDefinition } from '../../utils/DataProcessingUtils';
 
 const { INCLUDES_ESN } = ASSOCIATION_ENTITY_SET_NAMES;
@@ -47,8 +47,9 @@ class FormContainer extends Component<Props, State> {
 
   render() {
     const formContext = {
+      deleteAction: action('Deleting data'),
       editAction: action('Submitting data for partialReplace'),
-      entityAddressToIdMap,
+      entityIndexToIdMap,
       entitySetIds,
       mappers: {},
       propertyTypeIds,
