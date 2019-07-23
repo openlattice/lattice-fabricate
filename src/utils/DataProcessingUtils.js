@@ -541,11 +541,34 @@ const replaceEntityAddressKeys = (input :Object | Map, replacer :Replacer) => {
   }, {});
 };
 
+// for each key
+const getEKIDsBySet = (data :Object, entitySetIds :Object) => {
+
+  const EKIDsBySet = transform(data, (result :Object, value :any, key :string) => {
+    if (isValidEntityAddressKey(key));
+    const {
+      entityKeyId,
+      entitySetName
+    } = parseEntityAddressKey(key);
+
+    const entitySetId = entitySetIds[entitySetName];
+    if (entitySetId) {
+      (result[entitySetId] || (result[entitySetId] = [])).push(entityKeyId);
+    }
+    else {
+      LOG.error('getEKIDsBySet: entity set id not found');
+    }
+
+  }, {});
+  return EKIDsBySet;
+};
+
 export {
   ATAT,
   INDEX_MAPPERS,
   KEY_MAPPERS,
   VALUE_MAPPERS,
+  getEKIDsBySet,
   getEntityAddressKey,
   getPageSectionKey,
   isValidEntityAddressKey,
