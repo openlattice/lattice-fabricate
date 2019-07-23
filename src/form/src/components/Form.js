@@ -10,11 +10,16 @@ import {
   CheckboxWidget,
   TextareaWidget
 } from '../../../widgets';
+import CustomSchemaField from '../../../templates/schema/SchemaField';
 
 const widgets = {
   BaseInput,
   CheckboxWidget,
   TextareaWidget,
+};
+
+const fields = {
+  SchemaField: CustomSchemaField
 };
 
 const HiddenButton = styled.button`
@@ -44,6 +49,7 @@ const Form = (props :Props) => {
         FieldTemplate={FieldTemplate}
         ObjectFieldTemplate={ObjectFieldTemplate}
         disabled={disabled}
+        fields={fields}
         onChange={onChange}
         onSubmit={onSubmit}
         showErrorList={false}

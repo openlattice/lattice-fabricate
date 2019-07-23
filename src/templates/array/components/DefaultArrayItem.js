@@ -1,10 +1,9 @@
 // @flow
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { faTrash, faChevronUp, faChevronDown } from '@fortawesome/pro-solid-svg-icons';
+import { faChevronUp, faChevronDown } from '@fortawesome/pro-solid-svg-icons';
 import type { ChildrenArray } from 'react';
 
-import ConfirmDeleteModal from './ConfirmDeleteModal';
 import IconButton from '../../components/IconButton';
 import IndexCircle from '../../components/IndexCircle';
 import ActionGutter from '../../components/styled/ActionGutter';
@@ -30,55 +29,44 @@ type Props = {
   showIndex ? :boolean;
 }
 
-type State = {
-  isVisible :boolean;
-}
-
-class DefaultArrayItem extends Component <Props, State> {
+class DefaultArrayItem extends Component <Props> {
 
   static defaultProps = {
     showIndex: true,
   };
 
-  state = {
-    isVisible: false
-  }
-
-  openDeleteModal = () => {
-    this.setState({
-      isVisible: true
-    });
-  }
-
-  closeDeleteModal = () => {
-    this.setState({
-      isVisible: false
-    });
-  }
-
   handleConfirmDelete = () => {
-    const { index, onDropIndexClick } = this.props;
-    // const { deleteAction } = formContext;
-    // calling deleteAction also needs to call edit for all the other entities in an orderable list
+    const {
+      index,
+      onDropIndexClick,
+    } = this.props;
     onDropIndexClick(index)();
-    this.closeDeleteModal();
+  }
+
+  renderChildren = () => {
+    const { children, hasRemove } = this.props;
+
+    return React.Children.map(children, (child) => {
+      return React.cloneElement(child, {
+        ...child.props,
+        onDelete: this.handleConfirmDelete,
+        hasRemove
+      });
+    });
   }
 
   render() {
     const {
-      children,
       className,
       disabled,
       hasMoveDown,
       hasMoveUp,
-      hasRemove,
       index,
       onReorderClick,
       orderable,
       readonly,
       showIndex
     } = this.props;
-    const { isVisible } = this.state;
 
     return (
       <ItemWrapper className={className}>
@@ -95,19 +83,7 @@ class DefaultArrayItem extends Component <Props, State> {
                 onClick={onReorderClick(index, index + 1)} />
           </ActionGutter>
         )}
-        {children}
-        {(hasRemove) && (
-          <ActionGutter>
-            <IconButton
-                icon={faTrash}
-                onClick={this.openDeleteModal} />
-          </ActionGutter>
-        )}
-        <ConfirmDeleteModal
-            onClickPrimary={this.handleConfirmDelete}
-            onClickSecondary={this.closeDeleteModal}
-            onClose={this.closeDeleteModal}
-            isVisible={isVisible} />
+        { this.renderChildren() }
       </ItemWrapper>
     );
   }
