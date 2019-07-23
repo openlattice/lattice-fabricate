@@ -88,9 +88,9 @@ class CustomSchemaField extends Component<Props, State> {
     const EKIDsbySet = getEKIDsBySet(formDataWithKeys, entitySetIds);
     if (isFunction(deleteAction)) {
       deleteAction(EKIDsbySet);
-      onDelete();
-      this.closeDeleteModal();
     }
+    onDelete();
+    this.closeDeleteModal();
   }
 
   render() {
