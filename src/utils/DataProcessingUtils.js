@@ -542,18 +542,18 @@ const replaceEntityAddressKeys = (input :Object | Map, replacer :Replacer) => {
 };
 
 // for each key
-const getEKIDsBySet = (data :Object, entitySetIds :Object) => {
+const getEKIDsBySet = (data :Object, entitySetIds :Object) :{ [string] :Set<UUID> } => {
 
-  const EKIDsBySet = transform(data, (result :Object, value :any, key :string) => {
+  const EKIDsBySet :{ [string] :Set<UUID> } = transform(data, (result :Object, value :any, key :string) => {
     if (isValidEntityAddressKey(key));
     const {
       entityKeyId,
       entitySetName
     } = parseEntityAddressKey(key);
 
-    const entitySetId = entitySetIds[entitySetName];
+    const entitySetId = get(entitySetIds, entitySetName);
     if (entitySetId) {
-      (result[entitySetId] || (result[entitySetId] = [])).push(entityKeyId);
+      (result[entitySetId] || (result[entitySetId] = new Set())).add(entityKeyId);
     }
     else {
       LOG.error('getEKIDsBySet: entity set id not found');
