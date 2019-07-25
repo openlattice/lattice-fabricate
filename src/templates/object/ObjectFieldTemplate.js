@@ -236,9 +236,9 @@ class ObjectFieldTemplate extends Component<Props, State> {
                 formData: tempFormData,
                 onChange: this.createDraftChangeHandler(contentName)
               };
+              return React.cloneElement(content, state);
             }
-
-            return React.cloneElement(content, state);
+            return content;
           })}
           { this.renderSubmitSection() }
         </div>
