@@ -563,6 +563,13 @@ const getEKIDsBySet = (data :Object, entitySetIds :Object) :{ [string] :Set<UUID
   return EKIDsBySet;
 };
 
+const wrapFormDataInPageSection = (formData :Object) => {
+  let formattedFormData = {};
+  formattedFormData = set(formattedFormData, getPageSectionKey(1, 1), formData);
+  return formattedFormData;
+};
+
+
 export {
   ATAT,
   INDEX_MAPPERS,
@@ -577,6 +584,7 @@ export {
   processEntityData,
   processEntityDataForPartialReplace,
   replaceEntityAddressKeys,
+  wrapFormDataInPageSection,
 };
 
 export type {
