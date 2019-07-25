@@ -1,7 +1,9 @@
 // @flow
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
+import isFunction from 'lodash/isFunction';
 import { Button, Colors } from 'lattice-ui-kit';
+import { getUiOptions } from 'react-jsonschema-form/lib/utils';
 import type { ComponentType } from 'react';
 
 import { ArrayFieldDescription, ArrayFieldTitle, DefaultArrayItem } from './components';
@@ -26,88 +28,108 @@ const ArrayList = styled.div`
   }
 `;
 
-type ArrayFieldTemplateProps = {
-  canAdd ? :boolean,
-  className :string,
-  DescriptionField :ComponentType<any>;
+type Props = {
   // disabled ? :boolean,
-  idSchema :{ $id :string };
-  items :Object[],
-  onAddClick :() => void;
   // readonly ? :boolean,
+  DescriptionField :ComponentType<any>;
+  TitleField :ComponentType<any>;
+  canAdd ? :boolean;
+  className :string;
+  formContext ? :Object;
+  idSchema :{ $id :string };
+  items :Object[];
+  onAddClick :(e :SyntheticEvent<HTMLButtonElement>) => void;
   required ? :boolean;
   schema :Object;
-  title ? :string,
-  TitleField :ComponentType<any>;
+  title ? :string;
   uiSchema :Object;
 }
 
-const ArrayFieldTemplate = (props :ArrayFieldTemplateProps) => {
-  const {
-    canAdd,
-    className,
-    DescriptionField,
-    // disabled,
-    idSchema,
-    items,
-    onAddClick,
-    // readonly,
-    required,
-    schema,
-    title,
-    TitleField,
-    uiSchema,
-  } = props;
+class ArrayFieldTemplate extends Component<Props> {
 
-  const {
-    addButtonText = 'Add',
-    orderable = true,
-    showIndex = true
-  } = uiSchema['ui:options'] || {};
+  static defaultProps = {
+    canAdd: true,
+    formContext: undefined,
+    // disabled: false,
+    // readonly: false,
+    required: false,
+    title: '',
+  };
 
-  return (
-    <div className={className}>
-      <ArrayFieldTitle
-          idSchema={idSchema}
-          key={`array-field-title-${idSchema.$id}`}
-          required={required}
-          title={uiSchema['ui:title'] || title}
-          TitleField={TitleField} />
+  handleAddClick = (e :SyntheticEvent<HTMLButtonElement>) => {
+    const { formContext, onAddClick, uiSchema } = this.props;
+    const options = getUiOptions(uiSchema);
 
-      {(uiSchema['ui:description'] || schema.description) && (
-        <ArrayFieldDescription
-            description={uiSchema['ui:description'] || schema.description}
-            DescriptionField={DescriptionField}
+    // get action from formContext with matching addActionKey
+    if (formContext && options) {
+      const { addActions } = formContext;
+      const { addActionKey } = options;
+      const addAction = addActions[addActionKey];
+      if (isFunction(addAction)) {
+        addAction();
+      }
+    }
+
+    onAddClick(e);
+  };
+
+  render() {
+    const {
+      canAdd,
+      className,
+      DescriptionField,
+      // disabled,
+      idSchema,
+      items,
+      // readonly,
+      required,
+      schema,
+      title,
+      TitleField,
+      uiSchema,
+    } = this.props;
+    const {
+      addButtonText = 'Add',
+      orderable = true,
+      showIndex = true
+    } = uiSchema['ui:options'] || {};
+
+    return (
+      <div className={className}>
+        <ArrayFieldTitle
             idSchema={idSchema}
-            key={`array-field-description-${idSchema.$id}`} />
-      )}
-      <ArrayList
-          key={`array-item-list-${idSchema.$id}`}>
-        {items && items.map(itemProps => (
-          <DefaultArrayItem
-              key={`array-item-${idSchema.$id}-${itemProps.index}`}
-              {...itemProps}
-              orderable={orderable}
-              showIndex={showIndex} />
-        ))}
-        {(canAdd) && (
-          <MarginButton
-              mode="subtle"
-              onClick={onAddClick}>
-            {addButtonText}
-          </MarginButton>
-        )}
-      </ArrayList>
-    </div>
-  );
-};
+            key={`array-field-title-${idSchema.$id}`}
+            required={required}
+            title={uiSchema['ui:title'] || title}
+            TitleField={TitleField} />
 
-ArrayFieldTemplate.defaultProps = {
-  canAdd: true,
-  // disabled: false,
-  // readonly: false,
-  required: false,
-  title: '',
-};
+        {(uiSchema['ui:description'] || schema.description) && (
+          <ArrayFieldDescription
+              description={uiSchema['ui:description'] || schema.description}
+              DescriptionField={DescriptionField}
+              idSchema={idSchema}
+              key={`array-field-description-${idSchema.$id}`} />
+        )}
+        <ArrayList
+            key={`array-item-list-${idSchema.$id}`}>
+          {items && items.map(itemProps => (
+            <DefaultArrayItem
+                key={`array-item-${idSchema.$id}-${itemProps.index}`}
+                {...itemProps}
+                orderable={orderable}
+                showIndex={showIndex} />
+          ))}
+          {(canAdd) && (
+            <MarginButton
+                mode="subtle"
+                onClick={this.handleAddClick}>
+              {addButtonText}
+            </MarginButton>
+          )}
+        </ArrayList>
+      </div>
+    );
+  }
+}
 
 export default ArrayFieldTemplate;
