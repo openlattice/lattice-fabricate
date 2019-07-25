@@ -35,12 +35,12 @@ class DefaultArrayItem extends Component <Props> {
     showIndex: true,
   };
 
-  handleConfirmDelete = () => {
+  createDropIndexHandler = () => {
     const {
       index,
       onDropIndexClick,
     } = this.props;
-    onDropIndexClick(index)();
+    return onDropIndexClick(index);
   }
 
   renderChildren = () => {
@@ -49,7 +49,7 @@ class DefaultArrayItem extends Component <Props> {
     return React.Children.map(children, (child) => {
       return React.cloneElement(child, {
         ...child.props,
-        onDelete: this.handleConfirmDelete,
+        onDelete: this.createDropIndexHandler(),
         hasRemove
       });
     });
