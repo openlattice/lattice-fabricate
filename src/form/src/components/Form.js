@@ -10,7 +10,7 @@ import {
   CheckboxWidget,
   TextareaWidget
 } from '../../../widgets';
-import CustomSchemaField from '../../../templates/schema/SchemaField';
+import SchemaField from '../../../templates/schema/SchemaField';
 
 const widgets = {
   BaseInput,
@@ -19,7 +19,7 @@ const widgets = {
 };
 
 const fields = {
-  SchemaField: CustomSchemaField
+  SchemaField
 };
 
 const HiddenButton = styled.button`
