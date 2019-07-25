@@ -34,8 +34,10 @@ type Props = {
   DescriptionField :ComponentType<any>;
   TitleField :ComponentType<any>;
   canAdd ? :boolean;
+  disabled :boolean;
   className :string;
   formContext ? :Object;
+  formData :Object;
   idSchema :{ $id :string };
   items :Object[];
   onAddClick :(e :SyntheticEvent<HTMLButtonElement>) => void;
@@ -45,7 +47,10 @@ type Props = {
   uiSchema :Object;
 }
 
-class ArrayFieldTemplate extends Component<Props> {
+type State = {
+  addState :boolean;
+}
+class ArrayFieldTemplate extends Component<Props, State> {
 
   static defaultProps = {
     canAdd: true,
@@ -56,20 +61,16 @@ class ArrayFieldTemplate extends Component<Props> {
     title: '',
   };
 
+  state = {
+    addState: false
+  }
+
   handleAddClick = (e :SyntheticEvent<HTMLButtonElement>) => {
-    const { formContext, onAddClick, uiSchema } = this.props;
-    const options = getUiOptions(uiSchema);
-
-    // get action from formContext with matching addActionKey
-    if (formContext && options) {
-      const { addActions } = formContext;
-      const { addActionKey } = options;
-      const addAction = addActions[addActionKey];
-      if (isFunction(addAction)) {
-        addAction();
-      }
+    const { disabled, onAddClick } = this.props;
+    if (disabled) {
+      // only set addState when adding in disabled list
+      this.setState({ addState: true });
     }
-
     onAddClick(e);
   };
 
@@ -78,7 +79,7 @@ class ArrayFieldTemplate extends Component<Props> {
       canAdd,
       className,
       DescriptionField,
-      // disabled,
+      formContext,
       idSchema,
       items,
       // readonly,
@@ -88,6 +89,7 @@ class ArrayFieldTemplate extends Component<Props> {
       TitleField,
       uiSchema,
     } = this.props;
+    const { addState } = this.state;
     const {
       addButtonText = 'Add',
       orderable = true,
@@ -112,13 +114,34 @@ class ArrayFieldTemplate extends Component<Props> {
         )}
         <ArrayList
             key={`array-item-list-${idSchema.$id}`}>
-          {items && items.map(itemProps => (
-            <DefaultArrayItem
-                key={`array-item-${idSchema.$id}-${itemProps.index}`}
-                {...itemProps}
-                orderable={orderable}
-                showIndex={showIndex} />
-          ))}
+          {items && items.map((itemProps, index) => {
+            const options = getUiOptions(uiSchema);
+
+            const additionalProps :any = {
+              orderable,
+              showIndex,
+            };
+
+            // give additional responsibility to last item when adding items
+            if (addState
+              && !!formContext
+              && !!options
+              && index === items.length - 1
+            ) {
+              const { addActions, isAdding } = formContext;
+              const { addActionKey } = options;
+              additionalProps.addAction = addActions[addActionKey];
+              additionalProps.isAdding = isAdding;
+              additionalProps.addState = addState;
+            }
+
+            return (
+              <DefaultArrayItem
+                  key={`array-item-${idSchema.$id}-${itemProps.index}`}
+                  {...itemProps}
+                  {...additionalProps} />
+            );
+          })}
           {(canAdd) && (
             <MarginButton
                 mode="subtle"
