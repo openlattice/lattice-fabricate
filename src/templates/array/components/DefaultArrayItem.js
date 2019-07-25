@@ -9,6 +9,7 @@ import type { Element } from 'react';
 import IconButton from '../../components/IconButton';
 import IndexCircle from '../../components/IndexCircle';
 import ActionGutter from '../../components/styled/ActionGutter';
+import { wrapFormDataInPageSection } from '../../../utils/DataProcessingUtils';
 
 
 const ItemWrapper = styled.div`
@@ -54,6 +55,32 @@ class DefaultArrayItem extends Component <Props> {
     return onDropIndexClick(index);
   }
 
+  handleAddAction = () => {
+    const { addAction, children } = this.props;
+    const { formData } = children.props;
+    if (isFunction(addAction)) {
+      addAction({ formData: wrapFormDataInPageSection(formData) });
+    }
+  }
+
+  renderSubmitButton = () => {
+    const {
+      addState,
+      isAdding,
+      orderable
+    } = this.props;
+
+    return addState && (
+      <ButtonWithMargin
+          orderable={orderable}
+          mode="primary"
+          onClick={this.handleAddAction}
+          isLoading={isAdding}>
+          Submit
+      </ButtonWithMargin>
+    );
+  }
+
   renderChildren = () => {
     const { children, hasRemove, addState } = this.props;
 
@@ -77,32 +104,6 @@ class DefaultArrayItem extends Component <Props> {
       ...additionalProps,
     });
 
-  }
-
-  handleAddAction = () => {
-    const { addAction, children } = this.props;
-    const { formData } = children.props;
-    if (isFunction(addAction)) {
-      addAction(formData);
-    }
-  }
-
-  renderSubmitButton = () => {
-    const {
-      addState,
-      isAdding,
-      orderable
-    } = this.props;
-
-    return addState && (
-      <ButtonWithMargin
-          orderable={orderable}
-          mode="primary"
-          onClick={this.handleAddAction}
-          isLoading={isAdding}>
-          Submit
-      </ButtonWithMargin>
-    );
   }
 
   render() {

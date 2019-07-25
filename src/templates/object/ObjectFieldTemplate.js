@@ -15,11 +15,11 @@ import { parseIdIndex } from './utils';
 import { isValidUUID } from '../../utils/ValidationUtils';
 import {
   getEntityAddressKey,
-  getPageSectionKey,
   isValidEntityAddressKey,
   parseEntityAddressKey,
   processEntityDataForPartialReplace,
   replaceEntityAddressKeys,
+  wrapFormDataInPageSection,
 } from '../../utils/DataProcessingUtils';
 import type { EntityAddress } from '../../utils/DataProcessingUtils';
 
@@ -138,12 +138,6 @@ class ObjectFieldTemplate extends Component<Props, State> {
     return key;
   };
 
-  formatFormData = (formData :Object) => {
-    let formattedFormData = {};
-    formattedFormData = set(formattedFormData, getPageSectionKey(1, 1), formData);
-    return formattedFormData;
-  }
-
   commitDraftFormData = () => {
     const { draftFormData } = this.state;
     const { formData, formContext, idSchema } = this.props;
@@ -158,8 +152,8 @@ class ObjectFieldTemplate extends Component<Props, State> {
     const arrayIndex = parseIdIndex(idSchema);
 
     // wrap formData in pageSection
-    const formattedDraft = this.formatFormData(draftFormData);
-    const formattedOriginal = this.formatFormData(formData);
+    const formattedDraft = wrapFormDataInPageSection(draftFormData);
+    const formattedOriginal = wrapFormDataInPageSection(formData);
 
     // replace address keys with entityKeyId
     const draftWithKeys = replaceEntityAddressKeys(
