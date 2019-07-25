@@ -59,6 +59,7 @@ export const uiSchema = {
   [getPageSectionKey(1, 1)]: {
     classNames: 'column-span-12',
     'ui:options': {
+      addActionKey: 'addTaskItem',
       addButtonText: '+ Add Task'
     },
     items: {
