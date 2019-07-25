@@ -47,6 +47,9 @@ class FormContainer extends Component<Props, State> {
 
   render() {
     const formContext = {
+      addActions: {
+        addTaskItem: action('Adding item')
+      },
       deleteAction: action('Deleting data'),
       editAction: action('Submitting data for partialReplace'),
       entityIndexToIdMap,
