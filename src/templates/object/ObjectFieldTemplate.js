@@ -175,8 +175,15 @@ class ObjectFieldTemplate extends Component<Props, State> {
       mappers
     );
 
+    const path = idSchema.$id.split('_');
+    path.shift();
+
     if (isFunction(editAction)) {
-      editAction({ entityData: editedEntityData });
+      editAction({
+        entityData: editedEntityData,
+        formData: draftFormData,
+        path
+      });
     }
 
   };
