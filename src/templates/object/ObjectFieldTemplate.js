@@ -106,10 +106,10 @@ class ObjectFieldTemplate extends Component<Props, State> {
     const { isEditing } = this.state;
     const { editable } :Object = getUiOptions(uiSchema);
 
-    return (editable && !isEditing && disabled)
+    return (editable && disabled)
       ? (
         <ActionGutter>
-          <IconButton icon={faPen} onClick={this.enableFields} />
+          <IconButton icon={faPen} onClick={this.enableFields} disabled={isEditing} />
         </ActionGutter>
       )
       : null;
