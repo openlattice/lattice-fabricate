@@ -43,7 +43,7 @@ const VALUE_MAPPERS :'VALUE_MAPPERS' = 'VALUE_MAPPERS';
 const { FullyQualifiedName } = Models;
 
 function getPageSectionKey(page :number, section :number) :string {
-  return `page${page}_section${section}`;
+  return `page${page}section${section}`;
 }
 
 declare type UUID = string;
