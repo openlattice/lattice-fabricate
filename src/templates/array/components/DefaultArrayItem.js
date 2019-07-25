@@ -59,7 +59,7 @@ class DefaultArrayItem extends Component <Props> {
     const { addAction, children } = this.props;
     const { formData } = children.props;
     if (isFunction(addAction)) {
-      addAction({ formData: wrapFormDataInPageSection([{ formData }]) });
+      addAction({ formData: wrapFormDataInPageSection([{ ...formData }]) });
     }
   }
 
