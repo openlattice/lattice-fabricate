@@ -1,9 +1,10 @@
 // @flow
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import isFunction from 'lodash/isFunction';
 import { faChevronUp, faChevronDown } from '@fortawesome/pro-solid-svg-icons';
 import { Button } from 'lattice-ui-kit';
-import type { ChildrenArray } from 'react';
+import type { Element } from 'react';
 
 import IconButton from '../../components/IconButton';
 import IndexCircle from '../../components/IndexCircle';
@@ -21,7 +22,7 @@ const ButtonWithMargin = styled(Button)`
 type Props = {
   addAction ? :() => void;
   addState ? :boolean;
-  children :ChildrenArray<any>;
+  children :Element<any>;
   className :string;
   disabled :boolean;
   hasMoveDown :boolean;
@@ -56,26 +57,49 @@ class DefaultArrayItem extends Component <Props> {
   renderChildren = () => {
     const { children, hasRemove, addState } = this.props;
 
-    return React.Children.map(children, (child) => {
-      return React.cloneElement(child, {
-        ...child.props,
-        disabled: !addState,
+    if (!(hasRemove || addState)) return children;
+
+    let additionalProps = {};
+
+    if (hasRemove) {
+      additionalProps = Object.assign(additionalProps, {
         hasRemove,
-        onDelete: this.createDropIndexHandler(),
+        onDelete: this.createDropIndexHandler()
       });
+    }
+
+    if (addState) {
+      additionalProps = Object.assign(additionalProps, { disabled: !addState });
+    }
+
+    return React.cloneElement(children, {
+      ...children.props,
+      ...additionalProps,
     });
+
+  }
+
+  handleAddAction = () => {
+    const { addAction, children } = this.props;
+    const { formData } = children.props;
+    if (isFunction(addAction)) {
+      addAction(formData);
+    }
   }
 
   renderSubmitButton = () => {
     const {
       addState,
-      addAction,
       isAdding,
       orderable
     } = this.props;
 
     return addState && (
-      <ButtonWithMargin orderable={orderable} mode="primary" onClick={addAction} isLoading={isAdding}>
+      <ButtonWithMargin
+          orderable={orderable}
+          mode="primary"
+          onClick={this.handleAddAction}
+          isLoading={isAdding}>
           Submit
       </ButtonWithMargin>
     );
