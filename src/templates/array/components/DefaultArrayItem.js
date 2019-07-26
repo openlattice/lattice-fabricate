@@ -92,7 +92,7 @@ class DefaultArrayItem extends Component <Props> {
       removeAddedItem();
       addAction({
         entityData: processedEntityData,
-        formattedData,
+        formData: formattedData,
         path,
         properties: formData
       });

@@ -188,7 +188,7 @@ class ObjectFieldTemplate extends Component<Props, State> {
     if (isFunction(editAction)) {
       editAction({
         entityData: editedEntityData,
-        formattedData,
+        formData: formattedData,
         path,
         properties: draftFormData
       });
