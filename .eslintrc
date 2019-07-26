@@ -90,6 +90,7 @@
       {
         "devDependencies": [
           "config/**",
+          "**/stories/**",
           "**/*.stories.js",
           "**/*.test.js"
         ]
