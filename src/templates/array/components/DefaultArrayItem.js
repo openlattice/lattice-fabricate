@@ -35,7 +35,7 @@ type Props = {
   onReorderClick :(index :number, newIndex :number) => Function;
   orderable :boolean;
   readonly :boolean;
-  removeAddedIndex ? :(index :number) => void;
+  removeAddedItem ? :() => void;
   showIndex ? :boolean;
 }
 
@@ -43,30 +43,30 @@ class DefaultArrayItem extends Component <Props> {
 
   static defaultProps = {
     addAction: undefined,
-    removeAddedIndex: undefined,
+    removeAddedItem: undefined,
     addState: false,
     isAdding: false,
     showIndex: true,
   };
 
-  // TODO: Move logic from SchemaField into DefaultArrayItem to avoid composing callbacks.
-
   createDropIndexHandler = () => {
     const {
       index,
       onDropIndexClick,
-      removeAddedIndex
+      removeAddedItem
     } = this.props;
     return () => {
-      if (removeAddedIndex) {
-        removeAddedIndex(index);
+      if (removeAddedItem) {
+        removeAddedItem();
       }
+      // RJSF remove item
       onDropIndexClick(index)();
     };
   }
 
   handleAddAction = () => {
     const { addAction, children } = this.props;
+    // array item child is SchemaField
     const { formData } = children.props;
     if (isFunction(addAction)) {
       addAction({ formData: wrapFormDataInPageSection([{ ...formData }]) });

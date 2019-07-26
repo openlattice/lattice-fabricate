@@ -1,7 +1,6 @@
 // @flow
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Set } from 'immutable';
 import { Button, Colors } from 'lattice-ui-kit';
 import { getUiOptions } from 'react-jsonschema-form/lib/utils';
 import type { ComponentType } from 'react';
@@ -48,7 +47,7 @@ type Props = {
 }
 
 type State = {
-  addedItems :Set<number>;
+  hasAddedItem :boolean;
 }
 class ArrayFieldTemplate extends Component<Props, State> {
 
@@ -62,30 +61,29 @@ class ArrayFieldTemplate extends Component<Props, State> {
   };
 
   state = {
-    addedItems: Set()
+    hasAddedItem: false,
   }
 
   handleAddClick = (e :SyntheticEvent<HTMLButtonElement>) => {
-    const { disabled, onAddClick, items } = this.props;
-    const { addedItems } = this.state;
+    const { disabled, onAddClick } = this.props;
+
     if (disabled) {
-      this.setState({
-        addedItems: addedItems.add(items.length)
-      });
+      this.setState({ hasAddedItem: true });
     }
+
+    // RJSF add new item
     onAddClick(e);
   };
 
-  removeAddedItemIndex = (index :number) => {
-    const { addedItems } = this.state;
-    this.setState({
-      addedItems: addedItems.delete(index)
-    });
+  removeAddedItem = () => {
+    this.setState({ hasAddedItem: false });
   }
 
-  createAddAction = (action :() => any, index :number) => (...params :any[]) => {
+  createAddAction = (action :() => any) => (...params :any[]) => {
     // remove index from addedItems
-    this.removeAddedItemIndex(index);
+    this.removeAddedItem();
+
+    // invoke addAction from formContext
     action(...params);
   };
 
@@ -104,7 +102,7 @@ class ArrayFieldTemplate extends Component<Props, State> {
       TitleField,
       uiSchema,
     } = this.props;
-    const { addedItems } = this.state;
+    const { hasAddedItem } = this.state;
     const {
       addButtonText = 'Add',
       orderable = true,
@@ -137,20 +135,19 @@ class ArrayFieldTemplate extends Component<Props, State> {
               showIndex,
             };
 
-            const addState = addedItems.has(index);
-
-            // give additional responsibility to added items
-            if (addState
+            // give additional responsibility to added item
+            if (hasAddedItem
               && !!formContext
               && !!options
+              && index === items.length - 1
             ) {
               const { addActions, isAdding } = formContext;
               const { addActionKey } = options;
-              const action = this.createAddAction(addActions[addActionKey], index);
-              additionalProps.removeAddedIndex = this.removeAddedItemIndex;
+              const action = this.createAddAction(addActions[addActionKey]);
+              additionalProps.removeAddedItem = this.removeAddedItem;
               additionalProps.addAction = action;
               additionalProps.isAdding = isAdding;
-              additionalProps.addState = addState;
+              additionalProps.addState = hasAddedItem;
             }
 
             return (
@@ -162,7 +159,7 @@ class ArrayFieldTemplate extends Component<Props, State> {
           })}
           {(canAdd) && (
             <MarginButton
-                disabled={addedItems.size}
+                disabled={hasAddedItem}
                 mode="subtle"
                 onClick={this.handleAddClick}>
               {addButtonText}
