@@ -184,6 +184,7 @@ class ObjectFieldTemplate extends Component<Props, State> {
         formData: draftFormData,
         path
       });
+      this.disableFields();
     }
 
   };
@@ -236,7 +237,7 @@ class ObjectFieldTemplate extends Component<Props, State> {
 
             if (editable && isEditing) {
               const tempFormData = draftFormData[contentName];
-              // temporarily inject override props to children
+              // inject override props to children
               state = {
                 ...contentProps,
                 disabled: disabled && !isEditing,
