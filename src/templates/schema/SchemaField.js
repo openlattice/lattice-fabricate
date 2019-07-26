@@ -12,10 +12,10 @@ import { isValidUUID } from '../../utils/ValidationUtils';
 import { parseIdIndex } from '../object/utils';
 import {
   getEntityAddressKey,
+  getEntityKeyIdsByEntitySetId,
   isValidEntityAddressKey,
   parseEntityAddressKey,
   replaceEntityAddressKeys,
-  getEKIDsBySet,
 } from '../../utils/DataProcessingUtils';
 import type { EntityAddress } from '../../utils/DataProcessingUtils';
 
@@ -85,7 +85,7 @@ class CustomSchemaField extends Component<Props, State> {
       formData,
       this.findEntityAddressKeyFromMap
     );
-    const EKIDsbySet = getEKIDsBySet(formDataWithKeys, entitySetIds);
+    const EKIDsbySet = getEntityKeyIdsByEntitySetId(formDataWithKeys, entitySetIds);
     if (isFunction(deleteAction)) {
       deleteAction(EKIDsbySet);
     }

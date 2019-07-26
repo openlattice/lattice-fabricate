@@ -562,8 +562,7 @@ const replaceEntityAddressKeys = (input :Object | Map, replacer :Replacer) => {
   }, {});
 };
 
-// for each key
-const getEKIDsBySet = (data :Object, entitySetIds :Object) :{ [string] :Set<UUID> } => {
+const getEntityKeyIdsByEntitySetId = (data :Object, entitySetIds :Object) :{ [string] :Set<UUID> } => {
 
   const EKIDsBySet :{ [string] :Set<UUID> } = transform(data, (result :Object, value :any, key :string) => {
     if (isValidEntityAddressKey(key));
@@ -577,16 +576,20 @@ const getEKIDsBySet = (data :Object, entitySetIds :Object) :{ [string] :Set<UUID
       (result[entitySetId] || (result[entitySetId] = new Set())).add(entityKeyId);
     }
     else {
-      LOG.error('getEKIDsBySet: entity set id not found');
+      LOG.error('getEntityKeyIdsByEntitySetId: entity set id not found');
     }
 
   }, {});
   return EKIDsBySet;
 };
 
-const wrapFormDataInPageSection = (formData :Object) => {
+const wrapFormDataInPageSection = (formData :Object, pageSection :string = getPageSectionKey(1, 1)) => {
+  if (!isValidPageSectionKey(pageSection)) {
+    throw Error('invalid "pageSection" param');
+  }
+
   let formattedFormData = {};
-  formattedFormData = set(formattedFormData, getPageSectionKey(1, 1), formData);
+  formattedFormData = set(formattedFormData, pageSection, formData);
   return formattedFormData;
 };
 
@@ -602,7 +605,7 @@ export {
   INDEX_MAPPERS,
   KEY_MAPPERS,
   VALUE_MAPPERS,
-  getEKIDsBySet,
+  getEntityKeyIdsByEntitySetId,
   getEntityAddressKey,
   getPageSectionKey,
   isValidEntityAddressKey,
