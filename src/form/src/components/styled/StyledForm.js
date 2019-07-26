@@ -104,6 +104,10 @@ const StyledForm = styled(Form)`
       width: 100%;
     }
   }
+
+  .hidden {
+    display: none;
+  }
 `;
 
 export default StyledForm;
