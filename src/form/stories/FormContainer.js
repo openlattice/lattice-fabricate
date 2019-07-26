@@ -2,21 +2,25 @@
 import React, { Component } from 'react';
 import { DateTime } from 'luxon';
 import { action } from '@storybook/addon-actions';
+import { get, setIn } from 'immutable';
 
 import Form from '..';
 import { schema, uiSchema } from './constants/dataSchemas';
 import {
+  getEntityAddressKey,
+  getPageSectionKey,
+  processAssociationEntityData,
   processEntityData,
-  processAssociationEntityData
 } from '../../utils/DataProcessingUtils';
 import { ASSOCIATION_ENTITY_SET_NAMES, ENTITY_SET_NAMES, PROPERTY_TYPE_FQNS } from './constants/mockFQNs';
 import { entitySetIds, propertyTypeIds } from './constants/mockEDM';
+import mockExternalFormData from './constants/mockExternalFormData';
 import entityIndexToIdMap from './constants/entityIndexToIdMap';
 import type { EdgeDefinition } from '../../utils/DataProcessingUtils';
 
 const { INCLUDES_ESN } = ASSOCIATION_ENTITY_SET_NAMES;
 const { TASK_LIST_ESN, TASK_ESN } = ENTITY_SET_NAMES;
-const { COMPLETED_DT_FQN } = PROPERTY_TYPE_FQNS;
+const { COMPLETED_DT_FQN, INDEX_FQN } = PROPERTY_TYPE_FQNS;
 
 type Props = {
   submitAction :(any) => void;
@@ -27,6 +31,10 @@ type State = {
 };
 
 class FormContainer extends Component<Props, State> {
+
+  state = {
+    formData: mockExternalFormData
+  };
 
   getAssociations = () :EdgeDefinition[] => {
     const taskListEKID :string = '00000000-0000-0000-0000-000000000000';
@@ -45,7 +53,21 @@ class FormContainer extends Component<Props, State> {
     submitAction({ entityData, associationData });
   }
 
+  updateItemIndicies = ({ formData } :Object) => {
+    const pageSection = getPageSectionKey(1, 1);
+    const indexKey = getEntityAddressKey(-1, TASK_ESN, INDEX_FQN);
+    const taskItems = get(formData, getPageSectionKey(1, 1));
+    console.log('updating index', taskItems);
+    let newFormData = formData;
+    taskItems.forEach((item, index) => {
+      newFormData = setIn(formData, [pageSection, index, indexKey], index);
+    });
+
+    this.setState({ formData: newFormData });
+  }
+
   render() {
+    const { formData } = this.state;
     const formContext = {
       addActions: {
         addTaskItem: action('Adding item')
@@ -61,9 +83,11 @@ class FormContainer extends Component<Props, State> {
     return (
       <Form
           disabled
-          schema={schema}
           formContext={formContext}
+          formData={formData}
+          onChange={this.updateItemIndicies}
           onSubmit={this.handleSubmit}
+          schema={schema}
           uiSchema={uiSchema} />
     );
   }
