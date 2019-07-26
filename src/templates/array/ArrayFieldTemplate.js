@@ -49,6 +49,7 @@ type Props = {
 type State = {
   hasAddedItem :boolean;
 }
+
 class ArrayFieldTemplate extends Component<Props, State> {
 
   static defaultProps = {
@@ -78,14 +79,6 @@ class ArrayFieldTemplate extends Component<Props, State> {
   removeAddedItem = () => {
     this.setState({ hasAddedItem: false });
   }
-
-  createAddAction = (action :() => any) => (...params :any[]) => {
-    // remove index from addedItems
-    this.removeAddedItem();
-
-    // invoke addAction from formContext
-    action(...params);
-  };
 
   render() {
     const {
@@ -143,7 +136,8 @@ class ArrayFieldTemplate extends Component<Props, State> {
             ) {
               const { addActions, isAdding } = formContext;
               const { addActionKey } = options;
-              const action = this.createAddAction(addActions[addActionKey]);
+              const action = addActions[addActionKey];
+
               additionalProps.removeAddedItem = this.removeAddedItem;
               additionalProps.addAction = action;
               additionalProps.isAdding = isAdding;
