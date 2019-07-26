@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import isFunction from 'lodash/isFunction';
+import { Set } from 'immutable';
 import { Button, Colors } from 'lattice-ui-kit';
 import { getUiOptions } from 'react-jsonschema-form/lib/utils';
 import type { ComponentType } from 'react';
@@ -48,7 +48,7 @@ type Props = {
 }
 
 type State = {
-  addState :boolean;
+  addedItems :Set<number>;
 }
 class ArrayFieldTemplate extends Component<Props, State> {
 
@@ -62,16 +62,31 @@ class ArrayFieldTemplate extends Component<Props, State> {
   };
 
   state = {
-    addState: false
+    addedItems: Set()
   }
 
   handleAddClick = (e :SyntheticEvent<HTMLButtonElement>) => {
-    const { disabled, onAddClick } = this.props;
+    const { disabled, onAddClick, items } = this.props;
+    const { addedItems } = this.state;
     if (disabled) {
-      // only set addState when adding in disabled list
-      this.setState({ addState: true });
+      this.setState({
+        addedItems: addedItems.add(items.length)
+      });
     }
     onAddClick(e);
+  };
+
+  removeAddedItemIndex = (index :number) => {
+    const { addedItems } = this.state;
+    this.setState({
+      addedItems: addedItems.delete(index)
+    });
+  }
+
+  createAddAction = (action :() => any, index :number) => (...params :any[]) => {
+    // remove index from addedItems
+    this.removeAddedItemIndex(index);
+    action(...params);
   };
 
   render() {
@@ -89,7 +104,7 @@ class ArrayFieldTemplate extends Component<Props, State> {
       TitleField,
       uiSchema,
     } = this.props;
-    const { addState } = this.state;
+    const { addedItems } = this.state;
     const {
       addButtonText = 'Add',
       orderable = true,
@@ -122,15 +137,18 @@ class ArrayFieldTemplate extends Component<Props, State> {
               showIndex,
             };
 
-            // give additional responsibility to last item when adding items
+            const addState = addedItems.has(index);
+
+            // give additional responsibility to added items
             if (addState
               && !!formContext
               && !!options
-              && index === items.length - 1
             ) {
               const { addActions, isAdding } = formContext;
               const { addActionKey } = options;
-              additionalProps.addAction = addActions[addActionKey];
+              const action = this.createAddAction(addActions[addActionKey], index);
+              additionalProps.removeAddedIndex = this.removeAddedItemIndex;
+              additionalProps.addAction = action;
               additionalProps.isAdding = isAdding;
               additionalProps.addState = addState;
             }
@@ -144,6 +162,7 @@ class ArrayFieldTemplate extends Component<Props, State> {
           })}
           {(canAdd) && (
             <MarginButton
+                disabled={addedItems.size}
                 mode="subtle"
                 onClick={this.handleAddClick}>
               {addButtonText}

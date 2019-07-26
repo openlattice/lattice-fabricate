@@ -35,6 +35,7 @@ type Props = {
   onReorderClick :(index :number, newIndex :number) => Function;
   orderable :boolean;
   readonly :boolean;
+  removeAddedIndex ? :(index :number) => void;
   showIndex ? :boolean;
 }
 
@@ -42,17 +43,26 @@ class DefaultArrayItem extends Component <Props> {
 
   static defaultProps = {
     addAction: undefined,
+    removeAddedIndex: undefined,
     addState: false,
     isAdding: false,
     showIndex: true,
   };
 
+  // TODO: Move logic from SchemaField into DefaultArrayItem to avoid composing callbacks.
+
   createDropIndexHandler = () => {
     const {
       index,
       onDropIndexClick,
+      removeAddedIndex
     } = this.props;
-    return onDropIndexClick(index);
+    return () => {
+      if (removeAddedIndex) {
+        removeAddedIndex(index);
+      }
+      onDropIndexClick(index)();
+    };
   }
 
   handleAddAction = () => {
