@@ -42,10 +42,6 @@ const VALUE_MAPPERS :'VALUE_MAPPERS' = 'VALUE_MAPPERS';
 
 const { FullyQualifiedName } = Models;
 
-function getPageSectionKey(page :number, section :number) :string {
-  return `page${page}section${section}`;
-}
-
 declare type UUID = string;
 type IndexOrId = number | UUID;
 type EntityData = { [UUID] :any[] };
@@ -57,6 +53,14 @@ type EntityAddress = {|
   entitySetName :string;
   propertyTypeFQN :FQN;
 |};
+
+function getPageSectionKey(page :number, section :number) :string {
+  return `page${page}section${section}`;
+}
+
+function isValidPageSectionKey(key :string) :boolean {
+  return /^page\d*section\d*$/.test(key);
+}
 
 function getEntityAddressKey(
   indexOrEntityKeyId :IndexOrId,
@@ -569,6 +573,12 @@ const wrapFormDataInPageSection = (formData :Object) => {
   return formattedFormData;
 };
 
+const parseIdSchemaPath = (idSchema :Object) => {
+  const path = idSchema.$id.split('_');
+  path.shift();
+
+  return path;
+};
 
 export {
   ATAT,
@@ -579,7 +589,9 @@ export {
   getEntityAddressKey,
   getPageSectionKey,
   isValidEntityAddressKey,
+  isValidPageSectionKey,
   parseEntityAddressKey,
+  parseIdSchemaPath,
   processAssociationEntityData,
   processEntityData,
   processEntityDataForPartialReplace,
