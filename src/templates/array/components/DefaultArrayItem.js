@@ -9,7 +9,7 @@ import type { Element } from 'react';
 import IconButton from '../../components/IconButton';
 import IndexCircle from '../../components/IndexCircle';
 import ActionGutter from '../../components/styled/ActionGutter';
-import { wrapFormDataInPageSection } from '../../../utils/DataProcessingUtils';
+import { wrapFormDataInPageSection, parseIdSchemaPath } from '../../../utils/DataProcessingUtils';
 
 
 const ItemWrapper = styled.div`
@@ -17,6 +17,7 @@ const ItemWrapper = styled.div`
 `;
 
 const ButtonWithMargin = styled(Button)`
+  margin-top: 20px;
   margin-left: ${props => props.orderable && '36px'};
 `;
 
@@ -65,10 +66,13 @@ class DefaultArrayItem extends Component <Props> {
   }
 
   handleAddAction = () => {
-    const { addAction, children } = this.props;
+    const { addAction, children, removeAddedItem } = this.props;
     // array item child is SchemaField
-    const { formData } = children.props;
-    if (isFunction(addAction)) {
+    const { formData, idSchema } = children.props;
+    const path = parseIdSchemaPath(idSchema);
+    // console.log(path);
+    if (isFunction(addAction) && isFunction(removeAddedItem)) {
+      removeAddedItem();
       addAction({ formData: wrapFormDataInPageSection([{ ...formData }]) });
     }
   }
