@@ -58,8 +58,25 @@ function getPageSectionKey(page :number, section :number) :string {
   return `page${page}section${section}`;
 }
 
+const PAGE_SECTION_REGEX = /^page(?<page>\d*)section(?<section>\d*)$/;
+
 function isValidPageSectionKey(key :string) :boolean {
-  return /^page\d*section\d*$/.test(key);
+  return PAGE_SECTION_REGEX.test(key);
+}
+
+function parsePageSectionKey(key :string) :{page :string, section :string} | void {
+  if (typeof key === 'string') {
+    const errorMsg = 'invalid param: key must be a string';
+    LOG.error(errorMsg, key);
+    throw new Error(errorMsg);
+  }
+
+  const match = key.match(PAGE_SECTION_REGEX);
+  if (isPlainObject(match) && match.group) {
+    return match.group;
+  }
+
+  return undefined;
 }
 
 function getEntityAddressKey(
@@ -592,6 +609,7 @@ export {
   isValidPageSectionKey,
   parseEntityAddressKey,
   parseIdSchemaPath,
+  parsePageSectionKey,
   processAssociationEntityData,
   processEntityData,
   processEntityDataForPartialReplace,
