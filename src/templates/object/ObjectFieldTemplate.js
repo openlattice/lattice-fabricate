@@ -20,6 +20,7 @@ import {
   processEntityDataForPartialReplace,
   replaceEntityAddressKeys,
   wrapFormDataInPageSection,
+  parseIdSchemaPath,
 } from '../../utils/DataProcessingUtils';
 import type { EntityAddress } from '../../utils/DataProcessingUtils';
 
@@ -52,7 +53,16 @@ class ObjectFieldTemplate extends Component<Props, State> {
     };
   }
 
+  componentDidUpdate(prevProps :Props) {
+    const { formData } = this.props;
+    const { formData: prevFormData } = prevProps;
+    if (formData !== prevFormData) {
+      this.disableFields();
+    }
+  }
+
   enableFields = () => {
+    console.log('enabling fields');
     const { formData } = this.props;
     this.setState({
       isEditing: true,
@@ -175,8 +185,7 @@ class ObjectFieldTemplate extends Component<Props, State> {
       mappers
     );
 
-    const path = idSchema.$id.split('_');
-    path.shift();
+    const path = parseIdSchemaPath(idSchema);
 
     if (isFunction(editAction)) {
       editAction({
