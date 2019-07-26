@@ -57,7 +57,6 @@ class FormContainer extends Component<Props, State> {
     const pageSection = getPageSectionKey(1, 1);
     const indexKey = getEntityAddressKey(-1, TASK_ESN, INDEX_FQN);
     const taskItems = get(formData, getPageSectionKey(1, 1));
-    console.log('updating index', taskItems);
     let newFormData = formData;
     taskItems.forEach((item, index) => {
       newFormData = setIn(formData, [pageSection, index, indexKey], index);
