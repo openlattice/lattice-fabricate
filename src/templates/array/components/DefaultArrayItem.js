@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import isFunction from 'lodash/isFunction';
+import findLast from 'lodash/findLast';
 import { faChevronUp, faChevronDown } from '@fortawesome/pro-solid-svg-icons';
 import { Button } from 'lattice-ui-kit';
 import type { Element } from 'react';
@@ -9,7 +10,12 @@ import type { Element } from 'react';
 import IconButton from '../../components/IconButton';
 import IndexCircle from '../../components/IndexCircle';
 import ActionGutter from '../../components/styled/ActionGutter';
-import { wrapFormDataInPageSection, parseIdSchemaPath } from '../../../utils/DataProcessingUtils';
+import {
+  isValidPageSectionKey,
+  parseIdSchemaPath,
+  processEntityData,
+  wrapFormDataInPageSection,
+} from '../../../utils/DataProcessingUtils';
 
 
 const ItemWrapper = styled.div`
@@ -68,12 +74,28 @@ class DefaultArrayItem extends Component <Props> {
   handleAddAction = () => {
     const { addAction, children, removeAddedItem } = this.props;
     // array item child is SchemaField
-    const { formData, idSchema } = children.props;
+    const { formData, idSchema, registry } = children.props;
     const path = parseIdSchemaPath(idSchema);
-    // console.log(path);
+    const pageSection = findLast(path, isValidPageSectionKey);
+
+    const { entitySetIds, propertyTypeIds, mappers } = registry.formContext;
+    const formattedData = wrapFormDataInPageSection([{ ...formData }], pageSection);
+
+    const processedEntityData = processEntityData(
+      formattedData,
+      entitySetIds,
+      propertyTypeIds,
+      mappers
+    );
+
     if (isFunction(addAction) && isFunction(removeAddedItem)) {
       removeAddedItem();
-      addAction({ formData: wrapFormDataInPageSection([{ ...formData }]) });
+      addAction({
+        entityData: processedEntityData,
+        formattedData,
+        path,
+        properties: formData
+      });
     }
   }
 

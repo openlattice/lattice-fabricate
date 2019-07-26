@@ -62,7 +62,6 @@ class ObjectFieldTemplate extends Component<Props, State> {
   }
 
   enableFields = () => {
-    console.log('enabling fields');
     const { formData } = this.props;
     this.setState({
       isEditing: true,
@@ -160,14 +159,15 @@ class ObjectFieldTemplate extends Component<Props, State> {
 
     // get array index if relevant
     const arrayIndex = parseIdIndex(idSchema);
+    const path = parseIdSchemaPath(idSchema);
 
     // wrap formData in pageSection
-    const formattedDraft = wrapFormDataInPageSection(draftFormData);
+    const formattedData = wrapFormDataInPageSection(draftFormData);
     const formattedOriginal = wrapFormDataInPageSection(formData);
 
     // replace address keys with entityKeyId
     const draftWithKeys = replaceEntityAddressKeys(
-      formattedDraft,
+      formattedData,
       this.findEntityAddressKeyFromMap(arrayIndex)
     );
 
@@ -185,13 +185,12 @@ class ObjectFieldTemplate extends Component<Props, State> {
       mappers
     );
 
-    const path = parseIdSchemaPath(idSchema);
-
     if (isFunction(editAction)) {
       editAction({
         entityData: editedEntityData,
-        formData: draftFormData,
-        path
+        formattedData,
+        path,
+        properties: draftFormData
       });
       this.disableFields();
     }
