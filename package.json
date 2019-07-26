@@ -32,7 +32,7 @@
     "lattice": "~0.62.0",
     "lodash": "~4.17.0",
     "loglevel": "~1.6.0",
-    "luxon": "~1.17.2",
+    "luxon": "~1.17.0",
     "react-jsonschema-form": "~1.6.1"
   },
   "devDependencies": {
