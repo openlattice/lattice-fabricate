@@ -7,12 +7,14 @@ import { ArrayFieldTemplate, FieldTemplate, ObjectFieldTemplate } from '../../..
 import {
   BaseInput,
   CheckboxWidget,
+  RadioWidget,
   TextareaWidget
 } from '../../../widgets';
 
 const widgets = {
   BaseInput,
   CheckboxWidget,
+  RadioWidget,
   TextareaWidget,
 };
 
