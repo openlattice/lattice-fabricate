@@ -15,6 +15,7 @@ import {
   getEntityKeyIdsByEntitySetId,
   isValidEntityAddressKey,
   parseEntityAddressKey,
+  parseIdSchemaPath,
   replaceEntityAddressKeys,
 } from '../../utils/DataProcessingUtils';
 import type { EntityAddress } from '../../utils/DataProcessingUtils';
@@ -79,7 +80,12 @@ class CustomSchemaField extends Component<Props, State> {
   };
 
   handleConfirmDelete = () => {
-    const { onDelete, formData, registry } = this.props;
+    const {
+      onDelete,
+      formData,
+      idSchema,
+      registry
+    } = this.props;
     const { entitySetIds = {}, deleteAction } = registry.formContext;
     const formDataWithKeys = replaceEntityAddressKeys(
       formData,
@@ -87,7 +93,8 @@ class CustomSchemaField extends Component<Props, State> {
     );
     const EKIDsbySet = getEntityKeyIdsByEntitySetId(formDataWithKeys, entitySetIds);
     if (isFunction(deleteAction)) {
-      deleteAction(EKIDsbySet);
+      const path = parseIdSchemaPath(idSchema);
+      deleteAction({ entityData: EKIDsbySet, path });
     }
     onDelete();
     this.closeDeleteModal();
