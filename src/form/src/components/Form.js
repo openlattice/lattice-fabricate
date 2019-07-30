@@ -2,12 +2,15 @@
 import React from 'react';
 import { Button } from 'lattice-ui-kit';
 import styled from 'styled-components';
+import isFunction from 'lodash/isFunction';
 
 import { ActionGroup, StyledForm } from './styled';
 import { ArrayFieldTemplate, FieldTemplate, ObjectFieldTemplate } from '../../../templates';
 import {
   BaseInput,
   CheckboxWidget,
+  RadioWidget,
+  SelectWidget,
   TextareaWidget
 } from '../../../widgets';
 import SchemaField from '../../../templates/schema/SchemaField';
@@ -15,6 +18,8 @@ import SchemaField from '../../../templates/schema/SchemaField';
 const widgets = {
   BaseInput,
   CheckboxWidget,
+  RadioWidget,
+  SelectWidget,
   TextareaWidget,
 };
 
@@ -30,7 +35,7 @@ type Props = {
   disabled :boolean;
   onSubmit :() => void;
   onChange :() => void;
-  onDiscard :() => void;
+  onDiscard ? :() => void;
 };
 
 const Form = (props :Props) => {
@@ -61,12 +66,16 @@ const Form = (props :Props) => {
           : (
             <ActionGroup>
               <Button mode="primary" type="submit">Submit</Button>
-              <Button onClick={onDiscard}>Discard</Button>
+              { isFunction(onDiscard) && <Button onClick={onDiscard}>Discard</Button> }
             </ActionGroup>
           )
       }
     </StyledForm>
   );
+};
+
+Form.defaultProps = {
+  onDiscard: undefined
 };
 
 export default Form;
