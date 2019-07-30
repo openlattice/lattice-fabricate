@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import { Button } from 'lattice-ui-kit';
+import isFunction from 'lodash/isFunction';
 
 import { ActionGroup, StyledForm } from './styled';
 import { ArrayFieldTemplate, FieldTemplate, ObjectFieldTemplate } from '../../../templates';
@@ -23,7 +24,7 @@ const widgets = {
 type Props = {
   onSubmit :() => void;
   onChange :() => void;
-  onDiscard :() => void;
+  onDiscard ? :() => void;
 };
 
 const Form = (props :Props) => {
@@ -47,10 +48,14 @@ const Form = (props :Props) => {
         {...restProps}>
       <ActionGroup>
         <Button mode="primary" type="submit">Submit</Button>
-        <Button onClick={onDiscard}>Discard</Button>
+        { isFunction(onDiscard) && <Button onClick={onDiscard}>Discard</Button> }
       </ActionGroup>
     </StyledForm>
   );
+};
+
+Form.defaultProps = {
+  onDiscard: undefined
 };
 
 export default Form;
