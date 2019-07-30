@@ -1,7 +1,8 @@
 // @flow
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Button, Colors } from 'lattice-ui-kit';
+import { getUiOptions } from 'react-jsonschema-form/lib/utils';
 import type { ComponentType } from 'react';
 
 import { ArrayFieldDescription, ArrayFieldTitle, DefaultArrayItem } from './components';
@@ -26,88 +27,142 @@ const ArrayList = styled.div`
   }
 `;
 
-type ArrayFieldTemplateProps = {
-  canAdd ? :boolean,
-  className :string,
-  DescriptionField :ComponentType<any>;
+type Props = {
   // disabled ? :boolean,
-  idSchema :{ $id :string };
-  items :Object[],
-  onAddClick :() => void;
   // readonly ? :boolean,
+  DescriptionField :ComponentType<any>;
+  TitleField :ComponentType<any>;
+  canAdd ? :boolean;
+  disabled :boolean;
+  className :string;
+  formContext ? :Object;
+  formData :Object;
+  idSchema :{ $id :string };
+  items :Object[];
+  onAddClick :(e :SyntheticEvent<HTMLButtonElement>) => void;
   required ? :boolean;
   schema :Object;
-  title ? :string,
-  TitleField :ComponentType<any>;
+  title ? :string;
   uiSchema :Object;
 }
 
-const ArrayFieldTemplate = (props :ArrayFieldTemplateProps) => {
-  const {
-    canAdd,
-    className,
-    DescriptionField,
-    // disabled,
-    idSchema,
-    items,
-    onAddClick,
-    // readonly,
-    required,
-    schema,
-    title,
-    TitleField,
-    uiSchema,
-  } = props;
+type State = {
+  hasAddedItem :boolean;
+}
 
-  const {
-    addButtonText = 'Add',
-    orderable = true,
-    showIndex = true
-  } = uiSchema['ui:options'] || {};
+class ArrayFieldTemplate extends Component<Props, State> {
 
-  return (
-    <div className={className}>
-      <ArrayFieldTitle
-          idSchema={idSchema}
-          key={`array-field-title-${idSchema.$id}`}
-          required={required}
-          title={uiSchema['ui:title'] || title}
-          TitleField={TitleField} />
+  static defaultProps = {
+    canAdd: true,
+    formContext: undefined,
+    // disabled: false,
+    // readonly: false,
+    required: false,
+    title: '',
+  };
 
-      {(uiSchema['ui:description'] || schema.description) && (
-        <ArrayFieldDescription
-            description={uiSchema['ui:description'] || schema.description}
-            DescriptionField={DescriptionField}
+  state = {
+    hasAddedItem: false,
+  }
+
+  handleAddClick = (e :SyntheticEvent<HTMLButtonElement>) => {
+    const { disabled, onAddClick } = this.props;
+
+    if (disabled) {
+      this.setState({ hasAddedItem: true });
+    }
+
+    // RJSF add new item
+    onAddClick(e);
+  };
+
+  removeAddedItem = () => {
+    this.setState({ hasAddedItem: false });
+  }
+
+  render() {
+    const {
+      canAdd,
+      className,
+      DescriptionField,
+      formContext,
+      idSchema,
+      items,
+      // readonly,
+      required,
+      schema,
+      title,
+      TitleField,
+      uiSchema,
+    } = this.props;
+    const { hasAddedItem } = this.state;
+    const {
+      addButtonText = 'Add',
+      orderable = true,
+      showIndex = true
+    } = uiSchema['ui:options'] || {};
+
+    return (
+      <div className={className}>
+        <ArrayFieldTitle
             idSchema={idSchema}
-            key={`array-field-description-${idSchema.$id}`} />
-      )}
-      <ArrayList
-          key={`array-item-list-${idSchema.$id}`}>
-        {items && items.map(itemProps => (
-          <DefaultArrayItem
-              key={`array-item-${idSchema.$id}-${itemProps.index}`}
-              {...itemProps}
-              orderable={orderable}
-              showIndex={showIndex} />
-        ))}
-        {(canAdd) && (
-          <MarginButton
-              mode="subtle"
-              onClick={onAddClick}>
-            {addButtonText}
-          </MarginButton>
-        )}
-      </ArrayList>
-    </div>
-  );
-};
+            key={`array-field-title-${idSchema.$id}`}
+            required={required}
+            title={uiSchema['ui:title'] || title}
+            TitleField={TitleField} />
 
-ArrayFieldTemplate.defaultProps = {
-  canAdd: true,
-  // disabled: false,
-  // readonly: false,
-  required: false,
-  title: '',
-};
+        {(uiSchema['ui:description'] || schema.description) && (
+          <ArrayFieldDescription
+              description={uiSchema['ui:description'] || schema.description}
+              DescriptionField={DescriptionField}
+              idSchema={idSchema}
+              key={`array-field-description-${idSchema.$id}`} />
+        )}
+        <ArrayList
+            key={`array-item-list-${idSchema.$id}`}>
+          {items && items.map((itemProps, index) => {
+            const options = getUiOptions(uiSchema);
+
+            const additionalProps :any = {
+              orderable,
+              showIndex,
+            };
+
+            // give additional responsibility to added item
+            if (hasAddedItem
+              && !!formContext
+              && !!options
+              && index === items.length - 1
+            ) {
+              const { addActions, isAdding } = formContext;
+              const { addActionKey } = options;
+              const action = addActions[addActionKey];
+
+              additionalProps.removeAddedItem = this.removeAddedItem;
+              additionalProps.addAction = action;
+              additionalProps.isAdding = isAdding;
+              additionalProps.addState = hasAddedItem;
+            }
+
+            return (
+              <DefaultArrayItem
+                  key={`array-item-${idSchema.$id}-${itemProps.index}`}
+                  {...itemProps}
+                  {...additionalProps} />
+            );
+          })}
+          {(canAdd) && (
+            <MarginButton
+                disabled={hasAddedItem}
+                mode="subtle"
+                onClick={this.handleAddClick}>
+              {addButtonText}
+            </MarginButton>
+          )}
+        </ArrayList>
+      </div>
+    );
+  }
+}
 
 export default ArrayFieldTemplate;

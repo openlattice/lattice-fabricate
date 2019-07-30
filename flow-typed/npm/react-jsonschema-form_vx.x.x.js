@@ -20,3 +20,7 @@ declare module 'react-jsonschema-form' {
 declare module 'react-jsonschema-form/lib/utils' {
   declare module.exports: any;
 }
+
+declare module 'react-jsonschema-form/lib/components/fields/SchemaField' {
+  declare module.exports: any;
+}

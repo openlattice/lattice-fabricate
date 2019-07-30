@@ -42,10 +42,6 @@ const VALUE_MAPPERS :'VALUE_MAPPERS' = 'VALUE_MAPPERS';
 
 const { FullyQualifiedName } = Models;
 
-function getPageSectionKey(page :number, section :number) :string {
-  return `page${page}_section${section}`;
-}
-
 declare type UUID = string;
 type IndexOrId = number | UUID;
 type EntityData = { [UUID] :any[] };
@@ -57,6 +53,31 @@ type EntityAddress = {|
   entitySetName :string;
   propertyTypeFQN :FQN;
 |};
+
+function getPageSectionKey(page :number, section :number) :string {
+  return `page${page}section${section}`;
+}
+
+const PAGE_SECTION_REGEX = /^page(?<page>\d*)section(?<section>\d*)$/;
+
+function isValidPageSectionKey(key :string) :boolean {
+  return PAGE_SECTION_REGEX.test(key);
+}
+
+function parsePageSectionKey(key :string) :{page :string, section :string} | void {
+  if (typeof key === 'string') {
+    const errorMsg = 'invalid param: key must be a string';
+    LOG.error(errorMsg, key);
+    throw new Error(errorMsg);
+  }
+
+  const match = key.match(PAGE_SECTION_REGEX);
+  if (isPlainObject(match) && match.group) {
+    return match.group;
+  }
+
+  return undefined;
+}
 
 function getEntityAddressKey(
   indexOrEntityKeyId :IndexOrId,
@@ -541,19 +562,62 @@ const replaceEntityAddressKeys = (input :Object | Map, replacer :Replacer) => {
   }, {});
 };
 
+const getEntityKeyIdsByEntitySetId = (data :Object, entitySetIds :Object) :{ [string] :Set<UUID> } => {
+
+  const EKIDsBySet :{ [string] :Set<UUID> } = transform(data, (result :Object, value :any, key :string) => {
+    if (isValidEntityAddressKey(key));
+    const {
+      entityKeyId,
+      entitySetName
+    } = parseEntityAddressKey(key);
+
+    const entitySetId = get(entitySetIds, entitySetName);
+    if (entitySetId) {
+      (result[entitySetId] || (result[entitySetId] = new Set())).add(entityKeyId);
+    }
+    else {
+      LOG.error('getEntityKeyIdsByEntitySetId: entity set id not found');
+    }
+
+  }, {});
+  return EKIDsBySet;
+};
+
+const wrapFormDataInPageSection = (formData :Object, pageSection :string = getPageSectionKey(1, 1)) => {
+  if (!isValidPageSectionKey(pageSection)) {
+    throw Error('invalid "pageSection" param');
+  }
+
+  let formattedFormData = {};
+  formattedFormData = set(formattedFormData, pageSection, formData);
+  return formattedFormData;
+};
+
+const parseIdSchemaPath = (idSchema :Object) => {
+  const path = idSchema.$id.split('_');
+  path.shift();
+
+  return path;
+};
+
 export {
   ATAT,
   INDEX_MAPPERS,
   KEY_MAPPERS,
   VALUE_MAPPERS,
+  getEntityKeyIdsByEntitySetId,
   getEntityAddressKey,
   getPageSectionKey,
   isValidEntityAddressKey,
+  isValidPageSectionKey,
   parseEntityAddressKey,
+  parseIdSchemaPath,
+  parsePageSectionKey,
   processAssociationEntityData,
   processEntityData,
   processEntityDataForPartialReplace,
   replaceEntityAddressKeys,
+  wrapFormDataInPageSection,
 };
 
 export type {
