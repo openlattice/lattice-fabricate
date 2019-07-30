@@ -8,6 +8,7 @@ import {
   BaseInput,
   CheckboxWidget,
   RadioWidget,
+  SelectWidget,
   TextareaWidget
 } from '../../../widgets';
 
@@ -15,6 +16,7 @@ const widgets = {
   BaseInput,
   CheckboxWidget,
   RadioWidget,
+  SelectWidget,
   TextareaWidget,
 };
 
