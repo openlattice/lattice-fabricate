@@ -43,13 +43,8 @@ export const schema = {
       },
       default: [
         {
-          [getEntityAddressKey(-1, TASK_ESN, NAME_FQN)]: 123,
-          [getEntityAddressKey(-1, TASK_ESN, DESCRIPTION_FQN)]: undefined,
+          [getEntityAddressKey(-1, TASK_ESN, INDEX_FQN)]: 0
         },
-        {
-          [getEntityAddressKey(-1, TASK_ESN, NAME_FQN)]: 456,
-          [getEntityAddressKey(-1, TASK_ESN, DESCRIPTION_FQN)]: undefined,
-        }
       ]
     }
   }
@@ -59,6 +54,7 @@ export const uiSchema = {
   [getPageSectionKey(1, 1)]: {
     classNames: 'column-span-12',
     'ui:options': {
+      addActionKey: 'addTaskItem',
       addButtonText: '+ Add Task'
     },
     items: {

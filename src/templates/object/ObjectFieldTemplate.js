@@ -15,11 +15,12 @@ import { parseIdIndex } from './utils';
 import { isValidUUID } from '../../utils/ValidationUtils';
 import {
   getEntityAddressKey,
-  getPageSectionKey,
   isValidEntityAddressKey,
   parseEntityAddressKey,
   processEntityDataForPartialReplace,
   replaceEntityAddressKeys,
+  wrapFormDataInPageSection,
+  parseIdSchemaPath,
 } from '../../utils/DataProcessingUtils';
 import type { EntityAddress } from '../../utils/DataProcessingUtils';
 
@@ -50,6 +51,14 @@ class ObjectFieldTemplate extends Component<Props, State> {
       isEditing: false,
       draftFormData: {}
     };
+  }
+
+  componentDidUpdate(prevProps :Props) {
+    const { formData } = this.props;
+    const { formData: prevFormData } = prevProps;
+    if (formData !== prevFormData) {
+      this.disableFields();
+    }
   }
 
   enableFields = () => {
@@ -102,14 +111,14 @@ class ObjectFieldTemplate extends Component<Props, State> {
   }
 
   renderActionGutter = () => {
-    const { uiSchema } = this.props;
+    const { uiSchema, disabled } = this.props;
     const { isEditing } = this.state;
     const { editable } :Object = getUiOptions(uiSchema);
 
-    return (editable && !isEditing)
+    return (editable && disabled)
       ? (
         <ActionGutter>
-          <IconButton icon={faPen} onClick={this.enableFields} />
+          <IconButton icon={faPen} onClick={this.enableFields} disabled={isEditing} />
         </ActionGutter>
       )
       : null;
@@ -117,7 +126,7 @@ class ObjectFieldTemplate extends Component<Props, State> {
 
   findEntityAddressKeyFromMap = (arrayIndex ? :number) => (key :string) :string => {
     const { formContext } = this.props;
-    const { entityAddressToIdMap } = formContext;
+    const { entityIndexToIdMap } = formContext;
 
     if (isValidEntityAddressKey(key)) {
       const {
@@ -125,23 +134,18 @@ class ObjectFieldTemplate extends Component<Props, State> {
         entitySetName,
         propertyTypeFQN
       } :EntityAddress = parseEntityAddressKey(key);
-      let entityKeyId = getIn(entityAddressToIdMap, [entitySetName, entityIndex]);
-      if (entityIndex !== undefined && entityIndex < 0 && arrayIndex !== undefined) {
-        entityKeyId = getIn(entityAddressToIdMap, [entitySetName, entityIndex, arrayIndex]);
-      }
 
+      let entityKeyId = getIn(entityIndexToIdMap, [entitySetName, entityIndex]);
+      if (entityIndex !== undefined && entityIndex < 0 && arrayIndex !== undefined) {
+
+        entityKeyId = getIn(entityIndexToIdMap, [entitySetName, entityIndex, arrayIndex]);
+      }
       if (isValidUUID(entityKeyId)) {
         return getEntityAddressKey(entityKeyId, entitySetName, propertyTypeFQN);
       }
     }
     return key;
   };
-
-  formatFormData = (formData :Object) => {
-    let formattedFormData = {};
-    formattedFormData = set(formattedFormData, getPageSectionKey(1, 1), formData);
-    return formattedFormData;
-  }
 
   commitDraftFormData = () => {
     const { draftFormData } = this.state;
@@ -155,18 +159,19 @@ class ObjectFieldTemplate extends Component<Props, State> {
 
     // get array index if relevant
     const arrayIndex = parseIdIndex(idSchema);
+    const path = parseIdSchemaPath(idSchema);
 
     // wrap formData in pageSection
-    const formattedDraft = this.formatFormData(draftFormData);
-    const formattedOriginal = this.formatFormData(formData);
+    const formattedData = wrapFormDataInPageSection(draftFormData);
+    const formattedOriginal = wrapFormDataInPageSection(formData);
 
     // replace address keys with entityKeyId
     const draftWithKeys = replaceEntityAddressKeys(
-      formattedDraft,
+      formattedData,
       this.findEntityAddressKeyFromMap(arrayIndex)
     );
 
-    const standardwithKeys = replaceEntityAddressKeys(
+    const standardWithKeys = replaceEntityAddressKeys(
       formattedOriginal,
       this.findEntityAddressKeyFromMap(arrayIndex)
     );
@@ -174,24 +179,37 @@ class ObjectFieldTemplate extends Component<Props, State> {
     // process for partial replace
     const editedEntityData = processEntityDataForPartialReplace(
       draftWithKeys,
-      standardwithKeys,
+      standardWithKeys,
       entitySetIds,
       propertyTypeIds,
       mappers
     );
 
     if (isFunction(editAction)) {
-      editAction({ entityData: editedEntityData });
+      editAction({
+        entityData: editedEntityData,
+        formData: formattedData,
+        path,
+        properties: draftFormData
+      });
+      this.disableFields();
     }
 
   };
 
   renderSubmitSection = () => {
     const { isEditing } = this.state;
+    const { formContext } = this.props;
+    const { updateState } = formContext;
 
     return isEditing && (
       <ActionGroup className="column-span-12" noPadding>
-        <Button mode="primary" onClick={this.commitDraftFormData}>Submit</Button>
+        <Button
+            mode="primary"
+            onClick={this.commitDraftFormData}
+            isLoading={updateState}>
+              Submit
+        </Button>
         <Button onClick={this.disableFields}>Discard</Button>
       </ActionGroup>
     );
@@ -227,16 +245,16 @@ class ObjectFieldTemplate extends Component<Props, State> {
 
             if (editable && isEditing) {
               const tempFormData = draftFormData[contentName];
-              // temporarily inject override props to children
+              // inject override props to children
               state = {
                 ...contentProps,
                 disabled: disabled && !isEditing,
                 formData: tempFormData,
                 onChange: this.createDraftChangeHandler(contentName)
               };
+              return React.cloneElement(content, state);
             }
-
-            return React.cloneElement(content, state);
+            return content;
           })}
           { this.renderSubmitSection() }
         </div>
