@@ -6,6 +6,7 @@ import isFunction from 'lodash/isFunction';
 
 import { ActionGroup, StyledForm } from './styled';
 import { ArrayFieldTemplate, FieldTemplate, ObjectFieldTemplate } from '../../../templates';
+import { DescriptionField } from '../../../fields';
 import {
   BaseInput,
   CheckboxWidget,
@@ -24,6 +25,7 @@ const widgets = {
 };
 
 const fields = {
+  DescriptionField,
   SchemaField
 };
 
