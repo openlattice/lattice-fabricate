@@ -10,20 +10,20 @@ import { DescriptionField } from '../../../fields';
 import {
   BaseInput,
   CheckboxWidget,
+  DateWidget,
   RadioWidget,
   SelectWidget,
   TextareaWidget,
-  DateWidget,
 } from '../../../widgets';
 import SchemaField from '../../../templates/schema/SchemaField';
 
 const widgets = {
   BaseInput,
   CheckboxWidget,
+  DateWidget,
   RadioWidget,
   SelectWidget,
   TextareaWidget,
-  DateWidget
 };
 
 const fields = {
