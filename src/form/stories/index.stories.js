@@ -5,8 +5,8 @@ import { schema as simpleSchema, uiSchema as simpleUiSchema } from './constants/
 import { schema as arraySchema, uiSchema as arrayUiSchema } from './constants/arraySchemas';
 import { ObjectFieldTemplate } from '../../templates';
 
-import Form from '..';
 import FormContainer from './FormContainer';
+import Form from '..';
 
 storiesOf('Form', module)
   .add('Simple', () => (
