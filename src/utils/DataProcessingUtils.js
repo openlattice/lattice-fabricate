@@ -416,7 +416,6 @@ function processAssociationEntityData(
   let processedData = {};
 
   data.forEach((parts) => {
-
     const edgeEntitySetName :string = get(parts, 0);
     const edgeEntitySetId :UUID = get(entitySetIds, edgeEntitySetName);
 
@@ -429,10 +428,9 @@ function processAssociationEntityData(
     const destinationEntitySetId :UUID = get(entitySetIds, destinationEntitySetName);
 
     const rawAssociationData :Object | Map = get(parts, 5, {});
-    const fqnsToPropertyTypeIds = (key :FQN) => get(propertyTypeIds, key);
     const associationData = Map.isMap(rawAssociationData)
-      ? rawAssociationData.mapKeys(fqnsToPropertyTypeIds).toJS()
-      : mapKeys(fqnsToPropertyTypeIds);
+      ? rawAssociationData.mapKeys((key :FQN) => get(propertyTypeIds, key)).toJS()
+      : mapKeys(rawAssociationData, (value :any, key :FQN) => get(propertyTypeIds, key));
 
     const associationEntity = {};
     associationEntity.data = associationData;
