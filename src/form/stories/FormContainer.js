@@ -47,7 +47,7 @@ class FormContainer extends Component<Props, State> {
   handleSubmit = ({ formData } :Object) => {
     const entityData = processEntityData(formData, entitySetIds, propertyTypeIds);
     const associationData = processAssociationEntityData(this.getAssociations(), entitySetIds, propertyTypeIds);
-    action('Adding item')({ entityData, associationData });
+    action('Adding Item')({ entityData, associationData });
   }
 
   updateItemIndicies = ({ formData } :Object) => {
