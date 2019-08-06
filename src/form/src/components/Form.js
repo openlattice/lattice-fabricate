@@ -6,24 +6,28 @@ import isFunction from 'lodash/isFunction';
 
 import { ActionGroup, StyledForm } from './styled';
 import { ArrayFieldTemplate, FieldTemplate, ObjectFieldTemplate } from '../../../templates';
+import { DescriptionField } from '../../../fields';
 import {
   BaseInput,
   CheckboxWidget,
+  DateWidget,
   RadioWidget,
   SelectWidget,
-  TextareaWidget
+  TextareaWidget,
 } from '../../../widgets';
 import SchemaField from '../../../templates/schema/SchemaField';
 
 const widgets = {
   BaseInput,
   CheckboxWidget,
+  DateWidget,
   RadioWidget,
   SelectWidget,
   TextareaWidget,
 };
 
 const fields = {
+  DescriptionField,
   SchemaField
 };
 

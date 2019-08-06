@@ -4,7 +4,6 @@ import { DateTime } from 'luxon';
 import { action } from '@storybook/addon-actions';
 import { get, setIn } from 'immutable';
 
-import Form from '..';
 import { schema, uiSchema } from './constants/dataSchemas';
 import {
   getEntityAddressKey,
@@ -17,14 +16,13 @@ import { entitySetIds, propertyTypeIds } from './constants/mockEDM';
 import mockExternalFormData from './constants/mockExternalFormData';
 import entityIndexToIdMap from './constants/entityIndexToIdMap';
 import type { EdgeDefinition } from '../../utils/DataProcessingUtils';
+import Form from '..';
 
 const { INCLUDES_ESN } = ASSOCIATION_ENTITY_SET_NAMES;
 const { TASK_LIST_ESN, TASK_ESN } = ENTITY_SET_NAMES;
 const { COMPLETED_DT_FQN, INDEX_FQN } = PROPERTY_TYPE_FQNS;
 
-type Props = {
-  submitAction :(any) => void;
-};
+type Props = {};
 
 type State = {
   formData :Object
@@ -47,10 +45,9 @@ class FormContainer extends Component<Props, State> {
   }
 
   handleSubmit = ({ formData } :Object) => {
-    const { submitAction } = this.props;
     const entityData = processEntityData(formData, entitySetIds, propertyTypeIds);
     const associationData = processAssociationEntityData(this.getAssociations(), entitySetIds, propertyTypeIds);
-    submitAction({ entityData, associationData });
+    action('Adding Item')({ entityData, associationData });
   }
 
   updateItemIndicies = ({ formData } :Object) => {
@@ -69,7 +66,7 @@ class FormContainer extends Component<Props, State> {
     const { formData } = this.state;
     const formContext = {
       addActions: {
-        addTaskItem: action('Adding item')
+        addTaskItem: this.handleSubmit
       },
       deleteAction: action('Deleting data'),
       editAction: action('Submitting data for partialReplace'),

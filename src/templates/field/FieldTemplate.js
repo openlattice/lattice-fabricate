@@ -71,7 +71,6 @@ class FieldTemplate extends Component<Props> {
     return (
       <div className={classNames}>
         {displayLabel && label && <Label htmlFor={id} required={required}>{label}</Label>}
-        {displayLabel && description ? description : null}
         {description}
         {children}
         { this.renderErrors() }
