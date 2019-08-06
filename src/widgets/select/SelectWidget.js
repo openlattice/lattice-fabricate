@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
-import { Select, Createable } from 'lattice-ui-kit';
+import { Select, Creatable } from 'lattice-ui-kit';
 
 type Option = {
   label :string,
@@ -58,7 +58,7 @@ class SelectWidget extends Component<Props, State> {
 
     if (creatable) {
       return (
-        <Createable
+        <Creatable
             autoFocus={autofocus}
             hideMenu={hideMenu}
             id={id}

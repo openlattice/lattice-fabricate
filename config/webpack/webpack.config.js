@@ -6,13 +6,8 @@ const Webpack = require('webpack');
 const LIB_CONFIG = require('../lib/lib.config.js');
 const LIB_PATHS = require('../lib/paths.config.js');
 const PACKAGE = require('../../package.json');
-const {
-  AUTH0_CLIENT_ID_DEV,
-  AUTH0_CLIENT_ID_PROD,
-  AUTH0_DOMAIN,
-} = require('../auth/auth0.config.js');
 
-module.exports = (env) => {
+module.exports = (env = {}) => {
 
   /*
    * constants
@@ -53,18 +48,11 @@ module.exports = (env) => {
   });
 
   const DEFINE_PLUGIN = new Webpack.DefinePlugin({
-    __AUTH0_CLIENT_ID__: JSON.stringify(env.production ? AUTH0_CLIENT_ID_PROD : AUTH0_CLIENT_ID_DEV),
-    __AUTH0_DOMAIN__: JSON.stringify(AUTH0_DOMAIN),
     __ENV_DEV__: JSON.stringify(!!env.development),
     __ENV_PROD__: JSON.stringify(!!env.production),
     __PACKAGE__: JSON.stringify(PACKAGE.name),
     __VERSION__: JSON.stringify(`v${PACKAGE.version}`),
   });
-
-  // https://github.com/moment/moment/issues/2373
-  // https://stackoverflow.com/a/25426019/196921
-  // https://github.com/facebookincubator/create-react-app/pull/2187
-  const IGNORE_MOMENT_LOCALES = new Webpack.IgnorePlugin(/^\.\/locale$/, /moment$/);
 
   /*
    * base webpack config
@@ -92,7 +80,7 @@ module.exports = (env) => {
     entry: [
       LIB_PATHS.ABS.ENTRY,
     ],
-    externals: env.production ? externals : {},
+    externals,
     mode: env.production ? ENV_PROD : ENV_DEV,
     module: {
       rules: [
@@ -100,7 +88,8 @@ module.exports = (env) => {
       ],
     },
     optimization: {
-      minimize: !!env.production,
+      // minimize: !!env.production,
+      minimize: false,
     },
     output: {
       library: LIB_NAMESPACE,
@@ -115,7 +104,6 @@ module.exports = (env) => {
     plugins: [
       DEFINE_PLUGIN,
       BANNER_PLUGIN,
-      IGNORE_MOMENT_LOCALES,
     ],
     resolve: {
       extensions: ['.js'],
