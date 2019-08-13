@@ -41,5 +41,4 @@ deploy:
   provider: pages
   skip_cleanup: true
   on:
-    all_branches: true
-    # branch: develop
+    branch: develop
