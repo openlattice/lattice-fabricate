@@ -121,7 +121,7 @@
     "release:major": "npm version major -m \"releasing v%s\" && npm publish",
     "release:minor": "npm version minor -m \"releasing v%s\" && npm publish",
     "release:patch": "npm version patch -m \"releasing v%s\" && npm publish",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 9009 -c config/storybook",
     "test": "jest --config config/jest/jest.config.js",
     "test:travis": "jest --maxWorkers=4 --config config/jest/jest.config.js",
     "test:watch": "jest --config config/jest/jest.config.js --watch --coverage=false"
