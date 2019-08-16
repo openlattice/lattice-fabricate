@@ -24,12 +24,12 @@ const ItemWrapper = styled.div`
 
 const ButtonWithMargin = styled(Button)`
   margin-top: 20px;
-  margin-left: ${props => props.orderable && '36px'};
+  margin-left: ${(props) => props.orderable && '36px'};
 `;
 
 type Props = {
-  addAction ? :() => void;
-  addState ? :boolean;
+  addAction ?:() => void;
+  addState ?:boolean;
   children :Element<any>;
   className :string;
   disabled :boolean;
@@ -37,13 +37,13 @@ type Props = {
   hasMoveUp :boolean;
   hasRemove :boolean;
   index :number;
-  isAdding ? :boolean;
+  isAdding ?:boolean;
   onDropIndexClick :(index :number) => Function;
   onReorderClick :(index :number, newIndex :number) => Function;
   orderable :boolean;
   readonly :boolean;
-  removeAddedItem ? :() => void;
-  showIndex ? :boolean;
+  removeAddedItem ?:() => void;
+  showIndex ?:boolean;
 }
 
 class DefaultArrayItem extends Component <Props> {

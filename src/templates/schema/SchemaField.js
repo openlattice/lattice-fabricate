@@ -39,6 +39,7 @@ type State = {
 };
 
 class CustomSchemaField extends Component<Props, State> {
+
   state = {
     isVisible: false
   };
@@ -103,6 +104,7 @@ class CustomSchemaField extends Component<Props, State> {
   render() {
     const { hasRemove } = this.props;
     const { isVisible } = this.state;
+    /* eslint-disable react/jsx-props-no-spreading */
     return (
       <>
         <SchemaField {...this.props} />
@@ -120,6 +122,7 @@ class CustomSchemaField extends Component<Props, State> {
             isVisible={isVisible} />
       </>
     );
+    /* eslint-enable */
   }
 }
 

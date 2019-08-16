@@ -4,27 +4,27 @@ import React, { Component } from 'react';
 import { Select, Creatable } from 'lattice-ui-kit';
 
 type Option = {
-  label :string,
-  value :string | number
+  label :string;
+  value :string | number;
 };
 
 type Props = {
-  id :string,
+  id :string;
   options :{
-    enumOptions :Option[],
-    creatable :?boolean,
-    hideMenu :?boolean,
-    placeholder :?string
-  },
-  value :any,
-  disabled ? :boolean,
-  multiple ? :boolean,
-  autofocus ? :boolean,
-  onChange :(value :any) => void
+    enumOptions :Option[];
+    creatable :?boolean;
+    hideMenu :?boolean;
+    placeholder :?string;
+  };
+  value :any;
+  disabled ?:boolean;
+  multiple ?:boolean;
+  autofocus ?:boolean;
+  onChange :(value :any) => void;
 };
 
 type State = {
-  value? :Option | Option[]
+  value?:Option | Option[];
 };
 
 class SelectWidget extends Component<Props, State> {

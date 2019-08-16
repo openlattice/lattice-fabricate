@@ -7,9 +7,10 @@ const DescriptionDiv = styled.div`
   font-size: 14px;
   font-style: italic;
 `;
+
 type Props = {
   id :string;
-  description :string
+  description :string;
 };
 
 const DescriptionField = ({ id, description } :Props) => {
