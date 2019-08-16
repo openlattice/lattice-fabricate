@@ -25,7 +25,7 @@ const { COMPLETED_DT_FQN, INDEX_FQN } = PROPERTY_TYPE_FQNS;
 type Props = {};
 
 type State = {
-  formData :Object
+  formData :Object;
 };
 
 class FormContainer extends Component<Props, State> {

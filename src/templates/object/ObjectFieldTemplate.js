@@ -124,7 +124,7 @@ class ObjectFieldTemplate extends Component<Props, State> {
       : null;
   }
 
-  findEntityAddressKeyFromMap = (arrayIndex ? :number) => (key :string) :string => {
+  findEntityAddressKeyFromMap = (arrayIndex ?:number) => (key :string) :string => {
     const { formContext } = this.props;
     const { entityIndexToIdMap } = formContext;
 

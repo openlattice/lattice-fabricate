@@ -3,7 +3,7 @@ import React from 'react';
 import type { ComponentType } from 'react';
 
 type ArrayFieldTitleProps = {
-  required ? :boolean;
+  required ?:boolean;
   TitleField :ComponentType<any>;
   idSchema :{ $id :string };
   title :string;

@@ -59,6 +59,7 @@ class BaseInput extends Component<WidgetProps> {
 
     const inputType = options.inputType || inputProps.type || 'text';
 
+    /* eslint-disable react/jsx-props-no-spreading */
     return (
       <Input
           autoFocus={autofocus}
@@ -74,6 +75,7 @@ class BaseInput extends Component<WidgetProps> {
           value={value}
           {...inputProps} />
     );
+    /* eslint-enable */
   }
 }
 

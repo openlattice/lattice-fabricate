@@ -39,7 +39,7 @@ type Props = {
   disabled :boolean;
   onSubmit :() => void;
   onChange :() => void;
-  onDiscard ? :() => void;
+  onDiscard ?:() => void;
 };
 
 const Form = (props :Props) => {
@@ -52,6 +52,7 @@ const Form = (props :Props) => {
     ...restProps
   } = props;
 
+  /* eslint-disable react/jsx-props-no-spreading */
   return (
     <StyledForm
         ArrayFieldTemplate={ArrayFieldTemplate}
@@ -76,6 +77,7 @@ const Form = (props :Props) => {
       }
     </StyledForm>
   );
+  /* eslint-enable */
 };
 
 Form.defaultProps = {

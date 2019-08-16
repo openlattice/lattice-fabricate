@@ -6,8 +6,8 @@ import KeyCodes from '../constants/KeyCodes';
 
 const StyledRow = styled.div`
   display: grid;
-  grid-auto-flow: ${props => (props.inline ? 'column' : 'row')};
-  grid-template-columns: ${props => (props.inline && props.columns ? css`repeat(${props.columns}, 1fr)` : '1fr')};
+  grid-auto-flow: ${(props) => (props.inline ? 'column' : 'row')};
+  grid-template-columns: ${(props) => (props.inline && props.columns ? css`repeat(${props.columns}, 1fr)` : '1fr')};
 `;
 
 type Props = {

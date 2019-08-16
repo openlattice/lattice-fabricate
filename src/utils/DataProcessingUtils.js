@@ -48,8 +48,8 @@ type EntityData = { [UUID] :any[] };
 type EdgeDefinition = [string, IndexOrId, string, IndexOrId, string, EntityData];
 
 type EntityAddress = {|
-  entityIndex ? :number;
-  entityKeyId ? :UUID;
+  entityIndex ?:number;
+  entityKeyId ?:UUID;
   entitySetName :string;
   propertyTypeFQN :FQN;
 |};

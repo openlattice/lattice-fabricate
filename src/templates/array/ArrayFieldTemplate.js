@@ -28,21 +28,21 @@ const ArrayList = styled.div`
 `;
 
 type Props = {
-  // disabled ? :boolean,
-  // readonly ? :boolean,
+  // disabled ?:boolean,
+  // readonly ?:boolean,
   DescriptionField :ComponentType<any>;
   TitleField :ComponentType<any>;
-  canAdd ? :boolean;
+  canAdd ?:boolean;
   disabled :boolean;
   className :string;
-  formContext ? :Object;
+  formContext ?:Object;
   formData :Object;
   idSchema :{ $id :string };
   items :Object[];
   onAddClick :(e :SyntheticEvent<HTMLButtonElement>) => void;
-  required ? :boolean;
+  required ?:boolean;
   schema :Object;
-  title ? :string;
+  title ?:string;
   uiSchema :Object;
 }
 
@@ -144,12 +144,14 @@ class ArrayFieldTemplate extends Component<Props, State> {
               additionalProps.addState = hasAddedItem;
             }
 
+            /* eslint-disable react/jsx-props-no-spreading */
             return (
               <DefaultArrayItem
                   key={`array-item-${idSchema.$id}-${itemProps.index}`}
                   {...itemProps}
                   {...additionalProps} />
             );
+            /* eslint-enable */
           })}
           {(canAdd) && (
             <MarginButton
