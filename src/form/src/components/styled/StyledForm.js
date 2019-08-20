@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Form from 'react-jsonschema-form';
 import { Colors } from 'lattice-ui-kit';
 
-const { NEUTRALS, WHITE } = Colors;
+const { NEUTRALS } = Colors;
 
 const StyledForm = styled(Form)`
   /* styles for default nested elements provided by RJSF */
