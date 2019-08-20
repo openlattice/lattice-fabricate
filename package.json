@@ -33,7 +33,7 @@
     "lodash": "~4.17.0",
     "loglevel": "~1.6.0",
     "luxon": "~1.17.0",
-    "react-jsonschema-form": "~1.6.1"
+    "react-jsonschema-form": "~1.7.0"
   },
   "devDependencies": {
     "@babel/cli": "~7.5.0",
