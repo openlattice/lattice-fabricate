@@ -2,14 +2,9 @@ import styled from 'styled-components';
 import Form from 'react-jsonschema-form';
 import { Colors } from 'lattice-ui-kit';
 
-const { NEUTRALS, WHITE } = Colors;
+const { NEUTRALS } = Colors;
 
 const StyledForm = styled(Form)`
-  position: relative;
-  background-color: ${WHITE};
-  border: solid 1px ${NEUTRALS[4]};
-  border-radius: 5px;
-  margin: 20px 0;
   /* styles for default nested elements provided by RJSF */
 
   legend {
