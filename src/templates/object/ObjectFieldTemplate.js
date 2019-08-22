@@ -5,24 +5,20 @@ import type { ComponentType } from 'react';
 import isFunction from 'lodash/isFunction';
 import { Button } from 'lattice-ui-kit';
 import { faPen } from '@fortawesome/pro-solid-svg-icons';
-import { fromJS, getIn, set } from 'immutable';
+import { fromJS, set } from 'immutable';
 import { getUiOptions } from 'react-jsonschema-form/lib/utils';
 
 import IconButton from '../components/IconButton';
 import ActionGutter from '../components/styled/ActionGutter';
 import { ActionGroup } from '../../form/src/components/styled';
 import { parseIdIndex } from './utils';
-import { isValidUUID } from '../../utils/ValidationUtils';
 import {
-  getEntityAddressKey,
-  isValidEntityAddressKey,
-  parseEntityAddressKey,
+  findEntityAddressKeyFromMap,
   processEntityDataForPartialReplace,
   replaceEntityAddressKeys,
   wrapFormDataInPageSection,
   parseIdSchemaPath,
 } from '../../utils/DataProcessingUtils';
-import type { EntityAddress } from '../../utils/DataProcessingUtils';
 
 type Props = {
   DescriptionField :ComponentType<any>;
@@ -124,29 +120,6 @@ class ObjectFieldTemplate extends Component<Props, State> {
       : null;
   }
 
-  findEntityAddressKeyFromMap = (arrayIndex ?:number) => (key :string) :string => {
-    const { formContext } = this.props;
-    const { entityIndexToIdMap } = formContext;
-
-    if (isValidEntityAddressKey(key)) {
-      const {
-        entityIndex,
-        entitySetName,
-        propertyTypeFQN
-      } :EntityAddress = parseEntityAddressKey(key);
-
-      let entityKeyId = getIn(entityIndexToIdMap, [entitySetName, entityIndex]);
-      if (entityIndex !== undefined && entityIndex < 0 && arrayIndex !== undefined) {
-
-        entityKeyId = getIn(entityIndexToIdMap, [entitySetName, entityIndex, arrayIndex]);
-      }
-      if (isValidUUID(entityKeyId)) {
-        return getEntityAddressKey(entityKeyId, entitySetName, propertyTypeFQN);
-      }
-    }
-    return key;
-  };
-
   commitDraftFormData = () => {
     const { draftFormData } = this.state;
     const { formData, formContext, idSchema } = this.props;
@@ -155,6 +128,7 @@ class ObjectFieldTemplate extends Component<Props, State> {
       entitySetIds,
       mappers,
       propertyTypeIds,
+      entityIndexToIdMap,
     } = formContext;
 
     // get array index if relevant
@@ -168,12 +142,12 @@ class ObjectFieldTemplate extends Component<Props, State> {
     // replace address keys with entityKeyId
     const draftWithKeys = replaceEntityAddressKeys(
       formattedData,
-      this.findEntityAddressKeyFromMap(arrayIndex)
+      findEntityAddressKeyFromMap(entityIndexToIdMap, arrayIndex)
     );
 
     const standardWithKeys = replaceEntityAddressKeys(
       formattedOriginal,
-      this.findEntityAddressKeyFromMap(arrayIndex)
+      findEntityAddressKeyFromMap(entityIndexToIdMap, arrayIndex)
     );
 
     // process for partial replace
