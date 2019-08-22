@@ -42,6 +42,7 @@ type Props = {
   onSubmit :() => void;
   onChange :() => void;
   onDiscard ?:() => void;
+  isSubmitting :boolean;
 };
 
 const Form = (props :Props) => {
@@ -51,6 +52,7 @@ const Form = (props :Props) => {
     onChange,
     onDiscard,
     onSubmit,
+    isSubmitting,
     ...restProps
   } = props;
 
@@ -72,7 +74,7 @@ const Form = (props :Props) => {
           ? <HiddenButton type="submit" />
           : (
             <ActionGroup>
-              <Button mode="primary" type="submit">Submit</Button>
+              <Button mode="primary" type="submit" isLoading={isSubmitting}>Submit</Button>
               { isFunction(onDiscard) && <Button onClick={onDiscard}>Discard</Button> }
             </ActionGroup>
           )
