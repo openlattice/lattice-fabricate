@@ -598,13 +598,35 @@ const parseIdSchemaPath = (idSchema :Object) => {
   return path;
 };
 
+const findEntityAddressKeyFromMap = (entityIndexToIdMap :Object, arrayIndex ?:number) => (key :string) :string => {
+
+  if (isValidEntityAddressKey(key)) {
+    const {
+      entityIndex,
+      entitySetName,
+      propertyTypeFQN
+    } :EntityAddress = parseEntityAddressKey(key);
+
+    let entityKeyId = getIn(entityIndexToIdMap, [entitySetName, entityIndex]);
+    if (entityIndex !== undefined && entityIndex < 0 && arrayIndex !== undefined) {
+
+      entityKeyId = getIn(entityIndexToIdMap, [entitySetName, entityIndex, arrayIndex]);
+    }
+    if (isValidUUID(entityKeyId)) {
+      return getEntityAddressKey(entityKeyId, entitySetName, propertyTypeFQN);
+    }
+  }
+  return key;
+};
+
 export {
   ATAT,
   INDEX_MAPPERS,
   KEY_MAPPERS,
   VALUE_MAPPERS,
-  getEntityKeyIdsByEntitySetId,
+  findEntityAddressKeyFromMap,
   getEntityAddressKey,
+  getEntityKeyIdsByEntitySetId,
   getPageSectionKey,
   isValidEntityAddressKey,
   isValidPageSectionKey,
