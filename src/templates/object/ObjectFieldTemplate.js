@@ -208,7 +208,7 @@ class ObjectFieldTemplate extends Component<Props, State> {
             mode="primary"
             onClick={this.commitDraftFormData}
             isLoading={updateState}>
-              Submit
+              Save
         </Button>
         <Button onClick={this.disableFields}>Discard</Button>
       </ActionGroup>
