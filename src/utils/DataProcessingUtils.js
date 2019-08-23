@@ -563,20 +563,20 @@ const replaceEntityAddressKeys = (input :Object | Map, replacer :Replacer) => {
 const getEntityKeyIdsByEntitySetId = (data :Object, entitySetIds :Object) :{ [string] :Set<UUID> } => {
 
   const EKIDsBySet :{ [string] :Set<UUID> } = transform(data, (result :Object, value :any, key :string) => {
-    if (isValidEntityAddressKey(key));
-    const {
-      entityKeyId,
-      entitySetName
-    } = parseEntityAddressKey(key);
+    if (isValidEntityAddressKey(key)) {
+      const {
+        entityKeyId,
+        entitySetName
+      } = parseEntityAddressKey(key);
 
-    const entitySetId = get(entitySetIds, entitySetName);
-    if (entitySetId) {
-      (result[entitySetId] || (result[entitySetId] = new Set())).add(entityKeyId);
+      const entitySetId = get(entitySetIds, entitySetName);
+      if (entitySetId) {
+        (result[entitySetId] || (result[entitySetId] = new Set())).add(entityKeyId);
+      }
+      else {
+        LOG.error('getEntityKeyIdsByEntitySetId: entity set id not found');
+      }
     }
-    else {
-      LOG.error('getEntityKeyIdsByEntitySetId: entity set id not found');
-    }
-
   }, {});
   return EKIDsBySet;
 };
