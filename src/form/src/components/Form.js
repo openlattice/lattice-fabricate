@@ -41,8 +41,8 @@ type Props = {
   disabled :boolean;
   onSubmit :() => void;
   onChange :() => void;
-  onDiscard ?:() => void;
-  isSubmitting :boolean;
+  onDiscard ? :() => void;
+  isSubmitting ? :boolean;
 };
 
 const Form = (props :Props) => {
@@ -85,7 +85,8 @@ const Form = (props :Props) => {
 };
 
 Form.defaultProps = {
-  onDiscard: undefined
+  isSubmitting: false,
+  onDiscard: undefined,
 };
 
 export default Form;
