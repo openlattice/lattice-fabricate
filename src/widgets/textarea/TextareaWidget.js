@@ -56,6 +56,7 @@ class TextareaWidget extends Component<WidgetProps> {
       ...restProps
     } = this.props;
 
+    /* eslint-disable react/jsx-props-no-spreading */
     return (
       <TextArea
           autoFocus={autofocus}
@@ -70,6 +71,7 @@ class TextareaWidget extends Component<WidgetProps> {
           value={value}
           {...restProps} />
     );
+    /* eslint-enable */
   }
 }
 

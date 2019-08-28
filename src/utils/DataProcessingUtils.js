@@ -48,8 +48,8 @@ type EntityData = { [UUID] :any[] };
 type EdgeDefinition = [string, IndexOrId, string, IndexOrId, string, EntityData];
 
 type EntityAddress = {|
-  entityIndex ? :number;
-  entityKeyId ? :UUID;
+  entityIndex ?:number;
+  entityKeyId ?:UUID;
   entitySetName :string;
   propertyTypeFQN :FQN;
 |};
@@ -563,20 +563,20 @@ const replaceEntityAddressKeys = (input :Object | Map, replacer :Replacer) => {
 const getEntityKeyIdsByEntitySetId = (data :Object, entitySetIds :Object) :{ [string] :Set<UUID> } => {
 
   const EKIDsBySet :{ [string] :Set<UUID> } = transform(data, (result :Object, value :any, key :string) => {
-    if (isValidEntityAddressKey(key));
-    const {
-      entityKeyId,
-      entitySetName
-    } = parseEntityAddressKey(key);
+    if (isValidEntityAddressKey(key)) {
+      const {
+        entityKeyId,
+        entitySetName
+      } = parseEntityAddressKey(key);
 
-    const entitySetId = get(entitySetIds, entitySetName);
-    if (entitySetId) {
-      (result[entitySetId] || (result[entitySetId] = new Set())).add(entityKeyId);
+      const entitySetId = get(entitySetIds, entitySetName);
+      if (entitySetId) {
+        (result[entitySetId] || (result[entitySetId] = new Set())).add(entityKeyId);
+      }
+      else {
+        LOG.error('getEntityKeyIdsByEntitySetId: entity set id not found');
+      }
     }
-    else {
-      LOG.error('getEntityKeyIdsByEntitySetId: entity set id not found');
-    }
-
   }, {});
   return EKIDsBySet;
 };
@@ -598,13 +598,35 @@ const parseIdSchemaPath = (idSchema :Object) => {
   return path;
 };
 
+const findEntityAddressKeyFromMap = (entityIndexToIdMap :Object, arrayIndex ?:number) => (key :string) :string => {
+
+  if (isValidEntityAddressKey(key)) {
+    const {
+      entityIndex,
+      entitySetName,
+      propertyTypeFQN
+    } :EntityAddress = parseEntityAddressKey(key);
+
+    let entityKeyId = getIn(entityIndexToIdMap, [entitySetName, entityIndex]);
+    if (entityIndex !== undefined && entityIndex < 0 && arrayIndex !== undefined) {
+
+      entityKeyId = getIn(entityIndexToIdMap, [entitySetName, entityIndex, arrayIndex]);
+    }
+    if (isValidUUID(entityKeyId)) {
+      return getEntityAddressKey(entityKeyId, entitySetName, propertyTypeFQN);
+    }
+  }
+  return key;
+};
+
 export {
   ATAT,
   INDEX_MAPPERS,
   KEY_MAPPERS,
   VALUE_MAPPERS,
-  getEntityKeyIdsByEntitySetId,
+  findEntityAddressKeyFromMap,
   getEntityAddressKey,
+  getEntityKeyIdsByEntitySetId,
   getPageSectionKey,
   isValidEntityAddressKey,
   isValidPageSectionKey,

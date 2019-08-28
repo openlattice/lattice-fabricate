@@ -53,6 +53,7 @@ class DateWidget extends Component<WidgetProps> {
       ...restProps
     } = this.props;
 
+    /* eslint-disable react/jsx-props-no-spreading */
     return (
       <DatePicker
           autoFocus={autofocus}
@@ -68,6 +69,7 @@ class DateWidget extends Component<WidgetProps> {
           value={value}
           {...restProps} />
     );
+    /* eslint-enable */
   }
 }
 

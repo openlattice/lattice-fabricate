@@ -5,7 +5,7 @@ import type { ComponentType } from 'react';
 type ArrayFieldDescriptionProps = {
   DescriptionField :ComponentType<any>;
   idSchema :{ $id :string };
-  description ? :string;
+  description ?:string;
 };
 
 const ArrayFieldDescription = ({ DescriptionField, idSchema, description } :ArrayFieldDescriptionProps) => {

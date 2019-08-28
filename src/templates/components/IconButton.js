@@ -16,11 +16,13 @@ type Props = {
 
 const IconButton = (props :Props) => {
   const { icon, onClick, ...restProps } = props;
+  /* eslint-disable react/jsx-props-no-spreading */
   return (
     <StyledButton mode="subtle" onClick={onClick} {...restProps}>
       <FontAwesomeIcon icon={icon} fixedWidth />
     </StyledButton>
   );
+  /* eslint-enable */
 };
 
 export default IconButton;

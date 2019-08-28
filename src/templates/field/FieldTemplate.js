@@ -16,19 +16,19 @@ type Props = {
   children :ChildrenArray<any>;
   classNames :string;
   description :Element<any>;
-  displayLabel ? :boolean;
+  displayLabel ?:boolean;
   // errors :Element<any>;
   // fields :Object;
   // formContext :Object;
   help :Element<any>;
-  hidden ? :boolean;
+  hidden ?:boolean;
   id :string;
   label :string;
   // rawDescription :string | Element<any>;
   rawErrors :string[];
   // rawHelp :string | Element<any>;
-  // readonly ? :boolean;
-  required ? :boolean;
+  // readonly ?:boolean;
+  required ?:boolean;
 };
 
 class FieldTemplate extends Component<Props> {
@@ -43,7 +43,7 @@ class FieldTemplate extends Component<Props> {
     const { rawErrors } = this.props;
 
     if (Array.isArray(rawErrors)) {
-      return rawErrors.map(error => (
+      return rawErrors.map((error) => (
         <Error>{error}</Error>
       ));
     }

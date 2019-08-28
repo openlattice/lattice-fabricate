@@ -29,6 +29,16 @@ before_script:
 
 script:
   - npm run build:prod
+  - npm run build:storybook
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+
+deploy:
+  github_token: $GITHUB_TOKEN
+  keep_history: true
+  local_dir: build/storybook
+  provider: pages
+  skip_cleanup: true
+  on:
+    branch: develop

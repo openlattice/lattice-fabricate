@@ -6,6 +6,7 @@
   ],
   "plugins": [
     "flowtype",
+    "import",
     "jest",
     "react"
   ],
@@ -82,7 +83,7 @@
 
     "flowtype/define-flow-type": "error",
     "flowtype/space-after-type-colon": ["error", "never"],
-    "flowtype/space-before-type-colon": ["error", "always"],
+    "flowtype/space-before-type-colon": "off",
     "flowtype/no-types-missing-file-annotation": "warn",
 
     "import/no-extraneous-dependencies": [
@@ -135,6 +136,8 @@
         "forbidDefaultForRequired": false
       }
     ],
-    "react/sort-comp": "off"
+    "react/sort-comp": "off",
+    "react/state-in-constructor": ["warn", "always"],
+    "react/static-property-placement": ["error", "static public field"]
   }
 }
