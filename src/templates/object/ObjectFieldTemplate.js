@@ -171,7 +171,7 @@ class ObjectFieldTemplate extends Component<Props, State> {
 
   };
 
-  renderSubmitSection = () => {
+  renderActionSection = () => {
     const { isEditing } = this.state;
     const { formContext } = this.props;
     const { updateState } = formContext;
@@ -230,7 +230,7 @@ class ObjectFieldTemplate extends Component<Props, State> {
             }
             return content;
           })}
-          { this.renderSubmitSection() }
+          { this.renderActionSection() }
         </div>
         { this.renderActionGutter() }
       </>
