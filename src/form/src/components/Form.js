@@ -11,6 +11,7 @@ import {
   BaseInput,
   CheckboxWidget,
   DateWidget,
+  FileWidget,
   RadioWidget,
   SelectWidget,
   TextareaWidget,
@@ -21,6 +22,7 @@ const widgets = {
   BaseInput,
   CheckboxWidget,
   DateWidget,
+  FileWidget,
   RadioWidget,
   SelectWidget,
   TextareaWidget,
@@ -39,7 +41,8 @@ type Props = {
   disabled :boolean;
   onSubmit :() => void;
   onChange :() => void;
-  onDiscard ?:() => void;
+  onDiscard ? :() => void;
+  isSubmitting ? :boolean;
 };
 
 const Form = (props :Props) => {
@@ -49,6 +52,7 @@ const Form = (props :Props) => {
     onChange,
     onDiscard,
     onSubmit,
+    isSubmitting,
     ...restProps
   } = props;
 
@@ -70,7 +74,7 @@ const Form = (props :Props) => {
           ? <HiddenButton type="submit" />
           : (
             <ActionGroup>
-              <Button mode="primary" type="submit">Submit</Button>
+              <Button mode="primary" type="submit" isLoading={isSubmitting}>Submit</Button>
               { isFunction(onDiscard) && <Button onClick={onDiscard}>Discard</Button> }
             </ActionGroup>
           )
@@ -81,7 +85,8 @@ const Form = (props :Props) => {
 };
 
 Form.defaultProps = {
-  onDiscard: undefined
+  isSubmitting: false,
+  onDiscard: undefined,
 };
 
 export default Form;

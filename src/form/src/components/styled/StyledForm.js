@@ -90,7 +90,7 @@ const StyledForm = styled(Form)`
 
   .grid-container {
     display: flex;
-    flex: 1 0 auto;
+    flex: 1;
 
     > :first-child {
       display: grid;
