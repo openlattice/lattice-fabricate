@@ -1,5 +1,6 @@
 // @flow
 import { dataURItoBlob } from 'react-jsonschema-form/lib/utils';
+import { isNonEmptyString } from '../../utils/LangUtils';
 
 function addNameToDataURL(dataURL :string, name :string) {
   return dataURL.replace(';base64', `;name=${encodeURIComponent(name)};base64`);
@@ -28,7 +29,7 @@ function processFiles(files :FileList) {
 
 function extractFileInfo(dataURLs :string[]) :Object[] {
   return dataURLs
-    .filter((dataURL) => typeof dataURL !== 'undefined')
+    .filter((dataURL) => isNonEmptyString(dataURL))
     .map((dataURL) => {
       const { blob, name } = dataURItoBlob(dataURL);
       return {
