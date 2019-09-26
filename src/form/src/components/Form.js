@@ -15,6 +15,7 @@ import {
   RadioWidget,
   SelectWidget,
   TextareaWidget,
+  TimeWidget,
 } from '../../../widgets';
 import SchemaField from '../../../templates/schema/SchemaField';
 
@@ -26,6 +27,7 @@ const widgets = {
   RadioWidget,
   SelectWidget,
   TextareaWidget,
+  TimeWidget,
 };
 
 const fields = {

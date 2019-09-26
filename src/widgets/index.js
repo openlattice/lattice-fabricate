@@ -5,3 +5,4 @@ export { default as FileWidget } from './file/FileWidget';
 export { default as RadioWidget } from './radio/RadioWidget';
 export { default as SelectWidget } from './select/SelectWidget';
 export { default as TextareaWidget } from './textarea/TextareaWidget';
+export { default as TimeWidget } from './datetime/TimeWidget';
