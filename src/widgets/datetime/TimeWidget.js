@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import { TimePicker } from 'lattice-ui-kit';
 
-import KeyCodes from '../constants/KeyCodes';
 import type { WidgetProps } from '../types';
 
 class TimeWidget extends Component<WidgetProps> {
@@ -14,12 +13,6 @@ class TimeWidget extends Component<WidgetProps> {
   onChange = (value :string) => {
     const { onChange } = this.props;
     onChange(value);
-  }
-
-  onKeyDown = (e :SyntheticKeyboardEvent<HTMLInputElement>) => {
-    if (e.key === KeyCodes.ENTER) {
-      e.preventDefault();
-    }
   }
 
   onFocus = (id :string, value :any) => {
@@ -58,9 +51,6 @@ class TimeWidget extends Component<WidgetProps> {
           isDisabled={disabled || readonly}
           id={id}
           isInvalid={rawErrors && rawErrors.length}
-          selectProps={{
-            onKeyDown: this.onKeyDown
-          }}
           onBlur={this.onBlur}
           onChange={this.onChange}
           onFocus={this.onFocus}
