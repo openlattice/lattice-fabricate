@@ -1,6 +1,6 @@
 /*!
  * 
- * lattice-fabricate - v0.5.0
+ * lattice-fabricate - v0.5.1
  * React HOCs for components dependent on the OpenLattice EDM.
  * https://github.com/openlattice/lattice-fabricate
  * 
@@ -27966,7 +27966,6 @@ defineProperty_default()(TextareaWidget_TextareaWidget, "defaultProps", {
 
 
 
-
 var TimeWidget_TimeWidget =
 /*#__PURE__*/
 function (_Component) {
@@ -27988,12 +27987,6 @@ function (_Component) {
     defineProperty_default()(assertThisInitialized_default()(_this), "onChange", function (value) {
       var onChange = _this.props.onChange;
       onChange(value);
-    });
-
-    defineProperty_default()(assertThisInitialized_default()(_this), "onKeyDown", function (e) {
-      if (e.key === constants_KeyCodes.ENTER) {
-        e.preventDefault();
-      }
     });
 
     defineProperty_default()(assertThisInitialized_default()(_this), "onFocus", function (id, value) {
@@ -28038,9 +28031,6 @@ function (_Component) {
         isDisabled: disabled || readonly,
         id: id,
         isInvalid: rawErrors && rawErrors.length,
-        selectProps: {
-          onKeyDown: this.onKeyDown
-        },
         onBlur: this.onBlur,
         onChange: this.onChange,
         onFocus: this.onFocus,
@@ -28276,7 +28266,7 @@ Form_Form.defaultProps = {
 /* concated harmony reexport Form */__webpack_require__.d(__webpack_exports__, "Form", function() { return src_form; });
  // injected by Webpack.DefinePlugin
 
-var version = "v0.5.0";
+var version = "v0.5.1";
 
 
 /* harmony default export */ var src = __webpack_exports__["default"] = ({
