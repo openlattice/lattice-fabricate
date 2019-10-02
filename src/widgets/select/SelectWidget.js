@@ -9,18 +9,19 @@ type Option = {
 };
 
 type Props = {
+  autofocus ?:boolean;
+  disabled ?:boolean;
   id :string;
+  multiple ?:boolean;
+  onChange :(value :any) => void;
   options :{
-    enumOptions :Option[];
     creatable :?boolean;
+    enumOptions :Option[];
     hideMenu :?boolean;
     placeholder :?string;
   };
+  required :boolean;
   value :any;
-  disabled ?:boolean;
-  multiple ?:boolean;
-  autofocus ?:boolean;
-  onChange :(value :any) => void;
 };
 
 type State = {
@@ -41,12 +42,13 @@ class SelectWidget extends Component<Props, State> {
 
   render() {
     const {
-      id,
-      options,
-      disabled,
-      multiple,
       autofocus,
-      value
+      disabled,
+      id,
+      multiple,
+      options,
+      required,
+      value,
     } = this.props;
 
     const {
@@ -72,11 +74,12 @@ class SelectWidget extends Component<Props, State> {
       );
     }
 
+
     return (
       <Select
           autoFocus={autofocus}
           id={id}
-          isClearable
+          isClearable={!required}
           isDisabled={disabled}
           isMulti={multiple}
           onChange={this.handleChange}

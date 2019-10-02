@@ -598,7 +598,7 @@ const parseIdSchemaPath = (idSchema :Object) => {
   return path;
 };
 
-const findEntityAddressKeyFromMap = (entityIndexToIdMap :Object, arrayIndex ?:number) => (key :string) :string => {
+const findEntityAddressKeyFromMap = (entityIndexToIdMap :Object, arrayIndex ?:number = 0) => (key :string) :string => {
 
   if (isValidEntityAddressKey(key)) {
     const {
@@ -608,10 +608,10 @@ const findEntityAddressKeyFromMap = (entityIndexToIdMap :Object, arrayIndex ?:nu
     } :EntityAddress = parseEntityAddressKey(key);
 
     let entityKeyId = getIn(entityIndexToIdMap, [entitySetName, entityIndex]);
-    if (entityIndex !== undefined && entityIndex < 0 && arrayIndex !== undefined) {
-
+    if (!isValidUUID(entityKeyId)) {
       entityKeyId = getIn(entityIndexToIdMap, [entitySetName, entityIndex, arrayIndex]);
     }
+
     if (isValidUUID(entityKeyId)) {
       return getEntityAddressKey(entityKeyId, entitySetName, propertyTypeFQN);
     }
