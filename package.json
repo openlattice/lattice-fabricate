@@ -81,7 +81,7 @@
     "jest-styled-components": "~6.3.3",
     "lattice-ui-kit": "~0.16.0",
     "npm-run-all": "~4.1.0",
-    "react": "~16.9.0",
+    "react": "~16.10.2",
     "react-dom": "~16.9.0",
     "rimraf": "~3.0.0",
     "styled-components": "~4.4.0",
