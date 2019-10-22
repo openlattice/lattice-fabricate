@@ -14,6 +14,7 @@ storiesOf('Form', module)
   .add('Simple', () => (
     <Card>
       <Form
+          onSubmit={action('Submit Form')}
           schema={simpleSchema}
           uiSchema={simpleUiSchema} />
     </Card>
@@ -21,6 +22,7 @@ storiesOf('Form', module)
   .add('Array', () => (
     <Card>
       <Form
+          onSubmit={action('Submit Form')}
           schema={arraySchema}
           uiSchema={arrayUiSchema} />
     </Card>
