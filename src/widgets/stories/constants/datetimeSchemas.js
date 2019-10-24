@@ -12,13 +12,15 @@ export const schema = {
       title: 'Time',
       type: 'string',
     }
-  }
+  },
+  required: ['date', 'time']
 };
 
 export const uiSchema = {
   classNames: 'column-span-12 grid-container',
   date: {
     classNames: 'column-span-12',
+    'ui:widget': 'DateWidget'
   },
   time: {
     classNames: 'column-span-12',

@@ -1,64 +1,36 @@
 // @flow
-import React, { Component } from 'react';
+import React, { useCallback } from 'react';
 import { TimePicker } from 'lattice-ui-kit';
 
 import type { WidgetProps } from '../types';
 
-class TimeWidget extends Component<WidgetProps> {
+const TimeWidget = (props :WidgetProps) => {
 
-  static defaultProps = {
-    value: ''
-  };
+  const {
+    disabled,
+    id,
+    onChange,
+    readonly,
+    value
+  } = props;
 
-  onChange = (value :string) => {
-    const { onChange } = this.props;
-    onChange(value);
-  }
-
-  onFocus = (id :string, value :any) => {
-    const { onFocus } = this.props;
-    if (onFocus) {
-      onFocus(id, value);
+  // RJSF requires date/times to be undefined to trigger required validation
+  const handleChange = useCallback((newValue :string) => {
+    if (newValue === '') {
+      onChange(undefined);
     }
-  }
-
-  onBlur = (id :string, value :any) => {
-    const { onBlur } = this.props;
-    if (onBlur) {
-      onBlur(id, value);
+    else {
+      onChange(newValue);
     }
-  }
+  }, [onChange]);
 
-  render() {
-    const {
-      autofocus,
-      disabled,
-      id,
-      onBlur,
-      onChange,
-      onFocus,
-      options,
-      rawErrors,
-      readonly,
-      value,
-      ...restProps
-    } = this.props;
-
-    /* eslint-disable react/jsx-props-no-spreading */
-    return (
-      <TimePicker
-          autoFocus={autofocus}
-          isDisabled={disabled || readonly}
-          id={id}
-          isInvalid={rawErrors && rawErrors.length}
-          onBlur={this.onBlur}
-          onChange={this.onChange}
-          onFocus={this.onFocus}
-          value={value}
-          {...restProps} />
-    );
-    /* eslint-enable */
-  }
-}
+  return (
+    <TimePicker
+        disabled={disabled || readonly}
+        id={id}
+        onChange={handleChange}
+        value={value} />
+  );
+};
 
 export default TimeWidget;

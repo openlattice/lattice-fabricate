@@ -140,7 +140,8 @@ export const uiSchema = {
       classNames: 'column-span-4'
     },
     dob: {
-      classNames: 'column-span-4'
+      classNames: 'column-span-4',
+      'ui:widget': 'DateWidget',
     },
     sex: {
       classNames: 'column-span-4'
