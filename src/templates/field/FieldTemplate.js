@@ -9,7 +9,7 @@ const { RED_1 } = Colors;
 const Error = styled.div`
   color: ${RED_1};
   font-size: 12px;
-  margin-top: 3px;
+  margin: 5px 10px 0;
 `;
 
 type Props = {

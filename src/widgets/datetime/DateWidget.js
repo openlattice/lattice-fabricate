@@ -1,76 +1,36 @@
 // @flow
-import React, { Component } from 'react';
+import React, { useCallback } from 'react';
 import { DatePicker } from 'lattice-ui-kit';
 
-import KeyCodes from '../constants/KeyCodes';
 import type { WidgetProps } from '../types';
 
-class DateWidget extends Component<WidgetProps> {
+const DateWidget = (props :WidgetProps) => {
 
-  static defaultProps = {
-    value: ''
-  };
+  const {
+    disabled,
+    id,
+    onChange,
+    readonly,
+    value,
+  } = props;
 
-  onChange = (value :string) => {
-    const { onChange } = this.props;
-    onChange(value);
-  }
-
-  onKeyDown = (e :SyntheticKeyboardEvent<HTMLInputElement>) => {
-    if (e.key === KeyCodes.ENTER) {
-      e.preventDefault();
+  // RJSF requires date/times to be undefined to trigger required validation
+  const handleChange = useCallback((newValue :string) => {
+    if (newValue === '') {
+      onChange(undefined);
     }
-  }
-
-  onFocus = (e :SyntheticFocusEvent<HTMLInputElement>) => {
-    const { onFocus, id } = this.props;
-    const { value } = e.currentTarget;
-    if (onFocus) {
-      onFocus(id, value);
+    else {
+      onChange(newValue);
     }
-  }
+  }, [onChange]);
 
-  onBlur = (e :SyntheticFocusEvent<HTMLInputElement>) => {
-    const { onBlur, id } = this.props;
-    const { value } = e.currentTarget;
-    if (onBlur) {
-      onBlur(id, value);
-    }
-  }
-
-  render() {
-    const {
-      autofocus,
-      disabled,
-      id,
-      onBlur,
-      onChange,
-      onFocus,
-      options,
-      rawErrors,
-      readonly,
-      value,
-      ...restProps
-    } = this.props;
-
-    /* eslint-disable react/jsx-props-no-spreading */
-    return (
-      <DatePicker
-          autoFocus={autofocus}
-          isDisabled={disabled || readonly}
-          id={id}
-          isInvalid={rawErrors && rawErrors.length}
-          selectProps={{
-            onKeyDown: this.onKeyDown
-          }}
-          onBlur={this.onBlur}
-          onChange={this.onChange}
-          onFocus={this.onFocus}
-          value={value}
-          {...restProps} />
-    );
-    /* eslint-enable */
-  }
-}
+  return (
+    <DatePicker
+        disabled={disabled || readonly}
+        id={id}
+        onChange={handleChange}
+        value={value} />
+  );
+};
 
 export default DateWidget;
