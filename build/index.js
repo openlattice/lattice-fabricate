@@ -1,6 +1,6 @@
 /*!
  * 
- * lattice-fabricate - v0.6.0
+ * lattice-fabricate - v0.6.1
  * React HOCs for components dependent on the OpenLattice EDM.
  * https://github.com/openlattice/lattice-fabricate
  * 
@@ -27355,7 +27355,7 @@ Form_Form.defaultProps = {
 /* concated harmony reexport Form */__webpack_require__.d(__webpack_exports__, "Form", function() { return src_form; });
  // injected by Webpack.DefinePlugin
 
-var version = "v0.6.0";
+var version = "v0.6.1";
 
 
 /* harmony default export */ var src = __webpack_exports__["default"] = ({
