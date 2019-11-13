@@ -69,6 +69,7 @@ class TextareaWidget extends Component<WidgetProps> {
           readOnly={readonly}
           rows={options.rows}
           value={value}
+          // $FlowFixMe
           {...restProps} />
     );
     /* eslint-enable */

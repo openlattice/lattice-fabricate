@@ -73,6 +73,7 @@ class BaseInput extends Component<WidgetProps> {
           readOnly={readonly}
           type={inputType}
           value={value}
+          // $FlowFixMe
           {...inputProps} />
     );
     /* eslint-enable */

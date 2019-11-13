@@ -1,5 +1,5 @@
-import React from 'react';
-import { Card } from 'lattice-ui-kit';
+import React, { useRef } from 'react';
+import { Button, Card, CardSegment } from 'lattice-ui-kit';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 
@@ -39,4 +39,20 @@ storiesOf('Form', module)
           uiSchema={filesUiSchema}
           onSubmit={action('Submit Form')} />
     </Card>
-  ));
+  ))
+  .add('External Submit', () => {
+    const formRef = useRef();
+    return (
+      <Card>
+        <CardSegment>
+          <Button mode="primary" onClick={() => formRef.current.submit()}>External Submit</Button>
+        </CardSegment>
+        <Form
+            hideSubmit
+            ref={formRef}
+            schema={simpleSchema}
+            uiSchema={simpleUiSchema}
+            onSubmit={action('Submit Form')} />
+      </Card>
+    );
+  });
