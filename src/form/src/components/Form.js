@@ -1,8 +1,9 @@
 // @flow
-import React from 'react';
+import React, { useRef, useImperativeHandle } from 'react';
 import { Button } from 'lattice-ui-kit';
 import styled from 'styled-components';
 import isFunction from 'lodash/isFunction';
+import type { ElementRef } from 'react';
 
 import { ActionGroup, StyledForm } from './styled';
 import { ArrayFieldTemplate, FieldTemplate, ObjectFieldTemplate } from '../../../templates';
@@ -41,22 +42,36 @@ const HiddenButton = styled.button`
 
 type Props = {
   disabled :boolean;
-  onSubmit :() => void;
+  hideSubmit :boolean;
+  isSubmitting :boolean;
   onChange :() => void;
-  onDiscard ? :() => void;
-  isSubmitting ? :boolean;
+  onDiscard :() => void;
+  onSubmit :() => void;
+  ref :ElementRef<typeof StyledForm>;
 };
 
-const Form = (props :Props) => {
+const Form = (props :Props, ref) => {
 
   const {
     disabled,
+    hideSubmit,
+    isSubmitting,
     onChange,
     onDiscard,
     onSubmit,
-    isSubmitting,
     ...restProps
   } = props;
+
+  const formRef = useRef<typeof StyledForm>();
+
+  // https://reactjs.org/docs/hooks-reference.html#useimperativehandle
+  useImperativeHandle(ref, () => ({
+    submit: () => {
+      if (formRef.current) {
+        formRef.current.submit();
+      }
+    }
+  }));
 
   /* eslint-disable react/jsx-props-no-spreading */
   return (
@@ -68,11 +83,13 @@ const Form = (props :Props) => {
         fields={fields}
         onChange={onChange}
         onSubmit={onSubmit}
+        ref={formRef}
         showErrorList={false}
         widgets={widgets}
+        // $FlowFixMe
         {...restProps}>
       {
-        disabled
+        (disabled || hideSubmit)
           ? <HiddenButton type="submit" />
           : (
             <ActionGroup>
@@ -86,9 +103,4 @@ const Form = (props :Props) => {
   /* eslint-enable */
 };
 
-Form.defaultProps = {
-  isSubmitting: false,
-  onDiscard: undefined,
-};
-
-export default Form;
+export default React.forwardRef<Props, typeof StyledForm>(Form);

@@ -18,6 +18,7 @@ const IconButton = (props :Props) => {
   const { icon, onClick, ...restProps } = props;
   /* eslint-disable react/jsx-props-no-spreading */
   return (
+    // $FlowFixMe
     <StyledButton mode="subtle" onClick={onClick} {...restProps}>
       <FontAwesomeIcon icon={icon} fixedWidth />
     </StyledButton>
