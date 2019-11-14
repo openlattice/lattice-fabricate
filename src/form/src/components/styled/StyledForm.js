@@ -24,7 +24,7 @@ const StyledForm = styled(Form)`
 
     & > * {
       border-bottom: 1px solid ${NEUTRALS[4]};
-      padding: 30px;
+      padding: ${(props) => !props.noPadding && '30px'}
     }
 
     & > *:last-child {
