@@ -1,6 +1,6 @@
 /*!
  * 
- * lattice-fabricate - v0.6.1
+ * lattice-fabricate - v0.7.0
  * React HOCs for components dependent on the OpenLattice EDM.
  * https://github.com/openlattice/lattice-fabricate
  * 
@@ -25608,13 +25608,15 @@ var IconButton_IconButton = function IconButton(props) {
   /* eslint-disable react/jsx-props-no-spreading */
 
 
-  return external_react_default.a.createElement(StyledButton, extends_default()({
-    mode: "subtle",
-    onClick: onClick
-  }, restProps), external_react_default.a.createElement(react_fontawesome_["FontAwesomeIcon"], {
-    icon: icon,
-    fixedWidth: true
-  }));
+  return (// $FlowFixMe
+    external_react_default.a.createElement(StyledButton, extends_default()({
+      mode: "subtle",
+      onClick: onClick
+    }, restProps), external_react_default.a.createElement(react_fontawesome_["FontAwesomeIcon"], {
+      icon: icon,
+      fixedWidth: true
+    }))
+  );
   /* eslint-enable */
 };
 
@@ -26512,7 +26514,8 @@ function (_Component) {
         onKeyDown: this.onKeyDown,
         readOnly: readonly,
         type: inputType,
-        value: value
+        value: value // $FlowFixMe
+
       }, inputProps));
       /* eslint-enable */
     }
@@ -27095,7 +27098,8 @@ function (_Component) {
         onFocus: this.onFocus,
         readOnly: readonly,
         rows: options.rows,
-        value: value
+        value: value // $FlowFixMe
+
       }, restProps));
       /* eslint-enable */
     }
@@ -27309,15 +27313,27 @@ var HiddenButton = external_amd_styled_components_commonjs_styled_components_com
   componentId: "sc-16t14u-0"
 })(["display:none;"]);
 
-var Form_Form = function Form(props) {
+var Form_Form = function Form(props, ref) {
   var disabled = props.disabled,
+      hideSubmit = props.hideSubmit,
+      isSubmitting = props.isSubmitting,
       onChange = props.onChange,
       onDiscard = props.onDiscard,
       onSubmit = props.onSubmit,
-      isSubmitting = props.isSubmitting,
-      restProps = objectWithoutProperties_default()(props, ["disabled", "onChange", "onDiscard", "onSubmit", "isSubmitting"]);
-  /* eslint-disable react/jsx-props-no-spreading */
+      restProps = objectWithoutProperties_default()(props, ["disabled", "hideSubmit", "isSubmitting", "onChange", "onDiscard", "onSubmit"]);
 
+  var formRef = Object(external_react_["useRef"])(); // https://reactjs.org/docs/hooks-reference.html#useimperativehandle
+
+  Object(external_react_["useImperativeHandle"])(ref, function () {
+    return {
+      submit: function submit() {
+        if (formRef.current) {
+          formRef.current.submit();
+        }
+      }
+    };
+  });
+  /* eslint-disable react/jsx-props-no-spreading */
 
   return external_react_default.a.createElement(styled_StyledForm, extends_default()({
     ArrayFieldTemplate: array_ArrayFieldTemplate,
@@ -27327,9 +27343,11 @@ var Form_Form = function Form(props) {
     fields: fields,
     onChange: onChange,
     onSubmit: onSubmit,
+    ref: formRef,
     showErrorList: false,
-    widgets: widgets
-  }, restProps), disabled ? external_react_default.a.createElement(HiddenButton, {
+    widgets: widgets // $FlowFixMe
+
+  }, restProps), disabled || hideSubmit ? external_react_default.a.createElement(HiddenButton, {
     type: "submit"
   }) : external_react_default.a.createElement(styled_ActionGroup, null, external_react_default.a.createElement(external_lattice_ui_kit_["Button"], {
     mode: "primary",
@@ -27341,11 +27359,7 @@ var Form_Form = function Form(props) {
   /* eslint-enable */
 };
 
-Form_Form.defaultProps = {
-  isSubmitting: false,
-  onDiscard: undefined
-};
-/* harmony default export */ var components_Form = (Form_Form);
+/* harmony default export */ var components_Form = (external_react_default.a.forwardRef(Form_Form));
 // CONCATENATED MODULE: ./src/form/index.js
 
 /* harmony default export */ var src_form = (components_Form);
@@ -27355,7 +27369,7 @@ Form_Form.defaultProps = {
 /* concated harmony reexport Form */__webpack_require__.d(__webpack_exports__, "Form", function() { return src_form; });
  // injected by Webpack.DefinePlugin
 
-var version = "v0.6.1";
+var version = "v0.7.0";
 
 
 /* harmony default export */ var src = __webpack_exports__["default"] = ({
