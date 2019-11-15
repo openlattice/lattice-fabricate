@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import Form from 'react-jsonschema-form';
-import { Colors } from 'lattice-ui-kit';
+import { Colors, StyleUtils } from 'lattice-ui-kit';
 
+const { media } = StyleUtils;
 const { NEUTRALS } = Colors;
 
 const StyledForm = styled(Form)`
@@ -97,6 +98,10 @@ const StyledForm = styled(Form)`
       grid-template-columns: repeat(12, 1fr);
       grid-gap: 20px 30px;
       width: 100%;
+
+      ${media.phone`
+        grid-gap: 15px;
+      `}
     }
   }
 
