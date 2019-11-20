@@ -29,7 +29,7 @@
   "main": "build/index.js",
   "dependencies": {
     "immutable": "4.0.0-rc.9",
-    "lattice": "~0.68.0",
+    "lattice": "~0.69.0",
     "lodash": "~4.17.0",
     "loglevel": "~1.6.0",
     "react-jsonschema-form": "~1.8.0"
