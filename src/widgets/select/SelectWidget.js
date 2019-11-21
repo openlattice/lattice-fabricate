@@ -21,6 +21,7 @@ type Props = {
     placeholder :?string;
   };
   required :boolean;
+  schema :any;
   value :any;
 };
 
@@ -48,8 +49,11 @@ class SelectWidget extends Component<Props, State> {
       multiple,
       options,
       required,
+      schema,
       value,
     } = this.props;
+
+    const { options: schemaOptions } = schema;
 
     const {
       enumOptions = [],
@@ -57,6 +61,8 @@ class SelectWidget extends Component<Props, State> {
       hideMenu,
       placeholder
     } = options;
+
+    const selectOptions = schemaOptions || enumOptions;
 
     if (creatable) {
       return (
@@ -67,7 +73,7 @@ class SelectWidget extends Component<Props, State> {
             isDisabled={disabled}
             isMulti={multiple}
             onChange={this.handleChange}
-            options={enumOptions}
+            options={selectOptions}
             placeholder={placeholder}
             useRawValues
             value={value} />
@@ -83,7 +89,7 @@ class SelectWidget extends Component<Props, State> {
           isDisabled={disabled}
           isMulti={multiple}
           onChange={this.handleChange}
-          options={enumOptions}
+          options={selectOptions}
           useRawValues
           value={value} />
     );
