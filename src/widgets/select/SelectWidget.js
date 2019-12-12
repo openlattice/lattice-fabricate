@@ -20,6 +20,7 @@ type Props = {
     hideMenu :?boolean;
     placeholder :?string;
   };
+  rawErrors ?:string[];
   required :boolean;
   schema :any;
   value :any;
@@ -48,6 +49,7 @@ class SelectWidget extends Component<Props, State> {
       id,
       multiple,
       options,
+      rawErrors,
       required,
       schema,
       value,
@@ -63,6 +65,7 @@ class SelectWidget extends Component<Props, State> {
     } = options;
 
     const selectOptions = schemaOptions || enumOptions;
+    const invalid = rawErrors && rawErrors.length;
 
     if (creatable) {
       return (
@@ -70,6 +73,7 @@ class SelectWidget extends Component<Props, State> {
             autoFocus={autofocus}
             hideMenu={hideMenu}
             id={id}
+            invalid={invalid}
             isDisabled={disabled}
             isMulti={multiple}
             onChange={this.handleChange}
@@ -85,6 +89,7 @@ class SelectWidget extends Component<Props, State> {
       <Select
           autoFocus={autofocus}
           id={id}
+          invalid={invalid}
           isClearable={!required}
           isDisabled={disabled}
           isMulti={multiple}
