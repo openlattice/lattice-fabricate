@@ -1,8 +1,9 @@
 // @flow
 import React, { Component } from 'react';
+import type { ChildrenArray, Element } from 'react';
+
 import styled from 'styled-components';
 import { Colors, Label } from 'lattice-ui-kit';
-import type { ChildrenArray, Element } from 'react';
 
 const { RED_1 } = Colors;
 
@@ -40,11 +41,11 @@ class FieldTemplate extends Component<Props> {
   };
 
   renderErrors = () :Element<'div'>[] | null => {
-    const { rawErrors } = this.props;
+    const { rawErrors, id } = this.props;
 
     if (Array.isArray(rawErrors)) {
       return rawErrors.map((error) => (
-        <Error>{error}</Error>
+        <Error key={`${id}-${error}`}>{error}</Error>
       ));
     }
 
