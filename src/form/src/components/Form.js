@@ -1,13 +1,16 @@
 // @flow
-import React, { useRef, useImperativeHandle } from 'react';
-import { Button } from 'lattice-ui-kit';
-import styled from 'styled-components';
-import isFunction from 'lodash/isFunction';
+import React from 'react';
 import type { ElementRef } from 'react';
 
+import isFunction from 'lodash/isFunction';
+import styled from 'styled-components';
+import { Button } from 'lattice-ui-kit';
+
 import { ActionGroup, StyledForm } from './styled';
-import { ArrayFieldTemplate, FieldTemplate, ObjectFieldTemplate } from '../../../templates';
+
+import SchemaField from '../../../templates/schema/SchemaField';
 import { DescriptionField } from '../../../fields';
+import { ArrayFieldTemplate, FieldTemplate, ObjectFieldTemplate } from '../../../templates';
 import {
   BaseInput,
   CheckboxWidget,
@@ -18,7 +21,6 @@ import {
   TextareaWidget,
   TimeWidget,
 } from '../../../widgets';
-import SchemaField from '../../../templates/schema/SchemaField';
 
 const widgets = {
   BaseInput,
@@ -42,18 +44,19 @@ const HiddenButton = styled.button`
 
 type Props = {
   disabled :boolean;
+  forwardedRef :ElementRef<typeof StyledForm>;
   hideSubmit :boolean;
   isSubmitting :boolean;
   onChange :() => void;
   onDiscard :() => void;
   onSubmit :() => void;
-  ref :ElementRef<typeof StyledForm>;
 };
 
-const Form = (props :Props, ref) => {
+const Form = (props :Props) => {
 
   const {
     disabled,
+    forwardedRef,
     hideSubmit,
     isSubmitting,
     onChange,
@@ -61,17 +64,6 @@ const Form = (props :Props, ref) => {
     onSubmit,
     ...restProps
   } = props;
-
-  const formRef = useRef<typeof StyledForm>();
-
-  // https://reactjs.org/docs/hooks-reference.html#useimperativehandle
-  useImperativeHandle(ref, () => ({
-    submit: () => {
-      if (formRef.current) {
-        formRef.current.submit();
-      }
-    }
-  }));
 
   /* eslint-disable react/jsx-props-no-spreading */
   return (
@@ -83,7 +75,7 @@ const Form = (props :Props, ref) => {
         fields={fields}
         onChange={onChange}
         onSubmit={onSubmit}
-        ref={formRef}
+        ref={forwardedRef}
         showErrorList={false}
         widgets={widgets}
         // $FlowFixMe
@@ -103,4 +95,8 @@ const Form = (props :Props, ref) => {
   /* eslint-enable */
 };
 
-export default React.forwardRef<Props, typeof StyledForm>(Form);
+/* eslint-disable react/jsx-props-no-spreading */
+export default React.forwardRef<Props, typeof StyledForm>((props, ref) => (
+  <Form {...props} forwardedRef={ref} />
+));
+/* eslint-enable */
