@@ -1,13 +1,14 @@
 import React, { useRef } from 'react';
-import { Button, Card, CardSegment } from 'lattice-ui-kit';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
 
-import { schema as simpleSchema, uiSchema as simpleUiSchema } from './constants/simpleSchemas';
-import { schema as arraySchema, uiSchema as arrayUiSchema } from './constants/arraySchemas';
-import { schema as filesSchema, uiSchema as filesUiSchema } from './constants/fileSchemas';
+import { action } from '@storybook/addon-actions';
+import { storiesOf } from '@storybook/react';
+import { Button, Card, CardSegment } from 'lattice-ui-kit';
 
 import FormContainer from './FormContainer';
+import { schema as arraySchema, uiSchema as arrayUiSchema } from './constants/arraySchemas';
+import { schema as filesSchema, uiSchema as filesUiSchema } from './constants/fileSchemas';
+import { schema as simpleSchema, uiSchema as simpleUiSchema } from './constants/simpleSchemas';
+
 import Form from '..';
 
 storiesOf('Form', module)

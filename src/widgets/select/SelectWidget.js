@@ -1,7 +1,8 @@
 // @flow
 
 import React, { Component } from 'react';
-import { Select, Creatable } from 'lattice-ui-kit';
+
+import { Creatable, Select } from 'lattice-ui-kit';
 
 type Option = {
   label :string;

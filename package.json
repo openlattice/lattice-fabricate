@@ -29,6 +29,7 @@
   "main": "build/index.js",
   "dependencies": {
     "immutable": "4.0.0-rc.9",
+    "import-sort-style-openlattice": "^0.1.0",
     "lattice": "~0.68.0",
     "lodash": "~4.17.0",
     "loglevel": "~1.6.0",
