@@ -34,8 +34,9 @@ type State = {
 class SelectWidget extends Component<Props, State> {
   static defaultProps = {
     autofocus: false,
+    disabled: false,
     multiple: false,
-    disabled: false
+    rawErrors: undefined,
   };
 
   handleChange = (value :Option | Option[]) => {
