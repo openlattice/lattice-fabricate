@@ -1,12 +1,27 @@
 // @flow
+// Override BaseInput
+// https://github.com/rjsf-team/react-jsonschema-form/blob/master/packages/core/src/components/widgets/BaseInput.js
 
 import React, { Component } from 'react';
+
 import { Input } from 'lattice-ui-kit';
 
 import KeyCodes from '../constants/KeyCodes';
+import { isDefined } from '../../utils/LangUtils';
 import type { WidgetProps } from '../types';
 
-class BaseInput extends Component<WidgetProps> {
+type BaseInputExtraProps = {|
+  step :string;
+  min :string;
+  max :string;
+|}
+
+type BaseInputProps = {|
+  ...WidgetProps,
+  ...BaseInputExtraProps,
+|}
+
+class BaseInput extends Component<BaseInputProps> {
 
   static defaultProps = {
     value: ''
@@ -48,16 +63,38 @@ class BaseInput extends Component<WidgetProps> {
       disabled,
       id,
       onBlur,
-      onFocus,
       onChange,
+      onFocus,
       options,
       rawErrors,
       readonly,
+      schema,
       value,
       ...inputProps
     } = this.props;
 
-    const inputType = options.inputType || inputProps.type || 'text';
+    if (options.inputType) {
+      inputProps.type = options.inputType;
+    }
+    else if (!inputProps.type) {
+      if (schema.type === 'number') {
+        inputProps.type = 'number';
+        // Setting step to 'any' fixes a bug in Safari where decimals are not
+        // allowed in number inputs
+        inputProps.step = 'any';
+      }
+      else if (schema.type === 'integer') {
+        inputProps.type = 'number';
+        inputProps.step = '1';
+      }
+      else {
+        inputProps.type = 'text';
+      }
+    }
+
+    if (isDefined(schema.multipleOf)) inputProps.step = schema.multipleOf;
+    if (isDefined(schema.minimum)) inputProps.min = schema.minimum;
+    if (isDefined(schema.maximum)) inputProps.max = schema.maximum;
 
     /* eslint-disable react/jsx-props-no-spreading */
     return (
@@ -71,9 +108,7 @@ class BaseInput extends Component<WidgetProps> {
           onFocus={this.onFocus}
           onKeyDown={this.onKeyDown}
           readOnly={readonly}
-          type={inputType}
           value={value}
-          // $FlowFixMe
           {...inputProps} />
     );
     /* eslint-enable */

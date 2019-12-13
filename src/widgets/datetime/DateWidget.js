@@ -1,5 +1,6 @@
 // @flow
 import React, { useCallback } from 'react';
+
 import { DatePicker } from 'lattice-ui-kit';
 
 import type { WidgetProps } from '../types';
