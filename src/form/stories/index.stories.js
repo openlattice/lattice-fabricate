@@ -17,6 +17,7 @@ import Paged from '../src/components/Paged';
 const ActionRow = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0 30px 30px 30px;
 `;
 
