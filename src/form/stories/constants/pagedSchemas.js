@@ -123,10 +123,10 @@ const page3UiSchema = {
     items: {
       classNames: 'grid-container',
       petType: {
-        classNames: 'column-span-3'
+        classNames: 'column-span-6'
       },
       petName: {
-        classNames: 'column-span-9'
+        classNames: 'column-span-6'
       },
     }
   }
