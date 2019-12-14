@@ -9,7 +9,7 @@ import { schema, uiSchema } from './constants/checkboxesSchemas';
 import Form from '../../form';
 
 storiesOf('Fields', module)
-  .add('CheckboxListField', () => (
+  .add('CheckboxArrayField', () => (
     <Card>
       <Form
           onSubmit={action('Submit Form')}

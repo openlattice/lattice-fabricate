@@ -1,1 +1,1 @@
-export { default as CheckboxListField } from './src/components/CheckboxListField';
+export { default as CheckboxArrayField } from './src/components/CheckboxArrayField';

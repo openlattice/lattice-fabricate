@@ -39,7 +39,7 @@ type Props = {
   onFocus :() => void;
 };
 
-class CheckboxListField extends Component<Props> {
+class CheckboxArrayField extends Component<Props> {
 
   static defaultProps = {
     autofocus: false,
@@ -177,4 +177,4 @@ class CheckboxListField extends Component<Props> {
   }
 }
 
-export default CheckboxListField;
+export default CheckboxArrayField;

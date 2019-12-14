@@ -10,7 +10,7 @@ import { transformErrors } from './FormUtils';
 import { ActionGroup, StyledForm } from './styled';
 
 import SchemaField from '../../../templates/schema/SchemaField';
-import { CheckboxListField, DescriptionField } from '../../../fields';
+import { CheckboxArrayField, DescriptionField } from '../../../fields';
 import { ArrayFieldTemplate, FieldTemplate, ObjectFieldTemplate } from '../../../templates';
 import {
   BaseInput,
@@ -35,7 +35,7 @@ const widgets = {
 };
 
 const fields = {
-  CheckboxListField,
+  CheckboxArrayField,
   DescriptionField,
   SchemaField,
 };
