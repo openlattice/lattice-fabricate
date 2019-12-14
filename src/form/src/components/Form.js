@@ -6,10 +6,11 @@ import isFunction from 'lodash/isFunction';
 import styled from 'styled-components';
 import { Button } from 'lattice-ui-kit';
 
+import { transformErrors } from './FormUtils';
 import { ActionGroup, StyledForm } from './styled';
 
 import SchemaField from '../../../templates/schema/SchemaField';
-import { DescriptionField } from '../../../fields';
+import { CheckboxListField, DescriptionField } from '../../../fields';
 import { ArrayFieldTemplate, FieldTemplate, ObjectFieldTemplate } from '../../../templates';
 import {
   BaseInput,
@@ -34,8 +35,9 @@ const widgets = {
 };
 
 const fields = {
+  CheckboxListField,
   DescriptionField,
-  SchemaField
+  SchemaField,
 };
 
 const HiddenButton = styled.button`
@@ -77,6 +79,7 @@ const Form = (props :Props) => {
         onSubmit={onSubmit}
         ref={forwardedRef}
         showErrorList={false}
+        transformErrors={transformErrors}
         widgets={widgets}
         // $FlowFixMe
         {...restProps}>

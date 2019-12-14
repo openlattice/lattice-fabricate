@@ -11,9 +11,9 @@ import { isDefined } from '../../utils/LangUtils';
 import type { WidgetProps } from '../types';
 
 type BaseInputExtraProps = {|
-  step :string;
-  min :string;
   max :string;
+  min :string;
+  step :string;
 |}
 
 type BaseInputProps = {|
@@ -62,12 +62,14 @@ class BaseInput extends Component<BaseInputProps> {
       autofocus,
       disabled,
       id,
+      formContext,
       onBlur,
       onChange,
       onFocus,
       options,
       rawErrors,
       readonly,
+      registry,
       schema,
       value,
       ...inputProps
