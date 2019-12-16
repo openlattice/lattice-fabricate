@@ -10,21 +10,26 @@ import KeyCodes from '../constants/KeyCodes';
 import { isDefined } from '../../utils/LangUtils';
 import type { WidgetProps } from '../types';
 
-type BaseInputExtraProps = {|
-  max :string;
-  min :string;
-  step :string;
+type BaseInputElementProps = {|
+  max ?:string;
+  min ?:string;
+  step ?:string;
 |}
 
 type BaseInputProps = {|
   ...WidgetProps,
-  ...BaseInputExtraProps,
+  ...BaseInputElementProps,
 |}
 
 class BaseInput extends Component<BaseInputProps> {
 
   static defaultProps = {
-    value: ''
+    max: undefined,
+    min: undefined,
+    step: undefined,
+    // https://github.com/yannickcr/eslint-plugin-react/issues/1593#issuecomment-504685423
+    // eslint-disable-next-line react/default-props-match-prop-types
+    value: '',
   }
 
   onChange = (event :SyntheticEvent<*>) => {
