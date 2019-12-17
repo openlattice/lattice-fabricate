@@ -79,14 +79,14 @@ storiesOf('Form', module)
             const {
               formRef,
               pagedData,
-              currentPage,
+              page,
               onBack,
               onNext,
               validateAndSubmit,
             } = props;
 
             const totalPages = 4;
-            const isLastPage = currentPage === totalPages - 1;
+            const isLastPage = page === totalPages - 1;
 
             const handleNext = isLastPage
               ? action('Submit Form')
@@ -103,17 +103,17 @@ storiesOf('Form', module)
                           hideSubmit
                           ref={formRef}
                           onSubmit={onNext}
-                          schema={schemas[currentPage]}
-                          uiSchema={uiSchemas[currentPage]} />
+                          schema={schemas[page]}
+                          uiSchema={uiSchemas[page]} />
                     )
                 }
                 <ActionRow>
                   <Button
-                      disabled={!(currentPage > 0)}
+                      disabled={!(page > 0)}
                       onClick={onBack}>
                       Back
                   </Button>
-                  <span>{`${currentPage + 1} of ${totalPages}`}</span>
+                  <span>{`${page + 1} of ${totalPages}`}</span>
                   <Button
                       mode="primary"
                       onClick={handleNext}>

@@ -1,27 +1,35 @@
 // @flow
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { Node } from 'react';
 
 import isFunction from 'lodash/isFunction';
 
 type Props = {
   initialFormData ?:Object;
-  page ?:number;
+  initialPage ?:number;
   render :(...props :any) => Node;
-  onPageChange :(page :number) => void;
+  onPageChange ?:(page :number) => void;
 };
 
 const Paged = (props :Props) => {
   const {
     initialFormData,
     onPageChange,
-    page = 0,
+    initialPage = 0,
     render,
   } = props;
 
-  const [currentPage, setPage] = useState(page);
+  const [page, setPage] = useState(initialPage);
   const [pagedData, setFormData] = useState(initialFormData);
   const formRef = useRef();
+
+  useEffect(() => {
+    setFormData(initialFormData);
+  }, [initialFormData]);
+
+  useEffect(() => {
+    setPage(initialPage);
+  }, [initialPage, onPageChange]);
 
   const onBack = () => {
     if (formRef.current) {
@@ -32,14 +40,14 @@ const Paged = (props :Props) => {
       } = formRef.current;
       setFormData({ ...pagedData, ...formData });
     }
-    const newPageNumber = currentPage - 1;
+    const newPageNumber = page - 1;
     setPage(newPageNumber);
     if (isFunction(onPageChange)) onPageChange(newPageNumber);
   };
 
   const onNext = ({ formData }) => {
     const newFormData = { ...pagedData, ...formData };
-    const newPageNumber = currentPage + 1;
+    const newPageNumber = page + 1;
 
     setFormData(newFormData);
     setPage(newPageNumber);
@@ -55,7 +63,7 @@ const Paged = (props :Props) => {
   return render({
     formRef,
     pagedData,
-    currentPage,
+    page,
     onBack,
     onNext,
     validateAndSubmit
