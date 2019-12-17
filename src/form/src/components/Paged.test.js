@@ -8,43 +8,38 @@ import Paged from './Paged';
 
 import { schemas, uiSchemas } from '../../stories/constants/pagedSchemas';
 
+const mockRender = ({
+  formRef,
+  pagedData,
+  page,
+  onBack,
+  onNext,
+  validateAndSubmit,
+} :any) => (
+  <>
+    <Form
+        formData={pagedData}
+        hideSubmit
+        ref={formRef}
+        onSubmit={onNext}
+        schema={schemas[page]}
+        uiSchema={uiSchemas[page]} />
+    <button
+        id="back-button"
+        type="button"
+        onClick={onBack}>
+        Back
+    </button>
+    <button
+        id="next-button"
+        type="submit"
+        onClick={validateAndSubmit}>
+      Next
+    </button>
+  </>
+);
+
 describe('Paged', () => {
-
-  let mockRender;
-
-  beforeEach(() => {
-
-    mockRender = ({
-      formRef,
-      pagedData,
-      page,
-      onBack,
-      onNext,
-      validateAndSubmit,
-    } :any) => (
-      <>
-        <Form
-            formData={pagedData}
-            hideSubmit
-            ref={formRef}
-            onSubmit={onNext}
-            schema={schemas[page]}
-            uiSchema={uiSchemas[page]} />
-        <button
-            id="back-button"
-            type="button"
-            onClick={onBack}>
-            Back
-        </button>
-        <button
-            id="next-button"
-            type="submit"
-            onClick={validateAndSubmit}>
-          Next
-        </button>
-      </>
-    );
-  });
 
   describe('render', () => {
     test('should invoke render prop', () => {
