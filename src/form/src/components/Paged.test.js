@@ -48,7 +48,7 @@ describe('Paged', () => {
     });
   });
 
-  describe('initialPage', () => {
+  describe('page', () => {
     test('should default to first page (0)', () => {
       const wrapper = mount(
         <Paged
@@ -61,7 +61,7 @@ describe('Paged', () => {
     test('should control page when changed', () => {
       const wrapper = mount(
         <Paged
-            initialPage={1}
+            page={1}
             render={mockRender} />
       );
       expect(wrapper.find(Form).props().schema).toEqual(schemas[1]);
@@ -94,7 +94,7 @@ describe('Paged', () => {
 
 
   describe('onNext/onBack', () => {
-    test('should call onPageChange with new page number', () => {
+    test('should call onPageChange with new page number and formData', () => {
       const mockOnPageChange = jest.fn();
       const wrapper = mount(
         <Paged
@@ -104,10 +104,10 @@ describe('Paged', () => {
 
       wrapper.find('input#root_section1_name').props().onChange({ currentTarget: { value: 'name' } });
       wrapper.find('#next-button').simulate('click');
-      expect(mockOnPageChange).toHaveBeenCalledWith(1);
+      expect(mockOnPageChange).toHaveBeenCalledWith(1, expect.objectContaining({ section1: { name: 'name' } }));
 
       wrapper.find('#back-button').simulate('click');
-      expect(mockOnPageChange).toHaveBeenCalledWith(0);
+      expect(mockOnPageChange).toHaveBeenCalledWith(0, expect.objectContaining({ section1: { name: 'name' } }));
     });
 
     test('should persist state between pages', () => {
