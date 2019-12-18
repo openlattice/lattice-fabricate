@@ -10,11 +10,12 @@ import { transformErrors } from './FormUtils';
 import { ActionGroup, StyledForm } from './styled';
 
 import SchemaField from '../../../templates/schema/SchemaField';
-import { CheckboxArrayField, DescriptionField } from '../../../fields';
+import { DescriptionField } from '../../../fields';
 import { ArrayFieldTemplate, FieldTemplate, ObjectFieldTemplate } from '../../../templates';
 import {
   BaseInput,
   CheckboxWidget,
+  CheckboxesWidget,
   DateWidget,
   FileWidget,
   RadioWidget,
@@ -26,6 +27,7 @@ import {
 const widgets = {
   BaseInput,
   CheckboxWidget,
+  CheckboxesWidget,
   DateWidget,
   FileWidget,
   RadioWidget,
@@ -35,7 +37,6 @@ const widgets = {
 };
 
 const fields = {
-  CheckboxArrayField,
   DescriptionField,
   SchemaField,
 };
