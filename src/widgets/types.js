@@ -1,9 +1,11 @@
 // @flow
-declare type WidgetProps = {
+
+declare type WidgetProps = {|
   autofocus :boolean;
   disabled :boolean;
   formContext :Object;
   id :string;
+  name :string;
   onBlur :(id :string, value :any) => void;
   onChange :(value :any) => void;
   onFocus :(id :string, value :any) => void;
@@ -15,7 +17,7 @@ declare type WidgetProps = {
   schema :Object;
   type :string;
   value :any;
-};
+|};
 
 export type {
   // eslint-disable-next-line import/prefer-default-export
