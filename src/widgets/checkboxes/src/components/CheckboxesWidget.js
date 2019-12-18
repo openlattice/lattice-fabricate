@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 
 import styled, { css } from 'styled-components';
 import {
-  getUiOptions,
   getWidget,
   optionsList,
   retrieveSchema
@@ -12,7 +11,7 @@ import {
 
 import OtherInput from './OtherInput';
 
-const selectValue = (value, selected :any[]) => selected.concat(value);
+const selectValue = (value, selected) => selected.concat(value);
 
 const deselectValue = (value, selected :any[]) => selected.filter((v) => v !== value);
 
@@ -21,88 +20,83 @@ const GridDiv = styled.div`
   grid-template-columns: ${(props) => (props.columns ? css`repeat(${props.columns}, 1fr)` : '1fr')};
 `;
 
-const StyledLabel = styled.label.attrs({
-  className: 'control-label'
-})``;
-
 type Props = {
   autofocus ? :boolean;
   disabled ? :boolean;
-  idSchema :any;
+  id :any;
   onChange :(Array<string>) => void;
   readonly ? :boolean;
   registry :any;
-  formData :Array<string>;
+  value :Array<string>;
   schema :any;
-  uiSchema :any;
   onBlur :() => void;
   onFocus :() => void;
 };
 
-class CheckboxArrayField extends Component<Props> {
+class CheckboxesWidget extends Component<Props> {
 
   static defaultProps = {
     autofocus: false,
     disabled: false,
     readonly: false,
-    formData: []
+    value: []
   };
 
   componentDidUpdate(prevProps :Props) {
     const {
-      formData,
+      value,
       registry,
       schema,
       onChange
     } = this.props;
-    const { formData: prevFormData } = prevProps;
+    const { value: prevFormData } = prevProps;
     const { definitions } = registry;
     const itemsSchema = retrieveSchema(schema.items, definitions, prevFormData);
     const enumOptions = optionsList(itemsSchema);
-    const otherValueIndex = this.getOtherValueIndex(formData, enumOptions);
+    const otherValueIndex = this.getOtherValueIndex(value, enumOptions);
 
-    if (prevFormData.includes('Other') && !formData.includes('Other') && otherValueIndex !== -1) {
-      const copyFormData = [...formData];
+    if (prevFormData.includes('Other') && !value.includes('Other') && otherValueIndex !== -1) {
+      const copyFormData = [...value];
       copyFormData.splice(otherValueIndex, 1);
       onChange(copyFormData);
     }
   }
 
   getHandleChange = (option :HTMLOptionElement) => (checked :boolean) => {
-    const { onChange, formData } = this.props;
+    const { onChange, value } = this.props;
     if (checked) {
-      onChange(selectValue(option.value, formData));
+      onChange(selectValue(option.value, value));
     }
     else {
-      onChange(deselectValue(option.value, formData));
+      onChange(deselectValue(option.value, value));
     }
   }
 
-  handleOtherChange = (value :string = '') => {
+  handleOtherChange = (otherValue :string = '') => {
     const {
-      formData,
+      value,
       registry,
       schema,
       onChange
     } = this.props;
-    const copyFormData = [...formData];
+    const copyFormData = [...value];
     const { definitions } = registry;
-    const itemsSchema = retrieveSchema(schema.items, definitions, formData);
+    const itemsSchema = retrieveSchema(schema.items, definitions, otherValue);
     const enumOptions = optionsList(itemsSchema);
-    const otherIndex = this.getOtherValueIndex(formData, enumOptions);
+    const otherIndex = this.getOtherValueIndex(value, enumOptions);
 
     if (otherIndex !== -1) {
-      copyFormData[otherIndex] = value;
+      copyFormData[otherIndex] = otherValue;
       onChange(copyFormData);
     }
     else {
-      onChange([...copyFormData, value]);
+      onChange([...copyFormData, otherValue]);
     }
   }
 
-  getOtherValueIndex = (formData :Array<string>, enumOptions :Array<HTMLOptionElement>) :number => {
-    const index = formData.findIndex((value) => {
-      return !enumOptions.find((option) => option.value === value);
+  getOtherValueIndex = (value :Array<string>, enumOptions :Array<HTMLOptionElement>) :number => {
+    const index = value.findIndex((v) => {
+      return !enumOptions.find((option) => option.value === v);
     });
     return index;
   }
@@ -111,42 +105,33 @@ class CheckboxArrayField extends Component<Props> {
     const {
       autofocus,
       disabled,
-      idSchema,
+      id,
       readonly,
       registry,
       schema,
-      uiSchema,
-      formData,
+      value,
       onBlur,
-      onFocus
+      onFocus,
+      options,
     } = this.props;
     const { widgets, definitions } = registry;
-    const { $id: id } = idSchema;
-    const itemsSchema = retrieveSchema(schema.items, definitions, formData);
+    const itemsSchema = retrieveSchema(schema.items, definitions, value);
     const enumOptions = optionsList(itemsSchema);
     const {
       widget = 'CheckboxWidget',
       columns,
       withOther
-    } = getUiOptions(uiSchema);
-    const label = uiSchema['ui:title'] || schema.title;
+    } = options;
+    // const label = uiSchema['ui:title'] || schema.title;
     const Widget = getWidget(schema, widget, widgets);
-    const otherValueIndex :number = this.getOtherValueIndex(formData, enumOptions);
-
+    const otherValueIndex :number = this.getOtherValueIndex(value, enumOptions);
+    const otherValue = value[otherValueIndex];
+    const showOther = withOther && value.includes('Other');
     return (
       <>
-        {
-          label
-            ? (
-              <StyledLabel>
-                {label}
-              </StyledLabel>
-            )
-            : null
-        }
         <GridDiv className="checkboxes" id={id} columns={columns}>
           {enumOptions.map((option, index) => {
-            const checked = formData.indexOf(option.value) !== -1;
+            const checked = value.indexOf(option.value) !== -1;
             return (
               <Widget
                   id={`${id}_${index}`}
@@ -161,20 +146,20 @@ class CheckboxArrayField extends Component<Props> {
                   value={checked} />
             );
           })}
-          <OtherInput
-              formData={formData}
-              idSchema={idSchema}
-              onBlur={onBlur}
-              onChange={this.handleOtherChange}
-              onFocus={onFocus}
-              otherValueIndex={otherValueIndex}
-              registry={registry}
-              schema={schema}
-              withOther={withOther} />
+          { showOther && (
+            <OtherInput
+                value={otherValue}
+                id={id}
+                onBlur={onBlur}
+                onChange={this.handleOtherChange}
+                onFocus={onFocus}
+                registry={registry}
+                schema={schema} />
+          )}
         </GridDiv>
       </>
     );
   }
 }
 
-export default CheckboxArrayField;
+export default CheckboxesWidget;

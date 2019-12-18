@@ -1,6 +1,6 @@
 export const schema = {
   type: 'object',
-  title: 'CheckboxArrayField',
+  title: 'Checkboxes',
   properties: {
     checkboxes: {
       title: 'Options',
@@ -10,7 +10,7 @@ export const schema = {
         enum: ['Option 1', 'Option 2', 'Option 3', 'Other'],
       },
       minItems: 1,
-      uniqueItems: true
+      uniqueItems: true,
     },
   },
 };
@@ -19,7 +19,7 @@ export const uiSchema = {
   classNames: 'column-span-12',
   checkboxes: {
     classNames: 'column-span-12',
-    'ui:field': 'CheckboxArrayField',
+    'ui:widget': 'checkboxes',
     'ui:options': {
       withOther: true
     }
