@@ -4,39 +4,21 @@ import React, { Component } from 'react';
 
 import { Creatable, Select } from 'lattice-ui-kit';
 
+import type { WidgetProps } from '../types';
+
 type Option = {
   label :string;
   value :string | number;
 };
 
-type Props = {
-  autofocus ?:boolean;
-  disabled ?:boolean;
-  id :string;
-  multiple ?:boolean;
-  onChange :(value :any) => void;
-  options :{
-    creatable :?boolean;
-    enumOptions :Option[];
-    hideMenu :?boolean;
-    placeholder :?string;
-  };
-  rawErrors ?:string[];
-  required :boolean;
-  schema :any;
-  value :any;
-};
+type SelectProps = {|
+  ...WidgetProps,
+  multiple ? :boolean;
+|};
 
-type State = {
-  value?:Option | Option[];
-};
-
-class SelectWidget extends Component<Props, State> {
+class SelectWidget extends Component<SelectProps> {
   static defaultProps = {
-    autofocus: false,
-    disabled: false,
     multiple: false,
-    rawErrors: undefined,
   };
 
   handleChange = (value :Option | Option[]) => {
@@ -50,6 +32,8 @@ class SelectWidget extends Component<Props, State> {
       disabled,
       id,
       multiple,
+      onBlur,
+      onFocus,
       options,
       rawErrors,
       required,
@@ -78,7 +62,9 @@ class SelectWidget extends Component<Props, State> {
             invalid={invalid}
             isDisabled={disabled}
             isMulti={multiple}
+            onBlur={onBlur}
             onChange={this.handleChange}
+            onFocus={onFocus}
             options={selectOptions}
             placeholder={placeholder}
             useRawValues
@@ -95,7 +81,9 @@ class SelectWidget extends Component<Props, State> {
           isClearable={!required}
           isDisabled={disabled}
           isMulti={multiple}
+          onBlur={onBlur}
           onChange={this.handleChange}
+          onFocus={onFocus}
           options={selectOptions}
           useRawValues
           value={value} />
