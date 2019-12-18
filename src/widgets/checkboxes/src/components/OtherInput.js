@@ -4,49 +4,43 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { getWidget } from 'react-jsonschema-form/lib/utils';
 
+import type { WidgetProps } from '../../../types';
+
 const OtherWrapper = styled.div`
   grid-column: ${(props) => (props.columns ? css`auto / span ${props.columns}` : '1fr')};
 `;
 
-type Props = {
-  id :string;
-  onBlur :() => void;
-  onFocus :() => void;
-  registry :Object;
-  onChange :(value :any) => void;
-  columns ?:number;
-  value :any;
-};
-
-const OtherInput = (props :Props) => {
+const OtherInput = (props :WidgetProps) => {
   const {
-    columns,
+    autofocus,
     id,
+    name,
     onBlur,
     onChange,
     onFocus,
+    options,
     registry,
+    schema,
     value = ''
   } = props;
   const { widgets } = registry;
+  const { columns } = options;
 
   const OtherWidget = getWidget({ type: 'string' }, 'BaseInput', widgets);
   return (
     <OtherWrapper columns={columns}>
       <OtherWidget
-          schema
-          type="text"
+          autofocus={autofocus}
           id={`${id}_other`}
+          name={name}
           onBlur={onBlur}
           onChange={onChange}
           onFocus={onFocus}
+          schema={schema}
+          type="text"
           value={value} />
     </OtherWrapper>
   );
-};
-
-OtherInput.defaultProps = {
-  columns: 1
 };
 
 export default OtherInput;

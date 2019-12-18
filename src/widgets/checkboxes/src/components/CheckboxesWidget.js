@@ -11,6 +11,8 @@ import {
 
 import OtherInput from './OtherInput';
 
+import type { WidgetProps } from '../../../types';
+
 const selectValue = (value, selected) => selected.concat(value);
 
 const deselectValue = (value, selected :any[]) => selected.filter((v) => v !== value);
@@ -20,20 +22,11 @@ const GridDiv = styled.div`
   grid-template-columns: ${(props) => (props.columns ? css`repeat(${props.columns}, 1fr)` : '1fr')};
 `;
 
-type Props = {
-  autofocus ? :boolean;
-  disabled ? :boolean;
-  id :any;
-  onChange :(Array<string>) => void;
-  readonly ? :boolean;
-  registry :any;
-  value :Array<string>;
-  schema :any;
-  onBlur :() => void;
-  onFocus :() => void;
+const otherSchema = {
+  type: 'string',
 };
 
-class CheckboxesWidget extends Component<Props> {
+class CheckboxesWidget extends Component<WidgetProps> {
 
   static defaultProps = {
     autofocus: false,
@@ -42,7 +35,7 @@ class CheckboxesWidget extends Component<Props> {
     value: []
   };
 
-  componentDidUpdate(prevProps :Props) {
+  componentDidUpdate(prevProps :WidgetProps) {
     const {
       value,
       registry,
@@ -105,15 +98,17 @@ class CheckboxesWidget extends Component<Props> {
     const {
       autofocus,
       disabled,
+      formContext,
       id,
+      onBlur,
+      onFocus,
+      options,
       readonly,
       registry,
       schema,
       value,
-      onBlur,
-      onFocus,
-      options,
     } = this.props;
+    console.log(schema);
     const { widgets, definitions } = registry;
     const itemsSchema = retrieveSchema(schema.items, definitions, value);
     const enumOptions = optionsList(itemsSchema);
@@ -122,7 +117,7 @@ class CheckboxesWidget extends Component<Props> {
       columns,
       withOther
     } = options;
-    // const label = uiSchema['ui:title'] || schema.title;
+
     const Widget = getWidget(schema, widget, widgets);
     const otherValueIndex :number = this.getOtherValueIndex(value, enumOptions);
     const otherValue = value[otherValueIndex];
@@ -148,13 +143,22 @@ class CheckboxesWidget extends Component<Props> {
           })}
           { showOther && (
             <OtherInput
-                value={otherValue}
+                autofocus
+                disabled={disabled}
+                formContext={formContext}
                 id={id}
+                name="otherInput"
                 onBlur={onBlur}
                 onChange={this.handleOtherChange}
                 onFocus={onFocus}
+                options={options}
+                rawErrors={[]}
+                readonly={readonly}
                 registry={registry}
-                schema={schema} />
+                required={false}
+                schema={otherSchema}
+                type="text"
+                value={otherValue} />
           )}
         </GridDiv>
       </>
