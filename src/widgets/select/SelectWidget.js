@@ -11,12 +11,7 @@ type Option = {
   value :string | number;
 };
 
-type SelectProps = {|
-  ...WidgetProps,
-  multiple ? :boolean;
-|};
-
-class SelectWidget extends Component<SelectProps> {
+class SelectWidget extends Component<WidgetProps> {
   static defaultProps = {
     multiple: false,
   };
@@ -31,7 +26,6 @@ class SelectWidget extends Component<SelectProps> {
       autofocus,
       disabled,
       id,
-      multiple,
       onBlur,
       onFocus,
       options,
@@ -47,44 +41,32 @@ class SelectWidget extends Component<SelectProps> {
       enumOptions = [],
       creatable,
       hideMenu,
-      placeholder
+      placeholder,
+      multiple,
+      noOptionsMessage,
     } = options;
 
     const selectOptions = schemaOptions || enumOptions;
     const invalid = rawErrors && rawErrors.length;
-
-    if (creatable) {
-      return (
-        <Creatable
-            autoFocus={autofocus}
-            hideMenu={hideMenu}
-            id={id}
-            invalid={invalid}
-            isDisabled={disabled}
-            isMulti={multiple}
-            onBlur={onBlur}
-            onChange={this.handleChange}
-            onFocus={onFocus}
-            options={selectOptions}
-            placeholder={placeholder}
-            useRawValues
-            value={value} />
-      );
-    }
-
+    const SelectComponent = creatable ? Creatable : Select;
 
     return (
-      <Select
+      <SelectComponent
           autoFocus={autofocus}
+          blurInputOnSelect={!multiple}
+          closeMenuOnSelect={!multiple}
+          hideMenu={hideMenu}
           id={id}
           invalid={invalid}
           isClearable={!required}
           isDisabled={disabled}
           isMulti={multiple}
+          noOptionsMessage={() => noOptionsMessage}
           onBlur={onBlur}
           onChange={this.handleChange}
           onFocus={onFocus}
           options={selectOptions}
+          placeholder={placeholder}
           useRawValues
           value={value} />
     );

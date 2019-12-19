@@ -6,6 +6,7 @@ import isFunction from 'lodash/isFunction';
 import styled from 'styled-components';
 import { Button } from 'lattice-ui-kit';
 
+import { transformErrors } from './FormUtils';
 import { ActionGroup, StyledForm } from './styled';
 
 import SchemaField from '../../../templates/schema/SchemaField';
@@ -14,6 +15,8 @@ import { ArrayFieldTemplate, FieldTemplate, ObjectFieldTemplate } from '../../..
 import {
   BaseInput,
   CheckboxWidget,
+  CheckboxesWidget,
+  DateTimeWidget,
   DateWidget,
   FileWidget,
   RadioWidget,
@@ -25,7 +28,9 @@ import {
 const widgets = {
   BaseInput,
   CheckboxWidget,
+  CheckboxesWidget,
   DateWidget,
+  DateTimeWidget,
   FileWidget,
   RadioWidget,
   SelectWidget,
@@ -35,7 +40,7 @@ const widgets = {
 
 const fields = {
   DescriptionField,
-  SchemaField
+  SchemaField,
 };
 
 const HiddenButton = styled.button`
@@ -81,6 +86,7 @@ const Form = (props :FormProps) => {
         onSubmit={onSubmit}
         ref={forwardedRef}
         showErrorList={false}
+        transformErrors={transformErrors}
         widgets={widgets}
         // $FlowFixMe
         {...restProps}>

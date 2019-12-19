@@ -26,39 +26,36 @@ const ReviewBody = styled.div`
 `;
 
 storiesOf('Form', module)
-  .add('Simple', () => (
+  .addDecorator((storyFn) => (
     <Card>
-      <Form
-          onSubmit={action('Submit Form')}
-          schema={simpleSchema}
-          uiSchema={simpleUiSchema} />
+      {storyFn()}
     </Card>
+  ))
+  .add('Simple', () => (
+    <Form
+        onSubmit={action('Submit Form')}
+        schema={simpleSchema}
+        uiSchema={simpleUiSchema} />
   ))
   .add('Array', () => (
-    <Card>
-      <Form
-          onSubmit={action('Submit Form')}
-          schema={arraySchema}
-          uiSchema={arrayUiSchema} />
-    </Card>
+    <Form
+        onSubmit={action('Submit Form')}
+        schema={arraySchema}
+        uiSchema={arrayUiSchema} />
   ))
   .add('Data Processing w/ Edits & Delete', () => (
-    <Card>
-      <FormContainer submitAction={action('Submit Form')} />
-    </Card>
+    <FormContainer submitAction={action('Submit Form')} />
   ))
   .add('Files', () => (
-    <Card>
-      <Form
-          schema={filesSchema}
-          uiSchema={filesUiSchema}
-          onSubmit={action('Submit Form')} />
-    </Card>
+    <Form
+        schema={filesSchema}
+        uiSchema={filesUiSchema}
+        onSubmit={action('Submit Form')} />
   ))
   .add('External Submit', () => {
     const formRef = useRef();
     return (
-      <Card>
+      <>
         <CardSegment>
           <Button mode="primary" onClick={() => formRef.current.submit()}>External Submit</Button>
         </CardSegment>
@@ -68,60 +65,58 @@ storiesOf('Form', module)
             schema={simpleSchema}
             uiSchema={simpleUiSchema}
             onSubmit={action('Submit Form')} />
-      </Card>
+      </>
     );
   })
   .add('Paged', () => (
-    <Card>
-      <Paged
-          onPageChange={action('Page Change')}
-          render={(props) => {
-            const {
-              formRef,
-              pagedData,
-              page,
-              onBack,
-              onNext,
-              validateAndSubmit,
-            } = props;
+    <Paged
+        onPageChange={action('Page Change')}
+        render={(props) => {
+          const {
+            formRef,
+            pagedData,
+            page,
+            onBack,
+            onNext,
+            validateAndSubmit,
+          } = props;
 
-            const totalPages = 4;
-            const isLastPage = page === totalPages - 1;
+          const totalPages = 4;
+          const isLastPage = page === totalPages - 1;
 
-            const handleNext = isLastPage
-              ? action('Submit Form')
-              : validateAndSubmit;
+          const handleNext = isLastPage
+            ? action('Submit Form')
+            : validateAndSubmit;
 
-            return (
-              <>
-                {
-                  isLastPage
-                    ? <ReviewBody>{JSON.stringify(pagedData)}</ReviewBody>
-                    : (
-                      <Form
-                          formData={pagedData}
-                          hideSubmit
-                          ref={formRef}
-                          onSubmit={onNext}
-                          schema={schemas[page]}
-                          uiSchema={uiSchemas[page]} />
-                    )
-                }
-                <ActionRow>
-                  <Button
-                      disabled={!(page > 0)}
-                      onClick={onBack}>
-                      Back
-                  </Button>
-                  <span>{`${page + 1} of ${totalPages}`}</span>
-                  <Button
-                      mode="primary"
-                      onClick={handleNext}>
-                    { isLastPage ? 'Complete Survey' : 'Next' }
-                  </Button>
-                </ActionRow>
-              </>
-            );
-          }} />
-    </Card>
+          return (
+            <>
+              {
+                isLastPage
+                  ? <ReviewBody>{JSON.stringify(pagedData)}</ReviewBody>
+                  : (
+                    <Form
+                        formData={pagedData}
+                        hideSubmit
+                        ref={formRef}
+                        onSubmit={onNext}
+                        schema={schemas[page]}
+                        uiSchema={uiSchemas[page]} />
+                  )
+              }
+              <ActionRow>
+                <Button
+                    disabled={!(page > 0)}
+                    onClick={onBack}>
+                    Back
+                </Button>
+                <span>{`${page + 1} of ${totalPages}`}</span>
+                <Button
+                    mode="primary"
+                    onClick={handleNext}>
+                  { isLastPage ? 'Complete Survey' : 'Next' }
+                </Button>
+              </ActionRow>
+            </>
+          );
+        }} />
   ));

@@ -1,11 +1,11 @@
 // @flow
 import React, { useCallback } from 'react';
 
-import { DatePicker } from 'lattice-ui-kit';
+import { DateTimePicker } from 'lattice-ui-kit';
 
 import type { WidgetProps } from '../types';
 
-const DateWidget = (props :WidgetProps) => {
+const DateTimeWidget = (props :WidgetProps) => {
 
   const {
     disabled,
@@ -26,7 +26,7 @@ const DateWidget = (props :WidgetProps) => {
   }, [onChange]);
 
   return (
-    <DatePicker
+    <DateTimePicker
         disabled={disabled || readonly}
         id={id}
         onChange={handleChange}
@@ -34,4 +34,4 @@ const DateWidget = (props :WidgetProps) => {
   );
 };
 
-export default DateWidget;
+export default DateTimeWidget;

@@ -11,6 +11,12 @@ export const schema = {
       title: 'Integer',
       type: 'integer'
     },
+    integerMinMax: {
+      title: 'Integer (0-99)',
+      type: 'integer',
+      minimum: 0,
+      maximum: 99,
+    },
     numberEnum: {
       type: 'number',
       title: 'Number enum',
@@ -41,6 +47,10 @@ export const uiSchema = {
     classNames: 'column-span-12'
   },
   integer: {
+    classNames: 'column-span-12',
+    'ui:widget': 'updown'
+  },
+  integerMinMax: {
     classNames: 'column-span-12',
     'ui:widget': 'updown'
   },
