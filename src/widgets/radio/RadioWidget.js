@@ -1,8 +1,11 @@
 // @flow
 import React, { Component } from 'react';
+
 import styled, { css } from 'styled-components';
 import { Radio } from 'lattice-ui-kit';
+
 import KeyCodes from '../constants/KeyCodes';
+import type { WidgetProps } from '../types';
 
 const StyledRow = styled.div`
   display: grid;
@@ -10,19 +13,7 @@ const StyledRow = styled.div`
   grid-template-columns: ${(props) => (props.inline && props.columns ? css`repeat(${props.columns}, 1fr)` : '1fr')};
 `;
 
-type Props = {
-  autofocus :boolean;
-  disabled :boolean;
-  id :string;
-  onChange :(value :string) => void;
-  options :Object;
-  readonly :boolean;
-  required :boolean;
-  value :any;
-  name :string;
-};
-
-class RadioWidget extends Component<Props> {
+class RadioWidget extends Component<WidgetProps> {
 
   onKeyDown = (e :SyntheticKeyboardEvent<*>) => {
     if (e.key === KeyCodes.ENTER) {
@@ -36,7 +27,9 @@ class RadioWidget extends Component<Props> {
       disabled,
       id,
       name,
+      onBlur,
       onChange,
+      onFocus,
       options,
       readonly,
       required,
@@ -55,6 +48,8 @@ class RadioWidget extends Component<Props> {
                 disabled={disabled || readonly}
                 label={option.label}
                 name={name}
+                onBlur={onBlur}
+                onFocus={onFocus}
                 onChange={() => onChange(option.value)}
                 onKeyDown={this.onKeyDown}
                 required={required}

@@ -4,43 +4,16 @@ import React, { Component } from 'react';
 
 import { Creatable, Select } from 'lattice-ui-kit';
 
+import type { WidgetProps } from '../types';
+
 type Option = {
   label :string;
   value :string | number;
 };
 
-type Props = {
-  autofocus ?:boolean;
-  disabled ?:boolean;
-  id :string;
-  multiple ?:boolean;
-  onChange :(value :any) => void;
-  options :{
-    creatable ?:boolean;
-    enumOptions :Option[];
-    hideMenu ?:boolean;
-    placeholder ?:string;
-    multiple ?:boolean;
-    noOptionsMessage ?:string;
-  };
-  rawErrors ?:string[];
-  required :boolean;
-  schema :any;
-  onBlur :(event :SyntheticFocusEvent<HTMLElement>) => void;
-  onFocus :(event :SyntheticFocusEvent<HTMLElement>) => void;
-  value :any;
-};
-
-type State = {
-  value?:Option | Option[];
-};
-
-class SelectWidget extends Component<Props, State> {
+class SelectWidget extends Component<WidgetProps> {
   static defaultProps = {
-    autofocus: false,
-    disabled: false,
     multiple: false,
-    rawErrors: undefined,
   };
 
   handleChange = (value :Option | Option[]) => {
@@ -90,8 +63,8 @@ class SelectWidget extends Component<Props, State> {
           isMulti={multiple}
           noOptionsMessage={() => noOptionsMessage}
           onBlur={onBlur}
-          onFocus={onFocus}
           onChange={this.handleChange}
+          onFocus={onFocus}
           options={selectOptions}
           placeholder={placeholder}
           useRawValues

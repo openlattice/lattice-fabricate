@@ -48,16 +48,20 @@ const HiddenButton = styled.button`
 `;
 
 type Props = {
-  disabled :boolean;
-  forwardedRef :ElementRef<typeof StyledForm>;
-  hideSubmit :boolean;
-  isSubmitting :boolean;
-  onChange :() => void;
-  onDiscard :() => void;
-  onSubmit :() => void;
+  disabled ?:boolean;
+  hideSubmit ?:boolean;
+  isSubmitting ?:boolean;
+  onChange ?:() => void;
+  onDiscard ?:() => void;
+  onSubmit ?:() => void;
 };
 
-const Form = (props :Props) => {
+type FormProps = {
+  ...Props,
+  forwardedRef :ElementRef<typeof StyledForm>
+};
+
+const Form = (props :FormProps) => {
 
   const {
     disabled,
@@ -100,6 +104,18 @@ const Form = (props :Props) => {
   );
   /* eslint-enable */
 };
+
+/* eslint-disable react/default-props-match-prop-types */
+Form.defaultProps = {
+  disabled: false,
+  hideSubmit: false,
+  isSubmitting: false,
+  onChange: undefined,
+  onDiscard: undefined,
+  onSubmit: undefined
+};
+
+/* eslint-enable */
 
 /* eslint-disable react/jsx-props-no-spreading */
 export default React.forwardRef<Props, typeof StyledForm>((props, ref) => (
