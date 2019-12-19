@@ -1,9 +1,11 @@
 // @flow
+
 declare type WidgetProps = {|
   autofocus :boolean;
   disabled :boolean;
   formContext :Object;
   id :string;
+  name :string;
   onBlur :(id :string, value :any) => void;
   onChange :(value :any) => void;
   onFocus :(id :string, value :any) => void;
