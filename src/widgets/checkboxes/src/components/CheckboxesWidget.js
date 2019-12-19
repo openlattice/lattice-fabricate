@@ -108,7 +108,7 @@ class CheckboxesWidget extends Component<WidgetProps> {
       schema,
       value,
     } = this.props;
-    console.log(schema);
+
     const { widgets, definitions } = registry;
     const itemsSchema = retrieveSchema(schema.items, definitions, value);
     const enumOptions = optionsList(itemsSchema);
