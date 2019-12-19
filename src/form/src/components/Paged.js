@@ -75,10 +75,10 @@ const Paged = (props :Props) => {
 
   return render({
     formRef,
-    pagedData,
-    page: currentPage,
     onBack,
     onNext,
+    page: currentPage,
+    pagedData,
     validateAndSubmit
   });
 };
