@@ -7,6 +7,7 @@ import { Card } from 'lattice-ui-kit';
 import { schema as checkboxesSchema, uiSchema as checkboxesUiSchema } from './constants/checkboxesSchemas';
 import { schema as datetimeSchema, uiSchema as datetimeUiSchema } from './constants/datetimeSchemas';
 import { schema as numberSchema, uiSchema as numberUiSchema } from './constants/numbersSchemas';
+import { schema as selectSchema, uiSchema as selectUiSchema } from './constants/selectSchemas';
 
 import Form from '../../form';
 
@@ -16,16 +17,19 @@ const dateTimeFormData = {
 };
 
 storiesOf('Widgets', module)
+  .addDecorator((storyFn) => (
+    <Card>
+      {storyFn()}
+    </Card>
+  ))
   .add('Number', () => (
     <Form schema={numberSchema} uiSchema={numberUiSchema} />
   ))
   .add('Checkboxes', () => (
-    <Card>
-      <Form
-          onSubmit={action('Submit Form')}
-          schema={checkboxesSchema}
-          uiSchema={checkboxesUiSchema} />
-    </Card>
+    <Form
+        onSubmit={action('Submit Form')}
+        schema={checkboxesSchema}
+        uiSchema={checkboxesUiSchema} />
   ))
   .add('Date & Time', () => (
     <Form
@@ -33,4 +37,10 @@ storiesOf('Widgets', module)
         onSubmit={action('Submit')}
         schema={datetimeSchema}
         uiSchema={datetimeUiSchema} />
+  ))
+  .add('Select', () => (
+    <Form
+        onSubmit={action('Submit')}
+        schema={selectSchema}
+        uiSchema={selectUiSchema} />
   ));

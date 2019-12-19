@@ -16,14 +16,18 @@ type Props = {
   multiple ?:boolean;
   onChange :(value :any) => void;
   options :{
-    creatable :?boolean;
+    creatable ?:boolean;
     enumOptions :Option[];
-    hideMenu :?boolean;
-    placeholder :?string;
+    hideMenu ?:boolean;
+    placeholder ?:string;
+    multiple ?:boolean;
+    noOptionsMessage ?:string;
   };
   rawErrors ?:string[];
   required :boolean;
   schema :any;
+  onBlur :(event :SyntheticFocusEvent<HTMLElement>) => void;
+  onFocus :(event :SyntheticFocusEvent<HTMLElement>) => void;
   value :any;
 };
 
@@ -49,7 +53,8 @@ class SelectWidget extends Component<Props, State> {
       autofocus,
       disabled,
       id,
-      multiple,
+      onBlur,
+      onFocus,
       options,
       rawErrors,
       required,
@@ -63,40 +68,32 @@ class SelectWidget extends Component<Props, State> {
       enumOptions = [],
       creatable,
       hideMenu,
-      placeholder
+      placeholder,
+      multiple,
+      noOptionsMessage,
     } = options;
 
     const selectOptions = schemaOptions || enumOptions;
     const invalid = rawErrors && rawErrors.length;
-
-    if (creatable) {
-      return (
-        <Creatable
-            autoFocus={autofocus}
-            hideMenu={hideMenu}
-            id={id}
-            invalid={invalid}
-            isDisabled={disabled}
-            isMulti={multiple}
-            onChange={this.handleChange}
-            options={selectOptions}
-            placeholder={placeholder}
-            useRawValues
-            value={value} />
-      );
-    }
-
+    const SelectComponent = creatable ? Creatable : Select;
 
     return (
-      <Select
+      <SelectComponent
           autoFocus={autofocus}
+          blurInputOnSelect={!multiple}
+          closeMenuOnSelect={!multiple}
+          hideMenu={hideMenu}
           id={id}
           invalid={invalid}
           isClearable={!required}
           isDisabled={disabled}
           isMulti={multiple}
+          noOptionsMessage={() => noOptionsMessage}
+          onBlur={onBlur}
+          onFocus={onFocus}
           onChange={this.handleChange}
           options={selectOptions}
+          placeholder={placeholder}
           useRawValues
           value={value} />
     );
