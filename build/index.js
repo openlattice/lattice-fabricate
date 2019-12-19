@@ -1,6 +1,6 @@
 /*!
  * 
- * lattice-fabricate - v0.8.0
+ * lattice-fabricate - v0.8.1
  * React HOCs for components dependent on the OpenLattice EDM.
  * https://github.com/openlattice/lattice-fabricate
  * 
@@ -27457,6 +27457,12 @@ function (_Component) {
 
 
 
+var removeEmptyEnums = function removeEmptyEnums(enumOptions) {
+  return enumOptions.filter(function (enumOption) {
+    return enumOption.value !== '';
+  });
+};
+
 var SelectWidget_SelectWidget =
 /*#__PURE__*/
 function (_Component) {
@@ -27506,6 +27512,7 @@ function (_Component) {
           multiple = options.multiple,
           _noOptionsMessage = options.noOptionsMessage;
       var selectOptions = schemaOptions || enumOptions;
+      var noEmptyOptions = removeEmptyEnums(selectOptions);
       var invalid = rawErrors && rawErrors.length;
       var SelectComponent = creatable ? external_lattice_ui_kit_["Creatable"] : external_lattice_ui_kit_["Select"];
       return external_react_default.a.createElement(SelectComponent, {
@@ -27524,7 +27531,7 @@ function (_Component) {
         onBlur: onBlur,
         onChange: this.handleChange,
         onFocus: onFocus,
-        options: selectOptions,
+        options: noEmptyOptions,
         placeholder: placeholder,
         useRawValues: true,
         value: value
@@ -27898,7 +27905,7 @@ var Paged_Paged = function Paged(props) {
 
  // injected by Webpack.DefinePlugin
 
-var version = "v0.8.0";
+var version = "v0.8.1";
 
 /* harmony default export */ var src = __webpack_exports__["default"] = ({
   version: version
