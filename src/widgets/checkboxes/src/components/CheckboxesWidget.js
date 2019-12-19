@@ -87,12 +87,8 @@ class CheckboxesWidget extends Component<WidgetProps> {
     }
   }
 
-  getOtherValueIndex = (value :Array<string>, enumOptions :Array<HTMLOptionElement>) :number => {
-    const index = value.findIndex((v) => {
-      return !enumOptions.find((option) => option.value === v);
-    });
-    return index;
-  }
+  getOtherValueIndex = (value :Array<string>, enumOptions :Array<HTMLOptionElement>) :number => value
+    .findIndex((v) => !enumOptions.find((option) => option.value === v));
 
   render() {
     const {
