@@ -40,7 +40,9 @@ export const schema = {
       },
       required: [
         'firstName',
-        'lastName'
+        'lastName',
+        'sex',
+        'dob'
       ],
     },
     mailingAddress: {

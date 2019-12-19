@@ -1,11 +1,13 @@
 import { Set } from 'immutable';
-import PACKAGE from '../package.json';
 
 import * as LatticeFabricate from './index';
 
+import PACKAGE from '../package.json';
+
 const EXPECTED_OBJ_EXPORTS = Set([
   'DataProcessingUtils',
-  'Form'
+  'Form',
+  'Paged',
 ]);
 
 describe('lattice-fabricate named exports', () => {

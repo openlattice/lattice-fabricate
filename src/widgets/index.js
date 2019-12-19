@@ -1,5 +1,7 @@
 export { default as BaseInput } from './input/BaseInput';
 export { default as CheckboxWidget } from './checkbox/CheckboxWidget';
+export { default as CheckboxesWidget } from './checkboxes/src/components/CheckboxesWidget';
+export { default as DateTimeWidget } from './datetime/DateTimeWidget';
 export { default as DateWidget } from './datetime/DateWidget';
 export { default as FileWidget } from './file/FileWidget';
 export { default as RadioWidget } from './radio/RadioWidget';
