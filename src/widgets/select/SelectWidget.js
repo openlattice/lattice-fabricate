@@ -11,6 +11,8 @@ type Option = {
   value :string | number;
 };
 
+const removeEmptyEnums = (enumOptions :Option[]) => enumOptions.filter((enumOption) => enumOption.value !== '');
+
 class SelectWidget extends Component<WidgetProps> {
   static defaultProps = {
     multiple: false,
@@ -47,6 +49,7 @@ class SelectWidget extends Component<WidgetProps> {
     } = options;
 
     const selectOptions = schemaOptions || enumOptions;
+    const noEmptyOptions = removeEmptyEnums(selectOptions);
     const invalid = rawErrors && rawErrors.length;
     const SelectComponent = creatable ? Creatable : Select;
 
@@ -65,7 +68,7 @@ class SelectWidget extends Component<WidgetProps> {
           onBlur={onBlur}
           onChange={this.handleChange}
           onFocus={onFocus}
-          options={selectOptions}
+          options={noEmptyOptions}
           placeholder={placeholder}
           useRawValues
           value={value} />

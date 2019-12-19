@@ -21,10 +21,9 @@ export const schema = {
       title: 'Creatable',
       items: {
         type: 'string',
-        enum: []
+        enum: [''],
       },
       uniqueItems: true,
-      default: []
     },
   },
 };
@@ -46,7 +45,7 @@ export const uiSchema = {
       creatable: true,
       multiple: true,
       noOptionsMessage: 'Type to create',
-      placeholder: '',
+      placeholder: 'Type to create',
     }
   },
 };
