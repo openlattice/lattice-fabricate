@@ -13,9 +13,24 @@ import OtherInput from './OtherInput';
 
 import type { WidgetProps } from '../../../types';
 
-const selectValue = (value, selected) => selected.concat(value);
+const selectValue = (value, selected :any[], withNone :boolean) => {
+  if (withNone) return selected.filter((v) => v !== 'None').concat(value);
+  return selected.concat(value);
+};
 
 const deselectValue = (value, selected :any[]) => selected.filter((v) => v !== value);
+
+const getOtherValueIndex = (value :Array<string>, enumOptions :Object[]) :number => value
+  .findIndex((v) => !enumOptions.find((option) => option.value === v));
+
+const getOptionsList = (itemsSchema, withNone, withOther) => {
+  const options :Object[] = optionsList(itemsSchema);
+  let shallowOptions = [...options];
+  if (withNone) shallowOptions = shallowOptions.concat({ label: 'None', value: 'None' });
+  if (withOther) shallowOptions = shallowOptions.concat({ label: 'Other', value: 'Other' });
+
+  return shallowOptions;
+};
 
 const GridDiv = styled.div`
   display: grid;
@@ -38,15 +53,20 @@ class CheckboxesWidget extends Component<WidgetProps> {
   componentDidUpdate(prevProps :WidgetProps) {
     const {
       value,
+      onChange,
+      options,
       registry,
       schema,
-      onChange
     } = this.props;
+    const {
+      withNone = false,
+      withOther = false
+    } = options;
     const { value: prevFormData } = prevProps;
     const { definitions } = registry;
     const itemsSchema = retrieveSchema(schema.items, definitions, prevFormData);
-    const enumOptions = optionsList(itemsSchema);
-    const otherValueIndex = this.getOtherValueIndex(value, enumOptions);
+    const enumOptions = getOptionsList(itemsSchema, withNone, withOther);
+    const otherValueIndex = getOtherValueIndex(value, enumOptions);
 
     if (prevFormData.includes('Other') && !value.includes('Other') && otherValueIndex !== -1) {
       const copyFormData = [...value];
@@ -55,10 +75,16 @@ class CheckboxesWidget extends Component<WidgetProps> {
     }
   }
 
-  getHandleChange = (option :HTMLOptionElement) => (checked :boolean) => {
+  getHandleChange = (option :Object, withNone :boolean) => (checked :boolean) => {
     const { onChange, value } = this.props;
+
     if (checked) {
-      onChange(selectValue(option.value, value));
+      if (withNone && option.value === 'None') {
+        onChange(['None']);
+      }
+      else {
+        onChange(selectValue(option.value, value, withNone));
+      }
     }
     else {
       onChange(deselectValue(option.value, value));
@@ -70,13 +96,18 @@ class CheckboxesWidget extends Component<WidgetProps> {
       value,
       registry,
       schema,
-      onChange
+      onChange,
+      options
     } = this.props;
     const copyFormData = [...value];
+    const {
+      withNone = false,
+      withOther = false
+    } = options;
     const { definitions } = registry;
     const itemsSchema = retrieveSchema(schema.items, definitions, otherValue);
-    const enumOptions = optionsList(itemsSchema);
-    const otherIndex = this.getOtherValueIndex(value, enumOptions);
+    const enumOptions = getOptionsList(itemsSchema, withNone, withOther);
+    const otherIndex = getOtherValueIndex(value, enumOptions);
 
     if (otherIndex !== -1) {
       copyFormData[otherIndex] = otherValue;
@@ -86,9 +117,6 @@ class CheckboxesWidget extends Component<WidgetProps> {
       onChange([...copyFormData, otherValue]);
     }
   }
-
-  getOtherValueIndex = (value :Array<string>, enumOptions :Array<HTMLOptionElement>) :number => value
-    .findIndex((v) => !enumOptions.find((option) => option.value === v));
 
   render() {
     const {
@@ -105,33 +133,34 @@ class CheckboxesWidget extends Component<WidgetProps> {
       value,
     } = this.props;
 
-    const { widgets, definitions } = registry;
-    const itemsSchema = retrieveSchema(schema.items, definitions, value);
-    const enumOptions = optionsList(itemsSchema);
     const {
       widget = 'CheckboxWidget',
       columns,
-      withOther
+      withNone = false,
+      withOther = false
     } = options;
-
+    const { widgets, definitions } = registry;
+    const itemsSchema = retrieveSchema(schema.items, definitions, value);
+    const enumOptions = getOptionsList(itemsSchema, withNone, withOther);
     const Widget = getWidget(schema, widget, widgets);
-    const otherValueIndex :number = this.getOtherValueIndex(value, enumOptions);
+    const otherValueIndex :number = getOtherValueIndex(value, enumOptions);
     const otherValue = value[otherValueIndex];
     const showOther = withOther && value.includes('Other');
+
     return (
       <>
         <GridDiv className="checkboxes" id={id} columns={columns}>
-          {enumOptions.map((option, index) => {
+          {enumOptions.map((option) => {
             const checked = value.indexOf(option.value) !== -1;
             return (
               <Widget
-                  id={`${id}_${index}`}
-                  key={`checkboxes${index}`} // eslint-disable-line react/no-array-index-key
+                  id={`${id}_${option.value}`}
+                  key={`checkboxes_${option.value}`}
                   autoFocus={autofocus}
                   disabled={disabled || readonly}
                   label={option.label}
                   onBlur={onBlur}
-                  onChange={this.getHandleChange(option)}
+                  onChange={this.getHandleChange(option, withNone)}
                   onFocus={onFocus}
                   schema={itemsSchema}
                   value={checked} />
