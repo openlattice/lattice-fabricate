@@ -113,8 +113,7 @@ function parseEntityAddressKey(entityAddressKey :string) :EntityAddress {
   const split :string[] = entityAddressKey.split(ATAT);
 
   if (split && split.length === 3) {
-    // NOTE: be careful! parseInt() will incorrectly return a number when given certain UUID strings
-    const entityIndex :number = parseInt(split[0], 10);
+    const entityIndex :number = parseInt(split[0], 10); // WARNING! see comment below
     const entityKeyId :UUID = split[0];
     const entitySetName :string = split[1];
     const propertyTypeFQN :string = split[2];
@@ -126,7 +125,20 @@ function parseEntityAddressKey(entityAddressKey :string) :EntityAddress {
           propertyTypeFQN: new FullyQualifiedName(propertyTypeFQN),
         };
       }
-      if (entityIndex < 0 || (isDigitOnlyString(split[0]) && isInteger(entityIndex))) {
+      /*
+       * WARNING: parseInt() will incorrectly return a number when given certain UUID strings. for example:
+       *   parseInt('9b93bc80-79c3-44c8-807c-ada1a8d6484f') // returns 9
+       *   parseInt('-9b93bc80-79c3-44c8-807c-ada1a8d6484f') // returns -9
+       *
+       * thus, isValidUUID() MUST happen first (above) to handle the first example, and isDigitOnlyString() will
+       * handle the second example below
+       */
+      if (
+        isDigitOnlyString(split[0])
+        || (
+          split[0].slice(0, 1) === '-' && isDigitOnlyString(split[0].slice(1))
+        )
+      ) {
         return {
           entityIndex,
           entitySetName,
