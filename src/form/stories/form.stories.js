@@ -8,11 +8,18 @@ import { Button, Card, CardSegment } from 'lattice-ui-kit';
 import FormContainer from './FormContainer';
 import { schema as arraySchema, uiSchema as arrayUiSchema } from './constants/arraySchemas';
 import { schema as filesSchema, uiSchema as filesUiSchema } from './constants/fileSchemas';
-import { schemas, uiSchemas } from './constants/pagedSchemas';
+import { pageMachine } from './constants/pageMachine';
+import {
+  schemas,
+  uiSchemas,
+  xschemas,
+  xuiSchemas
+} from './constants/pagedSchemas';
 import { schema as simpleSchema, uiSchema as simpleUiSchema } from './constants/simpleSchemas';
 
 import Form from '..';
 import Paged from '../src/components/Paged';
+import XPage from '../src/components/XPage';
 
 const ActionRow = styled.div`
   display: flex;
@@ -114,6 +121,59 @@ storiesOf('Form', module)
                     mode="primary"
                     onClick={handleNext}>
                   { isLastPage ? 'Complete Survey' : 'Next' }
+                </Button>
+              </ActionRow>
+            </>
+          );
+        }} />
+  ))
+  .add('XPage', () => (
+    <XPage
+        machine={pageMachine}
+        machineOptions={{ context: { role: 'unrestricted' } }}
+        onPageChange={action('Page Change')}
+        render={(props) => {
+          const {
+            formRef,
+            pagedData,
+            page,
+            onBack,
+            onNext,
+            validateAndSubmit,
+          } = props;
+
+          const isInitialPage = page === pageMachine.initialState.value;
+          const isReviewPage = page === 'review';
+
+          const handleNext = isReviewPage
+            ? action('Submit Form')
+            : validateAndSubmit;
+
+          return (
+            <>
+              {
+                isReviewPage
+                  ? <ReviewBody>{JSON.stringify(pagedData)}</ReviewBody>
+                  : (
+                    <Form
+                        formData={pagedData}
+                        hideSubmit
+                        ref={formRef}
+                        onSubmit={onNext}
+                        schema={xschemas[page]}
+                        uiSchema={xuiSchemas[page]} />
+                  )
+              }
+              <ActionRow>
+                <Button
+                    disabled={isInitialPage}
+                    onClick={onBack}>
+                    Back
+                </Button>
+                <Button
+                    mode="primary"
+                    onClick={handleNext}>
+                  { isReviewPage ? 'Complete Survey' : 'Next' }
                 </Button>
               </ActionRow>
             </>
