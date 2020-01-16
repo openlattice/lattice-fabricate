@@ -1,2 +1,7 @@
-// eslint-disable-next-line import/prefer-default-export
+/*
+ * @flow
+ */
+
+export { default as BulletField } from './BulletField';
 export { default as DescriptionField } from './DescriptionField';
+export { default as ParagraphField } from './ParagraphField';

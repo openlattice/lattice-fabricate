@@ -10,7 +10,7 @@ import { transformErrors } from './FormUtils';
 import { ActionGroup, StyledForm } from './styled';
 
 import SchemaField from '../../../templates/schema/SchemaField';
-import { DescriptionField } from '../../../fields';
+import { BulletField, DescriptionField, ParagraphField } from '../../../fields';
 import { ArrayFieldTemplate, FieldTemplate, ObjectFieldTemplate } from '../../../templates';
 import {
   BaseInput,
@@ -41,7 +41,9 @@ const widgets = {
 };
 
 const fields = {
+  BulletField,
   DescriptionField,
+  ParagraphField,
   SchemaField,
 };
 
