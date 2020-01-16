@@ -21,6 +21,7 @@ import {
   FileWidget,
   RadioWidget,
   SelectWidget,
+  SignatureWidget,
   TextareaWidget,
   TimeWidget,
 } from '../../../widgets';
@@ -34,6 +35,7 @@ const widgets = {
   FileWidget,
   RadioWidget,
   SelectWidget,
+  SignatureWidget,
   TextareaWidget,
   TimeWidget,
 };
