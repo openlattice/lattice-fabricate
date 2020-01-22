@@ -68,12 +68,20 @@ const XPage = (props :Props) => {
     const formData = getCurrentFormData(formRef, pagedData);
     dispatch({ type: 'page', formData });
     send('PREV');
+    if (formRef.current) {
+      const { formElement } = formRef.current;
+      if (formElement.scrollIntoView) formElement.scrollIntoView();
+    }
   };
 
   const onNext = () => {
     const formData = getCurrentFormData(formRef, pagedData);
     dispatch({ type: 'page', formData });
     send('NEXT');
+    if (formRef.current) {
+      const { formElement } = formRef.current;
+      if (formElement.scrollIntoView) formElement.scrollIntoView();
+    }
   };
 
   const validateAndSubmit = () => {
@@ -84,6 +92,7 @@ const XPage = (props :Props) => {
 
   return render({
     formRef,
+    machineState,
     onBack,
     onNext,
     page: machineState.value,
