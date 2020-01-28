@@ -51,7 +51,6 @@ type Props = {
 class SignatureWidget extends Component<Props> {
 
   signatureCanvasRef :{ current :?SignatureCanvas } = React.createRef();
-  // topazElement :HTMLElement;
 
   componentDidUpdate(prevProps :Props) {
     const { disabled, value } = this.props;
@@ -98,56 +97,12 @@ class SignatureWidget extends Component<Props> {
     }
   }
 
-  // handleTopazResponse = (event :Event) => {
-  //
-  //   const { onChange } = this.props;
-  //   const { body } = document;
-  //
-  //   if (body && event && event.target) {
-  //     const topazData = JSON.parse(event.target.getAttribute('msgAttribute'));
-  //     if (topazData.errorMsg === null && topazData.isSigned && isNonEmptyString(topazData.imageData)) {
-  //       this.setCanvas(tryConvertingToDataURL(topazData.imageData));
-  //       onChange(topazData.imageData);
-  //     }
-  //     body.removeChild(this.topazElement);
-  //     document.removeEventListener('SignResponse', this.handleTopazResponse, false);
-  //     document.documentElement.removeChild(event.target);
-  //   }
-  // }
-
-  // doTopazThing = () => {
-  //
-  //   // assumption is that we are dealing with a standard browser DOM
-  //   const { body } = document;
-  //   if (body) {
-  //     const message = {
-  //       eMail: '',
-  //       firstName: '',
-  //       lastName: '',
-  //       location: '',
-  //       rawDataFormat: 'ENC',
-  //     };
-  //     this.topazElement = document.createElement('TopazElement');
-  //     this.topazElement.setAttribute('messageAttribute', JSON.stringify(message));
-  //     body.appendChild(this.topazElement);
-  //     document.addEventListener('SignResponse', this.handleTopazResponse, false);
-  //     const topazEvent :Event = new Event('SignStartEvent', { bubbles: true, cancelable: false });
-  //     this.topazElement.dispatchEvent(topazEvent);
-  //   }
-  // }
-
   render() {
 
     const { disabled } = this.props;
-    // const isTopazExtInstalled = document.documentElement.getAttribute('sigplusextliteextension-installed');
-    // isTopazExtInstalled && (
-    //   <BasicButton type="button" onClick={this.doTopazThing}>Use Topaz</BasicButton>
-    // )
     return (
       <CanvasWrapper>
-        <SignatureCanvas
-            onEnd={this.handleChange}
-            ref={this.signatureCanvasRef} />
+        <SignatureCanvas onEnd={this.handleChange} ref={this.signatureCanvasRef} />
         <ClearButton disabled={disabled} icon={ClearIcon} mode="subtle" onClick={this.handleClear} />
       </CanvasWrapper>
     );
