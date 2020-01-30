@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react';
 
-import styled, { css } from 'styled-components';
 import { ChoiceGroup } from 'lattice-ui-kit';
 import {
   getWidget,
@@ -10,8 +9,7 @@ import {
   retrieveSchema
 } from 'react-jsonschema-form/lib/utils';
 
-import OtherInput from './OtherInput';
-
+import OtherInput from '../../../shared/OtherInput';
 import type { WidgetProps } from '../../../types';
 
 const selectValue = (value, selected :any[], withNone :boolean) => {

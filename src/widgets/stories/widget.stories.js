@@ -7,6 +7,7 @@ import { Card } from 'lattice-ui-kit';
 import { schema as checkboxesSchema, uiSchema as checkboxesUiSchema } from './constants/checkboxesSchemas';
 import { schema as datetimeSchema, uiSchema as datetimeUiSchema } from './constants/datetimeSchemas';
 import { schema as numberSchema, uiSchema as numberUiSchema } from './constants/numbersSchemas';
+import { schema as radioSchema, uiSchema as radioUiSchema } from './constants/radioSchemas';
 import { schema as selectSchema, uiSchema as selectUiSchema } from './constants/selectSchemas';
 
 import Form from '../../form';
@@ -37,6 +38,12 @@ storiesOf('Widgets', module)
         onSubmit={action('Submit')}
         schema={datetimeSchema}
         uiSchema={datetimeUiSchema} />
+  ))
+  .add('Radio', () => (
+    <Form
+        onSubmit={action('Submit Form')}
+        schema={radioSchema}
+        uiSchema={radioUiSchema} />
   ))
   .add('Select', () => (
     <Form
