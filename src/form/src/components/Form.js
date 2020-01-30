@@ -9,43 +9,9 @@ import { Button } from 'lattice-ui-kit';
 import { transformErrors } from './FormUtils';
 import { ActionGroup, StyledForm } from './styled';
 
-import SchemaField from '../../../templates/schema/SchemaField';
-import { BulletField, DescriptionField, ParagraphField } from '../../../fields';
+import * as fields from '../../../fields';
+import * as widgets from '../../../widgets';
 import { ArrayFieldTemplate, FieldTemplate, ObjectFieldTemplate } from '../../../templates';
-import {
-  BaseInput,
-  CheckboxWidget,
-  CheckboxesWidget,
-  DateTimeWidget,
-  DateWidget,
-  FileWidget,
-  RadioWidget,
-  SelectWidget,
-  SignatureWidget,
-  TextareaWidget,
-  TimeWidget,
-} from '../../../widgets';
-
-const widgets = {
-  BaseInput,
-  CheckboxWidget,
-  CheckboxesWidget,
-  DateWidget,
-  DateTimeWidget,
-  FileWidget,
-  RadioWidget,
-  SelectWidget,
-  SignatureWidget,
-  TextareaWidget,
-  TimeWidget,
-};
-
-const fields = {
-  BulletField,
-  DescriptionField,
-  ParagraphField,
-  SchemaField,
-};
 
 const HiddenButton = styled.button`
   display: none;

@@ -2,15 +2,14 @@
 
 import React, { Component } from 'react';
 
-import styled, { css } from 'styled-components';
+import { ChoiceGroup } from 'lattice-ui-kit';
 import {
   getWidget,
   optionsList,
   retrieveSchema
 } from 'react-jsonschema-form/lib/utils';
 
-import OtherInput from './OtherInput';
-
+import OtherInput from '../../../shared/OtherInput';
 import type { WidgetProps } from '../../../types';
 
 const selectValue = (value, selected :any[], withNone :boolean) => {
@@ -31,11 +30,6 @@ const getOptionsList = (itemsSchema, withNone, withOther) => {
 
   return shallowOptions;
 };
-
-const GridDiv = styled.div`
-  display: grid;
-  grid-template-columns: ${(props) => (props.columns ? css`repeat(${props.columns}, 1fr)` : '1fr')};
-`;
 
 const otherSchema = {
   type: 'string',
@@ -134,10 +128,12 @@ class CheckboxesWidget extends Component<WidgetProps> {
     } = this.props;
 
     const {
-      widget = 'CheckboxWidget',
       columns,
+      mode,
+      row,
+      widget = 'CheckboxWidget',
       withNone = false,
-      withOther = false
+      withOther = false,
     } = options;
     const { widgets, definitions } = registry;
     const itemsSchema = retrieveSchema(schema.items, definitions, value);
@@ -149,11 +145,12 @@ class CheckboxesWidget extends Component<WidgetProps> {
 
     return (
       <>
-        <GridDiv className="checkboxes" id={id} columns={columns}>
+        <ChoiceGroup className="checkboxes" id={id} columns={columns} row={row}>
           {enumOptions.map((option) => {
             const checked = value.indexOf(option.value) !== -1;
             return (
               <Widget
+                  mode={mode}
                   id={`${id}_${option.value}`}
                   key={`checkboxes_${option.value}`}
                   autoFocus={autofocus}
@@ -166,26 +163,26 @@ class CheckboxesWidget extends Component<WidgetProps> {
                   value={checked} />
             );
           })}
-          { showOther && (
-            <OtherInput
-                autofocus
-                disabled={disabled}
-                formContext={formContext}
-                id={id}
-                name="otherInput"
-                onBlur={onBlur}
-                onChange={this.handleOtherChange}
-                onFocus={onFocus}
-                options={options}
-                rawErrors={[]}
-                readonly={readonly}
-                registry={registry}
-                required={false}
-                schema={otherSchema}
-                type="text"
-                value={otherValue} />
-          )}
-        </GridDiv>
+        </ChoiceGroup>
+        { showOther && (
+          <OtherInput
+              autofocus
+              disabled={disabled}
+              formContext={formContext}
+              id={id}
+              name="otherInput"
+              onBlur={onBlur}
+              onChange={this.handleOtherChange}
+              onFocus={onFocus}
+              options={options}
+              rawErrors={[]}
+              readonly={readonly}
+              registry={registry}
+              required={false}
+              schema={otherSchema}
+              type="text"
+              value={otherValue} />
+        )}
       </>
     );
   }

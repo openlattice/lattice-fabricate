@@ -10,6 +10,7 @@ const DescriptionDiv = styled.div`
   grid-column: 1 / -1;
   font-size: 14px;
   font-style: italic;
+  margin-bottom: 5px;
 `;
 
 type Props = {
