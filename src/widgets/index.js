@@ -7,5 +7,6 @@ export { default as FileWidget } from './file/FileWidget';
 export { default as RadioWidget } from './radio/src/components/RadioWidget';
 export { default as OtherRadioWidget } from './radio/src/components/OtherRadioWidget';
 export { default as SelectWidget } from './select/SelectWidget';
+export { default as SignatureWidget } from './signature/SignatureWidget';
 export { default as TextareaWidget } from './textarea/TextareaWidget';
 export { default as TimeWidget } from './datetime/TimeWidget';

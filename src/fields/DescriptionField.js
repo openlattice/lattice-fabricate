@@ -1,4 +1,7 @@
-// @flow
+/*
+ * @flow
+ */
+
 import React from 'react';
 
 import styled from 'styled-components';
@@ -11,11 +14,12 @@ const DescriptionDiv = styled.div`
 `;
 
 type Props = {
-  id :string;
   description :string;
+  id :string;
 };
 
 const DescriptionField = ({ id, description } :Props) => {
+
   if (typeof description === 'string' && description.length) {
     return <DescriptionDiv id={id}>{description}</DescriptionDiv>;
   }

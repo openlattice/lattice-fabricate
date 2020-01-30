@@ -9,15 +9,9 @@ import { Button } from 'lattice-ui-kit';
 import { transformErrors } from './FormUtils';
 import { ActionGroup, StyledForm } from './styled';
 
-import SchemaField from '../../../templates/schema/SchemaField';
+import * as fields from '../../../fields';
 import * as widgets from '../../../widgets';
-import { DescriptionField } from '../../../fields';
 import { ArrayFieldTemplate, FieldTemplate, ObjectFieldTemplate } from '../../../templates';
-
-const fields = {
-  DescriptionField,
-  SchemaField,
-};
 
 const HiddenButton = styled.button`
   display: none;

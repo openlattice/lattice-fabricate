@@ -9,6 +9,7 @@ import { schema as datetimeSchema, uiSchema as datetimeUiSchema } from './consta
 import { schema as numberSchema, uiSchema as numberUiSchema } from './constants/numbersSchemas';
 import { schema as radioSchema, uiSchema as radioUiSchema } from './constants/radioSchemas';
 import { schema as selectSchema, uiSchema as selectUiSchema } from './constants/selectSchemas';
+import * as SignatureSchemas from './constants/signatureSchemas';
 
 import Form from '../../form';
 
@@ -50,4 +51,10 @@ storiesOf('Widgets', module)
         onSubmit={action('Submit')}
         schema={selectSchema}
         uiSchema={selectUiSchema} />
+  ))
+  .add('Signature', () => (
+    <Form
+        onSubmit={action('Submit')}
+        schema={SignatureSchemas.dataSchema}
+        uiSchema={SignatureSchemas.uiSchema} />
   ));
