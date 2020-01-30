@@ -10,33 +10,9 @@ import { transformErrors } from './FormUtils';
 import { ActionGroup, StyledForm } from './styled';
 
 import SchemaField from '../../../templates/schema/SchemaField';
+import * as widgets from '../../../widgets';
 import { DescriptionField } from '../../../fields';
 import { ArrayFieldTemplate, FieldTemplate, ObjectFieldTemplate } from '../../../templates';
-import {
-  BaseInput,
-  CheckboxWidget,
-  CheckboxesWidget,
-  DateTimeWidget,
-  DateWidget,
-  FileWidget,
-  RadioWidget,
-  SelectWidget,
-  TextareaWidget,
-  TimeWidget,
-} from '../../../widgets';
-
-const widgets = {
-  BaseInput,
-  CheckboxWidget,
-  CheckboxesWidget,
-  DateWidget,
-  DateTimeWidget,
-  FileWidget,
-  RadioWidget,
-  SelectWidget,
-  TextareaWidget,
-  TimeWidget,
-};
 
 const fields = {
   DescriptionField,
