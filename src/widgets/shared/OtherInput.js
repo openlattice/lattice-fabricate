@@ -4,7 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { getWidget } from 'react-jsonschema-form/lib/utils';
 
-import type { WidgetProps } from '../../../types';
+import type { WidgetProps } from '../types';
 
 const OtherWrapper = styled.div`
   margin-top: 10px;

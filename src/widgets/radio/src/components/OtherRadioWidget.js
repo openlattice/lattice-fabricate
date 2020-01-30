@@ -71,12 +71,13 @@ const OtherRadioWidget = (props :WidgetProps) => {
             onChange={handleOtherChange}
             onFocus={onFocus}
             options={options}
+            rawErrors={[]}
             readonly={readonly}
             registry={registry}
             required={false}
             schema={otherSchema}
-            value={value[1]}
-            type="text" />
+            type="text"
+            value={value[1]} />
       )}
     </>
   );

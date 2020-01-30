@@ -1,4 +1,3 @@
-// @flow
 import React from 'react';
 
 import toJson from 'enzyme-to-json';

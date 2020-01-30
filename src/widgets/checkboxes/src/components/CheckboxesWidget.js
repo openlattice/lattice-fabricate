@@ -176,7 +176,6 @@ class CheckboxesWidget extends Component<WidgetProps> {
               onFocus={onFocus}
               options={options}
               rawErrors={[]}
-              placeholder="Other"
               readonly={readonly}
               registry={registry}
               required={false}
