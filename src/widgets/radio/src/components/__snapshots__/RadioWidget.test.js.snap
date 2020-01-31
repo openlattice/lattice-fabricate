@@ -175,7 +175,6 @@ exports[`RadioWidget should match snapshot 1`] = `
               "styledComponentId": "StyledForm-dhnby8-0",
               "target": [Function],
               "toString": [Function],
-              "usesTheme": false,
               "warnTooManyClasses": [Function],
               "withComponent": [Function],
             }
@@ -1103,7 +1102,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                             "styledComponentId": "Label-sc-130fyca-0",
                                             "target": "label",
                                             "toString": [Function],
-                                            "usesTheme": false,
                                             "warnTooManyClasses": [Function],
                                             "withComponent": [Function],
                                           }
@@ -1425,7 +1423,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                   "styledComponentId": "ChoiceGroup-sc-1pvteyi-0",
                                                   "target": "div",
                                                   "toString": [Function],
-                                                  "usesTheme": false,
                                                   "warnTooManyClasses": [Function],
                                                   "withComponent": [Function],
                                                 }
@@ -1480,7 +1477,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                           "styledComponentId": "ChoiceLabel-sc-11kob9e-0",
                                                           "target": "label",
                                                           "toString": [Function],
-                                                          "usesTheme": false,
                                                           "warnTooManyClasses": [Function],
                                                           "withComponent": [Function],
                                                         }
@@ -1515,7 +1511,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                 "styledComponentId": "ChoiceWrappers__ChoiceWrapper-kj63qq-0",
                                                                 "target": "span",
                                                                 "toString": [Function],
-                                                                "usesTheme": false,
                                                                 "warnTooManyClasses": [Function],
                                                                 "withComponent": [Function],
                                                               }
@@ -1545,7 +1540,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                       "styledComponentId": "ChoiceWrappers__ChoiceInnerWrapper-kj63qq-1",
                                                                       "target": "span",
                                                                       "toString": [Function],
-                                                                      "usesTheme": false,
                                                                       "warnTooManyClasses": [Function],
                                                                       "withComponent": [Function],
                                                                     }
@@ -1590,7 +1584,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                             "styledComponentId": "ChoiceInputs__RadioInput-sc-1fkg6yx-0",
                                                                             "target": "input",
                                                                             "toString": [Function],
-                                                                            "usesTheme": false,
                                                                             "warnTooManyClasses": [Function],
                                                                             "withComponent": [Function],
                                                                           }
@@ -1650,7 +1643,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                             "styledComponentId": "RadioIndicator-sc-1vlnpb4-0",
                                                                             "target": "span",
                                                                             "toString": [Function],
-                                                                            "usesTheme": false,
                                                                             "warnTooManyClasses": [Function],
                                                                             "withComponent": [Function],
                                                                           }
@@ -1688,7 +1680,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                 "styledComponentId": "ChoiceText-sc-1qnriny-0",
                                                                 "target": "span",
                                                                 "toString": [Function],
-                                                                "usesTheme": false,
                                                                 "warnTooManyClasses": [Function],
                                                                 "withComponent": [Function],
                                                               }
@@ -1749,7 +1740,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                           "styledComponentId": "ChoiceLabel-sc-11kob9e-0",
                                                           "target": "label",
                                                           "toString": [Function],
-                                                          "usesTheme": false,
                                                           "warnTooManyClasses": [Function],
                                                           "withComponent": [Function],
                                                         }
@@ -1784,7 +1774,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                 "styledComponentId": "ChoiceWrappers__ChoiceWrapper-kj63qq-0",
                                                                 "target": "span",
                                                                 "toString": [Function],
-                                                                "usesTheme": false,
                                                                 "warnTooManyClasses": [Function],
                                                                 "withComponent": [Function],
                                                               }
@@ -1814,7 +1803,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                       "styledComponentId": "ChoiceWrappers__ChoiceInnerWrapper-kj63qq-1",
                                                                       "target": "span",
                                                                       "toString": [Function],
-                                                                      "usesTheme": false,
                                                                       "warnTooManyClasses": [Function],
                                                                       "withComponent": [Function],
                                                                     }
@@ -1859,7 +1847,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                             "styledComponentId": "ChoiceInputs__RadioInput-sc-1fkg6yx-0",
                                                                             "target": "input",
                                                                             "toString": [Function],
-                                                                            "usesTheme": false,
                                                                             "warnTooManyClasses": [Function],
                                                                             "withComponent": [Function],
                                                                           }
@@ -1919,7 +1906,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                             "styledComponentId": "RadioIndicator-sc-1vlnpb4-0",
                                                                             "target": "span",
                                                                             "toString": [Function],
-                                                                            "usesTheme": false,
                                                                             "warnTooManyClasses": [Function],
                                                                             "withComponent": [Function],
                                                                           }
@@ -1957,7 +1943,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                 "styledComponentId": "ChoiceText-sc-1qnriny-0",
                                                                 "target": "span",
                                                                 "toString": [Function],
-                                                                "usesTheme": false,
                                                                 "warnTooManyClasses": [Function],
                                                                 "withComponent": [Function],
                                                               }
@@ -2018,7 +2003,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                           "styledComponentId": "ChoiceLabel-sc-11kob9e-0",
                                                           "target": "label",
                                                           "toString": [Function],
-                                                          "usesTheme": false,
                                                           "warnTooManyClasses": [Function],
                                                           "withComponent": [Function],
                                                         }
@@ -2053,7 +2037,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                 "styledComponentId": "ChoiceWrappers__ChoiceWrapper-kj63qq-0",
                                                                 "target": "span",
                                                                 "toString": [Function],
-                                                                "usesTheme": false,
                                                                 "warnTooManyClasses": [Function],
                                                                 "withComponent": [Function],
                                                               }
@@ -2083,7 +2066,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                       "styledComponentId": "ChoiceWrappers__ChoiceInnerWrapper-kj63qq-1",
                                                                       "target": "span",
                                                                       "toString": [Function],
-                                                                      "usesTheme": false,
                                                                       "warnTooManyClasses": [Function],
                                                                       "withComponent": [Function],
                                                                     }
@@ -2128,7 +2110,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                             "styledComponentId": "ChoiceInputs__RadioInput-sc-1fkg6yx-0",
                                                                             "target": "input",
                                                                             "toString": [Function],
-                                                                            "usesTheme": false,
                                                                             "warnTooManyClasses": [Function],
                                                                             "withComponent": [Function],
                                                                           }
@@ -2188,7 +2169,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                             "styledComponentId": "RadioIndicator-sc-1vlnpb4-0",
                                                                             "target": "span",
                                                                             "toString": [Function],
-                                                                            "usesTheme": false,
                                                                             "warnTooManyClasses": [Function],
                                                                             "withComponent": [Function],
                                                                           }
@@ -2226,7 +2206,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                 "styledComponentId": "ChoiceText-sc-1qnriny-0",
                                                                 "target": "span",
                                                                 "toString": [Function],
-                                                                "usesTheme": false,
                                                                 "warnTooManyClasses": [Function],
                                                                 "withComponent": [Function],
                                                               }
@@ -2287,7 +2266,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                           "styledComponentId": "ChoiceLabel-sc-11kob9e-0",
                                                           "target": "label",
                                                           "toString": [Function],
-                                                          "usesTheme": false,
                                                           "warnTooManyClasses": [Function],
                                                           "withComponent": [Function],
                                                         }
@@ -2322,7 +2300,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                 "styledComponentId": "ChoiceWrappers__ChoiceWrapper-kj63qq-0",
                                                                 "target": "span",
                                                                 "toString": [Function],
-                                                                "usesTheme": false,
                                                                 "warnTooManyClasses": [Function],
                                                                 "withComponent": [Function],
                                                               }
@@ -2352,7 +2329,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                       "styledComponentId": "ChoiceWrappers__ChoiceInnerWrapper-kj63qq-1",
                                                                       "target": "span",
                                                                       "toString": [Function],
-                                                                      "usesTheme": false,
                                                                       "warnTooManyClasses": [Function],
                                                                       "withComponent": [Function],
                                                                     }
@@ -2397,7 +2373,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                             "styledComponentId": "ChoiceInputs__RadioInput-sc-1fkg6yx-0",
                                                                             "target": "input",
                                                                             "toString": [Function],
-                                                                            "usesTheme": false,
                                                                             "warnTooManyClasses": [Function],
                                                                             "withComponent": [Function],
                                                                           }
@@ -2457,7 +2432,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                             "styledComponentId": "RadioIndicator-sc-1vlnpb4-0",
                                                                             "target": "span",
                                                                             "toString": [Function],
-                                                                            "usesTheme": false,
                                                                             "warnTooManyClasses": [Function],
                                                                             "withComponent": [Function],
                                                                           }
@@ -2495,7 +2469,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                 "styledComponentId": "ChoiceText-sc-1qnriny-0",
                                                                 "target": "span",
                                                                 "toString": [Function],
-                                                                "usesTheme": false,
                                                                 "warnTooManyClasses": [Function],
                                                                 "withComponent": [Function],
                                                               }
@@ -2556,7 +2529,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                           "styledComponentId": "ChoiceLabel-sc-11kob9e-0",
                                                           "target": "label",
                                                           "toString": [Function],
-                                                          "usesTheme": false,
                                                           "warnTooManyClasses": [Function],
                                                           "withComponent": [Function],
                                                         }
@@ -2591,7 +2563,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                 "styledComponentId": "ChoiceWrappers__ChoiceWrapper-kj63qq-0",
                                                                 "target": "span",
                                                                 "toString": [Function],
-                                                                "usesTheme": false,
                                                                 "warnTooManyClasses": [Function],
                                                                 "withComponent": [Function],
                                                               }
@@ -2621,7 +2592,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                       "styledComponentId": "ChoiceWrappers__ChoiceInnerWrapper-kj63qq-1",
                                                                       "target": "span",
                                                                       "toString": [Function],
-                                                                      "usesTheme": false,
                                                                       "warnTooManyClasses": [Function],
                                                                       "withComponent": [Function],
                                                                     }
@@ -2666,7 +2636,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                             "styledComponentId": "ChoiceInputs__RadioInput-sc-1fkg6yx-0",
                                                                             "target": "input",
                                                                             "toString": [Function],
-                                                                            "usesTheme": false,
                                                                             "warnTooManyClasses": [Function],
                                                                             "withComponent": [Function],
                                                                           }
@@ -2726,7 +2695,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                             "styledComponentId": "RadioIndicator-sc-1vlnpb4-0",
                                                                             "target": "span",
                                                                             "toString": [Function],
-                                                                            "usesTheme": false,
                                                                             "warnTooManyClasses": [Function],
                                                                             "withComponent": [Function],
                                                                           }
@@ -2764,7 +2732,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                 "styledComponentId": "ChoiceText-sc-1qnriny-0",
                                                                 "target": "span",
                                                                 "toString": [Function],
-                                                                "usesTheme": false,
                                                                 "warnTooManyClasses": [Function],
                                                                 "withComponent": [Function],
                                                               }
@@ -2933,7 +2900,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                       "styledComponentId": "ActionGroup-sc-1hp5mpm-0",
                       "target": "div",
                       "toString": [Function],
-                      "usesTheme": false,
                       "warnTooManyClasses": [Function],
                       "withComponent": [Function],
                     }
@@ -2997,7 +2963,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                               "styledComponentId": "StyledButton-sc-1etazn9-0",
                               "target": "button",
                               "toString": [Function],
-                              "usesTheme": false,
                               "warnTooManyClasses": [Function],
                               "withComponent": [Function],
                             }
@@ -3032,7 +2997,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                     "styledComponentId": "ContentWrapper-sc-36hfub-0",
                                     "target": "span",
                                     "toString": [Function],
-                                    "usesTheme": false,
                                     "warnTooManyClasses": [Function],
                                     "withComponent": [Function],
                                   }
@@ -3066,7 +3030,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                                           "styledComponentId": "Content-sc-18psqsj-0",
                                           "target": "span",
                                           "toString": [Function],
-                                          "usesTheme": false,
                                           "warnTooManyClasses": [Function],
                                           "withComponent": [Function],
                                         }
