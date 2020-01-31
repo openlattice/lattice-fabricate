@@ -71,8 +71,8 @@ const SignatureWidget = (props :Props) => {
     const { current } = signatureCanvasRef;
     if (current) {
       // https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toDataURL
-      const dataUrl :string = current.toDataURL(); // default is "image/png"
-      onChange(dataUrl.slice(DATA_URL_IMG_PNG_PREFIX.length));
+      const dataURL :string = current.toDataURL(); // default is "image/png"
+      onChange(dataURL.slice(DATA_URL_IMG_PNG_PREFIX.length));
     }
   }, [onChange, signatureCanvasRef]);
 
