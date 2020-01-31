@@ -23,7 +23,7 @@ const isBase64Simple = (value :any) => {
 };
 
 // TODO: poorly named function
-const tryConvertingToDataURL = (value :any) :string => {
+const tryConvertingToDataURL = (value :string) :string => {
 
   if (isNonEmptyString(value) && isBase64Simple(value)) {
     if (DATA_URL_PREFIX_REGEX.test(value)) {
