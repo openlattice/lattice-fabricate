@@ -53,9 +53,14 @@ const SignatureWidget = (props :Props) => {
 
   useEffect(() => {
     const { current } = signatureCanvasRef;
-    if (current && value) {
-      const valueAsDataURL = tryConvertingToDataURL(value);
-      current.fromDataURL(valueAsDataURL);
+    if (current) {
+      if (value) {
+        const valueAsDataURL = tryConvertingToDataURL(value);
+        current.fromDataURL(valueAsDataURL);
+      }
+      else {
+        current.clear();
+      }
     }
   }, [signatureCanvasRef, value]);
 
