@@ -54,18 +54,27 @@ const SignatureWidget = (props :Props) => {
   useEffect(() => {
     const { current } = signatureCanvasRef;
     if (current) {
+      if (value) {
+        const valueAsDataURL = tryConvertingToDataURL(value);
+        current.fromDataURL(valueAsDataURL);
+      }
+      else {
+        current.clear();
+      }
+    }
+  }, [signatureCanvasRef, value]);
+
+  useEffect(() => {
+    const { current } = signatureCanvasRef;
+    if (current) {
       if (disabled) {
         current.off();
       }
       else {
         current.on();
       }
-      if (value) {
-        const valueAsDataURL = tryConvertingToDataURL(value);
-        current.fromDataURL(valueAsDataURL);
-      }
     }
-  }, [disabled, signatureCanvasRef, value]);
+  }, [disabled, signatureCanvasRef]);
 
   const handleOnChange = useCallback(() => {
     const { current } = signatureCanvasRef;
