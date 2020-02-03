@@ -1,19 +1,20 @@
 // @flow
 import React, { Component } from 'react';
+
 import SchemaField from 'react-jsonschema-form/lib/components/fields/SchemaField';
 import isFunction from 'lodash/isFunction';
 import { faTrash } from '@fortawesome/pro-solid-svg-icons';
 
-import ConfirmDeleteModal from '../array/components/ConfirmDeleteModal';
-import IconButton from '../components/IconButton';
-import ActionGutter from '../components/styled/ActionGutter';
-import { parseIdIndex } from '../object/utils';
+import ActionGutter from '../templates/components/styled/ActionGutter';
+import ConfirmDeleteModal from '../templates/array/components/ConfirmDeleteModal';
+import IconButton from '../templates/components/IconButton';
+import { parseIdIndex } from '../templates/object/utils';
 import {
   findEntityAddressKeyFromMap,
   getEntityKeyIdsByEntitySetId,
   parseIdSchemaPath,
   replaceEntityAddressKeys,
-} from '../../utils/DataProcessingUtils';
+} from '../utils/DataProcessingUtils';
 
 type Props = {
   disabled :boolean;

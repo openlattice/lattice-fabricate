@@ -1,13 +1,13 @@
 // @flow
 import React from 'react';
 
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { getWidget } from 'react-jsonschema-form/lib/utils';
 
-import type { WidgetProps } from '../../../types';
+import type { WidgetProps } from '../types';
 
 const OtherWrapper = styled.div`
-  grid-column: ${(props) => (props.columns ? css`auto / span ${props.columns}` : '1fr')};
+  margin-top: 10px;
 `;
 
 const OtherInput = (props :WidgetProps) => {
@@ -18,17 +18,15 @@ const OtherInput = (props :WidgetProps) => {
     onBlur,
     onChange,
     onFocus,
-    options,
     registry,
     schema,
     value = ''
   } = props;
   const { widgets } = registry;
-  const { columns } = options;
 
   const OtherWidget = getWidget({ type: 'string' }, 'BaseInput', widgets);
   return (
-    <OtherWrapper columns={columns}>
+    <OtherWrapper>
       <OtherWidget
           autofocus={autofocus}
           id={`${id}_other`}
