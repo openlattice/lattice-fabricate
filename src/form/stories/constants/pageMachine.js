@@ -41,6 +41,9 @@ const pageMachine = Machine(
   }
 );
 
+const machineOptions = { context: { role: 'unrestricted' } };
+
 export {
+  machineOptions,
   pageMachine
 };

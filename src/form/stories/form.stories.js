@@ -8,7 +8,7 @@ import { Button, Card, CardSegment } from 'lattice-ui-kit';
 import FormContainer from './FormContainer';
 import { schema as arraySchema, uiSchema as arrayUiSchema } from './constants/arraySchemas';
 import { schema as filesSchema, uiSchema as filesUiSchema } from './constants/fileSchemas';
-import { pageMachine } from './constants/pageMachine';
+import { machineOptions, pageMachine } from './constants/pageMachine';
 import {
   schemas,
   uiSchemas,
@@ -130,7 +130,7 @@ storiesOf('Form', module)
   .add('XPage', () => (
     <XPage
         machine={pageMachine}
-        machineOptions={{ context: { role: 'unrestricted' } }}
+        machineOptions={machineOptions}
         onPageChange={action('Page Change')}
         render={(props) => {
           const {

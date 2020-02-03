@@ -10,6 +10,8 @@ import isFunction from 'lodash/isFunction';
 import { useMachine } from '@xstate/react';
 import { Machine } from 'xstate';
 
+import { getCurrentFormData } from './PageUtils';
+
 type Props = {
   initialFormData ?:Object;
   machine :Machine;
@@ -19,21 +21,7 @@ type Props = {
   onPageChange ?:(pageName :string, formData :Object) => void;
 };
 
-const getCurrentFormData = (formRef :Object, defaultFormData :Object) => {
-  let newPagedData = defaultFormData;
-  if (formRef.current) {
-    const {
-      state: {
-        formData
-      } = {}
-    } = formRef.current;
-    newPagedData = formData;
-  }
-
-  return newPagedData;
-};
-
-const reducer = (state, action) => {
+const reducer = (state :Object, action :Object) => {
   switch (action.type) {
     case 'page': {
       const { formData } = action;
@@ -50,6 +38,7 @@ const XPage = (props :Props) => {
     initialFormData,
     machine,
     machineOptions,
+    page,
     onPageChange,
     render,
   } = props;
@@ -87,10 +76,14 @@ const XPage = (props :Props) => {
     machineState,
     onBack,
     onNext,
-    page: machineState.value,
+    page: page || machineState.value,
     pagedData,
     validateAndSubmit
   });
+};
+
+XPage.defaultProps = {
+  page: undefined,
 };
 
 export default XPage;
