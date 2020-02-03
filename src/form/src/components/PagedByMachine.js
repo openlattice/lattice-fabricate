@@ -33,7 +33,7 @@ const reducer = (state :Object, action :Object) => {
   }
 };
 
-const XPage = (props :Props) => {
+const PagedByMachine = (props :Props) => {
   const {
     initialFormData,
     machine,
@@ -82,8 +82,8 @@ const XPage = (props :Props) => {
   });
 };
 
-XPage.defaultProps = {
+PagedByMachine.defaultProps = {
   page: undefined,
 };
 
-export default XPage;
+export default PagedByMachine;

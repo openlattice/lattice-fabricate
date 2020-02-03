@@ -1,6 +1,6 @@
 import Form from './src/components/Form';
 import Paged from './src/components/Paged';
-import XPage from './src/components/XPage';
+import PagedByMachine from './src/components/PagedByMachine';
 
 export default Form;
-export { Paged, XPage };
+export { Paged, PagedByMachine };

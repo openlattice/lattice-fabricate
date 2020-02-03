@@ -4,7 +4,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 import Form from './Form';
-import XPage from './XPage';
+import PagedByMachine from './PagedByMachine';
 
 import { pageMachine } from '../../stories/constants/pageMachine';
 import { xschemas, xuiSchemas } from '../../stories/constants/pagedSchemas';
@@ -40,11 +40,11 @@ const mockRender = ({
   </>
 );
 
-describe('XPage', () => {
+describe('PagedByMachine', () => {
 
   describe('render', () => {
     test('should invoke render prop', () => {
-      const wrapper = mount(<XPage machine={pageMachine} render={mockRender} />);
+      const wrapper = mount(<PagedByMachine machine={pageMachine} render={mockRender} />);
       expect(wrapper.find(Form)).toHaveLength(1);
     });
   });
@@ -52,7 +52,7 @@ describe('XPage', () => {
   describe('page', () => {
     test('should default to initial page', () => {
       const { initial } = pageMachine.config;
-      const wrapper = mount(<XPage machine={pageMachine} render={mockRender} />);
+      const wrapper = mount(<PagedByMachine machine={pageMachine} render={mockRender} />);
       expect(wrapper.find(Form).props().schema).toEqual(xschemas[initial]);
       expect(wrapper.find(Form).props().uiSchema).toEqual(xuiSchemas[initial]);
     });
@@ -60,7 +60,7 @@ describe('XPage', () => {
     test('should change page schema', () => {
       const { initial } = pageMachine.config;
       const wrapper = mount(
-        <XPage
+        <PagedByMachine
             machine={pageMachine}
             render={mockRender} />
       );
@@ -80,7 +80,7 @@ describe('XPage', () => {
       const { initial } = pageMachine.config;
       const mockOnPageChange = jest.fn();
       const wrapper = mount(
-        <XPage
+        <PagedByMachine
             machine={pageMachine}
             onPageChange={mockOnPageChange}
             render={mockRender} />
@@ -106,7 +106,7 @@ describe('XPage', () => {
     test('should call onPageChange with new page number and formData', () => {
       const mockOnPageChange = jest.fn();
       const wrapper = mount(
-        <XPage
+        <PagedByMachine
             machine={pageMachine}
             onPageChange={mockOnPageChange}
             render={mockRender} />
@@ -124,7 +124,7 @@ describe('XPage', () => {
 
     test('should persist state between pages', () => {
       const wrapper = mount(
-        <XPage machine={pageMachine} render={mockRender} />
+        <PagedByMachine machine={pageMachine} render={mockRender} />
       );
 
       wrapper.find('input#root_section1_name').props().onChange({ currentTarget: { value: 'name' } });

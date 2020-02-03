@@ -19,7 +19,7 @@ import { schema as simpleSchema, uiSchema as simpleUiSchema } from './constants/
 
 import Form from '..';
 import Paged from '../src/components/Paged';
-import XPage from '../src/components/XPage';
+import PagedByMachine from '../src/components/PagedByMachine';
 
 const ActionRow = styled.div`
   display: flex;
@@ -127,8 +127,8 @@ storiesOf('Form', module)
           );
         }} />
   ))
-  .add('XPage', () => (
-    <XPage
+  .add('PagedByMachine', () => (
+    <PagedByMachine
         machine={pageMachine}
         machineOptions={machineOptions}
         onPageChange={action('Page Change')}

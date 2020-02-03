@@ -2,7 +2,7 @@
  * @flow
  */
 
-import Form, { Paged, XPage } from './form';
+import Form, { Paged, PagedByMachine } from './form';
 import * as DataProcessingUtils from './utils/DataProcessingUtils';
 // injected by Webpack.DefinePlugin
 declare var __VERSION__ :string;
@@ -12,7 +12,7 @@ export {
   DataProcessingUtils,
   Form,
   Paged,
-  XPage,
+  PagedByMachine,
   version,
 };
 
