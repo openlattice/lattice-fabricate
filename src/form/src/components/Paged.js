@@ -7,28 +7,9 @@ import type { Node } from 'react';
 
 import isFunction from 'lodash/isFunction';
 
-type Props = {
-  initialFormData ?:Object;
-  page ?:number;
-  render :(...props :any) => Node;
-  onPageChange ?:(currentPage :number, formData :Object) => void;
-};
+import { getCurrentFormData } from './PageUtils';
 
-const getCurrentFormData = (formRef :Object, defaultFormData :Object) => {
-  let newPagedData = defaultFormData;
-  if (formRef.current) {
-    const {
-      state: {
-        formData
-      } = {}
-    } = formRef.current;
-    newPagedData = formData;
-  }
-
-  return newPagedData;
-};
-
-const reducer = (state, action) => {
+const reducer = (state :Object, action :Object) => {
   switch (action.type) {
     case 'page': {
       const { page, formData } = action;
@@ -38,6 +19,13 @@ const reducer = (state, action) => {
     default:
       return state;
   }
+};
+
+type Props = {
+  initialFormData ?:Object;
+  page ?:number;
+  render :(...props :any) => Node;
+  onPageChange ?:(currentPage :number, formData :Object) => void;
 };
 
 const Paged = (props :Props) => {

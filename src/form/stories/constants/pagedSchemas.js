@@ -138,13 +138,27 @@ const schemas = [
   page3Schema,
 ];
 
+const xschemas = {
+  page1: page1Schema,
+  page2: page2Schema,
+  page3: page3Schema,
+};
+
 const uiSchemas = [
   page1UiSchema,
   page2UiSchema,
   page3UiSchema,
 ];
 
+const xuiSchemas = {
+  page1: page1UiSchema,
+  page2: page2UiSchema,
+  page3: page3UiSchema,
+};
+
 export {
   schemas,
-  uiSchemas
+  uiSchemas,
+  xschemas,
+  xuiSchemas,
 };
