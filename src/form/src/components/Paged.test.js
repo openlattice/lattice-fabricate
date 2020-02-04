@@ -28,7 +28,7 @@ const mockRender = ({
         id="back-button"
         type="button"
         onClick={onBack}>
-        Back
+      Back
     </button>
     <button
         id="next-button"
