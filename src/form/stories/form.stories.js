@@ -17,9 +17,9 @@ import {
 } from './constants/pagedSchemas';
 import { schema as simpleSchema, uiSchema as simpleUiSchema } from './constants/simpleSchemas';
 
-import Form from '..';
 import Paged from '../src/components/Paged';
 import PagedByMachine from '../src/components/PagedByMachine';
+import Form from '..';
 
 const ActionRow = styled.div`
   display: flex;
@@ -114,7 +114,7 @@ storiesOf('Form', module)
                 <Button
                     disabled={!(page > 0)}
                     onClick={onBack}>
-                    Back
+                  Back
                 </Button>
                 <span>{`${page + 1} of ${totalPages}`}</span>
                 <Button
@@ -168,7 +168,7 @@ storiesOf('Form', module)
                 <Button
                     disabled={isInitialPage}
                     onClick={onBack}>
-                    Back
+                  Back
                 </Button>
                 <Button
                     mode="primary"

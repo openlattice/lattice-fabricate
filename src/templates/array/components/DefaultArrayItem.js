@@ -1,22 +1,22 @@
 // @flow
 import React, { Component } from 'react';
-import styled from 'styled-components';
-import isFunction from 'lodash/isFunction';
-import findLast from 'lodash/findLast';
-import { faChevronUp, faChevronDown } from '@fortawesome/pro-solid-svg-icons';
-import { Button } from 'lattice-ui-kit';
 import type { Element } from 'react';
 
+import findLast from 'lodash/findLast';
+import isFunction from 'lodash/isFunction';
+import styled from 'styled-components';
+import { faChevronDown, faChevronUp } from '@fortawesome/pro-solid-svg-icons';
+import { Button } from 'lattice-ui-kit';
+
+import ActionGutter from '../../components/styled/ActionGutter';
 import IconButton from '../../components/IconButton';
 import IndexCircle from '../../components/IndexCircle';
-import ActionGutter from '../../components/styled/ActionGutter';
 import {
   isValidPageSectionKey,
   parseIdSchemaPath,
   processEntityData,
   wrapFormDataInPageSection,
 } from '../../../utils/DataProcessingUtils';
-
 
 const ItemWrapper = styled.div`
   display: flex;
@@ -112,7 +112,7 @@ class DefaultArrayItem extends Component <Props> {
           mode="primary"
           onClick={this.handleAddAction}
           isLoading={isAdding}>
-          Submit
+        Submit
       </ButtonWithMargin>
     );
   }
