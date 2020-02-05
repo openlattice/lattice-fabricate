@@ -137,7 +137,7 @@ function parseEntityAddressKey(entityAddressKey :string) :EntityAddress {
       if (
         isDigitOnlyString(split[0])
         || (
-          split[0].slice(0, 1) === '-' && isDigitOnlyString(split[0].slice(1))
+          split[0].startsWith('-') && isDigitOnlyString(split[0].slice(1))
         )
       ) {
         return {
