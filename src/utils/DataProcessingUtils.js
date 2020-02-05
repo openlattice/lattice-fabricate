@@ -39,6 +39,7 @@ const ATAT :string = '__@@__';
 const KEY_MAPPERS :'KEY_MAPPERS' = 'KEY_MAPPERS';
 const INDEX_MAPPERS :'INDEX_MAPPERS' = 'INDEX_MAPPERS';
 const VALUE_MAPPERS :'VALUE_MAPPERS' = 'VALUE_MAPPERS';
+const ENTITY_ADDRESS_KEY_PARTS = 3;
 
 const { FullyQualifiedName } = Models;
 
@@ -112,7 +113,7 @@ function parseEntityAddressKey(entityAddressKey :string) :EntityAddress {
 
   const split :string[] = entityAddressKey.split(ATAT);
 
-  if (split && split.length === 3) {
+  if (split && split.length === ENTITY_ADDRESS_KEY_PARTS) {
     const entityIndex :number = parseInt(split[0], 10); // WARNING! see comment below
     const entityKeyId :UUID = split[0];
     const entitySetName :string = split[1];
@@ -161,7 +162,7 @@ function isValidEntityAddressKey(value :any) :boolean {
 
   const split :string[] = value.split(ATAT);
 
-  if (split && split.length === 3) {
+  if (split && split.length === ENTITY_ADDRESS_KEY_PARTS) {
     // NOTE: be careful! parseInt() will incorrectly return a number when given certain UUID strings
     const entityIndex :number = parseInt(split[0], 10);
     const entityKeyId :UUID = split[0];
