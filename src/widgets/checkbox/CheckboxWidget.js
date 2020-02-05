@@ -1,11 +1,14 @@
 // @flow
 import React, { Component } from 'react';
+
 import { Checkbox } from 'lattice-ui-kit';
+
 import KeyCodes from '../constants/KeyCodes';
 import type { WidgetProps } from '../types';
 
 type Props = WidgetProps & {
   label :string;
+  mode :string;
 };
 
 class CheckboxWidget extends Component <Props> {
@@ -24,13 +27,14 @@ class CheckboxWidget extends Component <Props> {
 
   render() {
     const {
-      id,
-      value,
-      required,
-      disabled,
-      readonly,
-      label,
       autofocus,
+      disabled,
+      id,
+      label,
+      mode,
+      readonly,
+      required,
+      value,
     } = this.props;
 
     return (
@@ -40,6 +44,7 @@ class CheckboxWidget extends Component <Props> {
           disabled={disabled || readonly}
           id={id}
           label={label}
+          mode={mode}
           onChange={this.onChange}
           onKeyDown={this.onKeyDown}
           required={required}

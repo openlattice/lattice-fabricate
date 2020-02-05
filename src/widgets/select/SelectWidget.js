@@ -1,38 +1,21 @@
 // @flow
 
 import React, { Component } from 'react';
-import { Select, Creatable } from 'lattice-ui-kit';
+
+import { Creatable, Select } from 'lattice-ui-kit';
+
+import type { WidgetProps } from '../types';
 
 type Option = {
   label :string;
   value :string | number;
 };
 
-type Props = {
-  autofocus ?:boolean;
-  disabled ?:boolean;
-  id :string;
-  multiple ?:boolean;
-  onChange :(value :any) => void;
-  options :{
-    creatable :?boolean;
-    enumOptions :Option[];
-    hideMenu :?boolean;
-    placeholder :?string;
-  };
-  required :boolean;
-  value :any;
-};
+const removeEmptyEnums = (enumOptions :Option[]) => enumOptions.filter((enumOption) => enumOption.value !== '');
 
-type State = {
-  value?:Option | Option[];
-};
-
-class SelectWidget extends Component<Props, State> {
+class SelectWidget extends Component<WidgetProps> {
   static defaultProps = {
-    autofocus: false,
     multiple: false,
-    disabled: false
   };
 
   handleChange = (value :Option | Option[]) => {
@@ -45,45 +28,48 @@ class SelectWidget extends Component<Props, State> {
       autofocus,
       disabled,
       id,
-      multiple,
+      onBlur,
+      onFocus,
       options,
+      rawErrors,
       required,
+      schema,
       value,
     } = this.props;
+
+    const { options: schemaOptions } = schema;
 
     const {
       enumOptions = [],
       creatable,
       hideMenu,
-      placeholder
+      placeholder,
+      multiple,
+      noOptionsMessage,
     } = options;
 
-    if (creatable) {
-      return (
-        <Creatable
-            autoFocus={autofocus}
-            hideMenu={hideMenu}
-            id={id}
-            isDisabled={disabled}
-            isMulti={multiple}
-            onChange={this.handleChange}
-            options={enumOptions}
-            placeholder={placeholder}
-            useRawValues
-            value={value} />
-      );
-    }
-
+    const selectOptions = schemaOptions || enumOptions;
+    const noEmptyOptions = removeEmptyEnums(selectOptions);
+    const invalid = rawErrors && rawErrors.length;
+    const SelectComponent = creatable ? Creatable : Select;
 
     return (
-      <Select
+      <SelectComponent
           autoFocus={autofocus}
+          blurInputOnSelect={!multiple}
+          closeMenuOnSelect={!multiple}
+          hideMenu={hideMenu}
           id={id}
+          invalid={invalid}
           isClearable={!required}
           isDisabled={disabled}
           isMulti={multiple}
+          noOptionsMessage={() => noOptionsMessage}
+          onBlur={onBlur}
           onChange={this.handleChange}
-          options={enumOptions}
+          onFocus={onFocus}
+          options={noEmptyOptions}
+          placeholder={placeholder}
           useRawValues
           value={value} />
     );

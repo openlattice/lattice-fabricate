@@ -1,5 +1,6 @@
-import { getEntityAddressKey, getPageSectionKey } from '../../../utils/DataProcessingUtils';
 import { ENTITY_SET_NAMES, PROPERTY_TYPE_FQNS } from './mockFQNs';
+
+import { getEntityAddressKey, getPageSectionKey } from '../../../utils/DataProcessingUtils';
 
 const {
   TASK_ESN,

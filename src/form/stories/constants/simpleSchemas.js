@@ -40,7 +40,9 @@ export const schema = {
       },
       required: [
         'firstName',
-        'lastName'
+        'lastName',
+        'sex',
+        'dob'
       ],
     },
     mailingAddress: {
@@ -158,7 +160,7 @@ export const uiSchema = {
     residentOfState: {
       'ui:widget': 'radio',
       'ui:options': {
-        inline: true
+        row: true
       },
       classNames: 'column-span-6'
     },
@@ -166,7 +168,7 @@ export const uiSchema = {
       classNames: 'column-span-6',
       'ui:widget': 'radio',
       'ui:options': {
-        inline: true
+        row: true
       },
     },
     street: {
