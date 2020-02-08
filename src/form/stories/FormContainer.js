@@ -1,34 +1,42 @@
 // @flow
 import React, { Component } from 'react';
-import { DateTime } from 'luxon';
+
 import { action } from '@storybook/addon-actions';
 import { get, setIn } from 'immutable';
+import { DateTime } from 'luxon';
 
+import entityIndexToIdMap from './constants/entityIndexToIdMap';
+import mockExternalFormData from './constants/mockExternalFormData';
 import { schema, uiSchema } from './constants/dataSchemas';
+import { entitySetIds, propertyTypeIds } from './constants/mockEDM';
+import { ASSOCIATION_ENTITY_SET_NAMES, ENTITY_SET_NAMES, PROPERTY_TYPE_FQNS } from './constants/mockFQNs';
+
+import Form from '..';
 import {
   getEntityAddressKey,
   getPageSectionKey,
   processAssociationEntityData,
   processEntityData,
 } from '../../utils/DataProcessingUtils';
-import { ASSOCIATION_ENTITY_SET_NAMES, ENTITY_SET_NAMES, PROPERTY_TYPE_FQNS } from './constants/mockFQNs';
-import { entitySetIds, propertyTypeIds } from './constants/mockEDM';
-import mockExternalFormData from './constants/mockExternalFormData';
-import entityIndexToIdMap from './constants/entityIndexToIdMap';
 import type { EdgeDefinition } from '../../utils/DataProcessingUtils';
-import Form from '..';
 
 const { INCLUDES_ESN } = ASSOCIATION_ENTITY_SET_NAMES;
 const { TASK_LIST_ESN, TASK_ESN } = ENTITY_SET_NAMES;
 const { COMPLETED_DT_FQN, INDEX_FQN } = PROPERTY_TYPE_FQNS;
 
-type Props = {};
+type Props = {
+  disabled :boolean;
+};
 
 type State = {
   formData :Object;
 };
 
 class FormContainer extends Component<Props, State> {
+
+  static defaultProps = {
+    disabled: false
+  };
 
   state = {
     formData: mockExternalFormData
@@ -44,10 +52,16 @@ class FormContainer extends Component<Props, State> {
     ];
   }
 
-  handleSubmit = ({ formData } :Object) => {
+  handleSubmit = ({ formData, path } :Object) => {
     const entityData = processEntityData(formData, entitySetIds, propertyTypeIds);
     const associationData = processAssociationEntityData(this.getAssociations(), entitySetIds, propertyTypeIds);
-    action('Adding Item')({ entityData, associationData });
+    action('Submitting')({
+      entityData,
+      associationData,
+      formData,
+      path,
+      properties: formData
+    });
   }
 
   updateItemIndicies = ({ formData } :Object) => {
@@ -63,6 +77,7 @@ class FormContainer extends Component<Props, State> {
   }
 
   render() {
+    const { disabled } = this.props;
     const { formData } = this.state;
     const formContext = {
       addActions: {
@@ -78,7 +93,7 @@ class FormContainer extends Component<Props, State> {
 
     return (
       <Form
-          disabled
+          disabled={disabled}
           formContext={formContext}
           formData={formData}
           onChange={this.updateItemIndicies}

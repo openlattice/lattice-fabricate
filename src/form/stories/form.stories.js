@@ -17,9 +17,9 @@ import {
 } from './constants/pagedSchemas';
 import { schema as simpleSchema, uiSchema as simpleUiSchema } from './constants/simpleSchemas';
 
+import Form from '..';
 import Paged from '../src/components/Paged';
 import PagedByMachine from '../src/components/PagedByMachine';
-import Form from '..';
 
 const ActionRow = styled.div`
   display: flex;
@@ -50,8 +50,11 @@ storiesOf('Form', module)
         schema={arraySchema}
         uiSchema={arrayUiSchema} />
   ))
-  .add('Data Processing w/ Edits & Delete', () => (
+  .add('Data Processing', () => (
     <FormContainer submitAction={action('Submit Form')} />
+  ))
+  .add('Data Processing w/ Edits & Delete', () => (
+    <FormContainer disabled submitAction={action('Submit Form')} />
   ))
   .add('Files', () => (
     <Form
