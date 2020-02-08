@@ -28,9 +28,10 @@ import {
   isNonEmptyString,
 } from './LangUtils';
 import {
+  isObjectOrMap,
   isValidDataPrimitive,
-  isValidDataPrimitiveArray,
   isValidUUID,
+  validateArrayOrListWith,
 } from './ValidationUtils';
 
 const LOG :Logger = new Logger('DataProcessingUtils');
@@ -233,14 +234,8 @@ function processEntityValue(key :string, value :any, mappers :Map | Object) :any
     if (isValidDataPrimitive(processedValue)) {
       return [processedValue];
     }
-    if (isValidDataPrimitiveArray(processedValue)) {
+    if (Array.isArray(processedValue) || List.isList(processedValue)) {
       return processedValue;
-    }
-    if (List.isList(processedValue)) {
-      LOG.error('entity values as immutable lists are not supported', processedValue);
-    }
-    if (Map.isMap(processedValue)) {
-      LOG.error('entity values as immutable maps are not supported', processedValue);
     }
     LOG.warn('processEntityValue() - unable to process value', processedValue);
   }
@@ -306,7 +301,8 @@ function processEntityValueMap(
         );
       }
     }
-    else if (Array.isArray(localValue) || List.isList(localValue)) {
+    // if value is an array/list of object/map
+    else if (validateArrayOrListWith(localValue, isObjectOrMap)) {
       localValue.forEach((valueInList :Map, index :number) => {
         // NOTE: the index is meant to represent the entity index, but it's not guaranteed to be the correct index
         // TODO: this behavior needs to be better defined for deeply nested structures
