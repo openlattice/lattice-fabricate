@@ -231,16 +231,14 @@ function processEntityValue(key :string, value :any, mappers :Map | Object) :any
   }
 
   if (isDefined(processedValue)) {
-    if (isValidDataPrimitive(processedValue)) {
-      return [processedValue];
-    }
     if (Array.isArray(processedValue) || List.isList(processedValue)) {
       return processedValue;
     }
-    LOG.warn('processEntityValue() - unable to process value', processedValue);
+    return [processedValue];
   }
 
   // TODO: what should be returned here?
+  LOG.warn('processEntityValue() - unable to process value', processedValue);
   return undefined;
 }
 
