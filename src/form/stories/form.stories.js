@@ -51,10 +51,10 @@ storiesOf('Form', module)
         uiSchema={arrayUiSchema} />
   ))
   .add('Data Processing', () => (
-    <FormContainer submitAction={action('Submit Form')} />
+    <FormContainer onSubmit={action('Submit Form')} />
   ))
   .add('Data Processing w/ Edits & Delete', () => (
-    <FormContainer disabled submitAction={action('Submit Form')} />
+    <FormContainer disabled onSubmit={action('Submit Form')} />
   ))
   .add('Files', () => (
     <Form

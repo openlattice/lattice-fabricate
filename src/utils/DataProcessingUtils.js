@@ -29,7 +29,6 @@ import {
 } from './LangUtils';
 import {
   isObjectOrMap,
-  isValidDataPrimitive,
   isValidUUID,
   validateArrayOrListWith,
 } from './ValidationUtils';
@@ -643,6 +642,8 @@ export {
   processAssociationEntityData,
   processEntityData,
   processEntityDataForPartialReplace,
+  processEntityValue,
+  processEntityValueMap,
   replaceEntityAddressKeys,
   wrapFormDataInPageSection,
 };

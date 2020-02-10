@@ -26,6 +26,7 @@ const { COMPLETED_DT_FQN, INDEX_FQN } = PROPERTY_TYPE_FQNS;
 
 type Props = {
   disabled :boolean;
+  onSubmit :(params :any) => void;
 };
 
 type State = {
@@ -53,9 +54,10 @@ class FormContainer extends Component<Props, State> {
   }
 
   handleSubmit = ({ formData, path } :Object) => {
+    const { onSubmit } = this.props;
     const entityData = processEntityData(formData, entitySetIds, propertyTypeIds);
     const associationData = processAssociationEntityData(this.getAssociations(), entitySetIds, propertyTypeIds);
-    action('Submitting')({
+    onSubmit({
       entityData,
       associationData,
       formData,

@@ -2,14 +2,24 @@
  * @flow
  */
 
+import { List, Map, fromJS } from 'immutable';
 import { Models } from 'lattice';
 
-import { getEntityAddressKey, parseEntityAddressKey } from './DataProcessingUtils';
+import {
+  VALUE_MAPPERS,
+  getEntityAddressKey,
+  parseEntityAddressKey,
+  processEntityData,
+  processEntityValue
+} from './DataProcessingUtils';
 import {
   INVALID_PARAMS,
   INVALID_PARAMS_FOR_REQUIRED_INDEX_OR_SS,
   INVALID_PARAMS_SS,
 } from './testing/Invalid';
+
+import mockExternalFormData from '../form/stories/constants/mockExternalFormData';
+import { entitySetIds, propertyTypeIds } from '../form/stories/constants/mockEDM';
 
 const { FullyQualifiedName } = Models;
 
@@ -110,6 +120,61 @@ describe('DataProcessingUtils', () => {
       }).toThrow();
     });
 
+  });
+
+  describe('processEntityValue', () => {
+
+    test('should return mapped value wrapped in array', () => {
+      const mockMapper = jest.fn();
+      const testMapper = (value) => {
+        mockMapper(value);
+        return value;
+      };
+
+      const mockMappers = {
+        [VALUE_MAPPERS]: {
+          test: testMapper
+        }
+      };
+
+      const UNWRAPPED_VALUES = [
+        'OpenLattice',
+        ['OpenLattice'],
+        List(['OpenLattice']),
+        { Open: 'Lattice' },
+        Map({ Open: 'Lattice' }),
+        true,
+        false,
+        0,
+        1,
+      ];
+
+      const WRAPPED_VALUES = [
+        ['OpenLattice'],
+        ['OpenLattice'],
+        List(['OpenLattice']),
+        [{ Open: 'Lattice' }],
+        [Map({ Open: 'Lattice' })],
+        [true],
+        [false],
+        [0],
+        [1],
+      ];
+
+      for (let i = 0; i < UNWRAPPED_VALUES.length; i += 1) {
+        const value = UNWRAPPED_VALUES[i];
+        const processedValue = processEntityValue('test', value, mockMappers);
+        expect(mockMapper).toHaveBeenLastCalledWith(value);
+        expect(processedValue).toEqual(WRAPPED_VALUES[i]);
+      }
+    });
+  });
+
+  describe('processEntityData', () => {
+    test('should process formData', () => {
+      const processedValue = processEntityData(mockExternalFormData, entitySetIds, propertyTypeIds);
+      expect(processedValue).toMatchSnapshot();
+    });
   });
 
 });
