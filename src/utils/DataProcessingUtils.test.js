@@ -2,7 +2,7 @@
  * @flow
  */
 
-import { List, Map, fromJS } from 'immutable';
+import { List, Map } from 'immutable';
 import { Models } from 'lattice';
 
 import {
