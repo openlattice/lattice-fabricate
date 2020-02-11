@@ -230,8 +230,11 @@ function processEntityValue(key :string, value :any, mappers :Map | Object) :any
   }
 
   if (isDefined(processedValue)) {
-    if (Array.isArray(processedValue) || List.isList(processedValue)) {
+    if (Array.isArray(processedValue)) {
       return processedValue;
+    }
+    if (List.isList(processedValue)) {
+      return processedValue.toJS();
     }
     return [processedValue];
   }

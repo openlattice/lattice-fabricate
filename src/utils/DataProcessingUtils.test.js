@@ -152,7 +152,7 @@ describe('DataProcessingUtils', () => {
       const WRAPPED_VALUES = [
         ['OpenLattice'],
         ['OpenLattice'],
-        List(['OpenLattice']),
+        ['OpenLattice'],
         [{ Open: 'Lattice' }],
         [Map({ Open: 'Lattice' })],
         [true],
