@@ -62,15 +62,7 @@ function isObjectOrMap(value :any) :boolean %checks {
 }
 
 function validateArrayOrListWith(values :any, predicate :Function) :boolean {
-  if (Array.isArray(values)) {
-    for (let index = 0; index < values.length; index += 1) {
-      if (!predicate(values[index])) {
-        return false;
-      }
-    }
-  }
-
-  if (List.isList(values)) {
+  if (Array.isArray(values) || List.isList(values)) {
     return values.every(predicate);
   }
 
