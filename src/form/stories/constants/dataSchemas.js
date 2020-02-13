@@ -9,7 +9,8 @@ const {
 const {
   NAME_FQN,
   DESCRIPTION_FQN,
-  INDEX_FQN
+  INDEX_FQN,
+  TYPE_FQN,
 } = PROPERTY_TYPE_FQNS;
 
 export const schema = {
@@ -24,6 +25,15 @@ export const schema = {
         [getEntityAddressKey(-1, TASK_ESN, DESCRIPTION_FQN)]: {
           type: 'string',
           title: 'Task Description',
+        },
+        [getEntityAddressKey(-1, TASK_ESN, TYPE_FQN)]: {
+          type: 'array',
+          title: 'Notifications',
+          items: {
+            type: 'string',
+            enum: ['Push', 'Email']
+          },
+          uniqueItems: true
         },
         [getEntityAddressKey(-1, TASK_ESN, INDEX_FQN)]: {
           type: 'number',
@@ -70,6 +80,15 @@ export const uiSchema = {
       [getEntityAddressKey(-1, TASK_ESN, INDEX_FQN)]: {
         classNames: 'column-span-12',
         'ui:widget': 'hidden'
+      },
+      [getEntityAddressKey(-1, TASK_ESN, TYPE_FQN)]: {
+        classNames: 'column-span-12',
+        'ui:widget': 'checkboxes',
+        'ui:options': {
+          withNone: true,
+          row: true,
+          mode: 'button'
+        }
       },
       'ui:options': {
         editable: true

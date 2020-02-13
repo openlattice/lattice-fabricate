@@ -6,6 +6,8 @@ import isBoolean from 'lodash/isBoolean';
 import isFinite from 'lodash/isFinite';
 import isPlainObject from 'lodash/isPlainObject';
 import isString from 'lodash/isString';
+import { List, Map } from 'immutable';
+
 import { isNonEmptyArray } from './LangUtils';
 
 type ValidatorFn = (value :any) => boolean;
@@ -47,7 +49,7 @@ function isValidUUIDArray(uuids :any[]) :boolean {
 
 function isValidDataPrimitive(value :any) :boolean {
 
-  return isBoolean(value) || isFinite(value) || isPlainObject(value) || isString(value);
+  return isBoolean(value) || isFinite(value) || isString(value);
 }
 
 function isValidDataPrimitiveArray(values :any) :boolean {
@@ -55,10 +57,24 @@ function isValidDataPrimitiveArray(values :any) :boolean {
   return validateNonEmptyArray(values, (value :any) => isValidDataPrimitive(value));
 }
 
+function isObjectOrMap(value :any) :boolean %checks {
+  return isPlainObject(value) || Map.isMap(value);
+}
+
+function validateArrayOrListWith(values :any, predicate :Function) :boolean {
+  if (Array.isArray(values) || List.isList(values)) {
+    return values.every(predicate);
+  }
+
+  return false;
+}
+
 export {
+  isObjectOrMap,
   isValidDataPrimitive,
   isValidDataPrimitiveArray,
   isValidUUID,
   isValidUUIDArray,
+  validateArrayOrListWith,
   validateNonEmptyArray,
 };
