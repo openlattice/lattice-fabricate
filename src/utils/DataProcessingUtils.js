@@ -28,9 +28,9 @@ import {
   isNonEmptyString,
 } from './LangUtils';
 import {
-  isValidDataPrimitive,
-  isValidDataPrimitiveArray,
+  isObjectOrMap,
   isValidUUID,
+  validateArrayOrListWith,
 } from './ValidationUtils';
 
 const LOG :Logger = new Logger('DataProcessingUtils');
@@ -39,6 +39,7 @@ const ATAT :string = '__@@__';
 const KEY_MAPPERS :'KEY_MAPPERS' = 'KEY_MAPPERS';
 const INDEX_MAPPERS :'INDEX_MAPPERS' = 'INDEX_MAPPERS';
 const VALUE_MAPPERS :'VALUE_MAPPERS' = 'VALUE_MAPPERS';
+const ENTITY_ADDRESS_KEY_PARTS = 3;
 
 const { FullyQualifiedName } = Models;
 
@@ -112,9 +113,8 @@ function parseEntityAddressKey(entityAddressKey :string) :EntityAddress {
 
   const split :string[] = entityAddressKey.split(ATAT);
 
-  if (split && split.length === 3) {
-    // NOTE: be careful! parseInt() will incorrectly return a number when given certain UUID strings
-    const entityIndex :number = parseInt(split[0], 10);
+  if (split && split.length === ENTITY_ADDRESS_KEY_PARTS) {
+    const entityIndex :number = parseInt(split[0], 10); // WARNING! see comment below
     const entityKeyId :UUID = split[0];
     const entitySetName :string = split[1];
     const propertyTypeFQN :string = split[2];
@@ -126,7 +126,20 @@ function parseEntityAddressKey(entityAddressKey :string) :EntityAddress {
           propertyTypeFQN: new FullyQualifiedName(propertyTypeFQN),
         };
       }
-      if (entityIndex < 0 || (isDigitOnlyString(split[0]) && isInteger(entityIndex))) {
+      /*
+       * WARNING: parseInt() will incorrectly return a number when given certain UUID strings. for example:
+       *   parseInt('9b93bc80-79c3-44c8-807c-ada1a8d6484f') // returns 9
+       *   parseInt('-9b93bc80-79c3-44c8-807c-ada1a8d6484f') // returns -9
+       *
+       * thus, isValidUUID() MUST happen first (above) to handle the first example, and isDigitOnlyString() will
+       * handle the second example below
+       */
+      if (
+        isDigitOnlyString(split[0])
+        || (
+          split[0].startsWith('-') && isDigitOnlyString(split[0].slice(1))
+        )
+      ) {
         return {
           entityIndex,
           entitySetName,
@@ -149,7 +162,7 @@ function isValidEntityAddressKey(value :any) :boolean {
 
   const split :string[] = value.split(ATAT);
 
-  if (split && split.length === 3) {
+  if (split && split.length === ENTITY_ADDRESS_KEY_PARTS) {
     // NOTE: be careful! parseInt() will incorrectly return a number when given certain UUID strings
     const entityIndex :number = parseInt(split[0], 10);
     const entityKeyId :UUID = split[0];
@@ -217,22 +230,17 @@ function processEntityValue(key :string, value :any, mappers :Map | Object) :any
   }
 
   if (isDefined(processedValue)) {
-    if (isValidDataPrimitive(processedValue)) {
-      return [processedValue];
-    }
-    if (isValidDataPrimitiveArray(processedValue)) {
+    if (Array.isArray(processedValue)) {
       return processedValue;
     }
     if (List.isList(processedValue)) {
-      LOG.error('entity values as immutable lists are not supported', processedValue);
+      return processedValue.toJS();
     }
-    if (Map.isMap(processedValue)) {
-      LOG.error('entity values as immutable maps are not supported', processedValue);
-    }
-    LOG.warn('processEntityValue() - unable to process value', processedValue);
+    return [processedValue];
   }
 
   // TODO: what should be returned here?
+  LOG.warn('processEntityValue() - unable to process value', processedValue);
   return undefined;
 }
 
@@ -293,7 +301,8 @@ function processEntityValueMap(
         );
       }
     }
-    else if (Array.isArray(localValue) || List.isList(localValue)) {
+    // if value is an array/list of object/map
+    else if (validateArrayOrListWith(localValue, isObjectOrMap)) {
       localValue.forEach((valueInList :Map, index :number) => {
         // NOTE: the index is meant to represent the entity index, but it's not guaranteed to be the correct index
         // TODO: this behavior needs to be better defined for deeply nested structures
@@ -636,6 +645,8 @@ export {
   processAssociationEntityData,
   processEntityData,
   processEntityDataForPartialReplace,
+  processEntityValue,
+  processEntityValueMap,
   replaceEntityAddressKeys,
   wrapFormDataInPageSection,
 };

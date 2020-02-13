@@ -8,6 +8,7 @@ const PROPERTY_TYPE_FQNS = {
   IMAGE_DATA_FQN: new FullyQualifiedName('mock.imagedata'),
   INDEX_FQN: new FullyQualifiedName('mock.index'),
   NAME_FQN: new FullyQualifiedName('mock.name'),
+  TYPE_FQN: new FullyQualifiedName('mock.type'),
 };
 
 const ENTITY_SET_NAMES = {
