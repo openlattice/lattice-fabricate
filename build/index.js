@@ -1,6 +1,6 @@
 /*!
  * 
- * lattice-fabricate - v0.10.0
+ * lattice-fabricate - v0.11.0
  * React HOCs for components dependent on the OpenLattice EDM.
  * https://github.com/openlattice/lattice-fabricate
  * 
@@ -3941,7 +3941,7 @@ module.exports = _objectWithoutProperties;
 /* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(74),
+var Symbol = __webpack_require__(73),
     getRawTag = __webpack_require__(238),
     objectToString = __webpack_require__(239);
 
@@ -3976,7 +3976,7 @@ module.exports = baseGetTag;
 /***/ (function(module, exports, __webpack_require__) {
 
 // optional / simple context binding
-var aFunction = __webpack_require__(75);
+var aFunction = __webpack_require__(74);
 module.exports = function (fn, that, length) {
   aFunction(fn);
   if (that === undefined) return fn;
@@ -4059,7 +4059,7 @@ module.exports = _toConsumableArray;
 /***/ (function(module, exports, __webpack_require__) {
 
 var dP = __webpack_require__(34);
-var createDesc = __webpack_require__(76);
+var createDesc = __webpack_require__(75);
 module.exports = __webpack_require__(36) ? function (object, key, value) {
   return dP.f(object, key, createDesc(1, value));
 } : function (object, key, value) {
@@ -4381,7 +4381,7 @@ var ctx = __webpack_require__(50);
 var call = __webpack_require__(166);
 var isArrayIter = __webpack_require__(167);
 var anObject = __webpack_require__(35);
-var toLength = __webpack_require__(80);
+var toLength = __webpack_require__(79);
 var getIterFn = __webpack_require__(129);
 var BREAK = {};
 var RETURN = {};
@@ -4408,7 +4408,7 @@ exports.RETURN = RETURN;
 /* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isSymbol = __webpack_require__(84);
+var isSymbol = __webpack_require__(83);
 
 /** Used as references for various `Number` constants. */
 var INFINITY = 1 / 0;
@@ -4716,45 +4716,6 @@ function unescapeJsonPointer(str) {
 /* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var toInteger = __webpack_require__(213);
-
-/**
- * Checks if `value` is an integer.
- *
- * **Note:** This method is based on
- * [`Number.isInteger`](https://mdn.io/Number/isInteger).
- *
- * @static
- * @memberOf _
- * @since 4.0.0
- * @category Lang
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is an integer, else `false`.
- * @example
- *
- * _.isInteger(3);
- * // => true
- *
- * _.isInteger(Number.MIN_VALUE);
- * // => false
- *
- * _.isInteger(Infinity);
- * // => false
- *
- * _.isInteger('3');
- * // => false
- */
-function isInteger(value) {
-  return typeof value == 'number' && value == toInteger(value);
-}
-
-module.exports = isInteger;
-
-
-/***/ }),
-/* 74 */
-/***/ (function(module, exports, __webpack_require__) {
-
 var root = __webpack_require__(40);
 
 /** Built-in value references. */
@@ -4764,7 +4725,7 @@ module.exports = Symbol;
 
 
 /***/ }),
-/* 75 */
+/* 74 */
 /***/ (function(module, exports) {
 
 module.exports = function (it) {
@@ -4774,7 +4735,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 76 */
+/* 75 */
 /***/ (function(module, exports) {
 
 module.exports = function (bitmap, value) {
@@ -4788,7 +4749,7 @@ module.exports = function (bitmap, value) {
 
 
 /***/ }),
-/* 77 */
+/* 76 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -4799,14 +4760,14 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 78 */
+/* 77 */
 /***/ (function(module, exports) {
 
 module.exports = true;
 
 
 /***/ }),
-/* 79 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 19.1.2.14 / 15.2.3.14 Object.keys(O)
@@ -4819,7 +4780,7 @@ module.exports = Object.keys || function keys(O) {
 
 
 /***/ }),
-/* 80 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.15 ToLength
@@ -4831,7 +4792,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 81 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var def = __webpack_require__(34).f;
@@ -4844,7 +4805,7 @@ module.exports = function (it, tag, stat) {
 
 
 /***/ }),
-/* 82 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var META = __webpack_require__(91)('meta');
@@ -4903,7 +4864,7 @@ var meta = module.exports = {
 
 
 /***/ }),
-/* 83 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var isObject = __webpack_require__(32);
@@ -4914,7 +4875,7 @@ module.exports = function (it, TYPE) {
 
 
 /***/ }),
-/* 84 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var baseGetTag = __webpack_require__(49),
@@ -4949,7 +4910,7 @@ module.exports = isSymbol;
 
 
 /***/ }),
-/* 85 */
+/* 84 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4998,6 +4959,45 @@ function isActor(item) {
   }
 }
 
+
+
+/***/ }),
+/* 85 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var toInteger = __webpack_require__(213);
+
+/**
+ * Checks if `value` is an integer.
+ *
+ * **Note:** This method is based on
+ * [`Number.isInteger`](https://mdn.io/Number/isInteger).
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an integer, else `false`.
+ * @example
+ *
+ * _.isInteger(3);
+ * // => true
+ *
+ * _.isInteger(Number.MIN_VALUE);
+ * // => false
+ *
+ * _.isInteger(Infinity);
+ * // => false
+ *
+ * _.isInteger('3');
+ * // => false
+ */
+function isInteger(value) {
+  return typeof value == 'number' && value == toInteger(value);
+}
+
+module.exports = isInteger;
 
 
 /***/ }),
@@ -5171,7 +5171,7 @@ module.exports = function (it, Constructor, name, forbiddenField) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // getting tag from 19.1.3.6 Object.prototype.toString()
-var cof = __webpack_require__(77);
+var cof = __webpack_require__(76);
 var TAG = __webpack_require__(29)('toStringTag');
 // ES3 wrong here
 var ARG = cof(function () { return arguments; }()) == 'Arguments';
@@ -5671,7 +5671,7 @@ module.exports = baseIteratee;
 /* harmony import */ var _actionTypes_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(10);
 /* harmony import */ var _actions_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(5);
 /* harmony import */ var _State_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(27);
-/* harmony import */ var _Actor_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(85);
+/* harmony import */ var _Actor_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(84);
 /* harmony import */ var _scheduler_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(152);
 /* harmony import */ var _registry_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(86);
 /* harmony import */ var _devTools_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(235);
@@ -7294,7 +7294,7 @@ module.exports = function (it, S) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // fallback for non-array-like ES3 and non-enumerable old V8 strings
-var cof = __webpack_require__(77);
+var cof = __webpack_require__(76);
 // eslint-disable-next-line no-prototype-builtins
 module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
   return cof(it) == 'String' ? it.split('') : Object(it);
@@ -7306,7 +7306,7 @@ module.exports = Object('z').propertyIsEnumerable(0) ? Object : function (it) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var pIE = __webpack_require__(88);
-var createDesc = __webpack_require__(76);
+var createDesc = __webpack_require__(75);
 var toIObject = __webpack_require__(63);
 var toPrimitive = __webpack_require__(114);
 var has = __webpack_require__(56);
@@ -7357,13 +7357,13 @@ module.exports = function (it) {
 
 "use strict";
 
-var LIBRARY = __webpack_require__(78);
+var LIBRARY = __webpack_require__(77);
 var $export = __webpack_require__(23);
 var redefine = __webpack_require__(120);
 var hide = __webpack_require__(54);
 var Iterators = __webpack_require__(68);
 var $iterCreate = __webpack_require__(248);
-var setToStringTag = __webpack_require__(81);
+var setToStringTag = __webpack_require__(80);
 var getPrototypeOf = __webpack_require__(161);
 var ITERATOR = __webpack_require__(29)('iterator');
 var BUGGY = !([].keys && 'next' in [].keys()); // Safari has buggy iterators w/o `next`
@@ -7458,7 +7458,7 @@ var store = global[SHARED] || (global[SHARED] = {});
   return store[key] || (store[key] = value !== undefined ? value : {});
 })('versions', []).push({
   version: core.version,
-  mode: __webpack_require__(78) ? 'pure' : 'global',
+  mode: __webpack_require__(77) ? 'pure' : 'global',
   copyright: '© 2019 Denis Pushkarev (zloirock.ru)'
 });
 
@@ -7486,7 +7486,7 @@ module.exports = function () { /* empty */ };
 
 var global = __webpack_require__(26);
 var core = __webpack_require__(14);
-var LIBRARY = __webpack_require__(78);
+var LIBRARY = __webpack_require__(77);
 var wksExt = __webpack_require__(92);
 var defineProperty = __webpack_require__(34).f;
 module.exports = function (name) {
@@ -7507,7 +7507,7 @@ exports.f = Object.getOwnPropertySymbols;
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.2.2 IsArray(argument)
-var cof = __webpack_require__(77);
+var cof = __webpack_require__(76);
 module.exports = Array.isArray || function isArray(arg) {
   return cof(arg) == 'Array';
 };
@@ -7527,7 +7527,7 @@ module.exports = Array.isArray || function isArray(arg) {
 var ctx = __webpack_require__(50);
 var IObject = __webpack_require__(115);
 var toObject = __webpack_require__(57);
-var toLength = __webpack_require__(80);
+var toLength = __webpack_require__(79);
 var asc = __webpack_require__(260);
 module.exports = function (TYPE, $create) {
   var IS_MAP = TYPE == 1;
@@ -7612,7 +7612,7 @@ module.exports = baseGet;
 /***/ (function(module, exports, __webpack_require__) {
 
 var isArray = __webpack_require__(28),
-    isSymbol = __webpack_require__(84);
+    isSymbol = __webpack_require__(83);
 
 /** Used to match property names within property paths. */
 var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
@@ -8345,7 +8345,7 @@ module.exports = __webpack_require__(410);
 "use strict";
 
 // 25.4.1.5 NewPromiseCapability(C)
-var aFunction = __webpack_require__(75);
+var aFunction = __webpack_require__(74);
 
 function PromiseCapability(C) {
   var resolve, reject;
@@ -9108,7 +9108,7 @@ module.exports = function (object, names) {
 // false -> Array#indexOf
 // true  -> Array#includes
 var toIObject = __webpack_require__(63);
-var toLength = __webpack_require__(80);
+var toLength = __webpack_require__(79);
 var toAbsoluteIndex = __webpack_require__(159);
 module.exports = function (IS_INCLUDES) {
   return function ($this, el, fromIndex) {
@@ -9191,10 +9191,10 @@ var has = __webpack_require__(56);
 var DESCRIPTORS = __webpack_require__(36);
 var $export = __webpack_require__(23);
 var redefine = __webpack_require__(120);
-var META = __webpack_require__(82).KEY;
+var META = __webpack_require__(81).KEY;
 var $fails = __webpack_require__(55);
 var shared = __webpack_require__(122);
-var setToStringTag = __webpack_require__(81);
+var setToStringTag = __webpack_require__(80);
 var uid = __webpack_require__(91);
 var wks = __webpack_require__(29);
 var wksExt = __webpack_require__(92);
@@ -9206,13 +9206,13 @@ var isObject = __webpack_require__(32);
 var toObject = __webpack_require__(57);
 var toIObject = __webpack_require__(63);
 var toPrimitive = __webpack_require__(114);
-var createDesc = __webpack_require__(76);
+var createDesc = __webpack_require__(75);
 var _create = __webpack_require__(90);
 var gOPNExt = __webpack_require__(254);
 var $GOPD = __webpack_require__(116);
 var $GOPS = __webpack_require__(126);
 var $DP = __webpack_require__(34);
-var $keys = __webpack_require__(79);
+var $keys = __webpack_require__(78);
 var gOPD = $GOPD.f;
 var dP = $DP.f;
 var gOPN = gOPNExt.f;
@@ -9339,7 +9339,7 @@ if (!USE_NATIVE) {
   __webpack_require__(88).f = $propertyIsEnumerable;
   $GOPS.f = $getOwnPropertySymbols;
 
-  if (DESCRIPTORS && !__webpack_require__(78)) {
+  if (DESCRIPTORS && !__webpack_require__(77)) {
     redefine(ObjectProto, 'propertyIsEnumerable', $propertyIsEnumerable, true);
   }
 
@@ -9453,7 +9453,7 @@ exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
 
 // 19.1.2.1 Object.assign(target, source, ...)
 var DESCRIPTORS = __webpack_require__(36);
-var getKeys = __webpack_require__(79);
+var getKeys = __webpack_require__(78);
 var gOPS = __webpack_require__(126);
 var pIE = __webpack_require__(88);
 var toObject = __webpack_require__(57);
@@ -9530,14 +9530,14 @@ module.exports = function (it) {
 
 var global = __webpack_require__(26);
 var $export = __webpack_require__(23);
-var meta = __webpack_require__(82);
+var meta = __webpack_require__(81);
 var fails = __webpack_require__(55);
 var hide = __webpack_require__(54);
 var redefineAll = __webpack_require__(94);
 var forOf = __webpack_require__(70);
 var anInstance = __webpack_require__(95);
 var isObject = __webpack_require__(32);
-var setToStringTag = __webpack_require__(81);
+var setToStringTag = __webpack_require__(80);
 var dP = __webpack_require__(34).f;
 var each = __webpack_require__(128)(0);
 var DESCRIPTORS = __webpack_require__(36);
@@ -9615,7 +9615,7 @@ module.exports = function (COLLECTION) {
 
 // https://tc39.github.io/proposal-setmap-offrom/
 var $export = __webpack_require__(23);
-var aFunction = __webpack_require__(75);
+var aFunction = __webpack_require__(74);
 var ctx = __webpack_require__(50);
 var forOf = __webpack_require__(70);
 
@@ -9723,10 +9723,10 @@ module.exports = toSource;
 /* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(74),
+var Symbol = __webpack_require__(73),
     arrayMap = __webpack_require__(176),
     isArray = __webpack_require__(28),
-    isSymbol = __webpack_require__(84);
+    isSymbol = __webpack_require__(83);
 
 /** Used as references for various `Number` constants. */
 var INFINITY = 1 / 0;
@@ -11905,7 +11905,7 @@ exports["default"] = _default;
 
 // 7.3.20 SpeciesConstructor(O, defaultConstructor)
 var anObject = __webpack_require__(35);
-var aFunction = __webpack_require__(75);
+var aFunction = __webpack_require__(74);
 var SPECIES = __webpack_require__(29)('species');
 module.exports = function (O, D) {
   var C = anObject(O).constructor;
@@ -11961,7 +11961,7 @@ if (!setTask || !clearTask) {
     delete queue[id];
   };
   // Node.js 0.8-
-  if (__webpack_require__(77)(process) == 'process') {
+  if (__webpack_require__(76)(process) == 'process') {
     defer = function (id) {
       process.nextTick(ctx(run, id, 1));
     };
@@ -12438,7 +12438,7 @@ var stateUtils = __webpack_require__(24);
 var actionTypes = __webpack_require__(10);
 
 // EXTERNAL MODULE: ./node_modules/xstate/es/Actor.js
-var Actor = __webpack_require__(85);
+var Actor = __webpack_require__(84);
 
 // CONCATENATED MODULE: ./node_modules/xstate/es/StateNode.js
 
@@ -14710,7 +14710,7 @@ module.exports = _objectWithoutPropertiesLoose;
 /* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(74);
+var Symbol = __webpack_require__(73);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -15314,8 +15314,8 @@ module.exports = function (TO_STRING) {
 "use strict";
 
 var create = __webpack_require__(90);
-var descriptor = __webpack_require__(76);
-var setToStringTag = __webpack_require__(81);
+var descriptor = __webpack_require__(75);
+var setToStringTag = __webpack_require__(80);
 var IteratorPrototype = {};
 
 // 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
@@ -15333,7 +15333,7 @@ module.exports = function (Constructor, NAME, next) {
 
 var dP = __webpack_require__(34);
 var anObject = __webpack_require__(35);
-var getKeys = __webpack_require__(79);
+var getKeys = __webpack_require__(78);
 
 module.exports = __webpack_require__(36) ? Object.defineProperties : function defineProperties(O, Properties) {
   anObject(O);
@@ -15409,7 +15409,7 @@ module.exports = __webpack_require__(14).Symbol;
 /***/ (function(module, exports, __webpack_require__) {
 
 // all enumerable object keys, includes symbols
-var getKeys = __webpack_require__(79);
+var getKeys = __webpack_require__(78);
 var gOPS = __webpack_require__(126);
 var pIE = __webpack_require__(88);
 module.exports = function (it) {
@@ -15491,12 +15491,12 @@ module.exports = __webpack_require__(14).WeakMap;
 var global = __webpack_require__(26);
 var each = __webpack_require__(128)(0);
 var redefine = __webpack_require__(120);
-var meta = __webpack_require__(82);
+var meta = __webpack_require__(81);
 var assign = __webpack_require__(165);
 var weak = __webpack_require__(262);
 var isObject = __webpack_require__(32);
-var validate = __webpack_require__(83);
-var NATIVE_WEAK_MAP = __webpack_require__(83);
+var validate = __webpack_require__(82);
+var NATIVE_WEAK_MAP = __webpack_require__(82);
 var IS_IE11 = !global.ActiveXObject && 'ActiveXObject' in global;
 var WEAK_MAP = 'WeakMap';
 var getWeak = meta.getWeak;
@@ -15590,14 +15590,14 @@ module.exports = function (original) {
 "use strict";
 
 var redefineAll = __webpack_require__(94);
-var getWeak = __webpack_require__(82).getWeak;
+var getWeak = __webpack_require__(81).getWeak;
 var anObject = __webpack_require__(35);
 var isObject = __webpack_require__(32);
 var anInstance = __webpack_require__(95);
 var forOf = __webpack_require__(70);
 var createArrayMethod = __webpack_require__(128);
 var $has = __webpack_require__(56);
-var validate = __webpack_require__(83);
+var validate = __webpack_require__(82);
 var arrayFind = createArrayMethod(5);
 var arrayFindIndex = createArrayMethod(6);
 var id = 0;
@@ -15713,7 +15713,7 @@ module.exports = __webpack_require__(14).Object.keys;
 
 // 19.1.2.14 Object.keys(O)
 var toObject = __webpack_require__(57);
-var $keys = __webpack_require__(79);
+var $keys = __webpack_require__(78);
 
 __webpack_require__(117)('keys', function () {
   return function keys(it) {
@@ -16995,7 +16995,7 @@ module.exports = baseFlatten;
 /* 316 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(74),
+var Symbol = __webpack_require__(73),
     isArguments = __webpack_require__(102),
     isArray = __webpack_require__(28);
 
@@ -17491,7 +17491,7 @@ module.exports = __webpack_require__(14).Set;
 "use strict";
 
 var strong = __webpack_require__(337);
-var validate = __webpack_require__(83);
+var validate = __webpack_require__(82);
 var SET = 'Set';
 
 // 23.2 Set Objects
@@ -17521,8 +17521,8 @@ var $iterDefine = __webpack_require__(119);
 var step = __webpack_require__(162);
 var setSpecies = __webpack_require__(189);
 var DESCRIPTORS = __webpack_require__(36);
-var fastKey = __webpack_require__(82).fastKey;
-var validate = __webpack_require__(83);
+var fastKey = __webpack_require__(81).fastKey;
+var validate = __webpack_require__(82);
 var SIZE = DESCRIPTORS ? '_s' : 'size';
 
 var getEntry = function (that, key) {
@@ -17730,7 +17730,7 @@ var $export = __webpack_require__(23);
 var toObject = __webpack_require__(57);
 var call = __webpack_require__(166);
 var isArrayIter = __webpack_require__(167);
-var toLength = __webpack_require__(80);
+var toLength = __webpack_require__(79);
 var createProperty = __webpack_require__(345);
 var getIterFn = __webpack_require__(129);
 
@@ -17770,7 +17770,7 @@ $export($export.S + $export.F * !__webpack_require__(191)(function (iter) { Arra
 "use strict";
 
 var $defineProperty = __webpack_require__(34);
-var createDesc = __webpack_require__(76);
+var createDesc = __webpack_require__(75);
 
 module.exports = function (object, index, value) {
   if (index in object) $defineProperty.f(object, index, createDesc(0, value));
@@ -18008,7 +18008,7 @@ __webpack_require__(124)('fill');
 
 var toObject = __webpack_require__(57);
 var toAbsoluteIndex = __webpack_require__(159);
-var toLength = __webpack_require__(80);
+var toLength = __webpack_require__(79);
 module.exports = function fill(value /* , start = 0, end = @length */) {
   var O = toObject(this);
   var length = toLength(O.length);
@@ -18028,7 +18028,7 @@ module.exports = function fill(value /* , start = 0, end = @length */) {
 var arrayMap = __webpack_require__(176),
     copyArray = __webpack_require__(366),
     isArray = __webpack_require__(28),
-    isSymbol = __webpack_require__(84),
+    isSymbol = __webpack_require__(83),
     stringToPath = __webpack_require__(173),
     toKey = __webpack_require__(71),
     toString = __webpack_require__(135);
@@ -26972,13 +26972,13 @@ module.exports = __webpack_require__(14).Promise;
 
 "use strict";
 
-var LIBRARY = __webpack_require__(78);
+var LIBRARY = __webpack_require__(77);
 var global = __webpack_require__(26);
 var ctx = __webpack_require__(50);
 var classof = __webpack_require__(96);
 var $export = __webpack_require__(23);
 var isObject = __webpack_require__(32);
-var aFunction = __webpack_require__(75);
+var aFunction = __webpack_require__(74);
 var anInstance = __webpack_require__(95);
 var forOf = __webpack_require__(70);
 var speciesConstructor = __webpack_require__(206);
@@ -27193,7 +27193,7 @@ if (!USE_NATIVE) {
 }
 
 $export($export.G + $export.W + $export.F * !USE_NATIVE, { Promise: $Promise });
-__webpack_require__(81)($Promise, PROMISE);
+__webpack_require__(80)($Promise, PROMISE);
 __webpack_require__(189)(PROMISE);
 Wrapper = __webpack_require__(14)[PROMISE];
 
@@ -27290,7 +27290,7 @@ var macrotask = __webpack_require__(207).set;
 var Observer = global.MutationObserver || global.WebKitMutationObserver;
 var process = global.process;
 var Promise = global.Promise;
-var isNode = __webpack_require__(77)(process) == 'process';
+var isNode = __webpack_require__(76)(process) == 'process';
 
 module.exports = function () {
   var head, last, notify;
@@ -28434,7 +28434,7 @@ module.exports = toFinite;
 /***/ (function(module, exports, __webpack_require__) {
 
 var isObject = __webpack_require__(62),
-    isSymbol = __webpack_require__(84);
+    isSymbol = __webpack_require__(83);
 
 /** Used as references for various `Number` constants. */
 var NAN = 0 / 0;
@@ -29075,7 +29075,7 @@ module.exports = cacheHas;
 /* 489 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var Symbol = __webpack_require__(74),
+var Symbol = __webpack_require__(73),
     Uint8Array = __webpack_require__(490),
     eq = __webpack_require__(133),
     equalArrays = __webpack_require__(217),
@@ -30514,6 +30514,8 @@ __webpack_require__.d(DataProcessingUtils_namespaceObject, "parsePageSectionKey"
 __webpack_require__.d(DataProcessingUtils_namespaceObject, "processAssociationEntityData", function() { return processAssociationEntityData; });
 __webpack_require__.d(DataProcessingUtils_namespaceObject, "processEntityData", function() { return processEntityData; });
 __webpack_require__.d(DataProcessingUtils_namespaceObject, "processEntityDataForPartialReplace", function() { return processEntityDataForPartialReplace; });
+__webpack_require__.d(DataProcessingUtils_namespaceObject, "processEntityValue", function() { return processEntityValue; });
+__webpack_require__.d(DataProcessingUtils_namespaceObject, "processEntityValueMap", function() { return processEntityValueMap; });
 __webpack_require__.d(DataProcessingUtils_namespaceObject, "replaceEntityAddressKeys", function() { return DataProcessingUtils_replaceEntityAddressKeys; });
 __webpack_require__.d(DataProcessingUtils_namespaceObject, "wrapFormDataInPageSection", function() { return DataProcessingUtils_wrapFormDataInPageSection; });
 var fields_namespaceObject = {};
@@ -30901,7 +30903,7 @@ var wrapNativeSuper = __webpack_require__(225);
 var wrapNativeSuper_default = /*#__PURE__*/__webpack_require__.n(wrapNativeSuper);
 
 // EXTERNAL MODULE: ./node_modules/lodash/isInteger.js
-var isInteger = __webpack_require__(73);
+var isInteger = __webpack_require__(85);
 var isInteger_default = /*#__PURE__*/__webpack_require__.n(isInteger);
 
 // EXTERNAL MODULE: ./node_modules/lodash/mapKeys.js
@@ -31055,6 +31057,7 @@ var isFinite_default = /*#__PURE__*/__webpack_require__.n(lodash_isFinite);
 
 
 
+
 /*
  * https://github.com/mixer/uuid-validate
  * https://github.com/chriso/validator.js
@@ -31090,13 +31093,25 @@ function isValidUUIDArray(uuids) {
 }
 
 function isValidDataPrimitive(value) {
-  return isBoolean_default()(value) || isFinite_default()(value) || isPlainObject_default()(value) || isString_default()(value);
+  return isBoolean_default()(value) || isFinite_default()(value) || isString_default()(value);
 }
 
 function isValidDataPrimitiveArray(values) {
   return validateNonEmptyArray(values, function (value) {
     return isValidDataPrimitive(value);
   });
+}
+
+function isObjectOrMap(value) {
+  return isPlainObject_default()(value) || external_immutable_["Map"].isMap(value);
+}
+
+function validateArrayOrListWith(values, predicate) {
+  if (Array.isArray(values) || external_immutable_["List"].isList(values)) {
+    return values.every(predicate);
+  }
+
+  return false;
 }
 
 
@@ -31125,6 +31140,7 @@ var ATAT = '__@@__';
 var KEY_MAPPERS = 'KEY_MAPPERS';
 var INDEX_MAPPERS = 'INDEX_MAPPERS';
 var VALUE_MAPPERS = 'VALUE_MAPPERS';
+var ENTITY_ADDRESS_KEY_PARTS = 3;
 var FullyQualifiedName = build["Models"].FullyQualifiedName;
 
 function getPageSectionKey(page, section) {
@@ -31183,9 +31199,9 @@ function getEntityAddressKey(indexOrEntityKeyId, entitySetName, fqn) {
 function parseEntityAddressKey(entityAddressKey) {
   var split = entityAddressKey.split(ATAT);
 
-  if (split && split.length === 3) {
-    // NOTE: be careful! parseInt() will incorrectly return a number when given certain UUID strings
-    var entityIndex = parseInt(split[0], 10);
+  if (split && split.length === ENTITY_ADDRESS_KEY_PARTS) {
+    var entityIndex = parseInt(split[0], 10); // WARNING! see comment below
+
     var entityKeyId = split[0];
     var entitySetName = split[1];
     var propertyTypeFQN = split[2];
@@ -31198,8 +31214,17 @@ function parseEntityAddressKey(entityAddressKey) {
           propertyTypeFQN: new FullyQualifiedName(propertyTypeFQN)
         };
       }
+      /*
+       * WARNING: parseInt() will incorrectly return a number when given certain UUID strings. for example:
+       *   parseInt('9b93bc80-79c3-44c8-807c-ada1a8d6484f') // returns 9
+       *   parseInt('-9b93bc80-79c3-44c8-807c-ada1a8d6484f') // returns -9
+       *
+       * thus, isValidUUID() MUST happen first (above) to handle the first example, and isDigitOnlyString() will
+       * handle the second example below
+       */
 
-      if (entityIndex < 0 || isDigitOnlyString(split[0]) && isInteger_default()(entityIndex)) {
+
+      if (isDigitOnlyString(split[0]) || split[0].startsWith('-') && isDigitOnlyString(split[0].slice(1))) {
         return {
           entityIndex: entityIndex,
           entitySetName: entitySetName,
@@ -31221,7 +31246,7 @@ function isValidEntityAddressKey(value) {
 
   var split = value.split(ATAT);
 
-  if (split && split.length === 3) {
+  if (split && split.length === ENTITY_ADDRESS_KEY_PARTS) {
     // NOTE: be careful! parseInt() will incorrectly return a number when given certain UUID strings
     var entityIndex = parseInt(split[0], 10);
     var entityKeyId = split[0];
@@ -31291,26 +31316,19 @@ function processEntityValue(key, value, mappers) {
   }
 
   if (isDefined(processedValue)) {
-    if (isValidDataPrimitive(processedValue)) {
-      return [processedValue];
-    }
-
-    if (isValidDataPrimitiveArray(processedValue)) {
+    if (Array.isArray(processedValue)) {
       return processedValue;
     }
 
     if (external_immutable_["List"].isList(processedValue)) {
-      LOG.error('entity values as immutable lists are not supported', processedValue);
+      return processedValue.toJS();
     }
 
-    if (external_immutable_["Map"].isMap(processedValue)) {
-      LOG.error('entity values as immutable maps are not supported', processedValue);
-    }
-
-    LOG.warn('processEntityValue() - unable to process value', processedValue);
+    return [processedValue];
   } // TODO: what should be returned here?
 
 
+  LOG.warn('processEntityValue() - unable to process value', processedValue);
   return undefined;
 }
 
@@ -31351,35 +31369,36 @@ function processEntityValueMap(entitySetIds, propertyTypeIds, mappers, processed
       } else {
         localProcessedData = processEntityValueMap(entitySetIds, propertyTypeIds, mappers, localProcessedData, localValue, undefined);
       }
-    } else if (Array.isArray(localValue) || external_immutable_["List"].isList(localValue)) {
-      localValue.forEach(function (valueInList, index) {
-        // NOTE: the index is meant to represent the entity index, but it's not guaranteed to be the correct index
-        // TODO: this behavior needs to be better defined for deeply nested structures
-        localProcessedData = processEntityValueMap(entitySetIds, propertyTypeIds, mappers, localProcessedData, valueInList, index);
-      });
-    } else {
-      var _parseEntityAddressKe2 = parseEntityAddressKey(key),
-          entitySetName = _parseEntityAddressKe2.entitySetName,
-          propertyTypeFQN = _parseEntityAddressKe2.propertyTypeFQN;
+    } // if value is an array/list of object/map
+    else if (validateArrayOrListWith(localValue, isObjectOrMap)) {
+        localValue.forEach(function (valueInList, index) {
+          // NOTE: the index is meant to represent the entity index, but it's not guaranteed to be the correct index
+          // TODO: this behavior needs to be better defined for deeply nested structures
+          localProcessedData = processEntityValueMap(entitySetIds, propertyTypeIds, mappers, localProcessedData, valueInList, index);
+        });
+      } else {
+        var _parseEntityAddressKe2 = parseEntityAddressKey(key),
+            entitySetName = _parseEntityAddressKe2.entitySetName,
+            propertyTypeFQN = _parseEntityAddressKe2.propertyTypeFQN;
 
-      var entitySetId = Object(external_immutable_["get"])(entitySetIds, entitySetName);
-      var propertyTypeId = Object(external_immutable_["get"])(propertyTypeIds, propertyTypeFQN);
-      var entityIndex = processEntityIndex(key, listIndex, mappers);
-      var processedValue = processEntityValue(key, localValue, mappers);
-      var entities = Object(external_immutable_["get"])(localProcessedData, entitySetId, []);
-      var entity = Object(external_immutable_["get"])(entities, entityIndex, {}); // NOTE: entity is "undefined" when the data gets processed in a random order
+        var entitySetId = Object(external_immutable_["get"])(entitySetIds, entitySetName);
+        var propertyTypeId = Object(external_immutable_["get"])(propertyTypeIds, propertyTypeFQN);
+        var entityIndex = processEntityIndex(key, listIndex, mappers);
+        var processedValue = processEntityValue(key, localValue, mappers);
+        var entities = Object(external_immutable_["get"])(localProcessedData, entitySetId, []);
+        var entity = Object(external_immutable_["get"])(entities, entityIndex, {}); // NOTE: entity is "undefined" when the data gets processed in a random order
 
-      if (!isDefined(entity)) {
-        entity = {};
+        if (!isDefined(entity)) {
+          entity = {};
+        }
+
+        if (isDefined(processedValue)) {
+          entity = Object(external_immutable_["set"])(entity, propertyTypeId, processedValue);
+        }
+
+        entities = Object(external_immutable_["set"])(entities, entityIndex, entity);
+        localProcessedData = Object(external_immutable_["set"])(localProcessedData, entitySetId, entities);
       }
-
-      if (isDefined(processedValue)) {
-        entity = Object(external_immutable_["set"])(entity, propertyTypeId, processedValue);
-      }
-
-      entities = Object(external_immutable_["set"])(entities, entityIndex, entity);
-      localProcessedData = Object(external_immutable_["set"])(localProcessedData, entitySetId, entities);
-    }
   });
   return localProcessedData;
 }
@@ -34092,7 +34111,7 @@ PagedByMachine_PagedByMachine.defaultProps = {
 
  // injected by Webpack.DefinePlugin
 
-var version = "v0.10.0";
+var version = "v0.11.0";
 
 /* harmony default export */ var src = __webpack_exports__["default"] = ({
   version: version
