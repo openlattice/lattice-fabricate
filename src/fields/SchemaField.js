@@ -24,6 +24,7 @@ type Props = {
   idSchema :Object;
   onDelete :() => void;
   properties :Object[];
+  readonly :boolean;
   registry :Object;
   required :string;
   title :string;
@@ -75,24 +76,26 @@ class CustomSchemaField extends Component<Props, State> {
   }
 
   render() {
-    const { hasRemove } = this.props;
+    const { hasRemove, readonly } = this.props;
     const { isVisible } = this.state;
     /* eslint-disable react/jsx-props-no-spreading */
     return (
       <>
         <SchemaField {...this.props} />
-        {(hasRemove) && (
-          <ActionGutter>
-            <IconButton
-                icon={faTrash}
-                onClick={this.openDeleteModal} />
-          </ActionGutter>
+        {(hasRemove && !readonly) && (
+          <>
+            <ActionGutter>
+              <IconButton
+                  icon={faTrash}
+                  onClick={this.openDeleteModal} />
+            </ActionGutter>
+            <ConfirmDeleteModal
+                onClickPrimary={this.handleConfirmDelete}
+                onClickSecondary={this.closeDeleteModal}
+                onClose={this.closeDeleteModal}
+                isVisible={isVisible} />
+          </>
         )}
-        <ConfirmDeleteModal
-            onClickPrimary={this.handleConfirmDelete}
-            onClickSecondary={this.closeDeleteModal}
-            onClose={this.closeDeleteModal}
-            isVisible={isVisible} />
       </>
     );
     /* eslint-enable */

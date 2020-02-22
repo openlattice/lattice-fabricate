@@ -1,9 +1,10 @@
 // @flow
 import React, { Component } from 'react';
+import type { ComponentType } from 'react';
+
 import styled from 'styled-components';
 import { Button, Colors } from 'lattice-ui-kit';
 import { getUiOptions } from 'react-jsonschema-form/lib/utils';
-import type { ComponentType } from 'react';
 
 import { ArrayFieldDescription, ArrayFieldTitle, DefaultArrayItem } from './components';
 
@@ -28,18 +29,17 @@ const ArrayList = styled.div`
 `;
 
 type Props = {
-  // disabled ?:boolean,
-  // readonly ?:boolean,
   DescriptionField :ComponentType<any>;
   TitleField :ComponentType<any>;
   canAdd ?:boolean;
-  disabled :boolean;
   className :string;
+  disabled ?:boolean,
   formContext ?:Object;
   formData :Object;
   idSchema :{ $id :string };
   items :Object[];
   onAddClick :(e :SyntheticEvent<HTMLButtonElement>) => void;
+  readonly ?:boolean,
   required ?:boolean;
   schema :Object;
   title ?:string;
@@ -55,8 +55,8 @@ class ArrayFieldTemplate extends Component<Props, State> {
   static defaultProps = {
     canAdd: true,
     formContext: undefined,
-    // disabled: false,
-    // readonly: false,
+    disabled: false,
+    readonly: false,
     required: false,
     title: '',
   };
@@ -88,7 +88,7 @@ class ArrayFieldTemplate extends Component<Props, State> {
       formContext,
       idSchema,
       items,
-      // readonly,
+      readonly,
       required,
       schema,
       title,
@@ -153,7 +153,7 @@ class ArrayFieldTemplate extends Component<Props, State> {
             );
             /* eslint-enable */
           })}
-          {(canAdd) && (
+          {(canAdd && !readonly) && (
             <MarginButton
                 disabled={hasAddedItem}
                 mode="subtle"

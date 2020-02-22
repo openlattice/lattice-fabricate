@@ -7,7 +7,7 @@ import { DateTime } from 'luxon';
 
 import entityIndexToIdMap from './constants/entityIndexToIdMap';
 import mockExternalFormData from './constants/mockExternalFormData';
-import { schema, uiSchema } from './constants/dataSchemas';
+import { schema as dataSchema, uiSchema as dataUiSchema } from './constants/dataSchemas';
 import { entitySetIds, propertyTypeIds } from './constants/mockEDM';
 import { ASSOCIATION_ENTITY_SET_NAMES, ENTITY_SET_NAMES, PROPERTY_TYPE_FQNS } from './constants/mockFQNs';
 
@@ -27,6 +27,7 @@ const { COMPLETED_DT_FQN, INDEX_FQN } = PROPERTY_TYPE_FQNS;
 type Props = {
   disabled :boolean;
   onSubmit :(params :any) => void;
+  readOnly :boolean;
 };
 
 type State = {
@@ -36,7 +37,8 @@ type State = {
 class FormContainer extends Component<Props, State> {
 
   static defaultProps = {
-    disabled: false
+    disabled: false,
+    readOnly: false,
   };
 
   state = {
@@ -79,7 +81,7 @@ class FormContainer extends Component<Props, State> {
   }
 
   render() {
-    const { disabled } = this.props;
+    const { disabled, readOnly } = this.props;
     const { formData } = this.state;
     const formContext = {
       addActions: {
@@ -93,14 +95,20 @@ class FormContainer extends Component<Props, State> {
       propertyTypeIds,
     };
 
+    const uiSchema = { ...dataUiSchema };
+    if (readOnly) {
+      uiSchema['ui:readonly'] = true;
+    }
+
     return (
       <Form
           disabled={disabled}
+          readOnly={readOnly}
           formContext={formContext}
           formData={formData}
           onChange={this.updateItemIndicies}
           onSubmit={this.handleSubmit}
-          schema={schema}
+          schema={dataSchema}
           uiSchema={uiSchema} />
     );
   }
