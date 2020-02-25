@@ -58,8 +58,8 @@ class ArrayFieldTemplate extends Component<Props, State> {
 
   static defaultProps = {
     canAdd: true,
-    formContext: undefined,
     disabled: false,
+    formContext: undefined,
     readonly: false,
     required: false,
     title: '',
@@ -86,9 +86,10 @@ class ArrayFieldTemplate extends Component<Props, State> {
 
   render() {
     const {
+      DescriptionField,
+      TitleField,
       canAdd,
       className,
-      DescriptionField,
       formContext,
       idSchema,
       items,
@@ -96,7 +97,6 @@ class ArrayFieldTemplate extends Component<Props, State> {
       required,
       schema,
       title,
-      TitleField,
       uiSchema,
     } = this.props;
     const { $id } = idSchema;
@@ -110,16 +110,16 @@ class ArrayFieldTemplate extends Component<Props, State> {
     return (
       <div className={className}>
         <ArrayFieldTitle
+            TitleField={TitleField}
             idSchema={idSchema}
             key={`array-field-title-${idSchema.$id}`}
             required={required}
-            title={uiSchema['ui:title'] || title}
-            TitleField={TitleField} />
+            title={uiSchema['ui:title'] || title} />
 
         {(uiSchema['ui:description'] || schema.description) && (
           <ArrayFieldDescription
-              description={uiSchema['ui:description'] || schema.description}
               DescriptionField={DescriptionField}
+              description={uiSchema['ui:description'] || schema.description}
               idSchema={idSchema}
               key={`array-field-description-${idSchema.$id}`} />
         )}
@@ -161,8 +161,8 @@ class ArrayFieldTemplate extends Component<Props, State> {
           })}
           {(canAdd && !readonly) && (
             <MarginButton
-                id={`add-array-item-button-${$id}`}
                 disabled={hasAddedItem}
+                id={`add-array-item-button-${$id}`}
                 mode="subtle"
                 onClick={this.handleAddClick}>
               {addButtonText}

@@ -88,16 +88,16 @@ class CustomSchemaField extends Component<Props, State> {
           <>
             <ActionGutter>
               <IconButton
-                  id={`remove-button-${$id}`}
                   icon={faTrash}
+                  id={`remove-button-${$id}`}
                   onClick={this.openDeleteModal} />
             </ActionGutter>
             <ConfirmDeleteModal
                 id={`remove-modal-${$id}`}
+                isVisible={isVisible}
                 onClickPrimary={this.handleConfirmDelete}
                 onClickSecondary={this.closeDeleteModal}
-                onClose={this.closeDeleteModal}
-                isVisible={isVisible} />
+                onClose={this.closeDeleteModal} />
           </>
         )}
       </>

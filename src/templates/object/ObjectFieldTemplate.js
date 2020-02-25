@@ -133,10 +133,10 @@ class ObjectFieldTemplate extends Component<Props, State> {
     const { formData, formContext, idSchema } = this.props;
     const {
       editAction,
+      entityIndexToIdMap,
       entitySetIds,
       mappers,
       propertyTypeIds,
-      entityIndexToIdMap,
     } = formContext;
 
     // get array index if relevant
@@ -172,7 +172,7 @@ class ObjectFieldTemplate extends Component<Props, State> {
         entityData: editedEntityData,
         formData: formattedData,
         path,
-        properties: draftFormData
+        properties: draftFormData,
       });
       this.disableFields();
     }
@@ -187,9 +187,9 @@ class ObjectFieldTemplate extends Component<Props, State> {
     return isEditing && (
       <ActionGroup className="column-span-12" noPadding>
         <Button
+            isLoading={updateState}
             mode="primary"
-            onClick={this.commitDraftFormData}
-            isLoading={updateState}>
+            onClick={this.commitDraftFormData}>
           Save
         </Button>
         <Button onClick={this.disableFields}>Discard</Button>
@@ -232,7 +232,7 @@ class ObjectFieldTemplate extends Component<Props, State> {
                 ...contentProps,
                 disabled: disabled && !isEditing,
                 formData: tempFormData,
-                onChange: this.createDraftChangeHandler(contentName)
+                onChange: this.createDraftChangeHandler(contentName),
               };
               return React.cloneElement(content, state);
             }
