@@ -56,6 +56,9 @@ storiesOf('Form', module)
   .add('Data Processing w/ Edits & Delete', () => (
     <FormContainer disabled onSubmit={action('Submit Form')} />
   ))
+  .add('readonly', () => (
+    <FormContainer readOnly onSubmit={action('Submit Form')} />
+  ))
   .add('Files', () => (
     <Form
         schema={filesSchema}

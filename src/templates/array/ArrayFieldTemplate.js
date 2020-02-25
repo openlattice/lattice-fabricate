@@ -1,9 +1,10 @@
 // @flow
 import React, { Component } from 'react';
+import type { ComponentType } from 'react';
+
 import styled from 'styled-components';
 import { Button, Colors } from 'lattice-ui-kit';
 import { getUiOptions } from 'react-jsonschema-form/lib/utils';
-import type { ComponentType } from 'react';
 
 import { ArrayFieldDescription, ArrayFieldTitle, DefaultArrayItem } from './components';
 
@@ -15,31 +16,34 @@ const MarginButton = styled(Button)`
   margin-top: 10px;
 `;
 
-const ArrayList = styled.div`
-  > div {
+const ArrayList = styled.ul`
+  margin: 0;
+  padding-inline-start: 0;
+  list-style-type: none;
+
+  > li {
     border-bottom: 1px solid ${NEUTRALS[4]};
     padding: 20px 0;
   }
 
-  > div:last-of-type {
+  > li:last-of-type {
     border-bottom: 0;
     padding-bottom: 0;
   }
 `;
 
 type Props = {
-  // disabled ?:boolean,
-  // readonly ?:boolean,
   DescriptionField :ComponentType<any>;
   TitleField :ComponentType<any>;
   canAdd ?:boolean;
-  disabled :boolean;
   className :string;
+  disabled ?:boolean,
   formContext ?:Object;
   formData :Object;
   idSchema :{ $id :string };
   items :Object[];
   onAddClick :(e :SyntheticEvent<HTMLButtonElement>) => void;
+  readonly ?:boolean,
   required ?:boolean;
   schema :Object;
   title ?:string;
@@ -54,9 +58,9 @@ class ArrayFieldTemplate extends Component<Props, State> {
 
   static defaultProps = {
     canAdd: true,
+    disabled: false,
     formContext: undefined,
-    // disabled: false,
-    // readonly: false,
+    readonly: false,
     required: false,
     title: '',
   };
@@ -82,19 +86,20 @@ class ArrayFieldTemplate extends Component<Props, State> {
 
   render() {
     const {
+      DescriptionField,
+      TitleField,
       canAdd,
       className,
-      DescriptionField,
       formContext,
       idSchema,
       items,
-      // readonly,
+      readonly,
       required,
       schema,
       title,
-      TitleField,
       uiSchema,
     } = this.props;
+    const { $id } = idSchema;
     const { hasAddedItem } = this.state;
     const {
       addButtonText = 'Add',
@@ -105,20 +110,21 @@ class ArrayFieldTemplate extends Component<Props, State> {
     return (
       <div className={className}>
         <ArrayFieldTitle
+            TitleField={TitleField}
             idSchema={idSchema}
             key={`array-field-title-${idSchema.$id}`}
             required={required}
-            title={uiSchema['ui:title'] || title}
-            TitleField={TitleField} />
+            title={uiSchema['ui:title'] || title} />
 
         {(uiSchema['ui:description'] || schema.description) && (
           <ArrayFieldDescription
-              description={uiSchema['ui:description'] || schema.description}
               DescriptionField={DescriptionField}
+              description={uiSchema['ui:description'] || schema.description}
               idSchema={idSchema}
               key={`array-field-description-${idSchema.$id}`} />
         )}
         <ArrayList
+            id={`array-item-list-${idSchema.$id}`}
             key={`array-item-list-${idSchema.$id}`}>
           {items && items.map((itemProps, index) => {
             const options = getUiOptions(uiSchema);
@@ -153,9 +159,10 @@ class ArrayFieldTemplate extends Component<Props, State> {
             );
             /* eslint-enable */
           })}
-          {(canAdd) && (
+          {(canAdd && !readonly) && (
             <MarginButton
                 disabled={hasAddedItem}
+                id={`add-array-item-button-${$id}`}
                 mode="subtle"
                 onClick={this.handleAddClick}>
               {addButtonText}

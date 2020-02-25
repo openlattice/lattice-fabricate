@@ -50,9 +50,9 @@ class DefaultArrayItem extends Component <Props> {
 
   static defaultProps = {
     addAction: undefined,
-    removeAddedItem: undefined,
     addState: false,
     isAdding: false,
+    removeAddedItem: undefined,
     showIndex: true,
   };
 
@@ -103,7 +103,7 @@ class DefaultArrayItem extends Component <Props> {
     const {
       addState,
       isAdding,
-      orderable
+      orderable,
     } = this.props;
 
     return addState && (
@@ -152,29 +152,29 @@ class DefaultArrayItem extends Component <Props> {
       onReorderClick,
       orderable,
       readonly,
-      showIndex
+      showIndex,
     } = this.props;
 
     return (
-      <div>
+      <li>
         <ItemWrapper className={className}>
           { orderable && (
             <ActionGutter>
               <IconButton
-                  icon={faChevronUp}
                   disabled={disabled || readonly || !hasMoveUp}
+                  icon={faChevronUp}
                   onClick={onReorderClick(index, index - 1)} />
               <IndexCircle index={index + 1} visible={showIndex} />
               <IconButton
-                  icon={faChevronDown}
                   disabled={disabled || readonly || !hasMoveDown}
+                  icon={faChevronDown}
                   onClick={onReorderClick(index, index + 1)} />
             </ActionGutter>
           )}
           { this.renderChildren() }
         </ItemWrapper>
         { this.renderSubmitButton() }
-      </div>
+      </li>
     );
   }
 }

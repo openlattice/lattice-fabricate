@@ -42,6 +42,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
       forwardedRef={null}
       hideSubmit={false}
       isSubmitting={false}
+      readOnly={false}
       schema={
         Object {
           "properties": Object {
@@ -2949,61 +2950,6 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                   </div>
                                 </FieldTemplate>
                               </SchemaField>
-                              <ConfirmDeleteModal
-                                isVisible={false}
-                                onClickPrimary={[Function]}
-                                onClickSecondary={[Function]}
-                                onClose={[Function]}
-                              >
-                                <Modal
-                                  isVisible={false}
-                                  onClickPrimary={[Function]}
-                                  onClickSecondary={[Function]}
-                                  onClose={[Function]}
-                                  shouldBeCentered={true}
-                                  shouldCloseOnEscape={true}
-                                  shouldCloseOnOutsideClick={true}
-                                  shouldStretchButtons={false}
-                                  textPrimary="Delete"
-                                  textSecondary="Cancel"
-                                  textTitle="Confirm Delete"
-                                  viewportScrolling={false}
-                                  withFooter={true}
-                                  withHeader={true}
-                                >
-                                  <Overlay
-                                    isScrollable={false}
-                                    isVisible={false}
-                                    onClose={[Function]}
-                                    shouldCloseOnClick={true}
-                                    transparent={false}
-                                  >
-                                    <CSSTransition
-                                      classNames="luk-fade"
-                                      in={false}
-                                      mountOnEnter={true}
-                                      timeout={200}
-                                      unmountOnExit={true}
-                                    >
-                                      <Transition
-                                        appear={false}
-                                        enter={true}
-                                        exit={true}
-                                        in={false}
-                                        mountOnEnter={true}
-                                        onEnter={[Function]}
-                                        onEntered={[Function]}
-                                        onEntering={[Function]}
-                                        onExit={[Function]}
-                                        onExited={[Function]}
-                                        onExiting={[Function]}
-                                        timeout={200}
-                                        unmountOnExit={true}
-                                      />
-                                    </CSSTransition>
-                                  </Overlay>
-                                </Modal>
-                              </ConfirmDeleteModal>
                             </CustomSchemaField>
                           </div>
                         </ObjectFieldTemplate>
@@ -3012,61 +2958,6 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                     </div>
                   </FieldTemplate>
                 </SchemaField>
-                <ConfirmDeleteModal
-                  isVisible={false}
-                  onClickPrimary={[Function]}
-                  onClickSecondary={[Function]}
-                  onClose={[Function]}
-                >
-                  <Modal
-                    isVisible={false}
-                    onClickPrimary={[Function]}
-                    onClickSecondary={[Function]}
-                    onClose={[Function]}
-                    shouldBeCentered={true}
-                    shouldCloseOnEscape={true}
-                    shouldCloseOnOutsideClick={true}
-                    shouldStretchButtons={false}
-                    textPrimary="Delete"
-                    textSecondary="Cancel"
-                    textTitle="Confirm Delete"
-                    viewportScrolling={false}
-                    withFooter={true}
-                    withHeader={true}
-                  >
-                    <Overlay
-                      isScrollable={false}
-                      isVisible={false}
-                      onClose={[Function]}
-                      shouldCloseOnClick={true}
-                      transparent={false}
-                    >
-                      <CSSTransition
-                        classNames="luk-fade"
-                        in={false}
-                        mountOnEnter={true}
-                        timeout={200}
-                        unmountOnExit={true}
-                      >
-                        <Transition
-                          appear={false}
-                          enter={true}
-                          exit={true}
-                          in={false}
-                          mountOnEnter={true}
-                          onEnter={[Function]}
-                          onEntered={[Function]}
-                          onEntering={[Function]}
-                          onExit={[Function]}
-                          onExited={[Function]}
-                          onExiting={[Function]}
-                          timeout={200}
-                          unmountOnExit={true}
-                        />
-                      </CSSTransition>
-                    </Overlay>
-                  </Modal>
-                </ConfirmDeleteModal>
               </CustomSchemaField>
               <ActionGroup>
                 <StyledComponent

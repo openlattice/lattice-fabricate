@@ -3,21 +3,22 @@ import React, { Component } from 'react';
 import type { ComponentType } from 'react';
 
 import isFunction from 'lodash/isFunction';
-import { Button } from 'lattice-ui-kit';
 import { faPen } from '@fortawesome/pro-solid-svg-icons';
 import { fromJS, set } from 'immutable';
+import { Button } from 'lattice-ui-kit';
 import { getUiOptions } from 'react-jsonschema-form/lib/utils';
 
-import IconButton from '../components/IconButton';
-import ActionGutter from '../components/styled/ActionGutter';
-import { ActionGroup } from '../../form/src/components/styled';
 import { parseIdIndex } from './utils';
+
+import ActionGutter from '../components/styled/ActionGutter';
+import IconButton from '../components/IconButton';
+import { ActionGroup } from '../../form/src/components/styled';
 import {
   findEntityAddressKeyFromMap,
+  parseIdSchemaPath,
   processEntityDataForPartialReplace,
   replaceEntityAddressKeys,
   wrapFormDataInPageSection,
-  parseIdSchemaPath,
 } from '../../utils/DataProcessingUtils';
 
 type Props = {
@@ -29,6 +30,7 @@ type Props = {
   formData :Object;
   idSchema :Object;
   properties :Object[];
+  readonly :boolean;
   required :string;
   title :string;
   uiSchema :Object;
@@ -107,14 +109,20 @@ class ObjectFieldTemplate extends Component<Props, State> {
   }
 
   renderActionGutter = () => {
-    const { uiSchema, disabled } = this.props;
+    const {
+      disabled,
+      idSchema,
+      readonly,
+      uiSchema,
+    } = this.props;
+    const { $id } = idSchema;
     const { isEditing } = this.state;
     const { editable } :Object = getUiOptions(uiSchema);
 
-    return (editable && disabled)
+    return (editable && disabled && !readonly)
       ? (
         <ActionGutter>
-          <IconButton icon={faPen} onClick={this.enableFields} disabled={isEditing} />
+          <IconButton id={`edit-button-${$id}`} icon={faPen} onClick={this.enableFields} disabled={isEditing} />
         </ActionGutter>
       )
       : null;
@@ -125,10 +133,10 @@ class ObjectFieldTemplate extends Component<Props, State> {
     const { formData, formContext, idSchema } = this.props;
     const {
       editAction,
+      entityIndexToIdMap,
       entitySetIds,
       mappers,
       propertyTypeIds,
-      entityIndexToIdMap,
     } = formContext;
 
     // get array index if relevant
@@ -164,7 +172,7 @@ class ObjectFieldTemplate extends Component<Props, State> {
         entityData: editedEntityData,
         formData: formattedData,
         path,
-        properties: draftFormData
+        properties: draftFormData,
       });
       this.disableFields();
     }
@@ -179,9 +187,9 @@ class ObjectFieldTemplate extends Component<Props, State> {
     return isEditing && (
       <ActionGroup className="column-span-12" noPadding>
         <Button
+            isLoading={updateState}
             mode="primary"
-            onClick={this.commitDraftFormData}
-            isLoading={updateState}>
+            onClick={this.commitDraftFormData}>
           Save
         </Button>
         <Button onClick={this.disableFields}>Discard</Button>
@@ -224,7 +232,7 @@ class ObjectFieldTemplate extends Component<Props, State> {
                 ...contentProps,
                 disabled: disabled && !isEditing,
                 formData: tempFormData,
-                onChange: this.createDraftChangeHandler(contentName)
+                onChange: this.createDraftChangeHandler(contentName),
               };
               return React.cloneElement(content, state);
             }

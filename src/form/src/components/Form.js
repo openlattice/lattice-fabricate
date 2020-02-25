@@ -24,6 +24,7 @@ type Props = {
   onChange ?:() => void;
   onDiscard ?:() => void;
   onSubmit ?:() => void;
+  readOnly ?:boolean;
 };
 
 type FormProps = {
@@ -41,6 +42,7 @@ const Form = (props :FormProps) => {
     onChange,
     onDiscard,
     onSubmit,
+    readOnly,
     ...restProps
   } = props;
 
@@ -50,7 +52,7 @@ const Form = (props :FormProps) => {
         ArrayFieldTemplate={ArrayFieldTemplate}
         FieldTemplate={FieldTemplate}
         ObjectFieldTemplate={ObjectFieldTemplate}
-        disabled={disabled}
+        disabled={disabled || readOnly}
         fields={fields}
         onChange={onChange}
         onSubmit={onSubmit}
@@ -61,7 +63,7 @@ const Form = (props :FormProps) => {
         // $FlowFixMe
         {...restProps}>
       {
-        (disabled || hideSubmit)
+        (disabled || readOnly || hideSubmit)
           ? <HiddenButton type="submit" />
           : (
             <ActionGroup>
@@ -82,7 +84,8 @@ Form.defaultProps = {
   isSubmitting: false,
   onChange: undefined,
   onDiscard: undefined,
-  onSubmit: undefined
+  onSubmit: undefined,
+  readOnly: false,
 };
 
 /* eslint-enable */
