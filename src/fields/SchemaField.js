@@ -18,6 +18,7 @@ import {
 
 type Props = {
   disabled :boolean;
+  errorSchema :Object;
   formContext :Object;
   formData :Object;
   hasRemove :boolean;
@@ -76,9 +77,10 @@ class CustomSchemaField extends Component<Props, State> {
   }
 
   render() {
-    const { hasRemove, readonly } = this.props;
+    const { hasRemove, readonly, idSchema } = this.props;
     const { isVisible } = this.state;
     /* eslint-disable react/jsx-props-no-spreading */
+    const { $id } = idSchema;
     return (
       <>
         <SchemaField {...this.props} />
@@ -86,10 +88,12 @@ class CustomSchemaField extends Component<Props, State> {
           <>
             <ActionGutter>
               <IconButton
+                  id={`remove-button-${$id}`}
                   icon={faTrash}
                   onClick={this.openDeleteModal} />
             </ActionGutter>
             <ConfirmDeleteModal
+                id={`remove-modal-${$id}`}
                 onClickPrimary={this.handleConfirmDelete}
                 onClickSecondary={this.closeDeleteModal}
                 onClose={this.closeDeleteModal}

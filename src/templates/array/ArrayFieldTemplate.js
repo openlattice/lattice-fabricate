@@ -16,13 +16,17 @@ const MarginButton = styled(Button)`
   margin-top: 10px;
 `;
 
-const ArrayList = styled.div`
-  > div {
+const ArrayList = styled.ul`
+  margin: 0;
+  padding-inline-start: 0;
+  list-style-type: none;
+
+  > li {
     border-bottom: 1px solid ${NEUTRALS[4]};
     padding: 20px 0;
   }
 
-  > div:last-of-type {
+  > li:last-of-type {
     border-bottom: 0;
     padding-bottom: 0;
   }
@@ -95,6 +99,7 @@ class ArrayFieldTemplate extends Component<Props, State> {
       TitleField,
       uiSchema,
     } = this.props;
+    const { $id } = idSchema;
     const { hasAddedItem } = this.state;
     const {
       addButtonText = 'Add',
@@ -119,6 +124,7 @@ class ArrayFieldTemplate extends Component<Props, State> {
               key={`array-field-description-${idSchema.$id}`} />
         )}
         <ArrayList
+            id={`array-item-list-${idSchema.$id}`}
             key={`array-item-list-${idSchema.$id}`}>
           {items && items.map((itemProps, index) => {
             const options = getUiOptions(uiSchema);
@@ -155,6 +161,7 @@ class ArrayFieldTemplate extends Component<Props, State> {
           })}
           {(canAdd && !readonly) && (
             <MarginButton
+                id={`add-array-item-button-${$id}`}
                 disabled={hasAddedItem}
                 mode="subtle"
                 onClick={this.handleAddClick}>
