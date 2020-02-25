@@ -156,7 +156,7 @@ class DefaultArrayItem extends Component <Props> {
     } = this.props;
 
     return (
-      <div>
+      <li>
         <ItemWrapper className={className}>
           { orderable && (
             <ActionGutter>
@@ -174,7 +174,7 @@ class DefaultArrayItem extends Component <Props> {
           { this.renderChildren() }
         </ItemWrapper>
         { this.renderSubmitButton() }
-      </div>
+      </li>
     );
   }
 }
