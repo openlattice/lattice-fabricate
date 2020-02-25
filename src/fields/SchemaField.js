@@ -18,12 +18,14 @@ import {
 
 type Props = {
   disabled :boolean;
+  errorSchema :Object;
   formContext :Object;
   formData :Object;
   hasRemove :boolean;
   idSchema :Object;
   onDelete :() => void;
   properties :Object[];
+  readonly :boolean;
   registry :Object;
   required :string;
   title :string;
@@ -75,24 +77,29 @@ class CustomSchemaField extends Component<Props, State> {
   }
 
   render() {
-    const { hasRemove } = this.props;
+    const { hasRemove, readonly, idSchema } = this.props;
     const { isVisible } = this.state;
     /* eslint-disable react/jsx-props-no-spreading */
+    const { $id } = idSchema;
     return (
       <>
         <SchemaField {...this.props} />
-        {(hasRemove) && (
-          <ActionGutter>
-            <IconButton
-                icon={faTrash}
-                onClick={this.openDeleteModal} />
-          </ActionGutter>
+        {(hasRemove && !readonly) && (
+          <>
+            <ActionGutter>
+              <IconButton
+                  icon={faTrash}
+                  id={`remove-button-${$id}`}
+                  onClick={this.openDeleteModal} />
+            </ActionGutter>
+            <ConfirmDeleteModal
+                id={`remove-modal-${$id}`}
+                isVisible={isVisible}
+                onClickPrimary={this.handleConfirmDelete}
+                onClickSecondary={this.closeDeleteModal}
+                onClose={this.closeDeleteModal} />
+          </>
         )}
-        <ConfirmDeleteModal
-            onClickPrimary={this.handleConfirmDelete}
-            onClickSecondary={this.closeDeleteModal}
-            onClose={this.closeDeleteModal}
-            isVisible={isVisible} />
       </>
     );
     /* eslint-enable */
