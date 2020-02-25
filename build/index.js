@@ -1,6 +1,6 @@
 /*!
  * 
- * lattice-fabricate - v0.11.0
+ * lattice-fabricate - v0.12.0
  * React HOCs for components dependent on the OpenLattice EDM.
  * https://github.com/openlattice/lattice-fabricate
  * 
@@ -31766,19 +31766,25 @@ function (_Component) {
   createClass_default()(CustomSchemaField, [{
     key: "render",
     value: function render() {
-      var hasRemove = this.props.hasRemove;
+      var _this$props2 = this.props,
+          hasRemove = _this$props2.hasRemove,
+          readonly = _this$props2.readonly,
+          idSchema = _this$props2.idSchema;
       var isVisible = this.state.isVisible;
       /* eslint-disable react/jsx-props-no-spreading */
 
-      return external_react_default.a.createElement(external_react_default.a.Fragment, null, external_react_default.a.createElement(SchemaField_default.a, this.props), hasRemove && external_react_default.a.createElement(styled_ActionGutter, null, external_react_default.a.createElement(components_IconButton, {
+      var $id = idSchema.$id;
+      return external_react_default.a.createElement(external_react_default.a.Fragment, null, external_react_default.a.createElement(SchemaField_default.a, this.props), hasRemove && !readonly && external_react_default.a.createElement(external_react_default.a.Fragment, null, external_react_default.a.createElement(styled_ActionGutter, null, external_react_default.a.createElement(components_IconButton, {
         icon: pro_solid_svg_icons_["faTrash"],
+        id: "remove-button-".concat($id),
         onClick: this.openDeleteModal
       })), external_react_default.a.createElement(components_ConfirmDeleteModal, {
+        id: "remove-modal-".concat($id),
+        isVisible: isVisible,
         onClickPrimary: this.handleConfirmDelete,
         onClickSecondary: this.closeDeleteModal,
-        onClose: this.closeDeleteModal,
-        isVisible: isVisible
-      }));
+        onClose: this.closeDeleteModal
+      })));
       /* eslint-enable */
     }
   }]);
@@ -33172,14 +33178,18 @@ function (_Component) {
 
     defineProperty_default()(assertThisInitialized_default()(_this), "renderActionGutter", function () {
       var _this$props3 = _this.props,
-          uiSchema = _this$props3.uiSchema,
-          disabled = _this$props3.disabled;
+          disabled = _this$props3.disabled,
+          idSchema = _this$props3.idSchema,
+          readonly = _this$props3.readonly,
+          uiSchema = _this$props3.uiSchema;
+      var $id = idSchema.$id;
       var isEditing = _this.state.isEditing;
 
       var _getUiOptions = Object(utils["getUiOptions"])(uiSchema),
           editable = _getUiOptions.editable;
 
-      return editable && disabled ? external_react_default.a.createElement(styled_ActionGutter, null, external_react_default.a.createElement(components_IconButton, {
+      return editable && disabled && !readonly ? external_react_default.a.createElement(styled_ActionGutter, null, external_react_default.a.createElement(components_IconButton, {
+        id: "edit-button-".concat($id),
         icon: pro_solid_svg_icons_["faPen"],
         onClick: _this.enableFields,
         disabled: isEditing
@@ -33193,10 +33203,10 @@ function (_Component) {
           formContext = _this$props4.formContext,
           idSchema = _this$props4.idSchema;
       var editAction = formContext.editAction,
+          entityIndexToIdMap = formContext.entityIndexToIdMap,
           entitySetIds = formContext.entitySetIds,
           mappers = formContext.mappers,
-          propertyTypeIds = formContext.propertyTypeIds,
-          entityIndexToIdMap = formContext.entityIndexToIdMap; // get array index if relevant
+          propertyTypeIds = formContext.propertyTypeIds; // get array index if relevant
 
       var arrayIndex = parseIdIndex(idSchema);
       var path = parseIdSchemaPath(idSchema); // wrap formData in pageSection
@@ -33229,9 +33239,9 @@ function (_Component) {
         className: "column-span-12",
         noPadding: true
       }, external_react_default.a.createElement(external_lattice_ui_kit_["Button"], {
+        isLoading: updateState,
         mode: "primary",
-        onClick: _this.commitDraftFormData,
-        isLoading: updateState
+        onClick: _this.commitDraftFormData
       }, "Save"), external_react_default.a.createElement(external_lattice_ui_kit_["Button"], {
         onClick: _this.disableFields
       }, "Discard"));
@@ -33534,18 +33544,18 @@ function (_Component) {
           orderable = _this$props5.orderable,
           readonly = _this$props5.readonly,
           showIndex = _this$props5.showIndex;
-      return external_react_default.a.createElement("div", null, external_react_default.a.createElement(ItemWrapper, {
+      return external_react_default.a.createElement("li", null, external_react_default.a.createElement(ItemWrapper, {
         className: className
       }, orderable && external_react_default.a.createElement(styled_ActionGutter, null, external_react_default.a.createElement(components_IconButton, {
-        icon: pro_solid_svg_icons_["faChevronUp"],
         disabled: disabled || readonly || !hasMoveUp,
+        icon: pro_solid_svg_icons_["faChevronUp"],
         onClick: onReorderClick(index, index - 1)
       }), external_react_default.a.createElement(components_IndexCircle, {
         index: index + 1,
         visible: showIndex
       }), external_react_default.a.createElement(components_IconButton, {
-        icon: pro_solid_svg_icons_["faChevronDown"],
         disabled: disabled || readonly || !hasMoveDown,
+        icon: pro_solid_svg_icons_["faChevronDown"],
         onClick: onReorderClick(index, index + 1)
       })), this.renderChildren()), this.renderSubmitButton());
     }
@@ -33556,9 +33566,9 @@ function (_Component) {
 
 defineProperty_default()(DefaultArrayItem_DefaultArrayItem, "defaultProps", {
   addAction: undefined,
-  removeAddedItem: undefined,
   addState: false,
   isAdding: false,
+  removeAddedItem: undefined,
   showIndex: true
 });
 
@@ -33588,10 +33598,10 @@ var MarginButton = external_amd_styled_components_commonjs_styled_components_com
   displayName: "ArrayFieldTemplate__MarginButton",
   componentId: "kzi0f3-0"
 })(["margin-top:10px;"]);
-var ArrayList = external_amd_styled_components_commonjs_styled_components_commonjs2_styled_components_default.a.div.withConfig({
+var ArrayList = external_amd_styled_components_commonjs_styled_components_commonjs2_styled_components_default.a.ul.withConfig({
   displayName: "ArrayFieldTemplate__ArrayList",
   componentId: "kzi0f3-1"
-})(["> div{border-bottom:1px solid ", ";padding:20px 0;}> div:last-of-type{border-bottom:0;padding-bottom:0;}"], ArrayFieldTemplate_NEUTRALS[4]);
+})(["margin:0;padding-inline-start:0;list-style-type:none;> li{border-bottom:1px solid ", ";padding:20px 0;}> li:last-of-type{border-bottom:0;padding-bottom:0;}"], ArrayFieldTemplate_NEUTRALS[4]);
 
 var ArrayFieldTemplate_ArrayFieldTemplate =
 /*#__PURE__*/
@@ -33645,17 +33655,19 @@ function (_Component) {
       var _this2 = this;
 
       var _this$props2 = this.props,
+          DescriptionField = _this$props2.DescriptionField,
+          TitleField = _this$props2.TitleField,
           canAdd = _this$props2.canAdd,
           className = _this$props2.className,
-          DescriptionField = _this$props2.DescriptionField,
           formContext = _this$props2.formContext,
           idSchema = _this$props2.idSchema,
           items = _this$props2.items,
+          readonly = _this$props2.readonly,
           required = _this$props2.required,
           schema = _this$props2.schema,
           title = _this$props2.title,
-          TitleField = _this$props2.TitleField,
           uiSchema = _this$props2.uiSchema;
+      var $id = idSchema.$id;
       var hasAddedItem = this.state.hasAddedItem;
 
       var _ref = uiSchema['ui:options'] || {},
@@ -33669,17 +33681,18 @@ function (_Component) {
       return external_react_default.a.createElement("div", {
         className: className
       }, external_react_default.a.createElement(components_ArrayFieldTitle, {
+        TitleField: TitleField,
         idSchema: idSchema,
         key: "array-field-title-".concat(idSchema.$id),
         required: required,
-        title: uiSchema['ui:title'] || title,
-        TitleField: TitleField
+        title: uiSchema['ui:title'] || title
       }), (uiSchema['ui:description'] || schema.description) && external_react_default.a.createElement(components_ArrayFieldDescription, {
-        description: uiSchema['ui:description'] || schema.description,
         DescriptionField: DescriptionField,
+        description: uiSchema['ui:description'] || schema.description,
         idSchema: idSchema,
         key: "array-field-description-".concat(idSchema.$id)
       }), external_react_default.a.createElement(ArrayList, {
+        id: "array-item-list-".concat(idSchema.$id),
         key: "array-item-list-".concat(idSchema.$id)
       }, items && items.map(function (itemProps, index) {
         var options = Object(utils["getUiOptions"])(uiSchema);
@@ -33705,8 +33718,9 @@ function (_Component) {
           key: "array-item-".concat(idSchema.$id, "-").concat(itemProps.index)
         }, itemProps, additionalProps));
         /* eslint-enable */
-      }), canAdd && external_react_default.a.createElement(MarginButton, {
+      }), canAdd && !readonly && external_react_default.a.createElement(MarginButton, {
         disabled: hasAddedItem,
+        id: "add-array-item-button-".concat($id),
         mode: "subtle",
         onClick: this.handleAddClick
       }, addButtonText)));
@@ -33718,9 +33732,9 @@ function (_Component) {
 
 defineProperty_default()(ArrayFieldTemplate_ArrayFieldTemplate, "defaultProps", {
   canAdd: true,
+  disabled: false,
   formContext: undefined,
-  // disabled: false,
-  // readonly: false,
+  readonly: false,
   required: false,
   title: ''
 });
@@ -33848,7 +33862,8 @@ var Form_Form = function Form(props) {
       onChange = props.onChange,
       onDiscard = props.onDiscard,
       onSubmit = props.onSubmit,
-      restProps = objectWithoutProperties_default()(props, ["disabled", "forwardedRef", "hideSubmit", "isSubmitting", "onChange", "onDiscard", "onSubmit"]);
+      readOnly = props.readOnly,
+      restProps = objectWithoutProperties_default()(props, ["disabled", "forwardedRef", "hideSubmit", "isSubmitting", "onChange", "onDiscard", "onSubmit", "readOnly"]);
   /* eslint-disable react/jsx-props-no-spreading */
 
 
@@ -33856,7 +33871,7 @@ var Form_Form = function Form(props) {
     ArrayFieldTemplate: array_ArrayFieldTemplate,
     FieldTemplate: field_FieldTemplate,
     ObjectFieldTemplate: object_ObjectFieldTemplate,
-    disabled: disabled,
+    disabled: disabled || readOnly,
     fields: fields_namespaceObject,
     onChange: onChange,
     onSubmit: onSubmit,
@@ -33865,7 +33880,7 @@ var Form_Form = function Form(props) {
     transformErrors: transformErrors,
     widgets: widgets_namespaceObject // $FlowFixMe
 
-  }, restProps), disabled || hideSubmit ? external_react_default.a.createElement(HiddenButton, {
+  }, restProps), disabled || readOnly || hideSubmit ? external_react_default.a.createElement(HiddenButton, {
     type: "submit"
   }) : external_react_default.a.createElement(styled_ActionGroup, null, external_react_default.a.createElement(external_lattice_ui_kit_["Button"], {
     mode: "primary",
@@ -33885,7 +33900,8 @@ Form_Form.defaultProps = {
   isSubmitting: false,
   onChange: undefined,
   onDiscard: undefined,
-  onSubmit: undefined
+  onSubmit: undefined,
+  readOnly: false
 };
 /* eslint-enable */
 
@@ -34111,7 +34127,7 @@ PagedByMachine_PagedByMachine.defaultProps = {
 
  // injected by Webpack.DefinePlugin
 
-var version = "v0.11.0";
+var version = "v0.12.0";
 
 /* harmony default export */ var src = __webpack_exports__["default"] = ({
   version: version
