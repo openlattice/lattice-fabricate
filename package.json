@@ -35,7 +35,7 @@
     "loglevel": "~1.6.0",
     "react-jsonschema-form": "~1.8.0",
     "react-signature-canvas": "~1.0.0",
-    "xstate": "~4.7.3"
+    "xstate": "~4.8.0"
   },
   "devDependencies": {
     "@babel/cli": "~7.8.0",
