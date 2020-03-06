@@ -153,9 +153,9 @@ exports[`RadioWidget should match snapshot 1`] = `
               "componentStyle": ComponentStyle {
                 "componentId": "StyledForm-dhnby8-0",
                 "isStatic": false,
-                "lastClassName": "bjUJuX",
+                "lastClassName": "jbifAk",
                 "rules": Array [
-                  "legend{line-height:normal;font-size:16px;grid-column:1 / -1;}> div.form-group.field.field-object >:first-child{display:grid;grid-template-columns:repeat(12,1fr);& > *{border-bottom:1px solid ",
+                  "legend{line-height:normal;font-size:16px;grid-column:1 / -1;font-weight:600;}> div.form-group.field.field-object >:first-child{display:grid;grid-template-columns:repeat(12,1fr);& > *{border-bottom:1px solid ",
                   "#dcdce7",
                   ";padding:",
                   [Function],
@@ -235,7 +235,7 @@ exports[`RadioWidget should match snapshot 1`] = `
             ErrorList={[Function]}
             FieldTemplate={[Function]}
             ObjectFieldTemplate={[Function]}
-            className="StyledForm-dhnby8-0 bjUJuX"
+            className="StyledForm-dhnby8-0 jbifAk"
             disabled={false}
             fields={
               Object {
@@ -300,7 +300,7 @@ exports[`RadioWidget should match snapshot 1`] = `
             }
           >
             <form
-              className="StyledForm-dhnby8-0 bjUJuX"
+              className="StyledForm-dhnby8-0 jbifAk"
               noValidate={false}
               onSubmit={[Function]}
             >

@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import Form from 'react-jsonschema-form';
+import styled from 'styled-components';
 import { Colors, StyleUtils } from 'lattice-ui-kit';
 
 const { media } = StyleUtils;
@@ -12,6 +12,7 @@ const StyledForm = styled(Form)`
     line-height: normal;
     font-size: 16px;
     grid-column: 1 / -1;
+    font-weight: 600;
   }
 
   /*
