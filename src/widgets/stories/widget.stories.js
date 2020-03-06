@@ -4,12 +4,12 @@ import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import { Card } from 'lattice-ui-kit';
 
+import * as SignatureSchemas from './constants/signatureSchemas';
 import { schema as checkboxesSchema, uiSchema as checkboxesUiSchema } from './constants/checkboxesSchemas';
 import { schema as datetimeSchema, uiSchema as datetimeUiSchema } from './constants/datetimeSchemas';
 import { schema as numberSchema, uiSchema as numberUiSchema } from './constants/numbersSchemas';
 import { schema as radioSchema, uiSchema as radioUiSchema } from './constants/radioSchemas';
 import { schema as selectSchema, uiSchema as selectUiSchema } from './constants/selectSchemas';
-import * as SignatureSchemas from './constants/signatureSchemas';
 
 import Form from '../../form';
 
