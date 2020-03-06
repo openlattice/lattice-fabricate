@@ -13,6 +13,8 @@ const OtherWrapper = styled.div`
 const OtherInput = (props :WidgetProps) => {
   const {
     autofocus,
+    disabled,
+    readonly,
     id,
     name,
     onBlur,
@@ -30,6 +32,8 @@ const OtherInput = (props :WidgetProps) => {
       <OtherWidget
           autofocus={autofocus}
           id={`${id}_other`}
+          disabled={disabled}
+          readonly={readonly}
           name={name}
           onBlur={onBlur}
           onChange={onChange}
