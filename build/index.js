@@ -1,6 +1,6 @@
 /*!
  * 
- * lattice-fabricate - v0.12.0
+ * lattice-fabricate - v0.12.1
  * React HOCs for components dependent on the OpenLattice EDM.
  * https://github.com/openlattice/lattice-fabricate
  * 
@@ -30610,7 +30610,7 @@ var NEUTRALS = external_lattice_ui_kit_["Colors"].NEUTRALS;
 var StyledForm = external_amd_styled_components_commonjs_styled_components_commonjs2_styled_components_default()(lib_default.a).withConfig({
   displayName: "StyledForm",
   componentId: "dhnby8-0"
-})(["legend{line-height:normal;font-size:16px;grid-column:1 / -1;}> div.form-group.field.field-object >:first-child{display:grid;grid-template-columns:repeat(12,1fr);& > *{border-bottom:1px solid ", ";padding:", "}& > *:last-child{border-bottom:0;}& > legend{line-height:normal;font-size:18px;border-bottom:0;padding-bottom:0;margin:0;}}.column-span-1{grid-column:auto / span 1;}.column-span-2{grid-column:auto / span 2;}.column-span-3{grid-column:auto / span 3;}.column-span-4{grid-column:auto / span 4;}.column-span-5{grid-column:auto / span 5;}.column-span-6{grid-column:auto / span 6;}.column-span-7{grid-column:auto / span 7;}.column-span-8{grid-column:auto / span 8;}.column-span-9{grid-column:auto / span 9;}.column-span-10{grid-column:auto / span 10;}.column-span-11{grid-column:auto / span 11;}.column-span-12{grid-column:auto / span 12;}.grid-container{display:flex;flex:1;>:first-child{display:grid;grid-template-columns:repeat(12,1fr);grid-gap:20px 30px;width:100%;", "}}.hidden{display:none;}"], NEUTRALS[4], function (props) {
+})(["legend{line-height:normal;font-size:16px;grid-column:1 / -1;font-weight:600;}> div.form-group.field.field-object >:first-child{display:grid;grid-template-columns:repeat(12,1fr);& > *{border-bottom:1px solid ", ";padding:", "}& > *:last-child{border-bottom:0;}& > legend{line-height:normal;font-size:18px;border-bottom:0;padding-bottom:0;margin:0;}}.column-span-1{grid-column:auto / span 1;}.column-span-2{grid-column:auto / span 2;}.column-span-3{grid-column:auto / span 3;}.column-span-4{grid-column:auto / span 4;}.column-span-5{grid-column:auto / span 5;}.column-span-6{grid-column:auto / span 6;}.column-span-7{grid-column:auto / span 7;}.column-span-8{grid-column:auto / span 8;}.column-span-9{grid-column:auto / span 9;}.column-span-10{grid-column:auto / span 10;}.column-span-11{grid-column:auto / span 11;}.column-span-12{grid-column:auto / span 12;}.grid-container{display:flex;flex:1;>:first-child{display:grid;grid-template-columns:repeat(12,1fr);grid-gap:20px 30px;width:100%;", "}}.hidden{display:none;}"], NEUTRALS[4], function (props) {
   return !props.noPadding && '30px';
 }, media.phone(_templateObject()));
 /* harmony default export */ var styled_StyledForm = (StyledForm);
@@ -32044,6 +32044,8 @@ var OtherWrapper = external_amd_styled_components_commonjs_styled_components_com
 
 var OtherInput_OtherInput = function OtherInput(props) {
   var autofocus = props.autofocus,
+      disabled = props.disabled,
+      readonly = props.readonly,
       id = props.id,
       name = props.name,
       onBlur = props.onBlur,
@@ -32060,6 +32062,8 @@ var OtherInput_OtherInput = function OtherInput(props) {
   return external_react_default.a.createElement(OtherWrapper, null, external_react_default.a.createElement(OtherWidget, {
     autofocus: autofocus,
     id: "".concat(id, "_other"),
+    disabled: disabled,
+    readonly: readonly,
     name: name,
     onBlur: onBlur,
     onChange: onChange,
@@ -34127,7 +34131,7 @@ PagedByMachine_PagedByMachine.defaultProps = {
 
  // injected by Webpack.DefinePlugin
 
-var version = "v0.12.0";
+var version = "v0.12.1";
 
 /* harmony default export */ var src = __webpack_exports__["default"] = ({
   version: version

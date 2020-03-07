@@ -1,6 +1,6 @@
 {
   "name": "lattice-fabricate",
-  "version": "0.12.0",
+  "version": "0.12.1",
   "homepage": "https://github.com/openlattice/lattice-fabricate",
   "description": "React HOCs for components dependent on the OpenLattice EDM.",
   "author": {
