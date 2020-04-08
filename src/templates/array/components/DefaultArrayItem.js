@@ -5,7 +5,7 @@ import type { Element } from 'react';
 import findLast from 'lodash/findLast';
 import isFunction from 'lodash/isFunction';
 import styled from 'styled-components';
-import { faChevronDown, faChevronUp } from '@fortawesome/pro-solid-svg-icons';
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { Button } from 'lattice-ui-kit';
 
 import ActionGutter from '../../components/styled/ActionGutter';

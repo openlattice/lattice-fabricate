@@ -6,9 +6,7 @@ import React, { useCallback, useEffect, useRef } from 'react';
 
 import SignatureCanvas from 'react-signature-canvas';
 import styled from 'styled-components';
-import { faTimes } from '@fortawesome/pro-regular-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Colors, IconButton } from 'lattice-ui-kit';
+import { Button, Colors } from 'lattice-ui-kit';
 
 import { DATA_URL_IMG_PNG_PREFIX, tryConvertingToDataURL } from './SignatureUtils';
 
@@ -28,16 +26,14 @@ const CanvasWrapper = styled.div`
   }
 `;
 
-const ClearIcon = (
-  <FontAwesomeIcon icon={faTimes} />
-);
-
-const ClearButton = styled(IconButton)`
-  color: ${NEUTRALS[0]};
-  padding: 8px 10px; /* chosen specifically to produce 36x36 button */
+const ClearButton = styled(Button)`
+  color: ${NEUTRALS[1]};
   position: absolute;
   right: 10px;
   top: 10px;
+  &:hover {
+    color: ${NEUTRALS[0]};
+  }
 `;
 
 type Props = {
@@ -96,7 +92,7 @@ const SignatureWidget = (props :Props) => {
   return (
     <CanvasWrapper>
       <SignatureCanvas onEnd={handleOnChange} ref={signatureCanvasRef} />
-      <ClearButton disabled={disabled} icon={ClearIcon} mode="subtle" onClick={handleOnClear} />
+      <ClearButton disabled={disabled} mode="subtle" onClick={handleOnClear}>Clear</ClearButton>
     </CanvasWrapper>
   );
 };
