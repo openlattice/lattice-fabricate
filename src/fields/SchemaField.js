@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 import SchemaField from 'react-jsonschema-form/lib/components/fields/SchemaField';
 import isFunction from 'lodash/isFunction';
-import { faTrash } from '@fortawesome/pro-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 import ActionGutter from '../templates/components/styled/ActionGutter';
 import ConfirmDeleteModal from '../templates/array/components/ConfirmDeleteModal';

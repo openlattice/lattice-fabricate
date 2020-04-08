@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import type { ComponentType } from 'react';
 
 import isFunction from 'lodash/isFunction';
-import { faPen } from '@fortawesome/pro-solid-svg-icons';
+import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { fromJS, set } from 'immutable';
 import { Button } from 'lattice-ui-kit';
 import { getUiOptions } from 'react-jsonschema-form/lib/utils';
