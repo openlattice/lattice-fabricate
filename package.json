@@ -120,6 +120,7 @@
     "postversion": "git push && git push --tags",
     "version": "npm-run-all clean build:prod && git add -A package.json build/",
     "preversion": "npm-run-all lint test",
+    "pkg-stats": "webpack --config config/webpack/webpack.config.js --env.development --profile --json > pkg-stats.json",
     "release:major": "npm version major -m \"releasing v%s\" && npm publish",
     "release:minor": "npm version minor -m \"releasing v%s\" && npm publish",
     "release:patch": "npm version patch -m \"releasing v%s\" && npm publish",
