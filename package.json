@@ -89,7 +89,7 @@
     "react": "~16.13.0",
     "react-dom": "~16.13.0",
     "rimraf": "~3.0.0",
-    "styled-components": "~4.4.0",
+    "styled-components": "~5.1.0",
     "stylelint": "~13.3.0",
     "stylelint-config-standard": "~20.0.0",
     "stylelint-config-styled-components": "~0.1.1",
@@ -108,7 +108,7 @@
     "lattice-ui-kit": "~0.30.1",
     "react": "~16.13.0",
     "react-dom": "~16.13.0",
-    "styled-components": "~4.4.0"
+    "styled-components": "~5.1.0"
   },
   "scripts": {
     "build:dev": "webpack --config config/webpack/webpack.config.js --env.development",
