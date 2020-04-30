@@ -36,8 +36,8 @@ export const uiSchema = {
   multiple: {
     classNames: 'column-span-12',
     'ui:options': {
-      multiple: true
-    }
+      multiple: true,
+    },
   },
   creatable: {
     classNames: 'column-span-12',
@@ -45,7 +45,6 @@ export const uiSchema = {
       creatable: true,
       multiple: true,
       noOptionsMessage: 'Type to create',
-      placeholder: 'Type to create',
     }
   },
 };
