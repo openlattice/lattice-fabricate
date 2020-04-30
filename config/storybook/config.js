@@ -1,9 +1,16 @@
 import React from 'react';
+
 import styled from 'styled-components';
-import { configure, addDecorator, addParameters } from '@storybook/react';
+import { addDecorator, addParameters, configure } from '@storybook/react';
+import {
+  Colors,
+  LatticeLuxonUtils,
+  MuiPickersUtilsProvider,
+  ThemeProvider,
+  lightTheme,
+} from 'lattice-ui-kit';
 
 import storybookTheme from './storybookTheme';
-import { Colors } from 'lattice-ui-kit';
 
 const { NEUTRALS } = Colors;
 
@@ -39,11 +46,15 @@ const AppContentInnerWrapper = styled.div`
   margin: 30px;
 `;
 
-addDecorator(storyFn => (
+addDecorator((StoryFn) => (
   <StoryWrapper>
     <AppContentWrapper>
       <AppContentInnerWrapper>
-        {storyFn()}
+        <ThemeProvider theme={lightTheme}>
+          <MuiPickersUtilsProvider utils={LatticeLuxonUtils}>
+            <StoryFn />
+          </MuiPickersUtilsProvider>
+        </ThemeProvider>
       </AppContentInnerWrapper>
     </AppContentWrapper>
   </StoryWrapper>
@@ -57,7 +68,7 @@ addParameters({
 // automatically import all files ending in *.stories.js
 const req = require.context('../../src/', true, /\.stories\.js$/);
 function loadStories() {
-  req.keys().forEach(filename => req(filename));
+  req.keys().forEach((filename) => req(filename));
 }
 
 configure(loadStories, module);
