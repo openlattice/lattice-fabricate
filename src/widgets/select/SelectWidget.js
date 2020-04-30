@@ -35,6 +35,7 @@ class SelectWidget extends Component<WidgetProps> {
       required,
       schema,
       value,
+      placeholder = '',
     } = this.props;
 
     const { options: schemaOptions } = schema;
@@ -43,7 +44,6 @@ class SelectWidget extends Component<WidgetProps> {
       enumOptions = [],
       creatable,
       hideMenu,
-      placeholder,
       multiple,
       noOptionsMessage,
     } = options;

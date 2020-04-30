@@ -48,6 +48,7 @@ const Form = (props :FormProps) => {
 
   /* eslint-disable react/jsx-props-no-spreading */
   return (
+    // $FlowFixMe
     <StyledForm
         ArrayFieldTemplate={ArrayFieldTemplate}
         FieldTemplate={FieldTemplate}
@@ -60,7 +61,6 @@ const Form = (props :FormProps) => {
         showErrorList={false}
         transformErrors={transformErrors}
         widgets={widgets}
-        // $FlowFixMe
         {...restProps}>
       {
         (disabled || readOnly || hideSubmit)

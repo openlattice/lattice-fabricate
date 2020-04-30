@@ -1,5 +1,6 @@
-import uuid from 'uuid/v4';
 import { Map } from 'immutable';
+import { v4 as uuid } from 'uuid';
+
 import { ENTITY_SET_NAMES } from './mockFQNs';
 
 const { TASK_ESN } = ENTITY_SET_NAMES;
