@@ -11,9 +11,12 @@ const DateWidget = (props :WidgetProps) => {
     disabled,
     id,
     onChange,
+    options,
+    placeholder,
     readonly,
     value,
   } = props;
+  const { format, mask } = options;
 
   // RJSF requires date/times to be undefined to trigger required validation
   const handleChange = useCallback((newValue :string) => {
@@ -28,8 +31,11 @@ const DateWidget = (props :WidgetProps) => {
   return (
     <DatePicker
         disabled={disabled || readonly}
+        format={format}
         id={id}
+        mask={mask}
         onChange={handleChange}
+        placeholder={placeholder}
         value={value} />
   );
 };
