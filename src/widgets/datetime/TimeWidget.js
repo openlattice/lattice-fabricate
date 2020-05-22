@@ -10,9 +10,12 @@ const TimeWidget = (props :WidgetProps) => {
     disabled,
     id,
     onChange,
+    options,
+    placeholder,
     readonly,
     value
   } = props;
+  const { ampm, format, mask } = options;
 
   // RJSF requires date/times to be undefined to trigger required validation
   const handleChange = useCallback((newValue :string) => {
@@ -26,9 +29,13 @@ const TimeWidget = (props :WidgetProps) => {
 
   return (
     <TimePicker
+        ampm={ampm}
         disabled={disabled || readonly}
+        format={format}
         id={id}
+        mask={mask}
         onChange={handleChange}
+        placeholder={placeholder}
         value={value} />
   );
 };
