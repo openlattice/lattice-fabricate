@@ -46,10 +46,31 @@ describe('TimeWidget', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  test('should have ampm in props options', () => {
+  test('should be able to set ampm to true or false', () => {
     const wrapper = mount(<MuiPickersUtilsProvider utils={LatticeLuxonUtils}><MockForm /></MuiPickersUtilsProvider>);
     const timeWidget = wrapper.find(TimeWidget).at(0);
     const { options } = timeWidget.props();
     expect(options.ampm).toEqual(false);
+  });
+
+  test('should have be able to take a custom format', () => {
+    const wrapper = mount(<MuiPickersUtilsProvider utils={LatticeLuxonUtils}><MockForm /></MuiPickersUtilsProvider>);
+    const timeWidget = wrapper.find(TimeWidget).at(0);
+    const { options } = timeWidget.props();
+    expect(options.format).toEqual('HH:mm');
+  });
+
+  test('should be able to take a custom mask', () => {
+    const wrapper = mount(<MuiPickersUtilsProvider utils={LatticeLuxonUtils}><MockForm /></MuiPickersUtilsProvider>);
+    const timeWidget = wrapper.find(TimeWidget).at(0);
+    const { options } = timeWidget.props();
+    expect(options.mask).toEqual('__:__');
+  });
+
+  test('should be able to take a custom placeholder', () => {
+    const wrapper = mount(<MuiPickersUtilsProvider utils={LatticeLuxonUtils}><MockForm /></MuiPickersUtilsProvider>);
+    const timeWidget = wrapper.find(TimeWidget).at(0);
+    const { placeholder } = timeWidget.props();
+    expect(placeholder).toEqual('HH:MM');
   });
 });

@@ -45,10 +45,24 @@ describe('DateTimeWidget', () => {
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 
-  test('should have ampm in props options', () => {
+  test('should be able to take a custom date & time format', () => {
+    const wrapper = mount(<MuiPickersUtilsProvider utils={LatticeLuxonUtils}><MockForm /></MuiPickersUtilsProvider>);
+    const dateTimeWidget = wrapper.find(DateTimeWidget).at(0);
+    const { options } = dateTimeWidget.props();
+    expect(options.format).toEqual('MM/dd/yy HH:mm');
+  });
+
+  test('should be able to take a custom mask', () => {
     const wrapper = mount(<MuiPickersUtilsProvider utils={LatticeLuxonUtils}><MockForm /></MuiPickersUtilsProvider>);
     const dateTimeWidget = wrapper.find(DateTimeWidget).at(0);
     const { options } = dateTimeWidget.props();
     expect(options.mask).toEqual('__/__/__ __:__');
+  });
+
+  test('should be able to take a custom placeholder', () => {
+    const wrapper = mount(<MuiPickersUtilsProvider utils={LatticeLuxonUtils}><MockForm /></MuiPickersUtilsProvider>);
+    const dateTimeWidget = wrapper.find(DateTimeWidget).at(0);
+    const { placeholder } = dateTimeWidget.props();
+    expect(placeholder).toEqual('MM/DD/YY HH:MM');
   });
 });
