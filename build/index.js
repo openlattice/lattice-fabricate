@@ -1,6 +1,6 @@
 /*!
  * 
- * lattice-fabricate - v0.13.1
+ * lattice-fabricate - v0.13.2
  * React HOCs for components dependent on the OpenLattice EDM.
  * https://github.com/openlattice/lattice-fabricate
  * 
@@ -32622,8 +32622,12 @@ var DateTimeWidget_DateTimeWidget = function DateTimeWidget(props) {
   var disabled = props.disabled,
       id = props.id,
       onChange = props.onChange,
+      options = props.options,
+      placeholder = props.placeholder,
       readonly = props.readonly,
-      value = props.value; // RJSF requires date/times to be undefined to trigger required validation
+      value = props.value;
+  var format = options.format,
+      mask = options.mask; // RJSF requires date/times to be undefined to trigger required validation
 
   var handleChange = Object(external_react_["useCallback"])(function (newValue) {
     if (newValue === '') {
@@ -32634,8 +32638,11 @@ var DateTimeWidget_DateTimeWidget = function DateTimeWidget(props) {
   }, [onChange]);
   return /*#__PURE__*/external_react_default.a.createElement(external_lattice_ui_kit_["DateTimePicker"], {
     disabled: disabled || readonly,
+    format: format,
     id: id,
+    mask: mask,
     onChange: handleChange,
+    placeholder: placeholder,
     value: value
   });
 };
@@ -32649,8 +32656,12 @@ var DateWidget_DateWidget = function DateWidget(props) {
   var disabled = props.disabled,
       id = props.id,
       onChange = props.onChange,
+      options = props.options,
+      placeholder = props.placeholder,
       readonly = props.readonly,
-      value = props.value; // RJSF requires date/times to be undefined to trigger required validation
+      value = props.value;
+  var format = options.format,
+      mask = options.mask; // RJSF requires date/times to be undefined to trigger required validation
 
   var handleChange = Object(external_react_["useCallback"])(function (newValue) {
     if (newValue === '') {
@@ -32661,8 +32672,11 @@ var DateWidget_DateWidget = function DateWidget(props) {
   }, [onChange]);
   return /*#__PURE__*/external_react_default.a.createElement(external_lattice_ui_kit_["DatePicker"], {
     disabled: disabled || readonly,
+    format: format,
     id: id,
+    mask: mask,
     onChange: handleChange,
+    placeholder: placeholder,
     value: value
   });
 };
@@ -33368,8 +33382,13 @@ var TimeWidget_TimeWidget = function TimeWidget(props) {
   var disabled = props.disabled,
       id = props.id,
       onChange = props.onChange,
+      options = props.options,
+      placeholder = props.placeholder,
       readonly = props.readonly,
-      value = props.value; // RJSF requires date/times to be undefined to trigger required validation
+      value = props.value;
+  var ampm = options.ampm,
+      format = options.format,
+      mask = options.mask; // RJSF requires date/times to be undefined to trigger required validation
 
   var handleChange = Object(external_react_["useCallback"])(function (newValue) {
     if (newValue === '') {
@@ -33379,9 +33398,13 @@ var TimeWidget_TimeWidget = function TimeWidget(props) {
     }
   }, [onChange]);
   return /*#__PURE__*/external_react_default.a.createElement(external_lattice_ui_kit_["TimePicker"], {
+    ampm: ampm,
     disabled: disabled || readonly,
+    format: format,
     id: id,
+    mask: mask,
     onChange: handleChange,
+    placeholder: placeholder,
     value: value
   });
 };
@@ -34461,7 +34484,7 @@ PagedByMachine_PagedByMachine.defaultProps = {
 
  // injected by Webpack.DefinePlugin
 
-var version = "v0.13.1";
+var version = "v0.13.2";
 
 /* harmony default export */ var src = __webpack_exports__["default"] = ({
   version: version
