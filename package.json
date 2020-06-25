@@ -30,7 +30,7 @@
   "dependencies": {
     "@xstate/react": "~0.8.0",
     "immutable": "4.0.0-rc.9",
-    "lattice": "~0.74.0",
+    "lattice": "~0.76.1",
     "lodash": "~4.17.0",
     "loglevel": "~1.6.0",
     "react-jsonschema-form": "~1.8.0",
