@@ -77,6 +77,7 @@ class BaseInput extends Component<BaseInputProps> {
       registry,
       schema,
       value,
+      label,
       ...inputProps
     } = this.props;
 

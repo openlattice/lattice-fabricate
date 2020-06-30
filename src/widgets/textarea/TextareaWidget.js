@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react';
+
 import { TextArea } from 'lattice-ui-kit';
 
 import KeyCodes from '../constants/KeyCodes';
@@ -53,6 +54,7 @@ class TextareaWidget extends Component<WidgetProps> {
       rawErrors,
       readonly,
       value,
+      label,
       ...restProps
     } = this.props;
 
