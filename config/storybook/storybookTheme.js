@@ -7,7 +7,7 @@ export default create({
   base: 'light',
 
   // Typography
-  fontBase: '"Open Sans", sans-serif',
+  fontBase: '"Inter", sans-serif',
   fontCode: 'monospace',
 
   // Text color
