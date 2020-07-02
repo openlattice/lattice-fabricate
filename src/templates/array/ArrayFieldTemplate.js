@@ -163,7 +163,8 @@ class ArrayFieldTemplate extends Component<Props, State> {
             <MarginButton
                 disabled={hasAddedItem}
                 id={`add-array-item-button-${$id}`}
-                mode="subtle"
+                variant="text"
+                color="primary"
                 onClick={this.handleAddClick}>
               {addButtonText}
             </MarginButton>

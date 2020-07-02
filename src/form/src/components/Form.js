@@ -67,7 +67,7 @@ const Form = (props :FormProps) => {
           ? <HiddenButton type="submit" />
           : (
             <ActionGroup>
-              <Button mode="primary" type="submit" isLoading={isSubmitting}>Submit</Button>
+              <Button color="primary" variant="contained" type="submit" isLoading={isSubmitting}>Submit</Button>
               { isFunction(onDiscard) && <Button onClick={onDiscard}>Discard</Button> }
             </ActionGroup>
           )

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Colors, StyleUtils } from 'lattice-ui-kit';
 
 const { media } = StyleUtils;
-const { NEUTRALS } = Colors;
+const { NEUTRAL } = Colors;
 
 const StyledForm = styled(Form)`
   /* styles for default nested elements provided by RJSF */
@@ -25,7 +25,7 @@ const StyledForm = styled(Form)`
     grid-template-columns: repeat(12, 1fr);
 
     & > * {
-      border-bottom: 1px solid ${NEUTRALS[4]};
+      border-bottom: 1px solid ${NEUTRAL.N100};
       padding: ${(props) => !props.noPadding && '30px'}
     }
 
