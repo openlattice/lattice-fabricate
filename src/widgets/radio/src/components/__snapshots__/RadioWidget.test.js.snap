@@ -249,7 +249,6 @@ exports[`RadioWidget should match snapshot 1`] = `
             noHtml5Validate={false}
             noValidate={false}
             omitExtraData={false}
-            safeRenderCompletion={false}
             schema={
               Object {
                 "properties": Object {
@@ -342,6 +341,21 @@ exports[`RadioWidget should match snapshot 1`] = `
                       "UnsupportedField": [Function],
                     },
                     "formContext": Object {},
+                    "rootSchema": Object {
+                      "properties": Object {
+                        "radio": Object {
+                          "enum": Array [
+                            "Option 1",
+                            "Option 2",
+                            "Option 3",
+                          ],
+                          "title": "ui:widget: OtherRadioWidget",
+                          "type": "string",
+                        },
+                      },
+                      "title": "radio",
+                      "type": "object",
+                    },
                     "widgets": Object {
                       "AltDateTimeWidget": [Function],
                       "AltDateWidget": [Function],
@@ -368,7 +382,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                     },
                   }
                 }
-                safeRenderCompletion={false}
                 schema={
                   Object {
                     "properties": Object {
@@ -440,6 +453,21 @@ exports[`RadioWidget should match snapshot 1`] = `
                         "UnsupportedField": [Function],
                       },
                       "formContext": Object {},
+                      "rootSchema": Object {
+                        "properties": Object {
+                          "radio": Object {
+                            "enum": Array [
+                              "Option 1",
+                              "Option 2",
+                              "Option 3",
+                            ],
+                            "title": "ui:widget: OtherRadioWidget",
+                            "type": "string",
+                          },
+                        },
+                        "title": "radio",
+                        "type": "object",
+                      },
                       "widgets": Object {
                         "AltDateTimeWidget": [Function],
                         "AltDateWidget": [Function],
@@ -466,7 +494,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                       },
                     }
                   }
-                  safeRenderCompletion={false}
                   schema={
                     Object {
                       "properties": Object {
@@ -613,6 +640,21 @@ exports[`RadioWidget should match snapshot 1`] = `
                               "UnsupportedField": [Function],
                             },
                             "formContext": Object {},
+                            "rootSchema": Object {
+                              "properties": Object {
+                                "radio": Object {
+                                  "enum": Array [
+                                    "Option 1",
+                                    "Option 2",
+                                    "Option 3",
+                                  ],
+                                  "title": "ui:widget: OtherRadioWidget",
+                                  "type": "string",
+                                },
+                              },
+                              "title": "radio",
+                              "type": "object",
+                            },
                             "widgets": Object {
                               "AltDateTimeWidget": [Function],
                               "AltDateWidget": [Function],
@@ -640,7 +682,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                           }
                         }
                         required={false}
-                        safeRenderCompletion={false}
                         schema={
                           Object {
                             "properties": Object {
@@ -727,6 +768,21 @@ exports[`RadioWidget should match snapshot 1`] = `
                                         "UnsupportedField": [Function],
                                       },
                                       "formContext": Object {},
+                                      "rootSchema": Object {
+                                        "properties": Object {
+                                          "radio": Object {
+                                            "enum": Array [
+                                              "Option 1",
+                                              "Option 2",
+                                              "Option 3",
+                                            ],
+                                            "title": "ui:widget: OtherRadioWidget",
+                                            "type": "string",
+                                          },
+                                        },
+                                        "title": "radio",
+                                        "type": "object",
+                                      },
                                       "widgets": Object {
                                         "AltDateTimeWidget": [Function],
                                         "AltDateWidget": [Function],
@@ -868,6 +924,21 @@ exports[`RadioWidget should match snapshot 1`] = `
                                     "UnsupportedField": [Function],
                                   },
                                   "formContext": Object {},
+                                  "rootSchema": Object {
+                                    "properties": Object {
+                                      "radio": Object {
+                                        "enum": Array [
+                                          "Option 1",
+                                          "Option 2",
+                                          "Option 3",
+                                        ],
+                                        "title": "ui:widget: OtherRadioWidget",
+                                        "type": "string",
+                                      },
+                                    },
+                                    "title": "radio",
+                                    "type": "object",
+                                  },
                                   "widgets": Object {
                                     "AltDateTimeWidget": [Function],
                                     "AltDateWidget": [Function],
@@ -957,6 +1028,21 @@ exports[`RadioWidget should match snapshot 1`] = `
                                       "UnsupportedField": [Function],
                                     },
                                     "formContext": Object {},
+                                    "rootSchema": Object {
+                                      "properties": Object {
+                                        "radio": Object {
+                                          "enum": Array [
+                                            "Option 1",
+                                            "Option 2",
+                                            "Option 3",
+                                          ],
+                                          "title": "ui:widget: OtherRadioWidget",
+                                          "type": "string",
+                                        },
+                                      },
+                                      "title": "radio",
+                                      "type": "object",
+                                    },
                                     "widgets": Object {
                                       "AltDateTimeWidget": [Function],
                                       "AltDateWidget": [Function],
@@ -1167,6 +1253,21 @@ exports[`RadioWidget should match snapshot 1`] = `
                                             "UnsupportedField": [Function],
                                           },
                                           "formContext": Object {},
+                                          "rootSchema": Object {
+                                            "properties": Object {
+                                              "radio": Object {
+                                                "enum": Array [
+                                                  "Option 1",
+                                                  "Option 2",
+                                                  "Option 3",
+                                                ],
+                                                "title": "ui:widget: OtherRadioWidget",
+                                                "type": "string",
+                                              },
+                                            },
+                                            "title": "radio",
+                                            "type": "object",
+                                          },
                                           "widgets": Object {
                                             "AltDateTimeWidget": [Function],
                                             "AltDateWidget": [Function],
@@ -1271,6 +1372,21 @@ exports[`RadioWidget should match snapshot 1`] = `
                                               "UnsupportedField": [Function],
                                             },
                                             "formContext": Object {},
+                                            "rootSchema": Object {
+                                              "properties": Object {
+                                                "radio": Object {
+                                                  "enum": Array [
+                                                    "Option 1",
+                                                    "Option 2",
+                                                    "Option 3",
+                                                  ],
+                                                  "title": "ui:widget: OtherRadioWidget",
+                                                  "type": "string",
+                                                },
+                                              },
+                                              "title": "radio",
+                                              "type": "object",
+                                            },
                                             "widgets": Object {
                                               "AltDateTimeWidget": [Function],
                                               "AltDateWidget": [Function],
@@ -1307,6 +1423,16 @@ exports[`RadioWidget should match snapshot 1`] = `
                                             ],
                                             "title": "ui:widget: OtherRadioWidget",
                                             "type": "string",
+                                          }
+                                        }
+                                        uiSchema={
+                                          Object {
+                                            "classNames": undefined,
+                                            "ui:options": Object {
+                                              "withNone": true,
+                                              "withOther": true,
+                                            },
+                                            "ui:widget": "radio",
                                           }
                                         }
                                       >
@@ -1364,6 +1490,21 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                 "UnsupportedField": [Function],
                                               },
                                               "formContext": Object {},
+                                              "rootSchema": Object {
+                                                "properties": Object {
+                                                  "radio": Object {
+                                                    "enum": Array [
+                                                      "Option 1",
+                                                      "Option 2",
+                                                      "Option 3",
+                                                    ],
+                                                    "title": "ui:widget: OtherRadioWidget",
+                                                    "type": "string",
+                                                  },
+                                                },
+                                                "title": "radio",
+                                                "type": "object",
+                                              },
                                               "widgets": Object {
                                                 "AltDateTimeWidget": [Function],
                                                 "AltDateWidget": [Function],
@@ -1400,6 +1541,16 @@ exports[`RadioWidget should match snapshot 1`] = `
                                               ],
                                               "title": "ui:widget: OtherRadioWidget",
                                               "type": "string",
+                                            }
+                                          }
+                                          uiSchema={
+                                            Object {
+                                              "classNames": undefined,
+                                              "ui:options": Object {
+                                                "withNone": true,
+                                                "withOther": true,
+                                              },
+                                              "ui:widget": "radio",
                                             }
                                           }
                                         >

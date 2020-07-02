@@ -236,7 +236,6 @@ exports[`DateWidget should match snapshot 1`] = `
               noHtml5Validate={false}
               noValidate={false}
               omitExtraData={false}
-              safeRenderCompletion={false}
               schema={
                 Object {
                   "properties": Object {
@@ -325,6 +324,16 @@ exports[`DateWidget should match snapshot 1`] = `
                         "UnsupportedField": [Function],
                       },
                       "formContext": Object {},
+                      "rootSchema": Object {
+                        "properties": Object {
+                          "dateWidget": Object {
+                            "title": "ui:widget: DateWidget",
+                            "type": "string",
+                          },
+                        },
+                        "title": "dateWidget",
+                        "type": "object",
+                      },
                       "widgets": Object {
                         "AltDateTimeWidget": [Function],
                         "AltDateWidget": [Function],
@@ -351,7 +360,6 @@ exports[`DateWidget should match snapshot 1`] = `
                       },
                     }
                   }
-                  safeRenderCompletion={false}
                   schema={
                     Object {
                       "properties": Object {
@@ -419,6 +427,16 @@ exports[`DateWidget should match snapshot 1`] = `
                           "UnsupportedField": [Function],
                         },
                         "formContext": Object {},
+                        "rootSchema": Object {
+                          "properties": Object {
+                            "dateWidget": Object {
+                              "title": "ui:widget: DateWidget",
+                              "type": "string",
+                            },
+                          },
+                          "title": "dateWidget",
+                          "type": "object",
+                        },
                         "widgets": Object {
                           "AltDateTimeWidget": [Function],
                           "AltDateWidget": [Function],
@@ -445,7 +463,6 @@ exports[`DateWidget should match snapshot 1`] = `
                         },
                       }
                     }
-                    safeRenderCompletion={false}
                     schema={
                       Object {
                         "properties": Object {
@@ -584,6 +601,16 @@ exports[`DateWidget should match snapshot 1`] = `
                                 "UnsupportedField": [Function],
                               },
                               "formContext": Object {},
+                              "rootSchema": Object {
+                                "properties": Object {
+                                  "dateWidget": Object {
+                                    "title": "ui:widget: DateWidget",
+                                    "type": "string",
+                                  },
+                                },
+                                "title": "dateWidget",
+                                "type": "object",
+                              },
                               "widgets": Object {
                                 "AltDateTimeWidget": [Function],
                                 "AltDateWidget": [Function],
@@ -611,7 +638,6 @@ exports[`DateWidget should match snapshot 1`] = `
                             }
                           }
                           required={false}
-                          safeRenderCompletion={false}
                           schema={
                             Object {
                               "properties": Object {
@@ -694,6 +720,16 @@ exports[`DateWidget should match snapshot 1`] = `
                                           "UnsupportedField": [Function],
                                         },
                                         "formContext": Object {},
+                                        "rootSchema": Object {
+                                          "properties": Object {
+                                            "dateWidget": Object {
+                                              "title": "ui:widget: DateWidget",
+                                              "type": "string",
+                                            },
+                                          },
+                                          "title": "dateWidget",
+                                          "type": "object",
+                                        },
                                         "widgets": Object {
                                           "AltDateTimeWidget": [Function],
                                           "AltDateWidget": [Function],
@@ -827,6 +863,16 @@ exports[`DateWidget should match snapshot 1`] = `
                                       "UnsupportedField": [Function],
                                     },
                                     "formContext": Object {},
+                                    "rootSchema": Object {
+                                      "properties": Object {
+                                        "dateWidget": Object {
+                                          "title": "ui:widget: DateWidget",
+                                          "type": "string",
+                                        },
+                                      },
+                                      "title": "dateWidget",
+                                      "type": "object",
+                                    },
                                     "widgets": Object {
                                       "AltDateTimeWidget": [Function],
                                       "AltDateWidget": [Function],
@@ -912,6 +958,16 @@ exports[`DateWidget should match snapshot 1`] = `
                                         "UnsupportedField": [Function],
                                       },
                                       "formContext": Object {},
+                                      "rootSchema": Object {
+                                        "properties": Object {
+                                          "dateWidget": Object {
+                                            "title": "ui:widget: DateWidget",
+                                            "type": "string",
+                                          },
+                                        },
+                                        "title": "dateWidget",
+                                        "type": "object",
+                                      },
                                       "widgets": Object {
                                         "AltDateTimeWidget": [Function],
                                         "AltDateWidget": [Function],
@@ -1114,6 +1170,16 @@ exports[`DateWidget should match snapshot 1`] = `
                                               "UnsupportedField": [Function],
                                             },
                                             "formContext": Object {},
+                                            "rootSchema": Object {
+                                              "properties": Object {
+                                                "dateWidget": Object {
+                                                  "title": "ui:widget: DateWidget",
+                                                  "type": "string",
+                                                },
+                                              },
+                                              "title": "dateWidget",
+                                              "type": "object",
+                                            },
                                             "widgets": Object {
                                               "AltDateTimeWidget": [Function],
                                               "AltDateWidget": [Function],
@@ -1201,6 +1267,16 @@ exports[`DateWidget should match snapshot 1`] = `
                                                 "UnsupportedField": [Function],
                                               },
                                               "formContext": Object {},
+                                              "rootSchema": Object {
+                                                "properties": Object {
+                                                  "dateWidget": Object {
+                                                    "title": "ui:widget: DateWidget",
+                                                    "type": "string",
+                                                  },
+                                                },
+                                                "title": "dateWidget",
+                                                "type": "object",
+                                              },
                                               "widgets": Object {
                                                 "AltDateTimeWidget": [Function],
                                                 "AltDateWidget": [Function],
@@ -1232,6 +1308,17 @@ exports[`DateWidget should match snapshot 1`] = `
                                             Object {
                                               "title": "ui:widget: DateWidget",
                                               "type": "string",
+                                            }
+                                          }
+                                          uiSchema={
+                                            Object {
+                                              "classNames": undefined,
+                                              "ui:options": Object {
+                                                "format": "yyyy/MM/dd",
+                                                "mask": "____/__/__",
+                                                "placeholder": "YYYY/MM/DD",
+                                              },
+                                              "ui:widget": "DateWidget",
                                             }
                                           }
                                         >
@@ -1276,6 +1363,16 @@ exports[`DateWidget should match snapshot 1`] = `
                                                   "UnsupportedField": [Function],
                                                 },
                                                 "formContext": Object {},
+                                                "rootSchema": Object {
+                                                  "properties": Object {
+                                                    "dateWidget": Object {
+                                                      "title": "ui:widget: DateWidget",
+                                                      "type": "string",
+                                                    },
+                                                  },
+                                                  "title": "dateWidget",
+                                                  "type": "object",
+                                                },
                                                 "widgets": Object {
                                                   "AltDateTimeWidget": [Function],
                                                   "AltDateWidget": [Function],
@@ -1307,6 +1404,17 @@ exports[`DateWidget should match snapshot 1`] = `
                                               Object {
                                                 "title": "ui:widget: DateWidget",
                                                 "type": "string",
+                                              }
+                                            }
+                                            uiSchema={
+                                              Object {
+                                                "classNames": undefined,
+                                                "ui:options": Object {
+                                                  "format": "yyyy/MM/dd",
+                                                  "mask": "____/__/__",
+                                                  "placeholder": "YYYY/MM/DD",
+                                                },
+                                                "ui:widget": "DateWidget",
                                               }
                                             }
                                           >
