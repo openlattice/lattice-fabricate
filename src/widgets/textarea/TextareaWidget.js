@@ -55,6 +55,7 @@ class TextareaWidget extends Component<WidgetProps> {
       options,
       rawErrors,
       readonly,
+      uiSchema,
       value,
       ...restProps
     } = this.props;
