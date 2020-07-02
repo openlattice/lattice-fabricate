@@ -17,6 +17,7 @@ declare type WidgetProps = {|
   registry :Object;
   required :boolean;
   schema :Object;
+  uiSchema :Object;
   type :string;
   value :any;
 |};
