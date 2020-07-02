@@ -46,18 +46,11 @@ class TextareaWidget extends Component<WidgetProps> {
     const {
       autofocus,
       disabled,
-      formContext,
       id,
-      label,
-      onBlur,
-      onChange,
-      onFocus,
       options,
       rawErrors,
       readonly,
-      uiSchema,
       value,
-      ...restProps
     } = this.props;
 
     /* eslint-disable react/jsx-props-no-spreading */
@@ -72,9 +65,7 @@ class TextareaWidget extends Component<WidgetProps> {
           onFocus={this.onFocus}
           readOnly={readonly}
           rows={options.rows || 2}
-          value={value}
-          // $FlowFixMe
-          {...restProps} />
+          value={value} />
     );
     /* eslint-enable */
   }
