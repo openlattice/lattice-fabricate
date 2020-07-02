@@ -1,4 +1,4 @@
-import Form from 'react-jsonschema-form';
+import Form from '@rjsf/core';
 import styled from 'styled-components';
 import { Colors, StyleUtils } from 'lattice-ui-kit';
 
