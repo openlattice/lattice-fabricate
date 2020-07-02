@@ -28,14 +28,15 @@
   "license": "Apache-2.0",
   "main": "build/index.js",
   "dependencies": {
-    "@xstate/react": "~0.8.0",
+    "@rjsf/core": "^2.2.0",
+    "@xstate/react": "^0.8.1",
     "immutable": "4.0.0-rc.9",
-    "lattice": "~0.74.0",
-    "lodash": "~4.17.0",
-    "loglevel": "~1.6.0",
-    "react-jsonschema-form": "~1.8.0",
-    "react-signature-canvas": "~1.0.0",
-    "xstate": "~4.9.0"
+    "lattice": "^0.74.0",
+    "lodash": "^4.17.15",
+    "loglevel": "^1.6.8",
+    "react-jsonschema-form": "^1.8.1",
+    "react-signature-canvas": "^1.0.3",
+    "xstate": "^4.10.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.4",
