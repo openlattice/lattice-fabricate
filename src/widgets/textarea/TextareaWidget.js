@@ -70,7 +70,7 @@ class TextareaWidget extends Component<WidgetProps> {
           onChange={this.onChange}
           onFocus={this.onFocus}
           readOnly={readonly}
-          rows={options.rows}
+          rows={options.rows || 2}
           value={value}
           // $FlowFixMe
           {...restProps} />
