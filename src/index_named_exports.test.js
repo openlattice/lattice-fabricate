@@ -3,7 +3,6 @@ import { Set } from 'immutable';
 import PACKAGE from '../package.json';
 import * as LatticeFabricate from './index';
 
-
 const EXPECTED_OBJ_EXPORTS = Set([
   'DataProcessingUtils',
   'Form',

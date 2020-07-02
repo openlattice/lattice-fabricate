@@ -24,7 +24,6 @@ const entitySetIds = allEntitySetNames.reduce((acc, entitySetNames) => {
   return acc;
 }, {});
 
-
 const allPropertyTypeFQNs :FQN[] = Object.values(PROPERTY_TYPE_FQNS);
 const propertyTypeIds = allPropertyTypeFQNs.reduce((acc, propertyTypeFQN) => {
   acc[propertyTypeFQN] = mockUUID();

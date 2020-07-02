@@ -7,7 +7,6 @@ import { extractFileInfo, processFiles } from './utils';
 // From RJSF lib until their next release includes 'accept' prop
 // https://github.com/mozilla-services/react-jsonschema-form/pull/1246
 
-
 type FileInfo = {
   name :string,
   size :number,

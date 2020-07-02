@@ -16,7 +16,6 @@ export {
   version,
 };
 
-
 export default {
   version,
 };
