@@ -46,7 +46,9 @@ class TextareaWidget extends Component<WidgetProps> {
     const {
       autofocus,
       disabled,
+      formContext,
       id,
+      label,
       onBlur,
       onChange,
       onFocus,
@@ -54,7 +56,6 @@ class TextareaWidget extends Component<WidgetProps> {
       rawErrors,
       readonly,
       value,
-      label,
       ...restProps
     } = this.props;
 
