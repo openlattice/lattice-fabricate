@@ -66,8 +66,9 @@ class BaseInput extends Component<BaseInputProps> {
     const {
       autofocus,
       disabled,
-      id,
       formContext,
+      id,
+      label,
       onBlur,
       onChange,
       onFocus,
@@ -76,8 +77,8 @@ class BaseInput extends Component<BaseInputProps> {
       readonly,
       registry,
       schema,
+      uiSchema,
       value,
-      label,
       ...inputProps
     } = this.props;
 
