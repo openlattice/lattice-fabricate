@@ -1,6 +1,6 @@
 /*!
  * 
- * lattice-fabricate - v0.14.0-alpha.1
+ * lattice-fabricate - v0.14.0-alpha.2
  * React HOCs for components dependent on the OpenLattice EDM.
  * https://github.com/openlattice/lattice-fabricate
  * 
@@ -40532,7 +40532,7 @@ PagedByMachine_PagedByMachine.defaultProps = {
 
  // injected by Webpack.DefinePlugin
 
-var version = "v0.14.0-alpha.1";
+var version = "v0.14.0-alpha.2";
 
 /* harmony default export */ var src = __webpack_exports__["default"] = ({
   version: version
