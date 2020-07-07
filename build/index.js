@@ -1,6 +1,6 @@
 /*!
  * 
- * lattice-fabricate - v0.14.0-alpha.2
+ * lattice-fabricate - v0.14.0-alpha.3
  * React HOCs for components dependent on the OpenLattice EDM.
  * https://github.com/openlattice/lattice-fabricate
  * 
@@ -38244,9 +38244,9 @@ var BaseInput_BaseInput = /*#__PURE__*/function (_Component) {
           readonly = _this$props4.readonly,
           registry = _this$props4.registry,
           schema = _this$props4.schema,
-          uiSchema = _this$props4.uiSchema,
           value = _this$props4.value,
-          inputProps = objectWithoutProperties_default()(_this$props4, ["autofocus", "disabled", "formContext", "id", "label", "onBlur", "onChange", "onFocus", "options", "rawErrors", "readonly", "registry", "schema", "uiSchema", "value"]);
+          uiSchema = _this$props4.uiSchema,
+          inputProps = objectWithoutProperties_default()(_this$props4, ["autofocus", "disabled", "formContext", "id", "label", "onBlur", "onChange", "onFocus", "options", "rawErrors", "readonly", "registry", "schema", "value", "uiSchema"]);
 
       if (options.inputType) {
         inputProps.type = options.inputType;
@@ -38292,6 +38292,7 @@ defineProperty_default()(BaseInput_BaseInput, "defaultProps", {
   max: undefined,
   min: undefined,
   step: undefined,
+  uiSchema: undefined,
   // https://github.com/yannickcr/eslint-plugin-react/issues/1593#issuecomment-504685423
   // eslint-disable-next-line react/default-props-match-prop-types
   value: ''
@@ -40532,7 +40533,7 @@ PagedByMachine_PagedByMachine.defaultProps = {
 
  // injected by Webpack.DefinePlugin
 
-var version = "v0.14.0-alpha.2";
+var version = "v0.14.0-alpha.3";
 
 /* harmony default export */ var src = __webpack_exports__["default"] = ({
   version: version
