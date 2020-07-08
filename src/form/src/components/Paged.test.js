@@ -92,7 +92,6 @@ describe('Paged', () => {
     });
   });
 
-
   describe('onNext/onBack', () => {
     test('should call onPageChange with new page number and formData', () => {
       const mockOnPageChange = jest.fn();

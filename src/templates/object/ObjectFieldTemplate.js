@@ -188,7 +188,7 @@ class ObjectFieldTemplate extends Component<Props, State> {
       <ActionGroup className="column-span-12" noPadding>
         <Button
             isLoading={updateState}
-            mode="primary"
+            color="primary"
             onClick={this.commitDraftFormData}>
           Save
         </Button>

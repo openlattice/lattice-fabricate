@@ -14,6 +14,7 @@ type BaseInputElementProps = {|
   max ?:string;
   min ?:string;
   step ?:string;
+  uiSchema ?:Object;
 |}
 
 type BaseInputProps = {|
@@ -27,6 +28,7 @@ class BaseInput extends Component<BaseInputProps> {
     max: undefined,
     min: undefined,
     step: undefined,
+    uiSchema: undefined,
     // https://github.com/yannickcr/eslint-plugin-react/issues/1593#issuecomment-504685423
     // eslint-disable-next-line react/default-props-match-prop-types
     value: '',
@@ -66,8 +68,9 @@ class BaseInput extends Component<BaseInputProps> {
     const {
       autofocus,
       disabled,
-      id,
       formContext,
+      id,
+      label,
       onBlur,
       onChange,
       onFocus,
@@ -77,6 +80,7 @@ class BaseInput extends Component<BaseInputProps> {
       registry,
       schema,
       value,
+      uiSchema,
       ...inputProps
     } = this.props;
 

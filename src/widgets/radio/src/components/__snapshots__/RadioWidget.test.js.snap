@@ -153,10 +153,10 @@ exports[`RadioWidget should match snapshot 1`] = `
               "componentStyle": ComponentStyle {
                 "componentId": "StyledForm-dhnby8-0",
                 "isStatic": false,
-                "lastClassName": "jbifAk",
+                "lastClassName": "cOvdTB",
                 "rules": Array [
                   "legend{line-height:normal;font-size:16px;grid-column:1 / -1;font-weight:600;}> div.form-group.field.field-object >:first-child{display:grid;grid-template-columns:repeat(12,1fr);& > *{border-bottom:1px solid ",
-                  "#dcdce7",
+                  "#dfdfe3",
                   ";padding:",
                   [Function],
                   "}& > *:last-child{border-bottom:0;}& > legend{line-height:normal;font-size:18px;border-bottom:0;padding-bottom:0;margin:0;}}.column-span-1{grid-column:auto / span 1;}.column-span-2{grid-column:auto / span 2;}.column-span-3{grid-column:auto / span 3;}.column-span-4{grid-column:auto / span 4;}.column-span-5{grid-column:auto / span 5;}.column-span-6{grid-column:auto / span 6;}.column-span-7{grid-column:auto / span 7;}.column-span-8{grid-column:auto / span 8;}.column-span-9{grid-column:auto / span 9;}.column-span-10{grid-column:auto / span 10;}.column-span-11{grid-column:auto / span 11;}.column-span-12{grid-column:auto / span 12;}.grid-container{display:flex;flex:1;>:first-child{display:grid;grid-template-columns:repeat(12,1fr);grid-gap:20px 30px;width:100%;",
@@ -235,7 +235,7 @@ exports[`RadioWidget should match snapshot 1`] = `
             ErrorList={[Function]}
             FieldTemplate={[Function]}
             ObjectFieldTemplate={[Function]}
-            className="StyledForm-dhnby8-0 jbifAk"
+            className="StyledForm-dhnby8-0 cOvdTB"
             disabled={false}
             fields={
               Object {
@@ -249,7 +249,6 @@ exports[`RadioWidget should match snapshot 1`] = `
             noHtml5Validate={false}
             noValidate={false}
             omitExtraData={false}
-            safeRenderCompletion={false}
             schema={
               Object {
                 "properties": Object {
@@ -300,7 +299,7 @@ exports[`RadioWidget should match snapshot 1`] = `
             }
           >
             <form
-              className="StyledForm-dhnby8-0 jbifAk"
+              className="StyledForm-dhnby8-0 cOvdTB"
               noValidate={false}
               onSubmit={[Function]}
             >
@@ -342,6 +341,21 @@ exports[`RadioWidget should match snapshot 1`] = `
                       "UnsupportedField": [Function],
                     },
                     "formContext": Object {},
+                    "rootSchema": Object {
+                      "properties": Object {
+                        "radio": Object {
+                          "enum": Array [
+                            "Option 1",
+                            "Option 2",
+                            "Option 3",
+                          ],
+                          "title": "ui:widget: OtherRadioWidget",
+                          "type": "string",
+                        },
+                      },
+                      "title": "radio",
+                      "type": "object",
+                    },
                     "widgets": Object {
                       "AltDateTimeWidget": [Function],
                       "AltDateWidget": [Function],
@@ -368,7 +382,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                     },
                   }
                 }
-                safeRenderCompletion={false}
                 schema={
                   Object {
                     "properties": Object {
@@ -440,6 +453,21 @@ exports[`RadioWidget should match snapshot 1`] = `
                         "UnsupportedField": [Function],
                       },
                       "formContext": Object {},
+                      "rootSchema": Object {
+                        "properties": Object {
+                          "radio": Object {
+                            "enum": Array [
+                              "Option 1",
+                              "Option 2",
+                              "Option 3",
+                            ],
+                            "title": "ui:widget: OtherRadioWidget",
+                            "type": "string",
+                          },
+                        },
+                        "title": "radio",
+                        "type": "object",
+                      },
                       "widgets": Object {
                         "AltDateTimeWidget": [Function],
                         "AltDateWidget": [Function],
@@ -466,7 +494,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                       },
                     }
                   }
-                  safeRenderCompletion={false}
                   schema={
                     Object {
                       "properties": Object {
@@ -613,6 +640,21 @@ exports[`RadioWidget should match snapshot 1`] = `
                               "UnsupportedField": [Function],
                             },
                             "formContext": Object {},
+                            "rootSchema": Object {
+                              "properties": Object {
+                                "radio": Object {
+                                  "enum": Array [
+                                    "Option 1",
+                                    "Option 2",
+                                    "Option 3",
+                                  ],
+                                  "title": "ui:widget: OtherRadioWidget",
+                                  "type": "string",
+                                },
+                              },
+                              "title": "radio",
+                              "type": "object",
+                            },
                             "widgets": Object {
                               "AltDateTimeWidget": [Function],
                               "AltDateWidget": [Function],
@@ -640,7 +682,6 @@ exports[`RadioWidget should match snapshot 1`] = `
                           }
                         }
                         required={false}
-                        safeRenderCompletion={false}
                         schema={
                           Object {
                             "properties": Object {
@@ -727,6 +768,21 @@ exports[`RadioWidget should match snapshot 1`] = `
                                         "UnsupportedField": [Function],
                                       },
                                       "formContext": Object {},
+                                      "rootSchema": Object {
+                                        "properties": Object {
+                                          "radio": Object {
+                                            "enum": Array [
+                                              "Option 1",
+                                              "Option 2",
+                                              "Option 3",
+                                            ],
+                                            "title": "ui:widget: OtherRadioWidget",
+                                            "type": "string",
+                                          },
+                                        },
+                                        "title": "radio",
+                                        "type": "object",
+                                      },
                                       "widgets": Object {
                                         "AltDateTimeWidget": [Function],
                                         "AltDateWidget": [Function],
@@ -868,6 +924,21 @@ exports[`RadioWidget should match snapshot 1`] = `
                                     "UnsupportedField": [Function],
                                   },
                                   "formContext": Object {},
+                                  "rootSchema": Object {
+                                    "properties": Object {
+                                      "radio": Object {
+                                        "enum": Array [
+                                          "Option 1",
+                                          "Option 2",
+                                          "Option 3",
+                                        ],
+                                        "title": "ui:widget: OtherRadioWidget",
+                                        "type": "string",
+                                      },
+                                    },
+                                    "title": "radio",
+                                    "type": "object",
+                                  },
                                   "widgets": Object {
                                     "AltDateTimeWidget": [Function],
                                     "AltDateWidget": [Function],
@@ -957,6 +1028,21 @@ exports[`RadioWidget should match snapshot 1`] = `
                                       "UnsupportedField": [Function],
                                     },
                                     "formContext": Object {},
+                                    "rootSchema": Object {
+                                      "properties": Object {
+                                        "radio": Object {
+                                          "enum": Array [
+                                            "Option 1",
+                                            "Option 2",
+                                            "Option 3",
+                                          ],
+                                          "title": "ui:widget: OtherRadioWidget",
+                                          "type": "string",
+                                        },
+                                      },
+                                      "title": "radio",
+                                      "type": "object",
+                                    },
                                     "widgets": Object {
                                       "AltDateTimeWidget": [Function],
                                       "AltDateWidget": [Function],
@@ -1070,7 +1156,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                   <div
                                     className="form-group field field-string  column-span-12"
                                   >
-                                    <Label
+                                    <FieldTemplate__FieldLabel
                                       htmlFor="root_radio"
                                       required={false}
                                     >
@@ -1080,12 +1166,12 @@ exports[`RadioWidget should match snapshot 1`] = `
                                             "$$typeof": Symbol(react.forward_ref),
                                             "attrs": Array [],
                                             "componentStyle": ComponentStyle {
-                                              "componentId": "Label-sc-130fyca-0",
+                                              "componentId": "FieldTemplate__FieldLabel-sc-1c6bjb1-1",
                                               "isStatic": false,
-                                              "lastClassName": "jnVjhS",
+                                              "lastClassName": "gTJQwo",
                                               "rules": Array [
                                                 "color:",
-                                                "#555e6f",
+                                                "#1f1f22",
                                                 ";display:inline-block;font-size:14px;font-stretch:normal;font-style:normal;font-weight:",
                                                 [Function],
                                                 ";letter-spacing:normal;margin:5px 5px 5px 0;visibility:",
@@ -1095,12 +1181,15 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                 ";",
                                                 [Function],
                                                 ";",
+                                                "font-size:16px;",
                                               ],
                                             },
-                                            "displayName": "Label",
-                                            "foldedComponentIds": Array [],
+                                            "displayName": "FieldTemplate__FieldLabel",
+                                            "foldedComponentIds": Array [
+                                              "Label-sc-130fyca-0",
+                                            ],
                                             "render": [Function],
-                                            "styledComponentId": "Label-sc-130fyca-0",
+                                            "styledComponentId": "FieldTemplate__FieldLabel-sc-1c6bjb1-1",
                                             "target": "label",
                                             "toString": [Function],
                                             "warnTooManyClasses": [Function],
@@ -1112,14 +1201,14 @@ exports[`RadioWidget should match snapshot 1`] = `
                                         required={false}
                                       >
                                         <label
-                                          className="Label-sc-130fyca-0 jnVjhS"
+                                          className="Label-sc-130fyca-0 FieldTemplate__FieldLabel-sc-1c6bjb1-1 gTJQwo"
                                           htmlFor="root_radio"
                                           required={false}
                                         >
                                           ui:widget: OtherRadioWidget
                                         </label>
                                       </StyledComponent>
-                                    </Label>
+                                    </FieldTemplate__FieldLabel>
                                     <DescriptionField
                                       formContext={Object {}}
                                       id="root_radio__description"
@@ -1164,6 +1253,21 @@ exports[`RadioWidget should match snapshot 1`] = `
                                             "UnsupportedField": [Function],
                                           },
                                           "formContext": Object {},
+                                          "rootSchema": Object {
+                                            "properties": Object {
+                                              "radio": Object {
+                                                "enum": Array [
+                                                  "Option 1",
+                                                  "Option 2",
+                                                  "Option 3",
+                                                ],
+                                                "title": "ui:widget: OtherRadioWidget",
+                                                "type": "string",
+                                              },
+                                            },
+                                            "title": "radio",
+                                            "type": "object",
+                                          },
                                           "widgets": Object {
                                             "AltDateTimeWidget": [Function],
                                             "AltDateWidget": [Function],
@@ -1268,6 +1372,21 @@ exports[`RadioWidget should match snapshot 1`] = `
                                               "UnsupportedField": [Function],
                                             },
                                             "formContext": Object {},
+                                            "rootSchema": Object {
+                                              "properties": Object {
+                                                "radio": Object {
+                                                  "enum": Array [
+                                                    "Option 1",
+                                                    "Option 2",
+                                                    "Option 3",
+                                                  ],
+                                                  "title": "ui:widget: OtherRadioWidget",
+                                                  "type": "string",
+                                                },
+                                              },
+                                              "title": "radio",
+                                              "type": "object",
+                                            },
                                             "widgets": Object {
                                               "AltDateTimeWidget": [Function],
                                               "AltDateWidget": [Function],
@@ -1304,6 +1423,16 @@ exports[`RadioWidget should match snapshot 1`] = `
                                             ],
                                             "title": "ui:widget: OtherRadioWidget",
                                             "type": "string",
+                                          }
+                                        }
+                                        uiSchema={
+                                          Object {
+                                            "classNames": undefined,
+                                            "ui:options": Object {
+                                              "withNone": true,
+                                              "withOther": true,
+                                            },
+                                            "ui:widget": "radio",
                                           }
                                         }
                                       >
@@ -1361,6 +1490,21 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                 "UnsupportedField": [Function],
                                               },
                                               "formContext": Object {},
+                                              "rootSchema": Object {
+                                                "properties": Object {
+                                                  "radio": Object {
+                                                    "enum": Array [
+                                                      "Option 1",
+                                                      "Option 2",
+                                                      "Option 3",
+                                                    ],
+                                                    "title": "ui:widget: OtherRadioWidget",
+                                                    "type": "string",
+                                                  },
+                                                },
+                                                "title": "radio",
+                                                "type": "object",
+                                              },
                                               "widgets": Object {
                                                 "AltDateTimeWidget": [Function],
                                                 "AltDateWidget": [Function],
@@ -1397,6 +1541,16 @@ exports[`RadioWidget should match snapshot 1`] = `
                                               ],
                                               "title": "ui:widget: OtherRadioWidget",
                                               "type": "string",
+                                            }
+                                          }
+                                          uiSchema={
+                                            Object {
+                                              "classNames": undefined,
+                                              "ui:options": Object {
+                                                "withNone": true,
+                                                "withOther": true,
+                                              },
+                                              "ui:widget": "radio",
                                             }
                                           }
                                         >
@@ -1463,7 +1617,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                           "componentStyle": ComponentStyle {
                                                             "componentId": "ChoiceLabel-sc-11kob9e-0",
                                                             "isStatic": false,
-                                                            "lastClassName": "jRFUhG",
+                                                            "lastClassName": "ifwfUf",
                                                             "rules": Array [
                                                               "align-items:center;color:",
                                                               [Function],
@@ -1486,7 +1640,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                       htmlFor="root_radio_Option 1"
                                                     >
                                                       <label
-                                                        className="ChoiceLabel-sc-11kob9e-0 jRFUhG"
+                                                        className="ChoiceLabel-sc-11kob9e-0 ifwfUf"
                                                         disabled={false}
                                                         htmlFor="root_radio_Option 1"
                                                       >
@@ -1623,7 +1777,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                             "componentStyle": ComponentStyle {
                                                                               "componentId": "RadioIndicator-sc-1vlnpb4-0",
                                                                               "isStatic": false,
-                                                                              "lastClassName": "frODtr",
+                                                                              "lastClassName": "gutUls",
                                                                               "rules": Array [
                                                                                 "transition:background-color ",
                                                                                 "100ms",
@@ -1651,7 +1805,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                         forwardedRef={null}
                                                                       >
                                                                         <span
-                                                                          className="RadioIndicator-sc-1vlnpb4-0 frODtr"
+                                                                          className="RadioIndicator-sc-1vlnpb4-0 gutUls"
                                                                         />
                                                                       </StyledComponent>
                                                                     </RadioIndicator>
@@ -1726,7 +1880,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                           "componentStyle": ComponentStyle {
                                                             "componentId": "ChoiceLabel-sc-11kob9e-0",
                                                             "isStatic": false,
-                                                            "lastClassName": "jRFUhG",
+                                                            "lastClassName": "ifwfUf",
                                                             "rules": Array [
                                                               "align-items:center;color:",
                                                               [Function],
@@ -1749,7 +1903,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                       htmlFor="root_radio_Option 2"
                                                     >
                                                       <label
-                                                        className="ChoiceLabel-sc-11kob9e-0 jRFUhG"
+                                                        className="ChoiceLabel-sc-11kob9e-0 ifwfUf"
                                                         disabled={false}
                                                         htmlFor="root_radio_Option 2"
                                                       >
@@ -1886,7 +2040,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                             "componentStyle": ComponentStyle {
                                                                               "componentId": "RadioIndicator-sc-1vlnpb4-0",
                                                                               "isStatic": false,
-                                                                              "lastClassName": "frODtr",
+                                                                              "lastClassName": "gutUls",
                                                                               "rules": Array [
                                                                                 "transition:background-color ",
                                                                                 "100ms",
@@ -1914,7 +2068,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                         forwardedRef={null}
                                                                       >
                                                                         <span
-                                                                          className="RadioIndicator-sc-1vlnpb4-0 frODtr"
+                                                                          className="RadioIndicator-sc-1vlnpb4-0 gutUls"
                                                                         />
                                                                       </StyledComponent>
                                                                     </RadioIndicator>
@@ -1989,7 +2143,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                           "componentStyle": ComponentStyle {
                                                             "componentId": "ChoiceLabel-sc-11kob9e-0",
                                                             "isStatic": false,
-                                                            "lastClassName": "jRFUhG",
+                                                            "lastClassName": "ifwfUf",
                                                             "rules": Array [
                                                               "align-items:center;color:",
                                                               [Function],
@@ -2012,7 +2166,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                       htmlFor="root_radio_Option 3"
                                                     >
                                                       <label
-                                                        className="ChoiceLabel-sc-11kob9e-0 jRFUhG"
+                                                        className="ChoiceLabel-sc-11kob9e-0 ifwfUf"
                                                         disabled={false}
                                                         htmlFor="root_radio_Option 3"
                                                       >
@@ -2149,7 +2303,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                             "componentStyle": ComponentStyle {
                                                                               "componentId": "RadioIndicator-sc-1vlnpb4-0",
                                                                               "isStatic": false,
-                                                                              "lastClassName": "frODtr",
+                                                                              "lastClassName": "gutUls",
                                                                               "rules": Array [
                                                                                 "transition:background-color ",
                                                                                 "100ms",
@@ -2177,7 +2331,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                         forwardedRef={null}
                                                                       >
                                                                         <span
-                                                                          className="RadioIndicator-sc-1vlnpb4-0 frODtr"
+                                                                          className="RadioIndicator-sc-1vlnpb4-0 gutUls"
                                                                         />
                                                                       </StyledComponent>
                                                                     </RadioIndicator>
@@ -2252,7 +2406,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                           "componentStyle": ComponentStyle {
                                                             "componentId": "ChoiceLabel-sc-11kob9e-0",
                                                             "isStatic": false,
-                                                            "lastClassName": "jRFUhG",
+                                                            "lastClassName": "ifwfUf",
                                                             "rules": Array [
                                                               "align-items:center;color:",
                                                               [Function],
@@ -2275,7 +2429,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                       htmlFor="root_radio_None"
                                                     >
                                                       <label
-                                                        className="ChoiceLabel-sc-11kob9e-0 jRFUhG"
+                                                        className="ChoiceLabel-sc-11kob9e-0 ifwfUf"
                                                         disabled={false}
                                                         htmlFor="root_radio_None"
                                                       >
@@ -2412,7 +2566,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                             "componentStyle": ComponentStyle {
                                                                               "componentId": "RadioIndicator-sc-1vlnpb4-0",
                                                                               "isStatic": false,
-                                                                              "lastClassName": "frODtr",
+                                                                              "lastClassName": "gutUls",
                                                                               "rules": Array [
                                                                                 "transition:background-color ",
                                                                                 "100ms",
@@ -2440,7 +2594,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                         forwardedRef={null}
                                                                       >
                                                                         <span
-                                                                          className="RadioIndicator-sc-1vlnpb4-0 frODtr"
+                                                                          className="RadioIndicator-sc-1vlnpb4-0 gutUls"
                                                                         />
                                                                       </StyledComponent>
                                                                     </RadioIndicator>
@@ -2515,7 +2669,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                           "componentStyle": ComponentStyle {
                                                             "componentId": "ChoiceLabel-sc-11kob9e-0",
                                                             "isStatic": false,
-                                                            "lastClassName": "jRFUhG",
+                                                            "lastClassName": "ifwfUf",
                                                             "rules": Array [
                                                               "align-items:center;color:",
                                                               [Function],
@@ -2538,7 +2692,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                       htmlFor="root_radio_Other"
                                                     >
                                                       <label
-                                                        className="ChoiceLabel-sc-11kob9e-0 jRFUhG"
+                                                        className="ChoiceLabel-sc-11kob9e-0 ifwfUf"
                                                         disabled={false}
                                                         htmlFor="root_radio_Other"
                                                       >
@@ -2675,7 +2829,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                             "componentStyle": ComponentStyle {
                                                                               "componentId": "RadioIndicator-sc-1vlnpb4-0",
                                                                               "isStatic": false,
-                                                                              "lastClassName": "frODtr",
+                                                                              "lastClassName": "gutUls",
                                                                               "rules": Array [
                                                                                 "transition:background-color ",
                                                                                 "100ms",
@@ -2703,7 +2857,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                         forwardedRef={null}
                                                                       >
                                                                         <span
-                                                                          className="RadioIndicator-sc-1vlnpb4-0 frODtr"
+                                                                          className="RadioIndicator-sc-1vlnpb4-0 gutUls"
                                                                         />
                                                                       </StyledComponent>
                                                                     </RadioIndicator>
@@ -2801,146 +2955,138 @@ exports[`RadioWidget should match snapshot 1`] = `
                     className="ActionGroup-sc-1hp5mpm-0 iYwyvW"
                   >
                     <Button
-                      disabled={false}
-                      fontColor=""
+                      color="primary"
                       isLoading={false}
-                      mode="primary"
                       type="submit"
+                      variant="contained"
                     >
-                      <StyledButton
+                      <ForwardRef(WithStyles)
+                        className=""
+                        color="primary"
+                        disableElevation={true}
                         disabled={false}
-                        fontColor=""
-                        mode="primary"
                         type="submit"
+                        variant="contained"
                       >
-                        <StyledComponent
-                          disabled={false}
-                          fontColor=""
-                          forwardedComponent={
+                        <ForwardRef(Button)
+                          className=""
+                          classes={
                             Object {
-                              "$$typeof": Symbol(react.forward_ref),
-                              "attrs": Array [],
-                              "componentStyle": ComponentStyle {
-                                "componentId": "StyledButton-sc-1etazn9-0",
-                                "isStatic": false,
-                                "lastClassName": "iHfePs",
-                                "rules": Array [
-                                  "border-radius:3px;border-style:solid;border-width:1px;box-sizing:border-box;cursor:pointer;font-size:14px;line-height:18px;outline:none;padding:10px 20px;text-align:center;text-decoration:none;transition:background-color ",
-                                  "100ms",
-                                  " ease-out,border-color ",
-                                  "100ms",
-                                  " ease-out,box-shadow ",
-                                  "100ms",
-                                  " ease-out;width:",
-                                  [Function],
-                                  ";white-space:nowrap;",
-                                  [Function],
-                                  ";",
-                                  [Function],
-                                  ";:hover{cursor:pointer;text-decoration:none;",
-                                  [Function],
-                                  "};:active{text-decoration:none;",
-                                  [Function],
-                                  "};:disabled{cursor:not-allowed;text-decoration:none;",
-                                  [Function],
-                                  "};:focus{",
-                                  [Function],
-                                  "}",
-                                ],
-                              },
-                              "displayName": "StyledButton",
-                              "foldedComponentIds": Array [],
-                              "render": [Function],
-                              "styledComponentId": "StyledButton-sc-1etazn9-0",
-                              "target": "button",
-                              "toString": [Function],
-                              "warnTooManyClasses": [Function],
-                              "withComponent": [Function],
+                              "colorInherit": "MuiButton-colorInherit",
+                              "contained": "MuiButton-contained",
+                              "containedPrimary": "MuiButton-containedPrimary",
+                              "containedSecondary": "MuiButton-containedSecondary",
+                              "containedSizeLarge": "MuiButton-containedSizeLarge",
+                              "containedSizeSmall": "MuiButton-containedSizeSmall",
+                              "disableElevation": "MuiButton-disableElevation",
+                              "disabled": "Mui-disabled",
+                              "endIcon": "MuiButton-endIcon",
+                              "focusVisible": "Mui-focusVisible",
+                              "fullWidth": "MuiButton-fullWidth",
+                              "iconSizeLarge": "MuiButton-iconSizeLarge",
+                              "iconSizeMedium": "MuiButton-iconSizeMedium",
+                              "iconSizeSmall": "MuiButton-iconSizeSmall",
+                              "label": "MuiButton-label",
+                              "outlined": "MuiButton-outlined",
+                              "outlinedPrimary": "MuiButton-outlinedPrimary",
+                              "outlinedSecondary": "MuiButton-outlinedSecondary",
+                              "outlinedSizeLarge": "MuiButton-outlinedSizeLarge",
+                              "outlinedSizeSmall": "MuiButton-outlinedSizeSmall",
+                              "root": "MuiButton-root",
+                              "sizeLarge": "MuiButton-sizeLarge",
+                              "sizeSmall": "MuiButton-sizeSmall",
+                              "startIcon": "MuiButton-startIcon",
+                              "text": "MuiButton-text",
+                              "textPrimary": "MuiButton-textPrimary",
+                              "textSecondary": "MuiButton-textSecondary",
+                              "textSizeLarge": "MuiButton-textSizeLarge",
+                              "textSizeSmall": "MuiButton-textSizeSmall",
                             }
                           }
-                          forwardedRef={null}
-                          mode="primary"
+                          color="primary"
+                          disableElevation={true}
+                          disabled={false}
                           type="submit"
+                          variant="contained"
                         >
-                          <button
-                            className="StyledButton-sc-1etazn9-0 iHfePs"
+                          <ForwardRef(WithStyles)
+                            className="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disableElevation"
+                            component="button"
                             disabled={false}
-                            mode="primary"
+                            focusRipple={true}
+                            focusVisibleClassName="Mui-focusVisible"
                             type="submit"
                           >
-                            <ContentWrapper>
-                              <StyledComponent
-                                forwardedComponent={
-                                  Object {
-                                    "$$typeof": Symbol(react.forward_ref),
-                                    "attrs": Array [],
-                                    "componentStyle": ComponentStyle {
-                                      "componentId": "ContentWrapper-sc-36hfub-0",
-                                      "isStatic": false,
-                                      "lastClassName": "dcZMKu",
-                                      "rules": Array [
-                                        "align-self:center;display:inline-flex;flex-wrap:nowrap;max-width:100%;position:relative;overflow:hidden;min-width:14px;",
-                                      ],
-                                    },
-                                    "displayName": "ContentWrapper",
-                                    "foldedComponentIds": Array [],
-                                    "render": [Function],
-                                    "styledComponentId": "ContentWrapper-sc-36hfub-0",
-                                    "target": "span",
-                                    "toString": [Function],
-                                    "warnTooManyClasses": [Function],
-                                    "withComponent": [Function],
-                                  }
+                            <ForwardRef(ButtonBase)
+                              className="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disableElevation"
+                              classes={
+                                Object {
+                                  "disabled": "Mui-disabled",
+                                  "focusVisible": "Mui-focusVisible",
+                                  "root": "MuiButtonBase-root",
                                 }
-                                forwardedRef={null}
+                              }
+                              component="button"
+                              disabled={false}
+                              focusRipple={true}
+                              focusVisibleClassName="Mui-focusVisible"
+                              type="submit"
+                            >
+                              <button
+                                className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disableElevation"
+                                disabled={false}
+                                onBlur={[Function]}
+                                onDragLeave={[Function]}
+                                onFocus={[Function]}
+                                onKeyDown={[Function]}
+                                onKeyUp={[Function]}
+                                onMouseDown={[Function]}
+                                onMouseLeave={[Function]}
+                                onMouseUp={[Function]}
+                                onTouchEnd={[Function]}
+                                onTouchMove={[Function]}
+                                onTouchStart={[Function]}
+                                tabIndex={0}
+                                type="submit"
                               >
                                 <span
-                                  className="ContentWrapper-sc-36hfub-0 dcZMKu"
+                                  className="MuiButton-label"
                                 >
-                                  <Content
-                                    isLoading={false}
-                                  >
-                                    <StyledComponent
-                                      forwardedComponent={
-                                        Object {
-                                          "$$typeof": Symbol(react.forward_ref),
-                                          "attrs": Array [],
-                                          "componentStyle": ComponentStyle {
-                                            "componentId": "Content-sc-18psqsj-0",
-                                            "isStatic": false,
-                                            "lastClassName": "bLWFGn",
-                                            "rules": Array [
-                                              "flex:1 1 auto;opacity:",
-                                              [Function],
-                                              ";overflow:hidden;text-overflow:ellipsis;white-space:nowrap;",
-                                            ],
-                                          },
-                                          "displayName": "Content",
-                                          "foldedComponentIds": Array [],
-                                          "render": [Function],
-                                          "styledComponentId": "Content-sc-18psqsj-0",
-                                          "target": "span",
-                                          "toString": [Function],
-                                          "warnTooManyClasses": [Function],
-                                          "withComponent": [Function],
-                                        }
-                                      }
-                                      forwardedRef={null}
-                                      isLoading={false}
-                                    >
-                                      <span
-                                        className="Content-sc-18psqsj-0 bLWFGn"
-                                      >
-                                        Submit
-                                      </span>
-                                    </StyledComponent>
-                                  </Content>
+                                  Submit
                                 </span>
-                              </StyledComponent>
-                            </ContentWrapper>
-                          </button>
-                        </StyledComponent>
-                      </StyledButton>
+                                <ForwardRef(WithStyles)
+                                  center={false}
+                                >
+                                  <ForwardRef(TouchRipple)
+                                    center={false}
+                                    classes={
+                                      Object {
+                                        "child": "MuiTouchRipple-child",
+                                        "childLeaving": "MuiTouchRipple-childLeaving",
+                                        "childPulsate": "MuiTouchRipple-childPulsate",
+                                        "ripple": "MuiTouchRipple-ripple",
+                                        "ripplePulsate": "MuiTouchRipple-ripplePulsate",
+                                        "rippleVisible": "MuiTouchRipple-rippleVisible",
+                                        "root": "MuiTouchRipple-root",
+                                      }
+                                    }
+                                  >
+                                    <span
+                                      className="MuiTouchRipple-root"
+                                    >
+                                      <TransitionGroup
+                                        childFactory={[Function]}
+                                        component={null}
+                                        exit={true}
+                                      />
+                                    </span>
+                                  </ForwardRef(TouchRipple)>
+                                </ForwardRef(WithStyles)>
+                              </button>
+                            </ForwardRef(ButtonBase)>
+                          </ForwardRef(WithStyles)>
+                        </ForwardRef(Button)>
+                      </ForwardRef(WithStyles)>
                     </Button>
                   </div>
                 </StyledComponent>

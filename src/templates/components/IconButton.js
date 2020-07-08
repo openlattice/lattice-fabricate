@@ -1,13 +1,9 @@
 // @flow
 import React from 'react';
-import styled from 'styled-components';
-import { Button } from 'lattice-ui-kit';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
-const StyledButton = styled(Button)`
-  padding: 0;
-`;
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Button } from 'lattice-ui-kit';
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 type Props = {
   onClick :() => void;
@@ -19,9 +15,9 @@ const IconButton = (props :Props) => {
   /* eslint-disable react/jsx-props-no-spreading */
   return (
     // $FlowFixMe
-    <StyledButton mode="subtle" onClick={onClick} {...restProps}>
+    <Button size="small" variant="text" color="primary" onClick={onClick} {...restProps}>
       <FontAwesomeIcon icon={icon} fixedWidth />
-    </StyledButton>
+    </Button>
   );
   /* eslint-enable */
 };

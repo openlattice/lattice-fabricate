@@ -6,58 +6,52 @@ import {
   Colors,
   LatticeLuxonUtils,
   MuiPickersUtilsProvider,
+  StylesProvider,
   ThemeProvider,
   lightTheme,
 } from 'lattice-ui-kit';
 
 import storybookTheme from './storybookTheme';
 
-const { NEUTRALS } = Colors;
+const { NEUTRAL } = Colors;
 
-const StoryWrapper = styled.div`
-  color: ${NEUTRALS[0]};
-  font-family: 'Open Sans', Arial, sans-serif;
+const StoryOuterWrapper = styled.div`
+  background-color: 'white';
+  color: ${NEUTRAL.N900};
+  display: flex;
+  font-family: 'Inter', Arial, sans-serif;
   font-stretch: normal;
   font-style: normal;
   font-weight: normal;
+  height: 100vh;
+  justify-content: center;
   letter-spacing: normal;
   line-height: 1.5;
-  background-color: ${NEUTRALS[7]};
-  height: 100%;
+  overflow: scroll;
+  position: relative;
   width: 100%;
   -webkit-font-smoothing: antialiased;
-  overflow: scroll;
 `;
 
-const AppContentWrapper = styled.div`
-  display: flex;
-  flex: 1 1 auto;
+const StoryInnerWrapper = styled.div`
+  max-width: 1200px;
+  padding: 30px;
   position: relative;
-  justify-content: center;
-`;
-
-const AppContentInnerWrapper = styled.div`
-  display: flex;
-  flex: 1 0 auto;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 1020px;
   width: 100%;
-  margin: 30px;
 `;
 
 addDecorator((StoryFn) => (
-  <StoryWrapper>
-    <AppContentWrapper>
-      <AppContentInnerWrapper>
-        <ThemeProvider theme={lightTheme}>
-          <MuiPickersUtilsProvider utils={LatticeLuxonUtils}>
+  <StoryOuterWrapper>
+    <StoryInnerWrapper>
+      <ThemeProvider theme={lightTheme}>
+        <MuiPickersUtilsProvider utils={LatticeLuxonUtils}>
+          <StylesProvider injectFirst>
             <StoryFn />
-          </MuiPickersUtilsProvider>
-        </ThemeProvider>
-      </AppContentInnerWrapper>
-    </AppContentWrapper>
-  </StoryWrapper>
+          </StylesProvider>
+        </MuiPickersUtilsProvider>
+      </ThemeProvider>
+    </StoryInnerWrapper>
+  </StoryOuterWrapper>
 ));
 
 addParameters({
