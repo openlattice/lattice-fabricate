@@ -2,15 +2,17 @@
 
 import React, { Component } from 'react';
 
+import { utils } from '@rjsf/core';
 import { ChoiceGroup } from 'lattice-ui-kit';
-import {
-  getWidget,
-  optionsList,
-  retrieveSchema
-} from 'react-jsonschema-form/lib/utils';
 
 import OtherInput from '../../../shared/OtherInput';
 import type { WidgetProps } from '../../../types';
+
+const {
+  getWidget,
+  optionsList,
+  retrieveSchema
+} = utils;
 
 const selectValue = (value, selected :any[], withNone :boolean) => {
   if (withNone) return selected.filter((v) => v !== 'None').concat(value);

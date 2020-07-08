@@ -3,12 +3,14 @@ import React, { Component } from 'react';
 import type { ComponentType } from 'react';
 
 import styled from 'styled-components';
+import { utils } from '@rjsf/core';
 import { Button, Colors } from 'lattice-ui-kit';
-import { getUiOptions } from 'react-jsonschema-form/lib/utils';
 
 import { ArrayFieldDescription, ArrayFieldTitle, DefaultArrayItem } from './components';
 
 // modified RJSF ArrayTemplate
+
+const { getUiOptions } = utils;
 
 const { NEUTRALS } = Colors;
 

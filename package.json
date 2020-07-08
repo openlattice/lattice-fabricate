@@ -34,7 +34,6 @@
     "lattice": "~0.74.0",
     "lodash": "~4.17.15",
     "loglevel": "~1.6.8",
-    "react-jsonschema-form": "~1.8.1",
     "react-signature-canvas": "~1.0.3",
     "xstate": "~4.10.0"
   },

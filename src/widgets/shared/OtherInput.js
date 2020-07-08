@@ -2,9 +2,11 @@
 import React from 'react';
 
 import styled from 'styled-components';
-import { getWidget } from 'react-jsonschema-form/lib/utils';
+import { utils } from '@rjsf/core';
 
 import type { WidgetProps } from '../types';
+
+const { getWidget } = utils;
 
 const OtherWrapper = styled.div`
   margin-top: 10px;
