@@ -5,6 +5,7 @@ declare type WidgetProps = {|
   disabled :boolean;
   formContext :Object;
   id :string;
+  label ? :string;
   name :string;
   onBlur :(id :string, value :any) => void;
   onChange :(value :any) => void;

@@ -4,9 +4,9 @@ import type { ComponentType } from 'react';
 
 import isFunction from 'lodash/isFunction';
 import { faPen } from '@fortawesome/free-solid-svg-icons';
+import { utils } from '@rjsf/core';
 import { fromJS, set } from 'immutable';
 import { Button } from 'lattice-ui-kit';
-import { getUiOptions } from 'react-jsonschema-form/lib/utils';
 
 import { parseIdIndex } from './utils';
 
@@ -20,6 +20,8 @@ import {
   replaceEntityAddressKeys,
   wrapFormDataInPageSection,
 } from '../../utils/DataProcessingUtils';
+
+const { getUiOptions } = utils;
 
 type Props = {
   DescriptionField :ComponentType<any>;
@@ -188,7 +190,7 @@ class ObjectFieldTemplate extends Component<Props, State> {
       <ActionGroup className="column-span-12" noPadding>
         <Button
             isLoading={updateState}
-            mode="primary"
+            color="primary"
             onClick={this.commitDraftFormData}>
           Save
         </Button>

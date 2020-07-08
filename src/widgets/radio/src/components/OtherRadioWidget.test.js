@@ -55,14 +55,12 @@ describe('OtherRadioWidget', () => {
   });
 
   test('selecting Other option should show a text field', () => {
-    const mockOnChange = jest.fn();
-    const wrapper = mount(<MockForm onChange={mockOnChange} />);
+    const wrapper = mount(<MockForm />);
     expect(wrapper.find('input[type="text"]')).toHaveLength(0);
 
     wrapper.find({ type: 'radio', label: 'Other', value: 'Other' }).prop('onChange')({ target: { checked: true } });
     wrapper.update();
 
-    expect(mockOnChange).toHaveBeenCalledTimes(1);
     const otherInput = wrapper.find('input[type="text"]');
     expect(otherInput).toHaveLength(1);
   });

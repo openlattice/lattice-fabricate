@@ -12,5 +12,4 @@ const entityIndexToIdMap = {
   ])
 };
 
-
 export default entityIndexToIdMap;

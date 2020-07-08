@@ -13,6 +13,10 @@ const Error = styled.div`
   margin: 5px 10px 0;
 `;
 
+const FieldLabel = styled(Label)`
+  font-size: 16px;
+`;
+
 type Props = {
   children :ChildrenArray<any>;
   classNames :string;
@@ -71,7 +75,7 @@ class FieldTemplate extends Component<Props> {
 
     return (
       <div className={classNames}>
-        {displayLabel && label && <Label htmlFor={id} required={required}>{label}</Label>}
+        {displayLabel && label && <FieldLabel htmlFor={id} required={required}>{label}</FieldLabel>}
         {description}
         {children}
         { this.renderErrors() }

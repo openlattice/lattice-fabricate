@@ -114,7 +114,6 @@ exports[`DateWidget should match snapshot 1`] = `
               "CheckboxesWidget": [Function],
               "DateTimeWidget": [Function],
               "DateWidget": [Function],
-              "FileWidget": [Function],
               "OtherRadioWidget": [Function],
               "RadioWidget": [Function],
               "SelectWidget": [Function],
@@ -144,10 +143,10 @@ exports[`DateWidget should match snapshot 1`] = `
                 "componentStyle": ComponentStyle {
                   "componentId": "StyledForm-dhnby8-0",
                   "isStatic": false,
-                  "lastClassName": "jbifAk",
+                  "lastClassName": "cOvdTB",
                   "rules": Array [
                     "legend{line-height:normal;font-size:16px;grid-column:1 / -1;font-weight:600;}> div.form-group.field.field-object >:first-child{display:grid;grid-template-columns:repeat(12,1fr);& > *{border-bottom:1px solid ",
-                    "#dcdce7",
+                    "#dfdfe3",
                     ";padding:",
                     [Function],
                     "}& > *:last-child{border-bottom:0;}& > legend{line-height:normal;font-size:18px;border-bottom:0;padding-bottom:0;margin:0;}}.column-span-1{grid-column:auto / span 1;}.column-span-2{grid-column:auto / span 2;}.column-span-3{grid-column:auto / span 3;}.column-span-4{grid-column:auto / span 4;}.column-span-5{grid-column:auto / span 5;}.column-span-6{grid-column:auto / span 6;}.column-span-7{grid-column:auto / span 7;}.column-span-8{grid-column:auto / span 8;}.column-span-9{grid-column:auto / span 9;}.column-span-10{grid-column:auto / span 10;}.column-span-11{grid-column:auto / span 11;}.column-span-12{grid-column:auto / span 12;}.grid-container{display:flex;flex:1;>:first-child{display:grid;grid-template-columns:repeat(12,1fr);grid-gap:20px 30px;width:100%;",
@@ -207,7 +206,6 @@ exports[`DateWidget should match snapshot 1`] = `
                 "CheckboxesWidget": [Function],
                 "DateTimeWidget": [Function],
                 "DateWidget": [Function],
-                "FileWidget": [Function],
                 "OtherRadioWidget": [Function],
                 "RadioWidget": [Function],
                 "SelectWidget": [Function],
@@ -222,7 +220,7 @@ exports[`DateWidget should match snapshot 1`] = `
               ErrorList={[Function]}
               FieldTemplate={[Function]}
               ObjectFieldTemplate={[Function]}
-              className="StyledForm-dhnby8-0 jbifAk"
+              className="StyledForm-dhnby8-0 cOvdTB"
               disabled={false}
               fields={
                 Object {
@@ -236,7 +234,6 @@ exports[`DateWidget should match snapshot 1`] = `
               noHtml5Validate={false}
               noValidate={false}
               omitExtraData={false}
-              safeRenderCompletion={false}
               schema={
                 Object {
                   "properties": Object {
@@ -272,7 +269,6 @@ exports[`DateWidget should match snapshot 1`] = `
                   "CheckboxesWidget": [Function],
                   "DateTimeWidget": [Function],
                   "DateWidget": [Function],
-                  "FileWidget": [Function],
                   "OtherRadioWidget": [Function],
                   "RadioWidget": [Function],
                   "SelectWidget": [Function],
@@ -283,7 +279,7 @@ exports[`DateWidget should match snapshot 1`] = `
               }
             >
               <form
-                className="StyledForm-dhnby8-0 jbifAk"
+                className="StyledForm-dhnby8-0 cOvdTB"
                 noValidate={false}
                 onSubmit={[Function]}
               >
@@ -325,6 +321,16 @@ exports[`DateWidget should match snapshot 1`] = `
                         "UnsupportedField": [Function],
                       },
                       "formContext": Object {},
+                      "rootSchema": Object {
+                        "properties": Object {
+                          "dateWidget": Object {
+                            "title": "ui:widget: DateWidget",
+                            "type": "string",
+                          },
+                        },
+                        "title": "dateWidget",
+                        "type": "object",
+                      },
                       "widgets": Object {
                         "AltDateTimeWidget": [Function],
                         "AltDateWidget": [Function],
@@ -351,7 +357,6 @@ exports[`DateWidget should match snapshot 1`] = `
                       },
                     }
                   }
-                  safeRenderCompletion={false}
                   schema={
                     Object {
                       "properties": Object {
@@ -419,6 +424,16 @@ exports[`DateWidget should match snapshot 1`] = `
                           "UnsupportedField": [Function],
                         },
                         "formContext": Object {},
+                        "rootSchema": Object {
+                          "properties": Object {
+                            "dateWidget": Object {
+                              "title": "ui:widget: DateWidget",
+                              "type": "string",
+                            },
+                          },
+                          "title": "dateWidget",
+                          "type": "object",
+                        },
                         "widgets": Object {
                           "AltDateTimeWidget": [Function],
                           "AltDateWidget": [Function],
@@ -445,7 +460,6 @@ exports[`DateWidget should match snapshot 1`] = `
                         },
                       }
                     }
-                    safeRenderCompletion={false}
                     schema={
                       Object {
                         "properties": Object {
@@ -508,6 +522,65 @@ exports[`DateWidget should match snapshot 1`] = `
                       id="root"
                       label="dateWidget"
                       readonly={false}
+                      registry={
+                        Object {
+                          "ArrayFieldTemplate": [Function],
+                          "FieldTemplate": [Function],
+                          "ObjectFieldTemplate": [Function],
+                          "definitions": Object {},
+                          "fields": Object {
+                            "AnyOfField": [Function],
+                            "ArrayField": [Function],
+                            "BooleanField": [Function],
+                            "BulletField": [Function],
+                            "DescriptionField": [Function],
+                            "NullField": [Function],
+                            "NumberField": [Function],
+                            "ObjectField": [Function],
+                            "OneOfField": [Function],
+                            "ParagraphField": [Function],
+                            "SchemaField": [Function],
+                            "StringField": [Function],
+                            "TitleField": [Function],
+                            "UnsupportedField": [Function],
+                          },
+                          "formContext": Object {},
+                          "rootSchema": Object {
+                            "properties": Object {
+                              "dateWidget": Object {
+                                "title": "ui:widget: DateWidget",
+                                "type": "string",
+                              },
+                            },
+                            "title": "dateWidget",
+                            "type": "object",
+                          },
+                          "widgets": Object {
+                            "AltDateTimeWidget": [Function],
+                            "AltDateWidget": [Function],
+                            "BaseInput": [Function],
+                            "CheckboxWidget": [Function],
+                            "CheckboxesWidget": [Function],
+                            "ColorWidget": [Function],
+                            "DateTimeWidget": [Function],
+                            "DateWidget": [Function],
+                            "EmailWidget": [Function],
+                            "FileWidget": [Function],
+                            "HiddenWidget": [Function],
+                            "OtherRadioWidget": [Function],
+                            "PasswordWidget": [Function],
+                            "RadioWidget": [Function],
+                            "RangeWidget": [Function],
+                            "SelectWidget": [Function],
+                            "SignatureWidget": [Function],
+                            "TextWidget": [Function],
+                            "TextareaWidget": [Function],
+                            "TimeWidget": [Function],
+                            "URLWidget": [Function],
+                            "UpDownWidget": [Function],
+                          },
+                        }
+                      }
                       required={false}
                       schema={
                         Object {
@@ -584,6 +657,16 @@ exports[`DateWidget should match snapshot 1`] = `
                                 "UnsupportedField": [Function],
                               },
                               "formContext": Object {},
+                              "rootSchema": Object {
+                                "properties": Object {
+                                  "dateWidget": Object {
+                                    "title": "ui:widget: DateWidget",
+                                    "type": "string",
+                                  },
+                                },
+                                "title": "dateWidget",
+                                "type": "object",
+                              },
                               "widgets": Object {
                                 "AltDateTimeWidget": [Function],
                                 "AltDateWidget": [Function],
@@ -611,7 +694,6 @@ exports[`DateWidget should match snapshot 1`] = `
                             }
                           }
                           required={false}
-                          safeRenderCompletion={false}
                           schema={
                             Object {
                               "properties": Object {
@@ -694,6 +776,16 @@ exports[`DateWidget should match snapshot 1`] = `
                                           "UnsupportedField": [Function],
                                         },
                                         "formContext": Object {},
+                                        "rootSchema": Object {
+                                          "properties": Object {
+                                            "dateWidget": Object {
+                                              "title": "ui:widget: DateWidget",
+                                              "type": "string",
+                                            },
+                                          },
+                                          "title": "dateWidget",
+                                          "type": "object",
+                                        },
                                         "widgets": Object {
                                           "AltDateTimeWidget": [Function],
                                           "AltDateWidget": [Function],
@@ -827,6 +919,16 @@ exports[`DateWidget should match snapshot 1`] = `
                                       "UnsupportedField": [Function],
                                     },
                                     "formContext": Object {},
+                                    "rootSchema": Object {
+                                      "properties": Object {
+                                        "dateWidget": Object {
+                                          "title": "ui:widget: DateWidget",
+                                          "type": "string",
+                                        },
+                                      },
+                                      "title": "dateWidget",
+                                      "type": "object",
+                                    },
                                     "widgets": Object {
                                       "AltDateTimeWidget": [Function],
                                       "AltDateWidget": [Function],
@@ -912,6 +1014,16 @@ exports[`DateWidget should match snapshot 1`] = `
                                         "UnsupportedField": [Function],
                                       },
                                       "formContext": Object {},
+                                      "rootSchema": Object {
+                                        "properties": Object {
+                                          "dateWidget": Object {
+                                            "title": "ui:widget: DateWidget",
+                                            "type": "string",
+                                          },
+                                        },
+                                        "title": "dateWidget",
+                                        "type": "object",
+                                      },
                                       "widgets": Object {
                                         "AltDateTimeWidget": [Function],
                                         "AltDateWidget": [Function],
@@ -995,6 +1107,65 @@ exports[`DateWidget should match snapshot 1`] = `
                                     onDropPropertyClick={[Function]}
                                     onKeyChange={[Function]}
                                     readonly={false}
+                                    registry={
+                                      Object {
+                                        "ArrayFieldTemplate": [Function],
+                                        "FieldTemplate": [Function],
+                                        "ObjectFieldTemplate": [Function],
+                                        "definitions": Object {},
+                                        "fields": Object {
+                                          "AnyOfField": [Function],
+                                          "ArrayField": [Function],
+                                          "BooleanField": [Function],
+                                          "BulletField": [Function],
+                                          "DescriptionField": [Function],
+                                          "NullField": [Function],
+                                          "NumberField": [Function],
+                                          "ObjectField": [Function],
+                                          "OneOfField": [Function],
+                                          "ParagraphField": [Function],
+                                          "SchemaField": [Function],
+                                          "StringField": [Function],
+                                          "TitleField": [Function],
+                                          "UnsupportedField": [Function],
+                                        },
+                                        "formContext": Object {},
+                                        "rootSchema": Object {
+                                          "properties": Object {
+                                            "dateWidget": Object {
+                                              "title": "ui:widget: DateWidget",
+                                              "type": "string",
+                                            },
+                                          },
+                                          "title": "dateWidget",
+                                          "type": "object",
+                                        },
+                                        "widgets": Object {
+                                          "AltDateTimeWidget": [Function],
+                                          "AltDateWidget": [Function],
+                                          "BaseInput": [Function],
+                                          "CheckboxWidget": [Function],
+                                          "CheckboxesWidget": [Function],
+                                          "ColorWidget": [Function],
+                                          "DateTimeWidget": [Function],
+                                          "DateWidget": [Function],
+                                          "EmailWidget": [Function],
+                                          "FileWidget": [Function],
+                                          "HiddenWidget": [Function],
+                                          "OtherRadioWidget": [Function],
+                                          "PasswordWidget": [Function],
+                                          "RadioWidget": [Function],
+                                          "RangeWidget": [Function],
+                                          "SelectWidget": [Function],
+                                          "SignatureWidget": [Function],
+                                          "TextWidget": [Function],
+                                          "TextareaWidget": [Function],
+                                          "TimeWidget": [Function],
+                                          "URLWidget": [Function],
+                                          "UpDownWidget": [Function],
+                                        },
+                                      }
+                                    }
                                     required={false}
                                     schema={
                                       Object {
@@ -1017,7 +1188,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                     <div
                                       className="form-group field field-string  column-span-12"
                                     >
-                                      <Label
+                                      <FieldTemplate__FieldLabel
                                         htmlFor="root_dateWidget"
                                         required={false}
                                       >
@@ -1027,12 +1198,12 @@ exports[`DateWidget should match snapshot 1`] = `
                                               "$$typeof": Symbol(react.forward_ref),
                                               "attrs": Array [],
                                               "componentStyle": ComponentStyle {
-                                                "componentId": "Label-sc-130fyca-0",
+                                                "componentId": "FieldTemplate__FieldLabel-sc-1c6bjb1-1",
                                                 "isStatic": false,
-                                                "lastClassName": "jnVjhS",
+                                                "lastClassName": "gTJQwo",
                                                 "rules": Array [
                                                   "color:",
-                                                  "#555e6f",
+                                                  "#1f1f22",
                                                   ";display:inline-block;font-size:14px;font-stretch:normal;font-style:normal;font-weight:",
                                                   [Function],
                                                   ";letter-spacing:normal;margin:5px 5px 5px 0;visibility:",
@@ -1042,12 +1213,15 @@ exports[`DateWidget should match snapshot 1`] = `
                                                   ";",
                                                   [Function],
                                                   ";",
+                                                  "font-size:16px;",
                                                 ],
                                               },
-                                              "displayName": "Label",
-                                              "foldedComponentIds": Array [],
+                                              "displayName": "FieldTemplate__FieldLabel",
+                                              "foldedComponentIds": Array [
+                                                "Label-sc-130fyca-0",
+                                              ],
                                               "render": [Function],
-                                              "styledComponentId": "Label-sc-130fyca-0",
+                                              "styledComponentId": "FieldTemplate__FieldLabel-sc-1c6bjb1-1",
                                               "target": "label",
                                               "toString": [Function],
                                               "warnTooManyClasses": [Function],
@@ -1059,14 +1233,14 @@ exports[`DateWidget should match snapshot 1`] = `
                                           required={false}
                                         >
                                           <label
-                                            className="Label-sc-130fyca-0 jnVjhS"
+                                            className="Label-sc-130fyca-0 FieldTemplate__FieldLabel-sc-1c6bjb1-1 gTJQwo"
                                             htmlFor="root_dateWidget"
                                             required={false}
                                           >
                                             ui:widget: DateWidget
                                           </label>
                                         </StyledComponent>
-                                      </Label>
+                                      </FieldTemplate__FieldLabel>
                                       <DescriptionField
                                         formContext={Object {}}
                                         id="root_dateWidget__description"
@@ -1111,6 +1285,16 @@ exports[`DateWidget should match snapshot 1`] = `
                                               "UnsupportedField": [Function],
                                             },
                                             "formContext": Object {},
+                                            "rootSchema": Object {
+                                              "properties": Object {
+                                                "dateWidget": Object {
+                                                  "title": "ui:widget: DateWidget",
+                                                  "type": "string",
+                                                },
+                                              },
+                                              "title": "dateWidget",
+                                              "type": "object",
+                                            },
                                             "widgets": Object {
                                               "AltDateTimeWidget": [Function],
                                               "AltDateWidget": [Function],
@@ -1198,6 +1382,16 @@ exports[`DateWidget should match snapshot 1`] = `
                                                 "UnsupportedField": [Function],
                                               },
                                               "formContext": Object {},
+                                              "rootSchema": Object {
+                                                "properties": Object {
+                                                  "dateWidget": Object {
+                                                    "title": "ui:widget: DateWidget",
+                                                    "type": "string",
+                                                  },
+                                                },
+                                                "title": "dateWidget",
+                                                "type": "object",
+                                              },
                                               "widgets": Object {
                                                 "AltDateTimeWidget": [Function],
                                                 "AltDateWidget": [Function],
@@ -1229,6 +1423,17 @@ exports[`DateWidget should match snapshot 1`] = `
                                             Object {
                                               "title": "ui:widget: DateWidget",
                                               "type": "string",
+                                            }
+                                          }
+                                          uiSchema={
+                                            Object {
+                                              "classNames": undefined,
+                                              "ui:options": Object {
+                                                "format": "yyyy/MM/dd",
+                                                "mask": "____/__/__",
+                                                "placeholder": "YYYY/MM/DD",
+                                              },
+                                              "ui:widget": "DateWidget",
                                             }
                                           }
                                         >
@@ -1273,6 +1478,16 @@ exports[`DateWidget should match snapshot 1`] = `
                                                   "UnsupportedField": [Function],
                                                 },
                                                 "formContext": Object {},
+                                                "rootSchema": Object {
+                                                  "properties": Object {
+                                                    "dateWidget": Object {
+                                                      "title": "ui:widget: DateWidget",
+                                                      "type": "string",
+                                                    },
+                                                  },
+                                                  "title": "dateWidget",
+                                                  "type": "object",
+                                                },
                                                 "widgets": Object {
                                                   "AltDateTimeWidget": [Function],
                                                   "AltDateWidget": [Function],
@@ -1306,6 +1521,17 @@ exports[`DateWidget should match snapshot 1`] = `
                                                 "type": "string",
                                               }
                                             }
+                                            uiSchema={
+                                              Object {
+                                                "classNames": undefined,
+                                                "ui:options": Object {
+                                                  "format": "yyyy/MM/dd",
+                                                  "mask": "____/__/__",
+                                                  "placeholder": "YYYY/MM/DD",
+                                                },
+                                                "ui:widget": "DateWidget",
+                                              }
+                                            }
                                           >
                                             <DatePicker
                                               disabled={false}
@@ -1329,7 +1555,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                 format="yyyy/MM/dd"
                                                 fullWidth={true}
                                                 id="root_dateWidget"
-                                                inputVariant="outlined"
+                                                inputVariant="filled"
                                                 invalidDateMessage="Invalid Date Format"
                                                 mask="____/__/__"
                                                 maxDate={2100-01-01T00:00:00.000Z}
@@ -1369,7 +1595,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                   format="yyyy/MM/dd"
                                                   fullWidth={true}
                                                   id="root_dateWidget"
-                                                  inputVariant="outlined"
+                                                  inputVariant="filled"
                                                   mask="____/__/__"
                                                   onAccept={[Function]}
                                                   onClear={[Function]}
@@ -1400,7 +1626,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                     format="yyyy/MM/dd"
                                                     fullWidth={true}
                                                     id="root_dateWidget"
-                                                    inputVariant="outlined"
+                                                    inputVariant="filled"
                                                     mask="____/__/__"
                                                     onAccept={[Function]}
                                                     onClear={[Function]}
@@ -1424,7 +1650,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                         Object {
                                                           "current": <input
                                                             aria-invalid="false"
-                                                            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                                                            class="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputAdornedEnd MuiFilledInput-inputAdornedEnd"
                                                             id="root_dateWidget"
                                                             placeholder="YYYY/MM/DD"
                                                             type="text"
@@ -1433,7 +1659,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                         }
                                                       }
                                                       inputValue=""
-                                                      inputVariant="outlined"
+                                                      inputVariant="filled"
                                                       keyboardIcon={<KeyboardIcon />}
                                                       mask="____/__/__"
                                                       onChange={[Function]}
@@ -1474,7 +1700,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                             Object {
                                                               "current": <input
                                                                 aria-invalid="false"
-                                                                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                                                                class="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputAdornedEnd MuiFilledInput-inputAdornedEnd"
                                                                 id="root_dateWidget"
                                                                 placeholder="YYYY/MM/DD"
                                                                 type="text"
@@ -1485,7 +1711,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                           onChange={[Function]}
                                                           placeholder="YYYY/MM/DD"
                                                           value=""
-                                                          variant="outlined"
+                                                          variant="filled"
                                                         >
                                                           <ForwardRef(TextField)
                                                             InputProps={
@@ -1518,7 +1744,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                               Object {
                                                                 "current": <input
                                                                   aria-invalid="false"
-                                                                  class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                                                                  class="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputAdornedEnd MuiFilledInput-inputAdornedEnd"
                                                                   id="root_dateWidget"
                                                                   placeholder="YYYY/MM/DD"
                                                                   type="text"
@@ -1529,7 +1755,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                             onChange={[Function]}
                                                             placeholder="YYYY/MM/DD"
                                                             value=""
-                                                            variant="outlined"
+                                                            variant="filled"
                                                           >
                                                             <ForwardRef(WithStyles)
                                                               className="MuiTextField-root"
@@ -1538,7 +1764,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                               error={false}
                                                               fullWidth={true}
                                                               required={false}
-                                                              variant="outlined"
+                                                              variant="filled"
                                                             >
                                                               <ForwardRef(FormControl)
                                                                 className="MuiTextField-root"
@@ -1555,7 +1781,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                 error={false}
                                                                 fullWidth={true}
                                                                 required={false}
-                                                                variant="outlined"
+                                                                variant="filled"
                                                               >
                                                                 <div
                                                                   className="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
@@ -1580,7 +1806,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                       Object {
                                                                         "current": <input
                                                                           aria-invalid="false"
-                                                                          class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                                                                          class="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputAdornedEnd MuiFilledInput-inputAdornedEnd"
                                                                           id="root_dateWidget"
                                                                           placeholder="YYYY/MM/DD"
                                                                           type="text"
@@ -1595,25 +1821,26 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                     placeholder="YYYY/MM/DD"
                                                                     value=""
                                                                   >
-                                                                    <ForwardRef(OutlinedInput)
+                                                                    <ForwardRef(FilledInput)
                                                                       autoFocus={false}
                                                                       classes={
                                                                         Object {
-                                                                          "adornedEnd": "MuiOutlinedInput-adornedEnd",
-                                                                          "adornedStart": "MuiOutlinedInput-adornedStart",
-                                                                          "colorSecondary": "MuiOutlinedInput-colorSecondary",
+                                                                          "adornedEnd": "MuiFilledInput-adornedEnd",
+                                                                          "adornedStart": "MuiFilledInput-adornedStart",
+                                                                          "colorSecondary": "MuiFilledInput-colorSecondary",
                                                                           "disabled": "Mui-disabled",
                                                                           "error": "Mui-error",
                                                                           "focused": "Mui-focused",
-                                                                          "input": "MuiOutlinedInput-input",
-                                                                          "inputAdornedEnd": "MuiOutlinedInput-inputAdornedEnd",
-                                                                          "inputAdornedStart": "MuiOutlinedInput-inputAdornedStart",
-                                                                          "inputMarginDense": "MuiOutlinedInput-inputMarginDense",
-                                                                          "inputMultiline": "MuiOutlinedInput-inputMultiline",
-                                                                          "marginDense": "MuiOutlinedInput-marginDense",
-                                                                          "multiline": "MuiOutlinedInput-multiline",
-                                                                          "notchedOutline": "MuiOutlinedInput-notchedOutline",
-                                                                          "root": "MuiOutlinedInput-root",
+                                                                          "input": "MuiFilledInput-input",
+                                                                          "inputAdornedEnd": "MuiFilledInput-inputAdornedEnd",
+                                                                          "inputAdornedStart": "MuiFilledInput-inputAdornedStart",
+                                                                          "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
+                                                                          "inputMarginDense": "MuiFilledInput-inputMarginDense",
+                                                                          "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                                          "marginDense": "MuiFilledInput-marginDense",
+                                                                          "multiline": "MuiFilledInput-multiline",
+                                                                          "root": "MuiFilledInput-root",
+                                                                          "underline": "MuiFilledInput-underline",
                                                                         }
                                                                       }
                                                                       endAdornment={
@@ -1634,7 +1861,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                         Object {
                                                                           "current": <input
                                                                             aria-invalid="false"
-                                                                            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                                                                            class="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputAdornedEnd MuiFilledInput-inputAdornedEnd"
                                                                             id="root_dateWidget"
                                                                             placeholder="YYYY/MM/DD"
                                                                             type="text"
@@ -1653,21 +1880,22 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                         autoFocus={false}
                                                                         classes={
                                                                           Object {
-                                                                            "adornedEnd": "MuiOutlinedInput-adornedEnd",
-                                                                            "adornedStart": "MuiOutlinedInput-adornedStart",
-                                                                            "colorSecondary": "MuiOutlinedInput-colorSecondary",
+                                                                            "adornedEnd": "MuiFilledInput-adornedEnd",
+                                                                            "adornedStart": "MuiFilledInput-adornedStart",
+                                                                            "colorSecondary": "MuiFilledInput-colorSecondary",
                                                                             "disabled": "Mui-disabled",
                                                                             "error": "Mui-error",
                                                                             "focused": "Mui-focused",
-                                                                            "input": "MuiOutlinedInput-input",
-                                                                            "inputAdornedEnd": "MuiOutlinedInput-inputAdornedEnd",
-                                                                            "inputAdornedStart": "MuiOutlinedInput-inputAdornedStart",
-                                                                            "inputMarginDense": "MuiOutlinedInput-inputMarginDense",
-                                                                            "inputMultiline": "MuiOutlinedInput-inputMultiline",
-                                                                            "marginDense": "MuiOutlinedInput-marginDense",
-                                                                            "multiline": "MuiOutlinedInput-multiline",
-                                                                            "notchedOutline": null,
-                                                                            "root": "MuiOutlinedInput-root",
+                                                                            "input": "MuiFilledInput-input",
+                                                                            "inputAdornedEnd": "MuiFilledInput-inputAdornedEnd",
+                                                                            "inputAdornedStart": "MuiFilledInput-inputAdornedStart",
+                                                                            "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
+                                                                            "inputMarginDense": "MuiFilledInput-inputMarginDense",
+                                                                            "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                                            "marginDense": "MuiFilledInput-marginDense",
+                                                                            "multiline": "MuiFilledInput-multiline",
+                                                                            "root": "MuiFilledInput-root MuiFilledInput-underline",
+                                                                            "underline": null,
                                                                           }
                                                                         }
                                                                         endAdornment={
@@ -1689,7 +1917,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                           Object {
                                                                             "current": <input
                                                                               aria-invalid="false"
-                                                                              class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                                                                              class="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputAdornedEnd MuiFilledInput-inputAdornedEnd"
                                                                               id="root_dateWidget"
                                                                               placeholder="YYYY/MM/DD"
                                                                               type="text"
@@ -1702,7 +1930,6 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                         onChange={[Function]}
                                                                         onKeyDown={[Function]}
                                                                         placeholder="YYYY/MM/DD"
-                                                                        renderSuffix={[Function]}
                                                                         type="text"
                                                                         value=""
                                                                       >
@@ -1710,24 +1937,24 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                           autoFocus={false}
                                                                           classes={
                                                                             Object {
-                                                                              "adornedEnd": "MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd",
-                                                                              "adornedStart": "MuiInputBase-adornedStart MuiOutlinedInput-adornedStart",
-                                                                              "colorSecondary": "MuiInputBase-colorSecondary MuiOutlinedInput-colorSecondary",
+                                                                              "adornedEnd": "MuiInputBase-adornedEnd MuiFilledInput-adornedEnd",
+                                                                              "adornedStart": "MuiInputBase-adornedStart MuiFilledInput-adornedStart",
+                                                                              "colorSecondary": "MuiInputBase-colorSecondary MuiFilledInput-colorSecondary",
                                                                               "disabled": "Mui-disabled Mui-disabled",
                                                                               "error": "Mui-error Mui-error",
                                                                               "focused": "Mui-focused Mui-focused",
                                                                               "formControl": "MuiInputBase-formControl",
                                                                               "fullWidth": "MuiInputBase-fullWidth",
-                                                                              "input": "MuiInputBase-input MuiOutlinedInput-input",
-                                                                              "inputAdornedEnd": "MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd",
-                                                                              "inputAdornedStart": "MuiInputBase-inputAdornedStart MuiOutlinedInput-inputAdornedStart",
-                                                                              "inputHiddenLabel": "MuiInputBase-inputHiddenLabel",
-                                                                              "inputMarginDense": "MuiInputBase-inputMarginDense MuiOutlinedInput-inputMarginDense",
-                                                                              "inputMultiline": "MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline",
+                                                                              "input": "MuiInputBase-input MuiFilledInput-input",
+                                                                              "inputAdornedEnd": "MuiInputBase-inputAdornedEnd MuiFilledInput-inputAdornedEnd",
+                                                                              "inputAdornedStart": "MuiInputBase-inputAdornedStart MuiFilledInput-inputAdornedStart",
+                                                                              "inputHiddenLabel": "MuiInputBase-inputHiddenLabel MuiFilledInput-inputHiddenLabel",
+                                                                              "inputMarginDense": "MuiInputBase-inputMarginDense MuiFilledInput-inputMarginDense",
+                                                                              "inputMultiline": "MuiInputBase-inputMultiline MuiFilledInput-inputMultiline",
                                                                               "inputTypeSearch": "MuiInputBase-inputTypeSearch",
-                                                                              "marginDense": "MuiInputBase-marginDense MuiOutlinedInput-marginDense",
-                                                                              "multiline": "MuiInputBase-multiline MuiOutlinedInput-multiline",
-                                                                              "root": "MuiInputBase-root MuiOutlinedInput-root",
+                                                                              "marginDense": "MuiInputBase-marginDense MuiFilledInput-marginDense",
+                                                                              "multiline": "MuiInputBase-multiline MuiFilledInput-multiline",
+                                                                              "root": "MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline",
                                                                             }
                                                                           }
                                                                           endAdornment={
@@ -1749,7 +1976,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                             Object {
                                                                               "current": <input
                                                                                 aria-invalid="false"
-                                                                                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                                                                                class="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputAdornedEnd MuiFilledInput-inputAdornedEnd"
                                                                                 id="root_dateWidget"
                                                                                 placeholder="YYYY/MM/DD"
                                                                                 type="text"
@@ -1762,18 +1989,17 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                           onChange={[Function]}
                                                                           onKeyDown={[Function]}
                                                                           placeholder="YYYY/MM/DD"
-                                                                          renderSuffix={[Function]}
                                                                           type="text"
                                                                           value=""
                                                                         >
                                                                           <div
-                                                                            className="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiOutlinedInput-adornedEnd"
+                                                                            className="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-adornedEnd MuiFilledInput-adornedEnd"
                                                                             onClick={[Function]}
                                                                           >
                                                                             <input
                                                                               aria-invalid={false}
                                                                               autoFocus={false}
-                                                                              className="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd MuiOutlinedInput-inputAdornedEnd"
+                                                                              className="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputAdornedEnd MuiFilledInput-inputAdornedEnd"
                                                                               disabled={false}
                                                                               id="root_dateWidget"
                                                                               onAnimationStart={[Function]}
@@ -1804,7 +2030,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                                 position="end"
                                                                               >
                                                                                 <div
-                                                                                  className="MuiInputAdornment-root MuiInputAdornment-positionEnd"
+                                                                                  className="MuiInputAdornment-root MuiInputAdornment-filled MuiInputAdornment-positionEnd"
                                                                                 >
                                                                                   <ForwardRef(WithStyles)
                                                                                     disabled={false}
@@ -1887,7 +2113,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                                                     }
                                                                                                   >
                                                                                                     <svg
-                                                                                                      aria-hidden="true"
+                                                                                                      aria-hidden={true}
                                                                                                       className="MuiSvgIcon-root"
                                                                                                       focusable="false"
                                                                                                       viewBox="0 0 24 24"
@@ -1940,56 +2166,10 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                                 </div>
                                                                               </ForwardRef(InputAdornment)>
                                                                             </ForwardRef(WithStyles)>
-                                                                            <ForwardRef(WithStyles)
-                                                                              className="MuiOutlinedInput-notchedOutline"
-                                                                              labelWidth={0}
-                                                                              notched={false}
-                                                                            >
-                                                                              <ForwardRef(NotchedOutline)
-                                                                                className="MuiOutlinedInput-notchedOutline"
-                                                                                classes={
-                                                                                  Object {
-                                                                                    "legend": "jss68",
-                                                                                    "legendLabelled": "jss69",
-                                                                                    "legendNotched": "jss70",
-                                                                                    "root": "jss67",
-                                                                                  }
-                                                                                }
-                                                                                labelWidth={0}
-                                                                                notched={false}
-                                                                              >
-                                                                                <fieldset
-                                                                                  aria-hidden={true}
-                                                                                  className="jss67 MuiOutlinedInput-notchedOutline"
-                                                                                  style={
-                                                                                    Object {
-                                                                                      "paddingLeft": 8,
-                                                                                    }
-                                                                                  }
-                                                                                >
-                                                                                  <legend
-                                                                                    className="jss68"
-                                                                                    style={
-                                                                                      Object {
-                                                                                        "width": 0.01,
-                                                                                      }
-                                                                                    }
-                                                                                  >
-                                                                                    <span
-                                                                                      dangerouslySetInnerHTML={
-                                                                                        Object {
-                                                                                          "__html": "&#8203;",
-                                                                                        }
-                                                                                      }
-                                                                                    />
-                                                                                  </legend>
-                                                                                </fieldset>
-                                                                              </ForwardRef(NotchedOutline)>
-                                                                            </ForwardRef(WithStyles)>
                                                                           </div>
                                                                         </ForwardRef(InputBase)>
                                                                       </ForwardRef(WithStyles)>
-                                                                    </ForwardRef(OutlinedInput)>
+                                                                    </ForwardRef(FilledInput)>
                                                                   </ForwardRef(WithStyles)>
                                                                 </div>
                                                               </ForwardRef(FormControl)>
@@ -2100,146 +2280,138 @@ exports[`DateWidget should match snapshot 1`] = `
                       className="ActionGroup-sc-1hp5mpm-0 iYwyvW"
                     >
                       <Button
-                        disabled={false}
-                        fontColor=""
+                        color="primary"
                         isLoading={false}
-                        mode="primary"
                         type="submit"
+                        variant="contained"
                       >
-                        <StyledButton
+                        <ForwardRef(WithStyles)
+                          className=""
+                          color="primary"
+                          disableElevation={true}
                           disabled={false}
-                          fontColor=""
-                          mode="primary"
                           type="submit"
+                          variant="contained"
                         >
-                          <StyledComponent
-                            disabled={false}
-                            fontColor=""
-                            forwardedComponent={
+                          <ForwardRef(Button)
+                            className=""
+                            classes={
                               Object {
-                                "$$typeof": Symbol(react.forward_ref),
-                                "attrs": Array [],
-                                "componentStyle": ComponentStyle {
-                                  "componentId": "StyledButton-sc-1etazn9-0",
-                                  "isStatic": false,
-                                  "lastClassName": "iHfePs",
-                                  "rules": Array [
-                                    "border-radius:3px;border-style:solid;border-width:1px;box-sizing:border-box;cursor:pointer;font-size:14px;line-height:18px;outline:none;padding:10px 20px;text-align:center;text-decoration:none;transition:background-color ",
-                                    "100ms",
-                                    " ease-out,border-color ",
-                                    "100ms",
-                                    " ease-out,box-shadow ",
-                                    "100ms",
-                                    " ease-out;width:",
-                                    [Function],
-                                    ";white-space:nowrap;",
-                                    [Function],
-                                    ";",
-                                    [Function],
-                                    ";:hover{cursor:pointer;text-decoration:none;",
-                                    [Function],
-                                    "};:active{text-decoration:none;",
-                                    [Function],
-                                    "};:disabled{cursor:not-allowed;text-decoration:none;",
-                                    [Function],
-                                    "};:focus{",
-                                    [Function],
-                                    "}",
-                                  ],
-                                },
-                                "displayName": "StyledButton",
-                                "foldedComponentIds": Array [],
-                                "render": [Function],
-                                "styledComponentId": "StyledButton-sc-1etazn9-0",
-                                "target": "button",
-                                "toString": [Function],
-                                "warnTooManyClasses": [Function],
-                                "withComponent": [Function],
+                                "colorInherit": "MuiButton-colorInherit",
+                                "contained": "MuiButton-contained",
+                                "containedPrimary": "MuiButton-containedPrimary",
+                                "containedSecondary": "MuiButton-containedSecondary",
+                                "containedSizeLarge": "MuiButton-containedSizeLarge",
+                                "containedSizeSmall": "MuiButton-containedSizeSmall",
+                                "disableElevation": "MuiButton-disableElevation",
+                                "disabled": "Mui-disabled",
+                                "endIcon": "MuiButton-endIcon",
+                                "focusVisible": "Mui-focusVisible",
+                                "fullWidth": "MuiButton-fullWidth",
+                                "iconSizeLarge": "MuiButton-iconSizeLarge",
+                                "iconSizeMedium": "MuiButton-iconSizeMedium",
+                                "iconSizeSmall": "MuiButton-iconSizeSmall",
+                                "label": "MuiButton-label",
+                                "outlined": "MuiButton-outlined",
+                                "outlinedPrimary": "MuiButton-outlinedPrimary",
+                                "outlinedSecondary": "MuiButton-outlinedSecondary",
+                                "outlinedSizeLarge": "MuiButton-outlinedSizeLarge",
+                                "outlinedSizeSmall": "MuiButton-outlinedSizeSmall",
+                                "root": "MuiButton-root",
+                                "sizeLarge": "MuiButton-sizeLarge",
+                                "sizeSmall": "MuiButton-sizeSmall",
+                                "startIcon": "MuiButton-startIcon",
+                                "text": "MuiButton-text",
+                                "textPrimary": "MuiButton-textPrimary",
+                                "textSecondary": "MuiButton-textSecondary",
+                                "textSizeLarge": "MuiButton-textSizeLarge",
+                                "textSizeSmall": "MuiButton-textSizeSmall",
                               }
                             }
-                            forwardedRef={null}
-                            mode="primary"
+                            color="primary"
+                            disableElevation={true}
+                            disabled={false}
                             type="submit"
+                            variant="contained"
                           >
-                            <button
-                              className="StyledButton-sc-1etazn9-0 iHfePs"
+                            <ForwardRef(WithStyles)
+                              className="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disableElevation"
+                              component="button"
                               disabled={false}
-                              mode="primary"
+                              focusRipple={true}
+                              focusVisibleClassName="Mui-focusVisible"
                               type="submit"
                             >
-                              <ContentWrapper>
-                                <StyledComponent
-                                  forwardedComponent={
-                                    Object {
-                                      "$$typeof": Symbol(react.forward_ref),
-                                      "attrs": Array [],
-                                      "componentStyle": ComponentStyle {
-                                        "componentId": "ContentWrapper-sc-36hfub-0",
-                                        "isStatic": false,
-                                        "lastClassName": "dcZMKu",
-                                        "rules": Array [
-                                          "align-self:center;display:inline-flex;flex-wrap:nowrap;max-width:100%;position:relative;overflow:hidden;min-width:14px;",
-                                        ],
-                                      },
-                                      "displayName": "ContentWrapper",
-                                      "foldedComponentIds": Array [],
-                                      "render": [Function],
-                                      "styledComponentId": "ContentWrapper-sc-36hfub-0",
-                                      "target": "span",
-                                      "toString": [Function],
-                                      "warnTooManyClasses": [Function],
-                                      "withComponent": [Function],
-                                    }
+                              <ForwardRef(ButtonBase)
+                                className="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disableElevation"
+                                classes={
+                                  Object {
+                                    "disabled": "Mui-disabled",
+                                    "focusVisible": "Mui-focusVisible",
+                                    "root": "MuiButtonBase-root",
                                   }
-                                  forwardedRef={null}
+                                }
+                                component="button"
+                                disabled={false}
+                                focusRipple={true}
+                                focusVisibleClassName="Mui-focusVisible"
+                                type="submit"
+                              >
+                                <button
+                                  className="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-disableElevation"
+                                  disabled={false}
+                                  onBlur={[Function]}
+                                  onDragLeave={[Function]}
+                                  onFocus={[Function]}
+                                  onKeyDown={[Function]}
+                                  onKeyUp={[Function]}
+                                  onMouseDown={[Function]}
+                                  onMouseLeave={[Function]}
+                                  onMouseUp={[Function]}
+                                  onTouchEnd={[Function]}
+                                  onTouchMove={[Function]}
+                                  onTouchStart={[Function]}
+                                  tabIndex={0}
+                                  type="submit"
                                 >
                                   <span
-                                    className="ContentWrapper-sc-36hfub-0 dcZMKu"
+                                    className="MuiButton-label"
                                   >
-                                    <Content
-                                      isLoading={false}
-                                    >
-                                      <StyledComponent
-                                        forwardedComponent={
-                                          Object {
-                                            "$$typeof": Symbol(react.forward_ref),
-                                            "attrs": Array [],
-                                            "componentStyle": ComponentStyle {
-                                              "componentId": "Content-sc-18psqsj-0",
-                                              "isStatic": false,
-                                              "lastClassName": "bLWFGn",
-                                              "rules": Array [
-                                                "flex:1 1 auto;opacity:",
-                                                [Function],
-                                                ";overflow:hidden;text-overflow:ellipsis;white-space:nowrap;",
-                                              ],
-                                            },
-                                            "displayName": "Content",
-                                            "foldedComponentIds": Array [],
-                                            "render": [Function],
-                                            "styledComponentId": "Content-sc-18psqsj-0",
-                                            "target": "span",
-                                            "toString": [Function],
-                                            "warnTooManyClasses": [Function],
-                                            "withComponent": [Function],
-                                          }
-                                        }
-                                        forwardedRef={null}
-                                        isLoading={false}
-                                      >
-                                        <span
-                                          className="Content-sc-18psqsj-0 bLWFGn"
-                                        >
-                                          Submit
-                                        </span>
-                                      </StyledComponent>
-                                    </Content>
+                                    Submit
                                   </span>
-                                </StyledComponent>
-                              </ContentWrapper>
-                            </button>
-                          </StyledComponent>
-                        </StyledButton>
+                                  <ForwardRef(WithStyles)
+                                    center={false}
+                                  >
+                                    <ForwardRef(TouchRipple)
+                                      center={false}
+                                      classes={
+                                        Object {
+                                          "child": "MuiTouchRipple-child",
+                                          "childLeaving": "MuiTouchRipple-childLeaving",
+                                          "childPulsate": "MuiTouchRipple-childPulsate",
+                                          "ripple": "MuiTouchRipple-ripple",
+                                          "ripplePulsate": "MuiTouchRipple-ripplePulsate",
+                                          "rippleVisible": "MuiTouchRipple-rippleVisible",
+                                          "root": "MuiTouchRipple-root",
+                                        }
+                                      }
+                                    >
+                                      <span
+                                        className="MuiTouchRipple-root"
+                                      >
+                                        <TransitionGroup
+                                          childFactory={[Function]}
+                                          component={null}
+                                          exit={true}
+                                        />
+                                      </span>
+                                    </ForwardRef(TouchRipple)>
+                                  </ForwardRef(WithStyles)>
+                                </button>
+                              </ForwardRef(ButtonBase)>
+                            </ForwardRef(WithStyles)>
+                          </ForwardRef(Button)>
+                        </ForwardRef(WithStyles)>
                       </Button>
                     </div>
                   </StyledComponent>

@@ -3,7 +3,6 @@ export { default as CheckboxWidget } from './checkbox/CheckboxWidget';
 export { default as CheckboxesWidget } from './checkboxes/src/components/CheckboxesWidget';
 export { default as DateTimeWidget } from './datetime/DateTimeWidget';
 export { default as DateWidget } from './datetime/DateWidget';
-export { default as FileWidget } from './file/FileWidget';
 export { default as RadioWidget } from './radio/src/components/RadioWidget';
 export { default as OtherRadioWidget } from './radio/src/components/OtherRadioWidget';
 export { default as SelectWidget } from './select/SelectWidget';

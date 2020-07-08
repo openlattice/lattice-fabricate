@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react';
+
 import { TextArea } from 'lattice-ui-kit';
 
 import KeyCodes from '../constants/KeyCodes';
@@ -46,14 +47,10 @@ class TextareaWidget extends Component<WidgetProps> {
       autofocus,
       disabled,
       id,
-      onBlur,
-      onChange,
-      onFocus,
       options,
       rawErrors,
       readonly,
       value,
-      ...restProps
     } = this.props;
 
     /* eslint-disable react/jsx-props-no-spreading */
@@ -67,10 +64,8 @@ class TextareaWidget extends Component<WidgetProps> {
           onChange={this.onChange}
           onFocus={this.onFocus}
           readOnly={readonly}
-          rows={options.rows}
-          value={value}
-          // $FlowFixMe
-          {...restProps} />
+          rows={options.rows || 2}
+          value={value} />
     );
     /* eslint-enable */
   }

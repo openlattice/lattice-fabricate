@@ -1,15 +1,15 @@
 import { create } from '@storybook/theming';
 import { Colors } from 'lattice-ui-kit';
 
-const { NEUTRALS } = Colors;
+const { NEUTRAL } = Colors;
 
 export default create({
   base: 'light',
 
   // Typography
-  fontBase: '"Open Sans", sans-serif',
+  fontBase: '"Inter", sans-serif',
   fontCode: 'monospace',
 
   // Text color
-  textColor: `${NEUTRALS[0]}`
+  textColor: `${NEUTRAL.N900}`
 });
