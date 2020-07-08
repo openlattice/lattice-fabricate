@@ -1,7 +1,7 @@
 // @flow
 import React, { Component } from 'react';
 
-import SchemaField from 'react-jsonschema-form/lib/components/fields/SchemaField';
+import SchemaField from '@rjsf/core/lib/components/fields/SchemaField';
 import isFunction from 'lodash/isFunction';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 

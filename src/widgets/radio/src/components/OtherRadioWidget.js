@@ -2,13 +2,15 @@
 
 import React from 'react';
 
-import {
-  getWidget,
-  retrieveSchema
-} from 'react-jsonschema-form/lib/utils';
+import { utils } from '@rjsf/core';
 
 import OtherInput from '../../../shared/OtherInput';
 import type { WidgetProps } from '../../../types';
+
+const {
+  getWidget,
+  retrieveSchema
+} = utils;
 
 const otherSchema = {
   type: 'string',
