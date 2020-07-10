@@ -1,6 +1,6 @@
 /*!
  * 
- * lattice-fabricate - v0.14.1
+ * lattice-fabricate - v0.14.2
  * React HOCs for components dependent on the OpenLattice EDM.
  * https://github.com/openlattice/lattice-fabricate
  * 
@@ -37784,7 +37784,7 @@ var CheckboxesWidget_CheckboxesWidget = /*#__PURE__*/function (_Component) {
           if (withNone && option.value === noneText) {
             onChange([noneText]);
           } else {
-            onChange(selectValue(option.value, value, withNone));
+            onChange(selectValue(option.value, value, withNone, noneText));
           }
         } else {
           onChange(deselectValue(option.value, value));
@@ -39625,7 +39625,7 @@ PagedByMachine_PagedByMachine.defaultProps = {
 
  // injected by Webpack.DefinePlugin
 
-var version = "v0.14.1";
+var version = "v0.14.2";
 
 /* harmony default export */ var src = __webpack_exports__["default"] = ({
   version: version
