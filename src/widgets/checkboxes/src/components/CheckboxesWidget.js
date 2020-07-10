@@ -14,8 +14,8 @@ const {
   retrieveSchema
 } = utils;
 
-const selectValue = (value, selected :any[], withNone :boolean) => {
-  if (withNone) return selected.filter((v) => v !== 'None').concat(value);
+const selectValue = (value, selected :any[], withNone :boolean, noneText = 'None') => {
+  if (withNone) return selected.filter((v) => v !== noneText).concat(value);
   return selected.concat(value);
 };
 
@@ -24,10 +24,10 @@ const deselectValue = (value, selected :any[]) => selected.filter((v) => v !== v
 const getOtherValueIndex = (value :Array<string>, enumOptions :Object[]) :number => value
   .findIndex((v) => !enumOptions.find((option) => option.value === v));
 
-const getOptionsList = (itemsSchema, withNone, withOther) => {
+const getOptionsList = (itemsSchema, withNone, withOther, noneText = 'None') => {
   const options :Object[] = optionsList(itemsSchema);
   let shallowOptions = [...options];
-  if (withNone) shallowOptions = shallowOptions.concat({ label: 'None', value: 'None' });
+  if (withNone) shallowOptions = shallowOptions.concat({ label: noneText, value: noneText });
   if (withOther) shallowOptions = shallowOptions.concat({ label: 'Other', value: 'Other' });
 
   return shallowOptions;
@@ -56,12 +56,13 @@ class CheckboxesWidget extends Component<WidgetProps> {
     } = this.props;
     const {
       withNone = false,
-      withOther = false
+      withOther = false,
+      noneText,
     } = options;
     const { value: prevFormData } = prevProps;
     const { definitions } = registry;
     const itemsSchema = retrieveSchema(schema.items, definitions, prevFormData);
-    const enumOptions = getOptionsList(itemsSchema, withNone, withOther);
+    const enumOptions = getOptionsList(itemsSchema, withNone, withOther, noneText);
     const otherValueIndex = getOtherValueIndex(value, enumOptions);
 
     if (prevFormData.includes('Other') && !value.includes('Other') && otherValueIndex !== -1) {
@@ -71,12 +72,12 @@ class CheckboxesWidget extends Component<WidgetProps> {
     }
   }
 
-  getHandleChange = (option :Object, withNone :boolean) => (checked :boolean) => {
+  getHandleChange = (option :Object, withNone :boolean, noneText :string = 'None') => (checked :boolean) => {
     const { onChange, value } = this.props;
 
     if (checked) {
-      if (withNone && option.value === 'None') {
-        onChange(['None']);
+      if (withNone && option.value === noneText) {
+        onChange([noneText]);
       }
       else {
         onChange(selectValue(option.value, value, withNone));
@@ -98,11 +99,12 @@ class CheckboxesWidget extends Component<WidgetProps> {
     const copyFormData = [...value];
     const {
       withNone = false,
-      withOther = false
+      withOther = false,
+      noneText,
     } = options;
     const { definitions } = registry;
     const itemsSchema = retrieveSchema(schema.items, definitions, otherValue);
-    const enumOptions = getOptionsList(itemsSchema, withNone, withOther);
+    const enumOptions = getOptionsList(itemsSchema, withNone, withOther, noneText);
     const otherIndex = getOtherValueIndex(value, enumOptions);
 
     if (otherIndex !== -1) {
@@ -136,10 +138,11 @@ class CheckboxesWidget extends Component<WidgetProps> {
       widget = 'CheckboxWidget',
       withNone = false,
       withOther = false,
+      noneText,
     } = options;
     const { widgets, definitions } = registry;
     const itemsSchema = retrieveSchema(schema.items, definitions, value);
-    const enumOptions = getOptionsList(itemsSchema, withNone, withOther);
+    const enumOptions = getOptionsList(itemsSchema, withNone, withOther, noneText);
     const Widget = getWidget(schema, widget, widgets);
     const otherValueIndex :number = getOtherValueIndex(value, enumOptions);
     const otherValue = value[otherValueIndex];
@@ -159,7 +162,7 @@ class CheckboxesWidget extends Component<WidgetProps> {
                   disabled={disabled || readonly}
                   label={option.label}
                   onBlur={onBlur}
-                  onChange={this.getHandleChange(option, withNone)}
+                  onChange={this.getHandleChange(option, withNone, noneText)}
                   onFocus={onFocus}
                   schema={itemsSchema}
                   value={checked} />
