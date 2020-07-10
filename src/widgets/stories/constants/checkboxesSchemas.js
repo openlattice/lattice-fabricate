@@ -35,6 +35,17 @@ export const schema = {
       minItems: 1,
       uniqueItems: true,
     },
+    checkboxesNoneText: {
+      title: 'Options (ui:options flag: withNone + noneText)',
+      type: 'array',
+      description: 'Select all that apply',
+      items: {
+        type: 'string',
+        enum: ['Option 1', 'Option 2', 'Option 3'],
+      },
+      minItems: 1,
+      uniqueItems: true,
+    },
     checkboxButtons: {
       title: 'Button (ui:options mode = \'button\')',
       type: 'array',
@@ -68,6 +79,15 @@ export const uiSchema = {
     'ui:options': {
       withNone: true,
       withOther: true,
+    }
+  },
+  checkboxesNoneText: {
+    classNames: 'column-span-12',
+    'ui:widget': 'checkboxes',
+    'ui:options': {
+      withNone: true,
+      withOther: true,
+      noneText: "I don't know"
     }
   },
   checkboxButtons: {
