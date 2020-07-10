@@ -1,6 +1,6 @@
 /*!
  * 
- * lattice-fabricate - v0.14.0
+ * lattice-fabricate - v0.14.1
  * React HOCs for components dependent on the OpenLattice EDM.
  * https://github.com/openlattice/lattice-fabricate
  * 
@@ -37715,8 +37715,9 @@ var CheckboxesWidget_getWidget = utils.getWidget,
     retrieveSchema = utils.retrieveSchema;
 
 var selectValue = function selectValue(value, selected, withNone) {
+  var noneText = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'None';
   if (withNone) return selected.filter(function (v) {
-    return v !== 'None';
+    return v !== noneText;
   }).concat(value);
   return selected.concat(value);
 };
@@ -37736,13 +37737,14 @@ var getOtherValueIndex = function getOtherValueIndex(value, enumOptions) {
 };
 
 var CheckboxesWidget_getOptionsList = function getOptionsList(itemsSchema, withNone, withOther) {
+  var noneText = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'None';
   var options = optionsList(itemsSchema);
 
   var shallowOptions = toConsumableArray_default()(options);
 
   if (withNone) shallowOptions = shallowOptions.concat({
-    label: 'None',
-    value: 'None'
+    label: noneText,
+    value: noneText
   });
   if (withOther) shallowOptions = shallowOptions.concat({
     label: 'Other',
@@ -37772,14 +37774,15 @@ var CheckboxesWidget_CheckboxesWidget = /*#__PURE__*/function (_Component) {
     _this = _super.call.apply(_super, [this].concat(args));
 
     defineProperty_default()(assertThisInitialized_default()(_this), "getHandleChange", function (option, withNone) {
+      var noneText = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'None';
       return function (checked) {
         var _this$props = _this.props,
             onChange = _this$props.onChange,
             value = _this$props.value;
 
         if (checked) {
-          if (withNone && option.value === 'None') {
-            onChange(['None']);
+          if (withNone && option.value === noneText) {
+            onChange([noneText]);
           } else {
             onChange(selectValue(option.value, value, withNone));
           }
@@ -37803,10 +37806,11 @@ var CheckboxesWidget_CheckboxesWidget = /*#__PURE__*/function (_Component) {
       var _options$withNone = options.withNone,
           withNone = _options$withNone === void 0 ? false : _options$withNone,
           _options$withOther = options.withOther,
-          withOther = _options$withOther === void 0 ? false : _options$withOther;
+          withOther = _options$withOther === void 0 ? false : _options$withOther,
+          noneText = options.noneText;
       var definitions = registry.definitions;
       var itemsSchema = retrieveSchema(schema.items, definitions, otherValue);
-      var enumOptions = CheckboxesWidget_getOptionsList(itemsSchema, withNone, withOther);
+      var enumOptions = CheckboxesWidget_getOptionsList(itemsSchema, withNone, withOther, noneText);
       var otherIndex = getOtherValueIndex(value, enumOptions);
 
       if (otherIndex !== -1) {
@@ -37832,11 +37836,12 @@ var CheckboxesWidget_CheckboxesWidget = /*#__PURE__*/function (_Component) {
       var _options$withNone2 = options.withNone,
           withNone = _options$withNone2 === void 0 ? false : _options$withNone2,
           _options$withOther2 = options.withOther,
-          withOther = _options$withOther2 === void 0 ? false : _options$withOther2;
+          withOther = _options$withOther2 === void 0 ? false : _options$withOther2,
+          noneText = options.noneText;
       var prevFormData = prevProps.value;
       var definitions = registry.definitions;
       var itemsSchema = retrieveSchema(schema.items, definitions, prevFormData);
-      var enumOptions = CheckboxesWidget_getOptionsList(itemsSchema, withNone, withOther);
+      var enumOptions = CheckboxesWidget_getOptionsList(itemsSchema, withNone, withOther, noneText);
       var otherValueIndex = getOtherValueIndex(value, enumOptions);
 
       if (prevFormData.includes('Other') && !value.includes('Other') && otherValueIndex !== -1) {
@@ -37871,11 +37876,12 @@ var CheckboxesWidget_CheckboxesWidget = /*#__PURE__*/function (_Component) {
           _options$withNone3 = options.withNone,
           withNone = _options$withNone3 === void 0 ? false : _options$withNone3,
           _options$withOther3 = options.withOther,
-          withOther = _options$withOther3 === void 0 ? false : _options$withOther3;
+          withOther = _options$withOther3 === void 0 ? false : _options$withOther3,
+          noneText = options.noneText;
       var widgets = registry.widgets,
           definitions = registry.definitions;
       var itemsSchema = retrieveSchema(schema.items, definitions, value);
-      var enumOptions = CheckboxesWidget_getOptionsList(itemsSchema, withNone, withOther);
+      var enumOptions = CheckboxesWidget_getOptionsList(itemsSchema, withNone, withOther, noneText);
       var Widget = CheckboxesWidget_getWidget(schema, widget, widgets);
       var otherValueIndex = getOtherValueIndex(value, enumOptions);
       var otherValue = value[otherValueIndex];
@@ -37895,7 +37901,7 @@ var CheckboxesWidget_CheckboxesWidget = /*#__PURE__*/function (_Component) {
           disabled: disabled || readonly,
           label: option.label,
           onBlur: onBlur,
-          onChange: _this2.getHandleChange(option, withNone),
+          onChange: _this2.getHandleChange(option, withNone, noneText),
           onFocus: onFocus,
           schema: itemsSchema,
           value: checked
@@ -39619,7 +39625,7 @@ PagedByMachine_PagedByMachine.defaultProps = {
 
  // injected by Webpack.DefinePlugin
 
-var version = "v0.14.0";
+var version = "v0.14.1";
 
 /* harmony default export */ var src = __webpack_exports__["default"] = ({
   version: version
