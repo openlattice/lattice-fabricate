@@ -80,7 +80,7 @@ class CheckboxesWidget extends Component<WidgetProps> {
         onChange([noneText]);
       }
       else {
-        onChange(selectValue(option.value, value, withNone));
+        onChange(selectValue(option.value, value, withNone, noneText));
       }
     }
     else {
