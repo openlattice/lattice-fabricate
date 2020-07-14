@@ -1,14 +1,14 @@
 import { Models } from 'lattice';
 
-const { FullyQualifiedName } = Models;
+const { FQN } = Models;
 
 const PROPERTY_TYPE_FQNS = {
-  COMPLETED_DT_FQN: new FullyQualifiedName('mock.completeddatetime'),
-  DESCRIPTION_FQN: new FullyQualifiedName('mock.description'),
-  IMAGE_DATA_FQN: new FullyQualifiedName('mock.imagedata'),
-  INDEX_FQN: new FullyQualifiedName('mock.index'),
-  NAME_FQN: new FullyQualifiedName('mock.name'),
-  TYPE_FQN: new FullyQualifiedName('mock.type'),
+  COMPLETED_DT_FQN: FQN.of('mock.completeddatetime'),
+  DESCRIPTION_FQN: FQN.of('mock.description'),
+  IMAGE_DATA_FQN: FQN.of('mock.imagedata'),
+  INDEX_FQN: FQN.of('mock.index'),
+  NAME_FQN: FQN.of('mock.name'),
+  TYPE_FQN: FQN.of('mock.type'),
 };
 
 const ENTITY_SET_NAMES = {

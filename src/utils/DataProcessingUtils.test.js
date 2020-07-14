@@ -21,11 +21,11 @@ import {
 import mockExternalFormData from '../form/stories/constants/mockExternalFormData';
 import { entitySetIds, propertyTypeIds } from '../form/stories/constants/mockEDM';
 
-const { FullyQualifiedName } = Models;
+const { FQN } = Models;
 
 const MOCK_EKID = '9b93bc80-79c3-44c8-807c-ada1a8d6484f';
 const MOCK_ESN = 'MockEntitySetName';
-const MOCK_FQN = new FullyQualifiedName('ol.mock');
+const MOCK_FQN = FQN.of('ol.mock');
 
 describe('DataProcessingUtils', () => {
 
@@ -34,12 +34,14 @@ describe('DataProcessingUtils', () => {
     test('should return a valid entity address key given an index', () => {
       for (let mockIndex = -3; mockIndex < 4; mockIndex += 1) {
         const eak = getEntityAddressKey(mockIndex, MOCK_ESN, MOCK_FQN);
+        // $FlowFixMe
         expect(eak).toEqual(`${mockIndex}__@@__${MOCK_ESN}__@@__${MOCK_FQN}`);
       }
     });
 
     test('should return a valid entity address key given an entity key id', () => {
       const eak = getEntityAddressKey(MOCK_EKID, MOCK_ESN, MOCK_FQN);
+      // $FlowFixMe
       expect(eak).toEqual(`${MOCK_EKID}__@@__${MOCK_ESN}__@@__${MOCK_FQN}`);
     });
 
@@ -73,6 +75,7 @@ describe('DataProcessingUtils', () => {
 
     test('should return the correct components of an entity address key given an index', () => {
       for (let mockIndex = -3; mockIndex < 4; mockIndex += 1) {
+        // $FlowFixMe
         const entityAddressKey = parseEntityAddressKey(`${mockIndex}__@@__${MOCK_ESN}__@@__${MOCK_FQN}`);
         expect(entityAddressKey).toEqual({
           entityIndex: mockIndex,
@@ -83,6 +86,7 @@ describe('DataProcessingUtils', () => {
     });
 
     test('should return the correct components of an entity address key given an entity key id', () => {
+      // $FlowFixMe
       const entityAddressKey = parseEntityAddressKey(`${MOCK_EKID}__@@__${MOCK_ESN}__@@__${MOCK_FQN}`);
       expect(entityAddressKey).toEqual({
         entityKeyId: MOCK_EKID,
@@ -94,6 +98,7 @@ describe('DataProcessingUtils', () => {
     test('should throw given an entity address key with invalid entity key id', () => {
       INVALID_PARAMS_FOR_REQUIRED_INDEX_OR_SS.forEach((invalidParam) => {
         expect(() => {
+          // $FlowFixMe
           parseEntityAddressKey(`${invalidParam}__@@__${MOCK_ESN}__@@__${MOCK_FQN}`);
         }).toThrow();
       });
@@ -101,9 +106,11 @@ describe('DataProcessingUtils', () => {
 
     test('should throw given an entity address key with invalid entity set name', () => {
       expect(() => {
+        // $FlowFixMe
         parseEntityAddressKey(`${MOCK_EKID}__@@__${''}__@@__${MOCK_FQN}`);
       }).toThrow();
       expect(() => {
+        // $FlowFixMe
         parseEntityAddressKey(`${MOCK_EKID}__@@__${' '}__@@__${MOCK_FQN}`);
       }).toThrow();
     });

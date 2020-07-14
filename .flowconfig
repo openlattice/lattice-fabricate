@@ -15,4 +15,8 @@
 .*/node_modules/.*
 <PROJECT_ROOT>/build/.*
 <PROJECT_ROOT>/config/.*
+!<PROJECT_ROOT>/node_modules/lattice
 .*/node_modules/immutable/.*
+
+[libs]
+./src/types.js.flow
