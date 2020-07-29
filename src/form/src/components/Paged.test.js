@@ -10,10 +10,11 @@ import { schemas, uiSchemas } from '../../stories/constants/pagedSchemas';
 
 const mockRender = ({
   formRef,
-  pagedData,
-  page,
   onBack,
   onNext,
+  page,
+  pagedData,
+  setPage,
   validateAndSubmit,
 } :any) => (
   <>
@@ -24,6 +25,12 @@ const mockRender = ({
         onSubmit={onNext}
         schema={schemas[page]}
         uiSchema={uiSchemas[page]} />
+    <button
+        id="setPageButton"
+        type="button"
+        onClick={() => setPage(2)}>
+      Go to Page3
+    </button>
     <button
         id="back-button"
         type="button"
@@ -126,5 +133,38 @@ describe('Paged', () => {
       wrapper.find('#back-button').simulate('click');
       expect(wrapper.find('input#root_section1_name').props().value).toEqual('name');
     });
+  });
+
+  describe('setPage', () => {
+    test('should set schema/uiSchema to the new page', () => {
+      const wrapper = mount(
+        <Paged
+            render={mockRender} />
+      );
+
+      // go to page 3
+      wrapper.find('#setPageButton').simulate('click');
+
+      expect(wrapper.find(Form).props().schema).toEqual(schemas[2]);
+      expect(wrapper.find(Form).props().uiSchema).toEqual(uiSchemas[2]);
+    });
+  });
+
+  test('should persist state', () => {
+    const wrapper = mount(
+      <Paged
+          render={mockRender} />
+    );
+
+    wrapper.find('input#root_section1_name').props().onChange({ currentTarget: { value: 'name' } });
+
+    // to go page 3
+    wrapper.find('#setPageButton').simulate('click');
+
+    // to to page 0
+    wrapper.find('#back-button').simulate('click');
+    wrapper.find('#back-button').simulate('click');
+
+    expect(wrapper.find('input#root_section1_name').props().value).toEqual('name');
   });
 });
