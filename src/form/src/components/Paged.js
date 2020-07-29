@@ -41,18 +41,19 @@ const Paged = (props :Props) => {
 
   const { page: currentPage, pagedData } = state;
 
-  const onBack = () => {
-    const newPageNumber = currentPage - 1;
+  const setPage = (newPageNumber :number) => {
+    const pageNumber = Number.isInteger(newPageNumber) ? newPageNumber : 0;
     const formData = getCurrentFormData(formRef, pagedData);
-    dispatch({ type: 'page', page: newPageNumber, formData });
-    if (isFunction(onPageChange)) onPageChange(newPageNumber, formData);
+    dispatch({ type: 'page', page: pageNumber, formData });
+    if (isFunction(onPageChange)) onPageChange(pageNumber, formData);
+  };
+
+  const onBack = () => {
+    setPage(currentPage - 1);
   };
 
   const onNext = () => {
-    const newPageNumber = currentPage + 1;
-    const formData = getCurrentFormData(formRef, pagedData);
-    dispatch({ type: 'page', page: newPageNumber, formData });
-    if (isFunction(onPageChange)) onPageChange(newPageNumber, formData);
+    setPage(currentPage + 1);
   };
 
   const validateAndSubmit = () => {
@@ -67,6 +68,7 @@ const Paged = (props :Props) => {
     onNext,
     page: currentPage,
     pagedData,
+    setPage,
     validateAndSubmit
   });
 };
