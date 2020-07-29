@@ -148,23 +148,28 @@ describe('Paged', () => {
       expect(wrapper.find(Form).props().schema).toEqual(schemas[2]);
       expect(wrapper.find(Form).props().uiSchema).toEqual(uiSchemas[2]);
     });
-  });
 
-  test('should persist state', () => {
-    const wrapper = mount(
-      <Paged
-          render={mockRender} />
-    );
+    test('should persist state', () => {
+      const wrapper = mount(
+        <Paged
+            render={mockRender} />
+      );
 
-    wrapper.find('input#root_section1_name').props().onChange({ currentTarget: { value: 'name' } });
+      wrapper.find('input#root_section1_name').props().onChange({ currentTarget: { value: 'name' } });
 
-    // to go page 3
-    wrapper.find('#setPageButton').simulate('click');
+      // to go page 3
+      wrapper.find('#setPageButton').simulate('click');
 
-    // to to page 0
-    wrapper.find('#back-button').simulate('click');
-    wrapper.find('#back-button').simulate('click');
+      // to to page 0
+      wrapper.find('#back-button').simulate('click');
+      wrapper.find('#back-button').simulate('click');
 
-    expect(wrapper.find('input#root_section1_name').props().value).toEqual('name');
+      expect(wrapper.find('input#root_section1_name').props().value).toEqual('name');
+      expect(wrapper.find(Form).props().formData).toEqual(expect.objectContaining({
+        section1: {
+          name: 'name'
+        }
+      }));
+    });
   });
 });
