@@ -9,6 +9,7 @@ import {
   VALUE_MAPPERS,
   getEntityAddressKey,
   parseEntityAddressKey,
+  parsePageSectionKey,
   processEntityData,
   processEntityValue
 } from './DataProcessingUtils';
@@ -184,4 +185,20 @@ describe('DataProcessingUtils', () => {
     });
   });
 
+  describe('parsePageSectionKey', () => {
+    test('should throw when key is not a valid string', () => {
+      const invalidParams = [2, undefined, true, null];
+      invalidParams.forEach((invalidParam) => {
+        expect(() => {
+          // $FlowFixMe
+          parsePageSectionKey(invalidParam);
+        }).toThrow();
+      });
+    });
+
+    test('should return the correct page and section', () => {
+      const result = parsePageSectionKey('page2section0');
+      expect(result).toMatchObject({ page: '2', section: '0' });
+    });
+  });
 });
