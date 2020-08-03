@@ -5,6 +5,7 @@ import React from 'react';
 import { utils } from '@rjsf/core';
 
 import OtherInput from '../../../shared/OtherInput';
+import { isNonEmptyString } from '../../../../utils/LangUtils';
 import type { WidgetProps } from '../../../types';
 
 const {
@@ -34,9 +35,15 @@ const OtherRadioWidget = (props :WidgetProps) => {
   } = props;
   const { definitions, widgets } = registry;
 
+  const {
+    otherText
+  } = options;
+
+  const otherOptionValue = isNonEmptyString(otherText) ? otherText : 'Other';
+
   const itemsSchema = retrieveSchema(schema.items, definitions, value);
   const Widget = getWidget(schema, 'RadioWidget', widgets);
-  const showOther = value.includes('Other');
+  const showOther = value.includes(otherOptionValue);
 
   const handleChange = (newValue) => {
     onChange([newValue]);
@@ -59,7 +66,7 @@ const OtherRadioWidget = (props :WidgetProps) => {
           onChange={handleChange}
           onFocus={onFocus}
           schema={itemsSchema}
-          options={{ ...options, withOther: true }}
+          options={{ ...options, otherText: otherOptionValue, withOther: true }}
           registry={registry}
           value={value[0]} />
       { showOther && (
