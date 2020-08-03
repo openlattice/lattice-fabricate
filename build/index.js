@@ -1,6 +1,6 @@
 /*!
  * 
- * lattice-fabricate - v0.14.3
+ * lattice-fabricate - v0.14.4
  * React HOCs for components dependent on the OpenLattice EDM.
  * https://github.com/openlattice/lattice-fabricate
  * 
@@ -38020,6 +38020,8 @@ var RadioWidget_onKeyDown = function onKeyDown(e) {
 };
 
 var RadioWidget_getOptionsList = function getOptionsList(enumOptions, withNone, withOther) {
+  var otherText = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'Other';
+
   var shallowOptions = toConsumableArray_default()(enumOptions);
 
   if (withNone) shallowOptions = shallowOptions.concat({
@@ -38027,8 +38029,8 @@ var RadioWidget_getOptionsList = function getOptionsList(enumOptions, withNone, 
     value: 'None'
   });
   if (withOther) shallowOptions = shallowOptions.concat({
-    label: 'Other',
-    value: 'Other'
+    label: otherText,
+    value: otherText
   });
   return shallowOptions;
 };
@@ -38046,8 +38048,9 @@ var RadioWidget_RadioWidget = function RadioWidget(props) {
       required = props.required,
       value = props.value;
   var enumOptions = options.enumOptions,
-      row = options.row,
       mode = options.mode,
+      otherText = options.otherText,
+      row = options.row,
       _options$withNone = options.withNone,
       withNone = _options$withNone === void 0 ? false : _options$withNone,
       _options$withOther = options.withOther,
@@ -38059,8 +38062,8 @@ var RadioWidget_RadioWidget = function RadioWidget(props) {
       setRadioOptions = _useState2[1];
 
   Object(external_react_["useEffect"])(function () {
-    setRadioOptions(RadioWidget_getOptionsList(enumOptions, withNone, withOther));
-  }, [enumOptions, withNone, withOther]);
+    setRadioOptions(RadioWidget_getOptionsList(enumOptions, withNone, withOther, otherText));
+  }, [enumOptions, withNone, withOther, otherText]);
   return /*#__PURE__*/external_react_default.a.createElement(external_lattice_ui_kit_["ChoiceGroup"], {
     row: row,
     id: id
@@ -38101,6 +38104,7 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 
 
 
+
 var OtherRadioWidget_getWidget = utils.getWidget,
     OtherRadioWidget_retrieveSchema = utils.retrieveSchema;
 var OtherRadioWidget_otherSchema = {
@@ -38122,9 +38126,11 @@ var OtherRadioWidget_OtherRadioWidget = function OtherRadioWidget(props) {
       onChange = props.onChange;
   var definitions = registry.definitions,
       widgets = registry.widgets;
+  var otherText = options.otherText;
+  var otherOptionValue = isNonEmptyString(otherText) ? otherText : 'Other';
   var itemsSchema = OtherRadioWidget_retrieveSchema(schema.items, definitions, value);
   var Widget = OtherRadioWidget_getWidget(schema, 'RadioWidget', widgets);
-  var showOther = value.includes('Other');
+  var showOther = value.includes(otherOptionValue);
 
   var handleChange = function handleChange(newValue) {
     onChange([newValue]);
@@ -38149,6 +38155,7 @@ var OtherRadioWidget_OtherRadioWidget = function OtherRadioWidget(props) {
     onFocus: onFocus,
     schema: itemsSchema,
     options: _objectSpread(_objectSpread({}, options), {}, {
+      otherText: otherOptionValue,
       withOther: true
     }),
     registry: registry,
@@ -39623,7 +39630,7 @@ PagedByMachine_PagedByMachine.defaultProps = {
 
  // injected by Webpack.DefinePlugin
 
-var version = "v0.14.3";
+var version = "v0.14.4";
 
 /* harmony default export */ var src = __webpack_exports__["default"] = ({
   version: version
