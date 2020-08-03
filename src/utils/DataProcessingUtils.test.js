@@ -187,8 +187,7 @@ describe('DataProcessingUtils', () => {
 
   describe('parsePageSectionKey', () => {
     test('should throw when key is not a valid string', () => {
-      const invalidParams = [2, undefined, true, null];
-      invalidParams.forEach((invalidParam) => {
+      INVALID_PARAMS_SS.forEach((invalidParam) => {
         expect(() => {
           // $FlowFixMe
           parsePageSectionKey(invalidParam);

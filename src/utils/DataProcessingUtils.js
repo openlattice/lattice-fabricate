@@ -64,8 +64,8 @@ function isValidPageSectionKey(key :string) :boolean {
 }
 
 function parsePageSectionKey(key :string) :{page :string, section :string} | void {
-  if (typeof key !== 'string') {
-    const errorMsg = 'invalid param: key must be a string';
+  if (!isValidPageSectionKey(key)) {
+    const errorMsg = 'invalid param: key must be a valid pageSection';
     LOG.error(errorMsg, key);
     throw new Error(errorMsg);
   }
