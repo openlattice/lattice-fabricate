@@ -1779,6 +1779,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                                     "value": "Option 3",
                                                   },
                                                 ],
+                                                "otherText": "Other",
                                                 "withNone": true,
                                                 "withOther": true,
                                               }
@@ -1886,6 +1887,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                                       "value": "Option 3",
                                                     },
                                                   ],
+                                                  "otherText": "Other",
                                                   "withNone": true,
                                                   "withOther": true,
                                                 }

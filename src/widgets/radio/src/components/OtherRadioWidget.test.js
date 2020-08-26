@@ -2,6 +2,7 @@ import React from 'react';
 
 import toJson from 'enzyme-to-json';
 import { mount } from 'enzyme';
+import { INVALID_PARAMS } from '../../../../utils/testing/Invalid';
 
 import RadioWidget from './RadioWidget';
 
@@ -37,6 +38,18 @@ const uiSchema = {
     }
   },
 };
+
+const createOtherTextUiSchema = (otherText) => ({
+  classNames: 'column-span-12',
+  radioOther: {
+    classNames: 'column-span-12',
+    'ui:widget': 'OtherRadioWidget',
+    'ui:options': {
+      withNone: true,
+      otherText
+    }
+  },
+});
 
 // eslint-disable-next-line react/jsx-props-no-spreading
 const MockForm = (props) => <Form schema={schema} uiSchema={uiSchema} {...props} />;
@@ -81,5 +94,23 @@ describe('OtherRadioWidget', () => {
     const options = wrapper.find(RadioWidget).prop('options');
     expect(options).toHaveProperty('withOther');
     expect(options).toHaveProperty('withNone');
+  });
+
+  test('otherText option should be nonEmptyString otherwise default to Other', () => {
+    INVALID_PARAMS.forEach((invalidParam) => {
+      const otherTextUiSchema = createOtherTextUiSchema(invalidParam);
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      const wrapper = mount(<Form schema={schema} uiSchema={otherTextUiSchema} />);
+      expect(wrapper.find({ type: 'radio', label: 'Other', value: 'Other' })).toHaveLength(1);
+    });
+  });
+
+  test('otherText option should render widget with "otherText" option', () => {
+    const customOtherText = 'Custom Other';
+    const otherTextUiSchema = createOtherTextUiSchema(customOtherText);
+    // eslint-disable-next-line react/jsx-props-no-spreading
+    const wrapper = mount(<Form schema={schema} uiSchema={otherTextUiSchema} />);
+
+    expect(wrapper.find({ type: 'radio', label: customOtherText, value: customOtherText })).toHaveLength(1);
   });
 });
