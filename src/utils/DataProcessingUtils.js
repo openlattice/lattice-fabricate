@@ -16,6 +16,7 @@ import {
   set,
 } from 'immutable';
 import { Models } from 'lattice';
+import type { UUID } from 'lattice';
 
 import Logger from './Logger';
 import {
@@ -41,7 +42,6 @@ const ENTITY_ADDRESS_KEY_PARTS = 3;
 
 const { FQN } = Models;
 
-declare type UUID = string;
 type IndexOrId = number | UUID;
 type EntityData = { [UUID] :any[] };
 type EdgeDefinition = [string, IndexOrId, string, IndexOrId, string, EntityData];
