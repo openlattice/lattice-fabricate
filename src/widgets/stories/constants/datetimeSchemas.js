@@ -66,9 +66,6 @@ export const uiSchema = {
     'ui:widget': 'TimeWidget',
     'ui:options': {
       ampm: false,
-      format: 'HH:mm',
-      mask: '__:__',
-      placeholder: 'HH:MM'
     }
   },
   datetime: {
