@@ -1742,13 +1742,13 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                           "componentStyle": ComponentStyle {
                                                             "componentId": "ChoiceLabel-sc-11kob9e-0",
                                                             "isStatic": false,
-                                                            "lastClassName": "ifwfUf",
+                                                            "lastClassName": "cuciUO",
                                                             "rules": Array [
                                                               "align-items:center;color:",
                                                               [Function],
                                                               ";display:inline-flex;font-size:14px;min-height:40px;pointer-events:",
                                                               [Function],
-                                                              ";position:relative;vertical-align:middle;",
+                                                              ";position:relative;vertical-align:middle;&:hover{cursor:pointer;}",
                                                             ],
                                                           },
                                                           "displayName": "ChoiceLabel",
@@ -1765,7 +1765,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                       htmlFor="root_radio_Option 1"
                                                     >
                                                       <label
-                                                        className="ChoiceLabel-sc-11kob9e-0 ifwfUf"
+                                                        className="ChoiceLabel-sc-11kob9e-0 cuciUO"
                                                         disabled={false}
                                                         htmlFor="root_radio_Option 1"
                                                       >
@@ -1902,7 +1902,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                             "componentStyle": ComponentStyle {
                                                                               "componentId": "RadioIndicator-sc-1vlnpb4-0",
                                                                               "isStatic": false,
-                                                                              "lastClassName": "gutUls",
+                                                                              "lastClassName": "gkYcGg",
                                                                               "rules": Array [
                                                                                 "transition:background-color ",
                                                                                 "100ms",
@@ -1930,7 +1930,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                         forwardedRef={null}
                                                                       >
                                                                         <span
-                                                                          className="RadioIndicator-sc-1vlnpb4-0 gutUls"
+                                                                          className="RadioIndicator-sc-1vlnpb4-0 gkYcGg"
                                                                         />
                                                                       </StyledComponent>
                                                                     </RadioIndicator>
@@ -2005,13 +2005,13 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                           "componentStyle": ComponentStyle {
                                                             "componentId": "ChoiceLabel-sc-11kob9e-0",
                                                             "isStatic": false,
-                                                            "lastClassName": "ifwfUf",
+                                                            "lastClassName": "cuciUO",
                                                             "rules": Array [
                                                               "align-items:center;color:",
                                                               [Function],
                                                               ";display:inline-flex;font-size:14px;min-height:40px;pointer-events:",
                                                               [Function],
-                                                              ";position:relative;vertical-align:middle;",
+                                                              ";position:relative;vertical-align:middle;&:hover{cursor:pointer;}",
                                                             ],
                                                           },
                                                           "displayName": "ChoiceLabel",
@@ -2028,7 +2028,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                       htmlFor="root_radio_Option 2"
                                                     >
                                                       <label
-                                                        className="ChoiceLabel-sc-11kob9e-0 ifwfUf"
+                                                        className="ChoiceLabel-sc-11kob9e-0 cuciUO"
                                                         disabled={false}
                                                         htmlFor="root_radio_Option 2"
                                                       >
@@ -2165,7 +2165,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                             "componentStyle": ComponentStyle {
                                                                               "componentId": "RadioIndicator-sc-1vlnpb4-0",
                                                                               "isStatic": false,
-                                                                              "lastClassName": "gutUls",
+                                                                              "lastClassName": "gkYcGg",
                                                                               "rules": Array [
                                                                                 "transition:background-color ",
                                                                                 "100ms",
@@ -2193,7 +2193,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                         forwardedRef={null}
                                                                       >
                                                                         <span
-                                                                          className="RadioIndicator-sc-1vlnpb4-0 gutUls"
+                                                                          className="RadioIndicator-sc-1vlnpb4-0 gkYcGg"
                                                                         />
                                                                       </StyledComponent>
                                                                     </RadioIndicator>
@@ -2268,13 +2268,13 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                           "componentStyle": ComponentStyle {
                                                             "componentId": "ChoiceLabel-sc-11kob9e-0",
                                                             "isStatic": false,
-                                                            "lastClassName": "ifwfUf",
+                                                            "lastClassName": "cuciUO",
                                                             "rules": Array [
                                                               "align-items:center;color:",
                                                               [Function],
                                                               ";display:inline-flex;font-size:14px;min-height:40px;pointer-events:",
                                                               [Function],
-                                                              ";position:relative;vertical-align:middle;",
+                                                              ";position:relative;vertical-align:middle;&:hover{cursor:pointer;}",
                                                             ],
                                                           },
                                                           "displayName": "ChoiceLabel",
@@ -2291,7 +2291,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                       htmlFor="root_radio_Option 3"
                                                     >
                                                       <label
-                                                        className="ChoiceLabel-sc-11kob9e-0 ifwfUf"
+                                                        className="ChoiceLabel-sc-11kob9e-0 cuciUO"
                                                         disabled={false}
                                                         htmlFor="root_radio_Option 3"
                                                       >
@@ -2428,7 +2428,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                             "componentStyle": ComponentStyle {
                                                                               "componentId": "RadioIndicator-sc-1vlnpb4-0",
                                                                               "isStatic": false,
-                                                                              "lastClassName": "gutUls",
+                                                                              "lastClassName": "gkYcGg",
                                                                               "rules": Array [
                                                                                 "transition:background-color ",
                                                                                 "100ms",
@@ -2456,7 +2456,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                         forwardedRef={null}
                                                                       >
                                                                         <span
-                                                                          className="RadioIndicator-sc-1vlnpb4-0 gutUls"
+                                                                          className="RadioIndicator-sc-1vlnpb4-0 gkYcGg"
                                                                         />
                                                                       </StyledComponent>
                                                                     </RadioIndicator>
@@ -2531,13 +2531,13 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                           "componentStyle": ComponentStyle {
                                                             "componentId": "ChoiceLabel-sc-11kob9e-0",
                                                             "isStatic": false,
-                                                            "lastClassName": "ifwfUf",
+                                                            "lastClassName": "cuciUO",
                                                             "rules": Array [
                                                               "align-items:center;color:",
                                                               [Function],
                                                               ";display:inline-flex;font-size:14px;min-height:40px;pointer-events:",
                                                               [Function],
-                                                              ";position:relative;vertical-align:middle;",
+                                                              ";position:relative;vertical-align:middle;&:hover{cursor:pointer;}",
                                                             ],
                                                           },
                                                           "displayName": "ChoiceLabel",
@@ -2554,7 +2554,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                       htmlFor="root_radio_None"
                                                     >
                                                       <label
-                                                        className="ChoiceLabel-sc-11kob9e-0 ifwfUf"
+                                                        className="ChoiceLabel-sc-11kob9e-0 cuciUO"
                                                         disabled={false}
                                                         htmlFor="root_radio_None"
                                                       >
@@ -2691,7 +2691,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                             "componentStyle": ComponentStyle {
                                                                               "componentId": "RadioIndicator-sc-1vlnpb4-0",
                                                                               "isStatic": false,
-                                                                              "lastClassName": "gutUls",
+                                                                              "lastClassName": "gkYcGg",
                                                                               "rules": Array [
                                                                                 "transition:background-color ",
                                                                                 "100ms",
@@ -2719,7 +2719,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                         forwardedRef={null}
                                                                       >
                                                                         <span
-                                                                          className="RadioIndicator-sc-1vlnpb4-0 gutUls"
+                                                                          className="RadioIndicator-sc-1vlnpb4-0 gkYcGg"
                                                                         />
                                                                       </StyledComponent>
                                                                     </RadioIndicator>
@@ -2794,13 +2794,13 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                           "componentStyle": ComponentStyle {
                                                             "componentId": "ChoiceLabel-sc-11kob9e-0",
                                                             "isStatic": false,
-                                                            "lastClassName": "ifwfUf",
+                                                            "lastClassName": "cuciUO",
                                                             "rules": Array [
                                                               "align-items:center;color:",
                                                               [Function],
                                                               ";display:inline-flex;font-size:14px;min-height:40px;pointer-events:",
                                                               [Function],
-                                                              ";position:relative;vertical-align:middle;",
+                                                              ";position:relative;vertical-align:middle;&:hover{cursor:pointer;}",
                                                             ],
                                                           },
                                                           "displayName": "ChoiceLabel",
@@ -2817,7 +2817,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                       htmlFor="root_radio_Other"
                                                     >
                                                       <label
-                                                        className="ChoiceLabel-sc-11kob9e-0 ifwfUf"
+                                                        className="ChoiceLabel-sc-11kob9e-0 cuciUO"
                                                         disabled={false}
                                                         htmlFor="root_radio_Other"
                                                       >
@@ -2954,7 +2954,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                             "componentStyle": ComponentStyle {
                                                                               "componentId": "RadioIndicator-sc-1vlnpb4-0",
                                                                               "isStatic": false,
-                                                                              "lastClassName": "gutUls",
+                                                                              "lastClassName": "gkYcGg",
                                                                               "rules": Array [
                                                                                 "transition:background-color ",
                                                                                 "100ms",
@@ -2982,7 +2982,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                                         forwardedRef={null}
                                                                       >
                                                                         <span
-                                                                          className="RadioIndicator-sc-1vlnpb4-0 gutUls"
+                                                                          className="RadioIndicator-sc-1vlnpb4-0 gkYcGg"
                                                                         />
                                                                       </StyledComponent>
                                                                     </RadioIndicator>
