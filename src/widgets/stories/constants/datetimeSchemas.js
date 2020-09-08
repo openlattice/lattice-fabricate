@@ -79,6 +79,7 @@ export const uiSchema = {
     classNames: 'column-span-12',
     'ui:widget': 'DateTimeWidget',
     'ui:options': {
+      ampm: false,
       format: 'MM/dd/yy HH:mm',
       mask: '__/__/__ __:__',
       placeholder: 'MM/DD/YY HH:MM'
