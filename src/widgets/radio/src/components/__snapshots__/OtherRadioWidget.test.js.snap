@@ -2032,13 +2032,13 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                                               "componentStyle": ComponentStyle {
                                                                 "componentId": "ChoiceLabel-sc-11kob9e-0",
                                                                 "isStatic": false,
-                                                                "lastClassName": "ifwfUf",
+                                                                "lastClassName": "cuciUO",
                                                                 "rules": Array [
                                                                   "align-items:center;color:",
                                                                   [Function],
                                                                   ";display:inline-flex;font-size:14px;min-height:40px;pointer-events:",
                                                                   [Function],
-                                                                  ";position:relative;vertical-align:middle;",
+                                                                  ";position:relative;vertical-align:middle;&:hover{cursor:pointer;}",
                                                                 ],
                                                               },
                                                               "displayName": "ChoiceLabel",
@@ -2055,7 +2055,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                                           htmlFor="root_radioOther_Option 1"
                                                         >
                                                           <label
-                                                            className="ChoiceLabel-sc-11kob9e-0 ifwfUf"
+                                                            className="ChoiceLabel-sc-11kob9e-0 cuciUO"
                                                             disabled={false}
                                                             htmlFor="root_radioOther_Option 1"
                                                           >
@@ -2186,7 +2186,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                                                                 "componentStyle": ComponentStyle {
                                                                                   "componentId": "RadioIndicator-sc-1vlnpb4-0",
                                                                                   "isStatic": false,
-                                                                                  "lastClassName": "gutUls",
+                                                                                  "lastClassName": "gkYcGg",
                                                                                   "rules": Array [
                                                                                     "transition:background-color ",
                                                                                     "100ms",
@@ -2214,7 +2214,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                                                             forwardedRef={null}
                                                                           >
                                                                             <span
-                                                                              className="RadioIndicator-sc-1vlnpb4-0 gutUls"
+                                                                              className="RadioIndicator-sc-1vlnpb4-0 gkYcGg"
                                                                             />
                                                                           </StyledComponent>
                                                                         </RadioIndicator>
@@ -2287,13 +2287,13 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                                               "componentStyle": ComponentStyle {
                                                                 "componentId": "ChoiceLabel-sc-11kob9e-0",
                                                                 "isStatic": false,
-                                                                "lastClassName": "ifwfUf",
+                                                                "lastClassName": "cuciUO",
                                                                 "rules": Array [
                                                                   "align-items:center;color:",
                                                                   [Function],
                                                                   ";display:inline-flex;font-size:14px;min-height:40px;pointer-events:",
                                                                   [Function],
-                                                                  ";position:relative;vertical-align:middle;",
+                                                                  ";position:relative;vertical-align:middle;&:hover{cursor:pointer;}",
                                                                 ],
                                                               },
                                                               "displayName": "ChoiceLabel",
@@ -2310,7 +2310,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                                           htmlFor="root_radioOther_Option 2"
                                                         >
                                                           <label
-                                                            className="ChoiceLabel-sc-11kob9e-0 ifwfUf"
+                                                            className="ChoiceLabel-sc-11kob9e-0 cuciUO"
                                                             disabled={false}
                                                             htmlFor="root_radioOther_Option 2"
                                                           >
@@ -2441,7 +2441,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                                                                 "componentStyle": ComponentStyle {
                                                                                   "componentId": "RadioIndicator-sc-1vlnpb4-0",
                                                                                   "isStatic": false,
-                                                                                  "lastClassName": "gutUls",
+                                                                                  "lastClassName": "gkYcGg",
                                                                                   "rules": Array [
                                                                                     "transition:background-color ",
                                                                                     "100ms",
@@ -2469,7 +2469,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                                                             forwardedRef={null}
                                                                           >
                                                                             <span
-                                                                              className="RadioIndicator-sc-1vlnpb4-0 gutUls"
+                                                                              className="RadioIndicator-sc-1vlnpb4-0 gkYcGg"
                                                                             />
                                                                           </StyledComponent>
                                                                         </RadioIndicator>
@@ -2542,13 +2542,13 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                                               "componentStyle": ComponentStyle {
                                                                 "componentId": "ChoiceLabel-sc-11kob9e-0",
                                                                 "isStatic": false,
-                                                                "lastClassName": "ifwfUf",
+                                                                "lastClassName": "cuciUO",
                                                                 "rules": Array [
                                                                   "align-items:center;color:",
                                                                   [Function],
                                                                   ";display:inline-flex;font-size:14px;min-height:40px;pointer-events:",
                                                                   [Function],
-                                                                  ";position:relative;vertical-align:middle;",
+                                                                  ";position:relative;vertical-align:middle;&:hover{cursor:pointer;}",
                                                                 ],
                                                               },
                                                               "displayName": "ChoiceLabel",
@@ -2565,7 +2565,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                                           htmlFor="root_radioOther_Option 3"
                                                         >
                                                           <label
-                                                            className="ChoiceLabel-sc-11kob9e-0 ifwfUf"
+                                                            className="ChoiceLabel-sc-11kob9e-0 cuciUO"
                                                             disabled={false}
                                                             htmlFor="root_radioOther_Option 3"
                                                           >
@@ -2696,7 +2696,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                                                                 "componentStyle": ComponentStyle {
                                                                                   "componentId": "RadioIndicator-sc-1vlnpb4-0",
                                                                                   "isStatic": false,
-                                                                                  "lastClassName": "gutUls",
+                                                                                  "lastClassName": "gkYcGg",
                                                                                   "rules": Array [
                                                                                     "transition:background-color ",
                                                                                     "100ms",
@@ -2724,7 +2724,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                                                             forwardedRef={null}
                                                                           >
                                                                             <span
-                                                                              className="RadioIndicator-sc-1vlnpb4-0 gutUls"
+                                                                              className="RadioIndicator-sc-1vlnpb4-0 gkYcGg"
                                                                             />
                                                                           </StyledComponent>
                                                                         </RadioIndicator>
@@ -2797,13 +2797,13 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                                               "componentStyle": ComponentStyle {
                                                                 "componentId": "ChoiceLabel-sc-11kob9e-0",
                                                                 "isStatic": false,
-                                                                "lastClassName": "ifwfUf",
+                                                                "lastClassName": "cuciUO",
                                                                 "rules": Array [
                                                                   "align-items:center;color:",
                                                                   [Function],
                                                                   ";display:inline-flex;font-size:14px;min-height:40px;pointer-events:",
                                                                   [Function],
-                                                                  ";position:relative;vertical-align:middle;",
+                                                                  ";position:relative;vertical-align:middle;&:hover{cursor:pointer;}",
                                                                 ],
                                                               },
                                                               "displayName": "ChoiceLabel",
@@ -2820,7 +2820,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                                           htmlFor="root_radioOther_None"
                                                         >
                                                           <label
-                                                            className="ChoiceLabel-sc-11kob9e-0 ifwfUf"
+                                                            className="ChoiceLabel-sc-11kob9e-0 cuciUO"
                                                             disabled={false}
                                                             htmlFor="root_radioOther_None"
                                                           >
@@ -2951,7 +2951,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                                                                 "componentStyle": ComponentStyle {
                                                                                   "componentId": "RadioIndicator-sc-1vlnpb4-0",
                                                                                   "isStatic": false,
-                                                                                  "lastClassName": "gutUls",
+                                                                                  "lastClassName": "gkYcGg",
                                                                                   "rules": Array [
                                                                                     "transition:background-color ",
                                                                                     "100ms",
@@ -2979,7 +2979,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                                                             forwardedRef={null}
                                                                           >
                                                                             <span
-                                                                              className="RadioIndicator-sc-1vlnpb4-0 gutUls"
+                                                                              className="RadioIndicator-sc-1vlnpb4-0 gkYcGg"
                                                                             />
                                                                           </StyledComponent>
                                                                         </RadioIndicator>
@@ -3052,13 +3052,13 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                                               "componentStyle": ComponentStyle {
                                                                 "componentId": "ChoiceLabel-sc-11kob9e-0",
                                                                 "isStatic": false,
-                                                                "lastClassName": "ifwfUf",
+                                                                "lastClassName": "cuciUO",
                                                                 "rules": Array [
                                                                   "align-items:center;color:",
                                                                   [Function],
                                                                   ";display:inline-flex;font-size:14px;min-height:40px;pointer-events:",
                                                                   [Function],
-                                                                  ";position:relative;vertical-align:middle;",
+                                                                  ";position:relative;vertical-align:middle;&:hover{cursor:pointer;}",
                                                                 ],
                                                               },
                                                               "displayName": "ChoiceLabel",
@@ -3075,7 +3075,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                                           htmlFor="root_radioOther_Other"
                                                         >
                                                           <label
-                                                            className="ChoiceLabel-sc-11kob9e-0 ifwfUf"
+                                                            className="ChoiceLabel-sc-11kob9e-0 cuciUO"
                                                             disabled={false}
                                                             htmlFor="root_radioOther_Other"
                                                           >
@@ -3206,7 +3206,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                                                                 "componentStyle": ComponentStyle {
                                                                                   "componentId": "RadioIndicator-sc-1vlnpb4-0",
                                                                                   "isStatic": false,
-                                                                                  "lastClassName": "gutUls",
+                                                                                  "lastClassName": "gkYcGg",
                                                                                   "rules": Array [
                                                                                     "transition:background-color ",
                                                                                     "100ms",
@@ -3234,7 +3234,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                                                             forwardedRef={null}
                                                                           >
                                                                             <span
-                                                                              className="RadioIndicator-sc-1vlnpb4-0 gutUls"
+                                                                              className="RadioIndicator-sc-1vlnpb4-0 gkYcGg"
                                                                             />
                                                                           </StyledComponent>
                                                                         </RadioIndicator>

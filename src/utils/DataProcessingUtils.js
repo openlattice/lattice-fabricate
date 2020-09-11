@@ -16,6 +16,7 @@ import {
   set,
 } from 'immutable';
 import { Models } from 'lattice';
+import type { UUID } from 'lattice';
 
 import Logger from './Logger';
 import {
@@ -41,7 +42,6 @@ const ENTITY_ADDRESS_KEY_PARTS = 3;
 
 const { FQN } = Models;
 
-declare type UUID = string;
 type IndexOrId = number | UUID;
 type EntityData = { [UUID] :any[] };
 type EdgeDefinition = [string, IndexOrId, string, IndexOrId, string, EntityData];
@@ -64,16 +64,16 @@ function isValidPageSectionKey(key :string) :boolean {
 }
 
 function parsePageSectionKey(key :string) :{page :string, section :string} | void {
-  if (typeof key === 'string') {
-    const errorMsg = 'invalid param: key must be a string';
+  if (!isValidPageSectionKey(key)) {
+    const errorMsg = 'invalid param: key must be a valid pageSection';
     LOG.error(errorMsg, key);
     throw new Error(errorMsg);
   }
 
-  const match = key.match(PAGE_SECTION_REGEX);
-  if (isPlainObject(match) && match.group) {
-    return match.group;
-  }
+  const matches = key.match(PAGE_SECTION_REGEX);
+  if (!matches) return undefined;
+
+  if (typeof matches === 'object' && matches.groups) return matches.groups;
 
   return undefined;
 }
