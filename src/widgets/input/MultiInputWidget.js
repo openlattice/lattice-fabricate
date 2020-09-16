@@ -4,8 +4,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Input, StyleUtils } from 'lattice-ui-kit';
 
-import type { WidgetProps } from '../../../types';
 import { isDefined } from '../../utils/LangUtils';
+import type { WidgetProps } from '../types';
 
 const { media } = StyleUtils;
 
