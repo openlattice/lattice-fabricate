@@ -44,10 +44,12 @@ const MultiInputWidget = (props :WidgetProps) => {
     ...inputProps
   } = props;
 
-  inputProps.type = 'text';
+  inputProps.type = schema.items.type;
 
-  if (options.inputType) {
-    inputProps.type = options.inputType;
+  if (inputProps.type === 'number' || inputProps.type === 'integer') {
+    if (isDefined(schema.items.maximum)) inputProps.max = schema.items.maximum;
+    if (isDefined(schema.items.minimum)) inputProps.min = schema.items.minimum;
+    if (isDefined(schema.items.multipleOf)) inputProps.step = schema.items.multipleOf;
   }
 
   const { enumOptions } = options;
