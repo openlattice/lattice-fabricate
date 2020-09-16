@@ -9,3 +9,4 @@ export { default as SelectWidget } from './select/SelectWidget';
 export { default as SignatureWidget } from './signature/SignatureWidget';
 export { default as TextareaWidget } from './textarea/TextareaWidget';
 export { default as TimeWidget } from './datetime/TimeWidget';
+export { default as MultiInputWidget } from './input/MultiInputWidget';
