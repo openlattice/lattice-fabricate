@@ -52,12 +52,14 @@ const MultiInputWidget = (props :WidgetProps) => {
     if (isDefined(schema.items.multipleOf)) inputProps.step = schema.items.multipleOf;
   }
 
+  inputProps.placeholder = isDefined(schema.items.placeHolder) ? schema.items.placeHolder : '';
+
   const { enumOptions } = options;
 
   const [inputValues, setInputValues] = useState(
     enumOptions.reduce((obj, option) => ({
       ...obj,
-      [option.value]: '',
+      [option.value]: inputProps.placeholder,
     }), {})
   );
 
