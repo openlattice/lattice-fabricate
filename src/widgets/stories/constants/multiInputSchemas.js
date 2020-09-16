@@ -32,6 +32,16 @@ export const schema = {
       },
       minItems: 1,
       uniqueItems: true
+    },
+    wrapInput: {
+      type: 'array',
+      title: 'Multiple input (ui:options wrapInput: true)',
+      items: {
+        type: 'number',
+        enum: ['Question 1', 'Question 2', 'Question 3']
+      },
+      minItems: 1,
+      uniqueItems: true
     }
   },
   required: ['multipleInput1', 'multipleInput2', 'inputTypeNumber']
@@ -56,6 +66,14 @@ export const uiSchema = {
     'ui:options': {
       flexOptions: [4, 1],
       inputType: 'number'
+    }
+  },
+  wrapInput: {
+    classNames: 'column-span-12',
+    'ui:widget': 'MultiInputWidget',
+    'ui:options': {
+      flexOptions: [4, 1],
+      wrapInput: false
     }
   }
 };

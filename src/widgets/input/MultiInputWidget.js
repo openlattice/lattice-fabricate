@@ -2,9 +2,12 @@
 import React, { useState } from 'react';
 
 import styled from 'styled-components';
-import { Input } from 'lattice-ui-kit';
+import { Input, StyleUtils } from 'lattice-ui-kit';
 
 import type { WidgetProps } from '../../../types';
+import { isDefined } from '../../utils/LangUtils';
+
+const { media } = StyleUtils;
 
 const InputWrapper = styled.div`
   display: grid;
@@ -16,6 +19,10 @@ const InputWrapper = styled.div`
   >span {
     font-size: 14px;
   }
+
+  ${media.phone`
+    display: ${(props) => (!props.wrapInput ? 'grid' : 'block')};
+  `}
 `;
 
 const MultiInputWidget = (props :WidgetProps) => {
@@ -63,6 +70,14 @@ const MultiInputWidget = (props :WidgetProps) => {
     return [1, 1];
   };
 
+  const getWrapInputOption = () => {
+    const { wrapInput } = options;
+    if (isDefined(wrapInput) && typeof wrapInput === 'boolean') {
+      return wrapInput;
+    }
+    return true;
+  };
+
   const handleOnChange = (event :SyntheticInputEvent<HTMLInputElement>) => {
     const { target } = event;
 
@@ -88,13 +103,14 @@ const MultiInputWidget = (props :WidgetProps) => {
   };
 
   const flexOptions = getFlexOptions();
+  const wrapInput = getWrapInputOption();
 
   /* eslint-disable react/jsx-props-no-spreading */
   return (
     <div id={id}>
       {
         enumOptions.map((option) => (
-          <InputWrapper key={option.value} flexOptions={flexOptions}>
+          <InputWrapper key={option.value} flexOptions={flexOptions} wrapInput={wrapInput}>
             <span>
               {option.label}
             </span>
