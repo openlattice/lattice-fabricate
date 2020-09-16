@@ -28,7 +28,8 @@ export const schema = {
       title: 'Multiple input (ui:options inputType: number, flexOptions: [4, 1])',
       items: {
         type: 'number',
-        enum: ['Question 1', 'Question 2', 'Question 3']
+        enum: [1, 2, 3],
+        enumNames: ['Question 1', 'Question 2', 'Question 3']
       },
       minItems: 1,
       uniqueItems: true
@@ -38,7 +39,8 @@ export const schema = {
       title: 'Multiple input (ui:options wrapInput: false)',
       items: {
         type: 'number',
-        enum: ['Question 1', 'Question 2', 'Question 3']
+        enum: [1, 2, 3],
+        enumNames: ['Question 1', 'Question 2', 'Question 3']
       },
       minItems: 1,
       uniqueItems: true
