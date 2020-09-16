@@ -25,7 +25,7 @@ export const schema = {
     },
     inputTypeNumber: {
       type: 'array',
-      title: 'Multiple input (ui:options inputType: number, flexOptions: [2, 1])',
+      title: 'Multiple input (ui:options inputType: number, flexOptions: [4, 1])',
       items: {
         type: 'number',
         enum: ['Question 1', 'Question 2', 'Question 3']
@@ -54,7 +54,7 @@ export const uiSchema = {
     classNames: 'column-span-12',
     'ui:widget': 'MultiInputWidget',
     'ui:options': {
-      flexOptions: [2, 1],
+      flexOptions: [4, 1],
       inputType: 'number'
     }
   }
