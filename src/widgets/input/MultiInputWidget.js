@@ -25,7 +25,18 @@ const InputWrapper = styled.div`
   `}
 `;
 
-const MultiInputWidget = (props :WidgetProps) => {
+type InputElementProps = {|
+  max ?:string;
+  min ?:string;
+  step ?:string;
+|}
+
+type Props = {|
+  ...WidgetProps,
+  ...InputElementProps,
+|}
+
+const MultiInputWidget = (props :Props) => {
 
   const {
     autofocus,
@@ -137,6 +148,12 @@ const MultiInputWidget = (props :WidgetProps) => {
     </div>
   );
   /* eslint-enable */
+};
+
+MultiInputWidget.defaultProps = {
+  max: undefined,
+  min: undefined,
+  step: undefined
 };
 
 export default MultiInputWidget;
