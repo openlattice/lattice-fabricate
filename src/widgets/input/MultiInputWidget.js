@@ -8,7 +8,7 @@ import type { WidgetProps } from '../../../types';
 
 const InputWrapper = styled.div`
   display: grid;
-  grid-template-columns:${(props) => `${props.flexRatios[0]}fr ${props.flexRatios[1]}fr`};
+  grid-template-columns:${(props) => `${props.flexOptions[0]}fr ${props.flexOptions[1]}fr`};
   grid-gap: 20px;
   margin-bottom: 15px;
   align-items: center;
@@ -52,7 +52,7 @@ const MultiInputWidget = (props :WidgetProps) => {
     }), {})
   );
 
-  const getFlexRatios = () => {
+  const getFlexOptions = () => {
     const { flexOptions } = options;
     if (flexOptions && flexOptions.length === 2) {
       const types = flexOptions.map((factor) => typeof factor);
@@ -87,14 +87,14 @@ const MultiInputWidget = (props :WidgetProps) => {
     }
   };
 
-  const flexRatios = getFlexRatios();
+  const flexOptions = getFlexOptions();
 
   /* eslint-disable react/jsx-props-no-spreading */
   return (
     <div id={id}>
       {
         enumOptions.map((option) => (
-          <InputWrapper key={option.value} flexRatios={flexRatios}>
+          <InputWrapper key={option.value} flexOptions={flexOptions}>
             <span>
               {option.label}
             </span>
