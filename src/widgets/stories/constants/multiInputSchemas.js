@@ -35,7 +35,7 @@ export const schema = {
     },
     wrapInput: {
       type: 'array',
-      title: 'Multiple input (ui:options wrapInput: true)',
+      title: 'Multiple input (ui:options wrapInput: false)',
       items: {
         type: 'number',
         enum: ['Question 1', 'Question 2', 'Question 3']
