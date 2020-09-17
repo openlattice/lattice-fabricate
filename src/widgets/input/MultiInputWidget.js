@@ -44,6 +44,7 @@ const MultiInputWidget = (props :Props) => {
     formContext,
     id,
     onBlur,
+    onChange,
     onFocus,
     options,
     rawErrors,
@@ -51,7 +52,6 @@ const MultiInputWidget = (props :Props) => {
     registry,
     schema,
     value,
-    onChange,
     ...inputProps
   } = props;
 
@@ -131,14 +131,14 @@ const MultiInputWidget = (props :Props) => {
             </span>
             <Input
                 autoFocus={autofocus}
-                id={option.value}
                 disabled={disabled}
-                readOnly={readonly}
-                onBlur={onBlur}
+                id={option.value}
                 invalid={rawErrors && rawErrors.length}
+                name={option.value}
+                onBlur={onBlur}
                 onChange={handleOnChange}
                 onFocus={onFocus}
-                name={option.value}
+                readOnly={readonly}
                 schema={schema}
                 value={inputValues[option.value]}
                 {...inputProps} />
