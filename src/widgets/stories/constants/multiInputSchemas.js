@@ -67,7 +67,6 @@ export const uiSchema = {
     'ui:widget': 'MultiInputWidget',
     'ui:options': {
       flexOptions: [4, 1],
-      inputType: 'number'
     }
   },
   wrapInput: {
