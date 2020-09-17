@@ -25,7 +25,7 @@ export const schema = {
     },
     inputTypeNumber: {
       type: 'array',
-      title: 'Multiple input (ui:options inputType: number, flexOptions: [4, 1])',
+      title: 'Multiple input (ui:options, flexOptions: [4, 1])',
       items: {
         type: 'number',
         enum: [1, 2, 3],
