@@ -41,15 +41,5 @@ jobs:
       - name: npm run build:storybook
         run: npm run build:storybook
 
-      - name: github pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git config `user.name "$GITHUB_ACTOR"
-          git config user.email "$GITHUB_ACTOR@bots.github.com"
-          git checkout gh-pages
-          git rebase origin/develop
-          git add build/storybook
-          git commit -m "deploy storybook to github pages"
-          git remote set-url origin https://x-access-token:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git
-          git push --force-`with-lease origin gh-pages
+      - name: npm run storybook:deploy
+        run: npm run storybook:deploy
