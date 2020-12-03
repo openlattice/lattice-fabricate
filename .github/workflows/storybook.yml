@@ -1,0 +1,55 @@
+name: storybook
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: node 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: cache node modules
+        uses: actions/cache@v2
+        with:
+          # https://github.com/actions/cache/blob/main/examples.md#macos-and-ubuntu
+          # https://github.com/actions/cache/issues/67
+          path: ~/.npm
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+
+      - name: npm config
+        env:
+          FONTAWESOME_NPM_AUTH_TOKEN: ${{ secrets.FONTAWESOME_NPM_AUTH_TOKEN }}
+        run: |
+          npm config set "@fortawesome:registry" https://npm.fontawesome.com/
+          npm config set "//npm.fontawesome.com/:_authToken" "$FONTAWESOME_NPM_AUTH_TOKEN"
+
+      # https://docs.npmjs.com/cli/v6/commands/npm-ci
+      - name: npm ci
+        run: npm ci
+
+      - name: npm run build:storybook
+        run: npm run build:storybook
+
+      - name: github pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config `user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@bots.github.com"
+          git checkout gh-pages
+          git rebase origin/develop
+          git add build/storybook
+          git commit -m "deploy storybook to github pages"
+          git remote set-url origin https://x-access-token:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git
+          git push --force-`with-lease origin gh-pages
