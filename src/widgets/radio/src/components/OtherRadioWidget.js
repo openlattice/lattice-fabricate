@@ -17,6 +17,24 @@ const otherSchema = {
   type: 'string',
 };
 
+const getEnumsList = (enums, withNone, withOther, otherText = 'Other') => {
+  let shallowEnums = [...enums];
+  if (withNone) shallowEnums = shallowEnums.concat('None');
+  if (withOther) shallowEnums = shallowEnums.concat(otherText);
+
+  return shallowEnums;
+};
+
+const getMiscValueIndex = (value :Array<string>, enums :Object[]) :number => {
+  const index = value.findIndex((v) => !enums.find((option) => option === v));
+  return index < 0 ? 1 : index;
+};
+
+const getEnumValueIndex = (value :Array<string>, enums :Object[]) :number => {
+  const index = value.findIndex((v) => enums.find((option) => option === v));
+  return index < 0 ? 0 : index;
+};
+
 const OtherRadioWidget = (props :WidgetProps) => {
 
   const {
@@ -36,12 +54,16 @@ const OtherRadioWidget = (props :WidgetProps) => {
   const { definitions, widgets } = registry;
 
   const {
-    otherText
+    otherText,
+    withNone,
   } = options;
 
   const otherOptionValue = isNonEmptyString(otherText) ? otherText : 'Other';
 
   const itemsSchema = retrieveSchema(schema.items, definitions, value);
+  const enums = getEnumsList(itemsSchema.enum, withNone, true, otherOptionValue);
+  const miscIndex = getMiscValueIndex(value, enums);
+  const enumIndex = getEnumValueIndex(value, enums);
   const Widget = getWidget(schema, 'RadioWidget', widgets);
   const showOther = value.includes(otherOptionValue);
 
@@ -51,7 +73,7 @@ const OtherRadioWidget = (props :WidgetProps) => {
 
   const handleOtherChange = (otherValue :string = '') => {
     const copyFormData = [...value];
-    copyFormData[1] = otherValue;
+    copyFormData[miscIndex] = otherValue;
     onChange(copyFormData);
   };
 
@@ -68,7 +90,7 @@ const OtherRadioWidget = (props :WidgetProps) => {
           schema={itemsSchema}
           options={{ ...options, otherText: otherOptionValue, withOther: true }}
           registry={registry}
-          value={value[0]} />
+          value={value[enumIndex]} />
       { showOther && (
         <OtherInput
             autofocus
@@ -86,7 +108,7 @@ const OtherRadioWidget = (props :WidgetProps) => {
             required={false}
             schema={otherSchema}
             type="text"
-            value={value[1]} />
+            value={value[miscIndex]} />
       )}
     </>
   );
