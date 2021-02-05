@@ -128,9 +128,14 @@
     "release:prepatch": "npm version prepatch -preid='alpha' -m \"releasing v%s\" && npm publish",
     "release:prerelease": "npm version prerelease -preid='alpha' -m \"releasing v%s\" && npm publish",
     "storybook": "start-storybook -p 9009 -c config/storybook",
-    "storybook:deploy": "storybook-to-ghpages  --ci -e build/storybook --source-branch develop -t GITHUB_TOKEN",
+    "storybook:deploy": "storybook-to-ghpages --ci -e build/storybook -t GITHUB_TOKEN",
     "test": "jest --config config/jest/jest.config.js",
     "test:travis": "jest --maxWorkers=4 --config config/jest/jest.config.js",
     "test:watch": "jest --config config/jest/jest.config.js --watch --coverage=false"
+  },
+  "storybook-deployer": {
+    "gitUsername": "githubpages",
+    "gitEmail": "githubpages@openlattice.com",
+    "commitMessage": "deploy storybook to github pages"
   }
 }
