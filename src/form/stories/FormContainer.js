@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 import { action } from '@storybook/addon-actions';
 import { get, setIn } from 'immutable';

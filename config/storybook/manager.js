@@ -1,9 +1,10 @@
+import { addons } from '@storybook/addons';
 import { create } from '@storybook/theming';
 import { Colors } from 'lattice-ui-kit';
 
 const { NEUTRAL } = Colors;
 
-export default create({
+const theme = create({
   base: 'light',
 
   // Typography
@@ -12,4 +13,8 @@ export default create({
 
   // Text color
   textColor: `${NEUTRAL.N900}`
+});
+
+addons.setConfig({
+  theme
 });

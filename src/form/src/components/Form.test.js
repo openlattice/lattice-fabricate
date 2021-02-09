@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { mount } from 'enzyme';
 
 import FormContainer from '../../stories/FormContainer';
