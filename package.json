@@ -35,7 +35,7 @@
     "lodash": "~4.17.20",
     "loglevel": "~1.7.0",
     "react-signature-canvas": "~1.0.3",
-    "xstate": "~4.13.0"
+    "xstate": "~4.16.2"
   },
   "devDependencies": {
     "@babel/cli": "~7.12.1",
