@@ -1,7 +1,5 @@
 // @flow
 
-import React from 'react';
-
 import { utils } from '@rjsf/core';
 
 import OtherInput from '../../../shared/OtherInput';

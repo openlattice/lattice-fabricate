@@ -1,5 +1,5 @@
 // @flow
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { ChoiceGroup, Radio } from 'lattice-ui-kit';
 
