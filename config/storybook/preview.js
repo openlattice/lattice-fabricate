@@ -1,7 +1,5 @@
-import React from 'react';
-
 import styled from 'styled-components';
-import { addDecorator, addParameters, configure } from '@storybook/react';
+import { addDecorator } from '@storybook/react';
 import {
   Colors,
   LatticeLuxonUtils,
@@ -11,7 +9,7 @@ import {
   lightTheme,
 } from 'lattice-ui-kit';
 
-import storybookTheme from './storybookTheme';
+import storybookTheme from './manager';
 
 const { NEUTRAL } = Colors;
 
@@ -53,16 +51,3 @@ addDecorator((StoryFn) => (
     </StoryInnerWrapper>
   </StoryOuterWrapper>
 ));
-
-addParameters({
-  options: {
-    theme: storybookTheme
-  },
-});
-// automatically import all files ending in *.stories.js
-const req = require.context('../../src/', true, /\.stories\.js$/);
-function loadStories() {
-  req.keys().forEach((filename) => req(filename));
-}
-
-configure(loadStories, module);

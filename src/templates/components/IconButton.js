@@ -1,6 +1,4 @@
 // @flow
-import React from 'react';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button } from 'lattice-ui-kit';
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';

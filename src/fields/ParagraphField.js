@@ -1,6 +1,5 @@
 // @flow
 
-import React from 'react';
 import styled from 'styled-components';
 
 import { isNonEmptyString } from '../utils/LangUtils';

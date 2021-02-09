@@ -1,6 +1,4 @@
 // @flow
-import React from 'react';
-
 import { mount } from 'enzyme';
 
 import Form from './Form';

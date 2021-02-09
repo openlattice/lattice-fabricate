@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import { Component, cloneElement } from 'react';
 import type { ComponentType } from 'react';
 
 import isFunction from 'lodash/isFunction';
@@ -236,7 +236,7 @@ class ObjectFieldTemplate extends Component<Props, State> {
                 formData: tempFormData,
                 onChange: this.createDraftChangeHandler(contentName),
               };
-              return React.cloneElement(content, state);
+              return cloneElement(content, state);
             }
             return content;
           })}

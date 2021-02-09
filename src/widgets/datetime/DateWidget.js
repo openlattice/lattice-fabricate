@@ -1,5 +1,5 @@
 // @flow
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 
 import { DatePicker } from 'lattice-ui-kit';
 

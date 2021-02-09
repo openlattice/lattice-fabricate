@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 import SchemaField from '@rjsf/core/dist/cjs/components/fields/SchemaField';
 import isFunction from 'lodash/isFunction';

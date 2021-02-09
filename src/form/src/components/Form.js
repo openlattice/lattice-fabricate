@@ -1,5 +1,5 @@
 // @flow
-import React from 'react';
+import { forwardRef } from 'react';
 import type { ElementRef } from 'react';
 
 import isFunction from 'lodash/isFunction';
@@ -91,7 +91,7 @@ Form.defaultProps = {
 /* eslint-enable */
 
 /* eslint-disable react/jsx-props-no-spreading */
-export default React.forwardRef<Props, typeof StyledForm>((props, ref) => (
+export default forwardRef<Props, typeof StyledForm>((props, ref) => (
   <Form {...props} forwardedRef={ref} />
 ));
 /* eslint-enable */
