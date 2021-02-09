@@ -215,34 +215,36 @@ class ObjectFieldTemplate extends Component<Props, State> {
     const { isEditing, draftFormData } = this.state;
     const { editable } :Object = getUiOptions(uiSchema);
 
-    return <>
-      <div>
-        { this.renderTitleField() }
-        { this.renderDescriptionField() }
-        {properties.map((property) => {
-          const { content } = property;
-          const { props: contentProps } = content;
-          const contentName = contentProps.name;
+    return (
+      <>
+        <div>
+          { this.renderTitleField() }
+          { this.renderDescriptionField() }
+          {properties.map((property) => {
+            const { content } = property;
+            const { props: contentProps } = content;
+            const contentName = contentProps.name;
 
-          let state = contentProps;
+            let state = contentProps;
 
-          if (editable && isEditing) {
-            const tempFormData = draftFormData[contentName];
-            // inject override props to children
-            state = {
-              ...contentProps,
-              disabled: disabled && !isEditing,
-              formData: tempFormData,
-              onChange: this.createDraftChangeHandler(contentName),
-            };
-            return cloneElement(content, state);
-          }
-          return content;
-        })}
-        { this.renderActionSection() }
-      </div>
-      { this.renderActionGutter() }
-    </>;
+            if (editable && isEditing) {
+              const tempFormData = draftFormData[contentName];
+              // inject override props to children
+              state = {
+                ...contentProps,
+                disabled: disabled && !isEditing,
+                formData: tempFormData,
+                onChange: this.createDraftChangeHandler(contentName),
+              };
+              return cloneElement(content, state);
+            }
+            return content;
+          })}
+          { this.renderActionSection() }
+        </div>
+        { this.renderActionGutter() }
+      </>
+    );
   }
 }
 
