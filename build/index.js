@@ -1,6 +1,6 @@
 /*!
  * 
- * lattice-fabricate - v0.15.0
+ * lattice-fabricate - v0.15.1
  * React HOCs for components dependent on the OpenLattice EDM.
  * https://github.com/openlattice/lattice-fabricate
  * 
@@ -39165,7 +39165,8 @@ var textarea_TextareaWidget_TextareaWidget = /*#__PURE__*/function (_Component) 
         onChange: this.onChange,
         onFocus: this.onFocus,
         readOnly: readonly,
-        rows: options.rows || 2,
+        rows: options.rows || 3,
+        rowsMax: options.rowsMax || Infinity,
         value: value
       });
       /* eslint-enable */
@@ -40584,7 +40585,7 @@ PagedByMachine_PagedByMachine.defaultProps = {
 
  // injected by Webpack.DefinePlugin
 
-var version = "v0.15.0";
+var version = "v0.15.1";
 
 /* harmony default export */ var src_0 = __webpack_exports__["default"] = ({
   version: version
