@@ -93,7 +93,7 @@ describe('PagedByMachine', () => {
       wrapper.find('input#root_section1_name').props().onChange({ currentTarget: { value: 'name' } });
       wrapper.find('#next-button').simulate('click');
 
-      expect(wrapper.find('textarea')).toHaveLength(1);
+      expect(wrapper.find('textarea')).toHaveLength(2);
       expect(mockOnPageChange)
         .toHaveBeenLastCalledWith('page2', expect.objectContaining({ section1: { name: 'name' } }));
     });
