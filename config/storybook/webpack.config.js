@@ -7,11 +7,11 @@
 // to "React Create App". This only has babel loader to load JavaScript.
 const Webpack = require('webpack');
 
-module.exports = function({ config, mode }) {
+module.exports = ({ config, mode }) => {
   config.module.rules.push({
-    test: /\.stories.jsx?$/,
-    loaders: [require.resolve('@storybook/source-loader')],
     enforce: 'pre',
+    test: /\.stories.jsx?$/,
+    use: [require.resolve('@storybook/source-loader')],
   });
 
   const DEFINE_PLUGIN = new Webpack.DefinePlugin({
