@@ -141,15 +141,17 @@ class CheckboxesWidget extends Component<WidgetProps> {
       widget = 'CheckboxWidget',
       withNone = false,
       withOther = false,
-      noneText,
+      noneText = 'None',
       otherText = 'Other'
     } = options;
 
     const otherTextValue = isNonEmptyString(otherText) ? otherText : 'Other';
 
+    const noneTextValue = isNonEmptyString(noneText) ? noneText : 'None';
+
     const { widgets, definitions } = registry;
     const itemsSchema = retrieveSchema(schema.items, definitions, value);
-    const enumOptions = getOptionsList(itemsSchema, withNone, withOther, noneText, otherTextValue);
+    const enumOptions = getOptionsList(itemsSchema, withNone, withOther, noneTextValue, otherTextValue);
     const Widget = getWidget(schema, widget, widgets);
     const otherValueIndex :number = getOtherValueIndex(value, enumOptions);
     const otherValue = value[otherValueIndex];
@@ -169,7 +171,7 @@ class CheckboxesWidget extends Component<WidgetProps> {
                   disabled={disabled || readonly}
                   label={option.label}
                   onBlur={onBlur}
-                  onChange={this.getHandleChange(option, withNone, noneText)}
+                  onChange={this.getHandleChange(option, withNone, noneTextValue)}
                   onFocus={onFocus}
                   schema={itemsSchema}
                   value={checked} />

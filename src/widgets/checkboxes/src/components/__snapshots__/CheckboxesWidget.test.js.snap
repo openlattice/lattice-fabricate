@@ -31,8 +31,10 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
         "checkboxesOther": Object {
           "classNames": "column-span-12",
           "ui:options": Object {
+            "noneText": undefined,
             "otherText": undefined,
-            "withOther": true,
+            "withNone": false,
+            "withOther": false,
           },
           "ui:widget": "checkboxes",
         },
@@ -74,8 +76,10 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
           "checkboxesOther": Object {
             "classNames": "column-span-12",
             "ui:options": Object {
+              "noneText": undefined,
               "otherText": undefined,
-              "withOther": true,
+              "withNone": false,
+              "withOther": false,
             },
             "ui:widget": "checkboxes",
           },
@@ -126,8 +130,10 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
             "checkboxesOther": Object {
               "classNames": "column-span-12",
               "ui:options": Object {
+                "noneText": undefined,
                 "otherText": undefined,
-                "withOther": true,
+                "withNone": false,
+                "withOther": false,
               },
               "ui:widget": "checkboxes",
             },
@@ -199,8 +205,10 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
               "checkboxesOther": Object {
                 "classNames": "column-span-12",
                 "ui:options": Object {
+                  "noneText": undefined,
                   "otherText": undefined,
-                  "withOther": true,
+                  "withNone": false,
+                  "withOther": false,
                 },
                 "ui:widget": "checkboxes",
               },
@@ -345,8 +353,10 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                   "checkboxesOther": Object {
                     "classNames": "column-span-12",
                     "ui:options": Object {
+                      "noneText": undefined,
                       "otherText": undefined,
-                      "withOther": true,
+                      "withNone": false,
+                      "withOther": false,
                     },
                     "ui:widget": "checkboxes",
                   },
@@ -473,8 +483,10 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                     "checkboxesOther": Object {
                       "classNames": "column-span-12",
                       "ui:options": Object {
+                        "noneText": undefined,
                         "otherText": undefined,
-                        "withOther": true,
+                        "withNone": false,
+                        "withOther": false,
                       },
                       "ui:widget": "checkboxes",
                     },
@@ -616,8 +628,10 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                       "checkboxesOther": Object {
                         "classNames": "column-span-12",
                         "ui:options": Object {
+                          "noneText": undefined,
                           "otherText": undefined,
-                          "withOther": true,
+                          "withNone": false,
+                          "withOther": false,
                         },
                         "ui:widget": "checkboxes",
                       },
@@ -753,8 +767,10 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                           "checkboxesOther": Object {
                             "classNames": "column-span-12",
                             "ui:options": Object {
+                              "noneText": undefined,
                               "otherText": undefined,
-                              "withOther": true,
+                              "withNone": false,
+                              "withOther": false,
                             },
                             "ui:widget": "checkboxes",
                           },
@@ -891,8 +907,10 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                   Object {
                                     "classNames": "column-span-12",
                                     "ui:options": Object {
+                                      "noneText": undefined,
                                       "otherText": undefined,
-                                      "withOther": true,
+                                      "withNone": false,
+                                      "withOther": false,
                                     },
                                     "ui:widget": "checkboxes",
                                   }
@@ -937,8 +955,10 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                             "checkboxesOther": Object {
                               "classNames": "column-span-12",
                               "ui:options": Object {
+                                "noneText": undefined,
                                 "otherText": undefined,
-                                "withOther": true,
+                                "withNone": false,
+                                "withOther": false,
                               },
                               "ui:widget": "checkboxes",
                             },
@@ -1066,8 +1086,10 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                               Object {
                                 "classNames": "column-span-12",
                                 "ui:options": Object {
+                                  "noneText": undefined,
                                   "otherText": undefined,
-                                  "withOther": true,
+                                  "withNone": false,
+                                  "withOther": false,
                                 },
                                 "ui:widget": "checkboxes",
                               }
@@ -1183,8 +1205,10 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                 Object {
                                   "classNames": "column-span-12",
                                   "ui:options": Object {
+                                    "noneText": undefined,
                                     "otherText": undefined,
-                                    "withOther": true,
+                                    "withNone": false,
+                                    "withOther": false,
                                   },
                                   "ui:widget": "checkboxes",
                                 }
@@ -1322,8 +1346,10 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                   Object {
                                     "classNames": "column-span-12",
                                     "ui:options": Object {
+                                      "noneText": undefined,
                                       "otherText": undefined,
-                                      "withOther": true,
+                                      "withNone": false,
+                                      "withOther": false,
                                     },
                                     "ui:widget": "checkboxes",
                                   }
@@ -1470,8 +1496,10 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                       Object {
                                         "classNames": undefined,
                                         "ui:options": Object {
+                                          "noneText": undefined,
                                           "otherText": undefined,
-                                          "withOther": true,
+                                          "withNone": false,
+                                          "withOther": false,
                                         },
                                         "ui:widget": "checkboxes",
                                       }
@@ -1503,8 +1531,10 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                               "value": "Option 3",
                                             },
                                           ],
+                                          "noneText": undefined,
                                           "otherText": undefined,
-                                          "withOther": true,
+                                          "withNone": false,
+                                          "withOther": false,
                                         }
                                       }
                                       readonly={false}
@@ -1623,8 +1653,10 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                                 "value": "Option 3",
                                               },
                                             ],
+                                            "noneText": undefined,
                                             "otherText": undefined,
-                                            "withOther": true,
+                                            "withNone": false,
+                                            "withOther": false,
                                           }
                                         }
                                         readonly={false}
@@ -2084,128 +2116,6 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                                             className="sc-bqyKva bgdnkq"
                                                           >
                                                             Option 3
-                                                          </span>
-                                                        </styled.span>
-                                                      </label>
-                                                    </styled.label>
-                                                  </Checkbox>
-                                                </ForwardRef>
-                                              </CheckboxWidget>
-                                            </Component>
-                                            <Component
-                                              autoFocus={false}
-                                              disabled={false}
-                                              id="root_checkboxesOther_Other"
-                                              key="checkboxes_Other"
-                                              label="Other"
-                                              onBlur={[Function]}
-                                              onChange={[Function]}
-                                              onFocus={[Function]}
-                                              schema={
-                                                Object {
-                                                  "enum": Array [
-                                                    "Option 1",
-                                                    "Option 2",
-                                                    "Option 3",
-                                                  ],
-                                                  "type": "string",
-                                                }
-                                              }
-                                              value={false}
-                                            >
-                                              <CheckboxWidget
-                                                autoFocus={false}
-                                                disabled={false}
-                                                id="root_checkboxesOther_Other"
-                                                label="Other"
-                                                onBlur={[Function]}
-                                                onChange={[Function]}
-                                                onFocus={[Function]}
-                                                options={Object {}}
-                                                schema={
-                                                  Object {
-                                                    "enum": Array [
-                                                      "Option 1",
-                                                      "Option 2",
-                                                      "Option 3",
-                                                    ],
-                                                    "type": "string",
-                                                  }
-                                                }
-                                                value={false}
-                                              >
-                                                <ForwardRef
-                                                  checked={false}
-                                                  id="root_checkboxesOther_Other"
-                                                  label="Other"
-                                                  onChange={[Function]}
-                                                  onKeyDown={[Function]}
-                                                  type="checkbox"
-                                                  value={false}
-                                                >
-                                                  <Checkbox
-                                                    checked={false}
-                                                    disabled={false}
-                                                    forwardedRef={null}
-                                                    id="root_checkboxesOther_Other"
-                                                    label="Other"
-                                                    onChange={[Function]}
-                                                    onKeyDown={[Function]}
-                                                    type="checkbox"
-                                                    value={false}
-                                                  >
-                                                    <styled.label
-                                                      disabled={false}
-                                                      htmlFor="root_checkboxesOther_Other"
-                                                    >
-                                                      <label
-                                                        className="sc-dQppl fgZTVN"
-                                                        disabled={false}
-                                                        htmlFor="root_checkboxesOther_Other"
-                                                      >
-                                                        <styled.span>
-                                                          <span
-                                                            className="sc-fFubgz eTzfGp"
-                                                          >
-                                                            <styled.span>
-                                                              <span
-                                                                className="sc-bkzZxe iMUePn"
-                                                              >
-                                                                <styled.input
-                                                                  checked={false}
-                                                                  id="root_checkboxesOther_Other"
-                                                                  onChange={[Function]}
-                                                                  onKeyDown={[Function]}
-                                                                  type="checkbox"
-                                                                  value={false}
-                                                                >
-                                                                  <input
-                                                                    checked={false}
-                                                                    className="sc-fodVxV gYqSwY"
-                                                                    id="root_checkboxesOther_Other"
-                                                                    onChange={[Function]}
-                                                                    onKeyDown={[Function]}
-                                                                    type="checkbox"
-                                                                    value={false}
-                                                                  />
-                                                                </styled.input>
-                                                                <styled.span
-                                                                  onClick={[Function]}
-                                                                >
-                                                                  <span
-                                                                    className="sc-iqHYGH eqtWpo"
-                                                                    onClick={[Function]}
-                                                                  />
-                                                                </styled.span>
-                                                              </span>
-                                                            </styled.span>
-                                                          </span>
-                                                        </styled.span>
-                                                        <styled.span>
-                                                          <span
-                                                            className="sc-bqyKva bgdnkq"
-                                                          >
-                                                            Other
                                                           </span>
                                                         </styled.span>
                                                       </label>
