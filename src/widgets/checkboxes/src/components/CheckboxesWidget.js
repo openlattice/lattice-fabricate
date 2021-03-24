@@ -6,6 +6,7 @@ import { utils } from '@rjsf/core';
 import { ChoiceGroup } from 'lattice-ui-kit';
 
 import OtherInput from '../../../shared/OtherInput';
+import { isNonEmptyString } from '../../../../utils/LangUtils';
 import type { WidgetProps } from '../../../types';
 
 const {
@@ -143,13 +144,16 @@ class CheckboxesWidget extends Component<WidgetProps> {
       noneText,
       otherText = 'Other'
     } = options;
+
+    const otherTextValue = isNonEmptyString(otherText) ? otherText : 'Other';
+
     const { widgets, definitions } = registry;
     const itemsSchema = retrieveSchema(schema.items, definitions, value);
-    const enumOptions = getOptionsList(itemsSchema, withNone, withOther, noneText, otherText);
+    const enumOptions = getOptionsList(itemsSchema, withNone, withOther, noneText, otherTextValue);
     const Widget = getWidget(schema, widget, widgets);
     const otherValueIndex :number = getOtherValueIndex(value, enumOptions);
     const otherValue = value[otherValueIndex];
-    const showOther = withOther && value.includes(otherText);
+    const showOther = withOther && value.includes(otherTextValue);
 
     return (
       <>

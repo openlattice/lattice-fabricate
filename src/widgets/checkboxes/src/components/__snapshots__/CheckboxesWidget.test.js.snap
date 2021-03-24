@@ -1,0 +1,2365 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckboxesWidget should match snapshot 1`] = `
+<MockForm>
+  <ForwardRef
+    schema={
+      Object {
+        "properties": Object {
+          "checkboxesOther": Object {
+            "description": "Select all that apply",
+            "items": Object {
+              "enum": Array [
+                "Option 1",
+                "Option 2",
+                "Option 3",
+              ],
+              "type": "string",
+            },
+            "minItems": 1,
+            "title": "Options (ui:options flag: withOther + otherText)",
+            "type": "array",
+            "uniqueItems": true,
+          },
+        },
+        "title": "Checkboxes",
+        "type": "object",
+      }
+    }
+    uiSchema={
+      Object {
+        "checkboxesOther": Object {
+          "classNames": "column-span-12",
+          "ui:options": Object {
+            "otherText": undefined,
+            "withOther": true,
+          },
+          "ui:widget": "checkboxes",
+        },
+        "classNames": "column-span-12",
+      }
+    }
+  >
+    <Form
+      disabled={false}
+      forwardedRef={null}
+      hideSubmit={false}
+      isSubmitting={false}
+      readOnly={false}
+      schema={
+        Object {
+          "properties": Object {
+            "checkboxesOther": Object {
+              "description": "Select all that apply",
+              "items": Object {
+                "enum": Array [
+                  "Option 1",
+                  "Option 2",
+                  "Option 3",
+                ],
+                "type": "string",
+              },
+              "minItems": 1,
+              "title": "Options (ui:options flag: withOther + otherText)",
+              "type": "array",
+              "uniqueItems": true,
+            },
+          },
+          "title": "Checkboxes",
+          "type": "object",
+        }
+      }
+      uiSchema={
+        Object {
+          "checkboxesOther": Object {
+            "classNames": "column-span-12",
+            "ui:options": Object {
+              "otherText": undefined,
+              "withOther": true,
+            },
+            "ui:widget": "checkboxes",
+          },
+          "classNames": "column-span-12",
+        }
+      }
+    >
+      <StyledForm
+        ArrayFieldTemplate={[Function]}
+        FieldTemplate={[Function]}
+        ObjectFieldTemplate={[Function]}
+        disabled={false}
+        fields={
+          Object {
+            "BulletField": [Function],
+            "DescriptionField": [Function],
+            "ParagraphField": [Function],
+            "SchemaField": [Function],
+          }
+        }
+        schema={
+          Object {
+            "properties": Object {
+              "checkboxesOther": Object {
+                "description": "Select all that apply",
+                "items": Object {
+                  "enum": Array [
+                    "Option 1",
+                    "Option 2",
+                    "Option 3",
+                  ],
+                  "type": "string",
+                },
+                "minItems": 1,
+                "title": "Options (ui:options flag: withOther + otherText)",
+                "type": "array",
+                "uniqueItems": true,
+              },
+            },
+            "title": "Checkboxes",
+            "type": "object",
+          }
+        }
+        showErrorList={false}
+        transformErrors={[Function]}
+        uiSchema={
+          Object {
+            "checkboxesOther": Object {
+              "classNames": "column-span-12",
+              "ui:options": Object {
+                "otherText": undefined,
+                "withOther": true,
+              },
+              "ui:widget": "checkboxes",
+            },
+            "classNames": "column-span-12",
+          }
+        }
+        widgets={
+          Object {
+            "BaseInput": [Function],
+            "CheckboxWidget": [Function],
+            "CheckboxesWidget": [Function],
+            "DateTimeWidget": [Function],
+            "DateWidget": [Function],
+            "OtherRadioWidget": [Function],
+            "RadioWidget": [Function],
+            "SelectWidget": [Function],
+            "SignatureWidget": [Function],
+            "TextareaWidget": [Function],
+            "TimeWidget": [Function],
+          }
+        }
+      >
+        <Form
+          ArrayFieldTemplate={[Function]}
+          ErrorList={[Function]}
+          FieldTemplate={[Function]}
+          ObjectFieldTemplate={[Function]}
+          className="StyledForm-dhnby8-0 jdmTMu"
+          disabled={false}
+          fields={
+            Object {
+              "BulletField": [Function],
+              "DescriptionField": [Function],
+              "ParagraphField": [Function],
+              "SchemaField": [Function],
+            }
+          }
+          liveValidate={false}
+          noHtml5Validate={false}
+          noValidate={false}
+          omitExtraData={false}
+          schema={
+            Object {
+              "properties": Object {
+                "checkboxesOther": Object {
+                  "description": "Select all that apply",
+                  "items": Object {
+                    "enum": Array [
+                      "Option 1",
+                      "Option 2",
+                      "Option 3",
+                    ],
+                    "type": "string",
+                  },
+                  "minItems": 1,
+                  "title": "Options (ui:options flag: withOther + otherText)",
+                  "type": "array",
+                  "uniqueItems": true,
+                },
+              },
+              "title": "Checkboxes",
+              "type": "object",
+            }
+          }
+          showErrorList={false}
+          transformErrors={[Function]}
+          uiSchema={
+            Object {
+              "checkboxesOther": Object {
+                "classNames": "column-span-12",
+                "ui:options": Object {
+                  "otherText": undefined,
+                  "withOther": true,
+                },
+                "ui:widget": "checkboxes",
+              },
+              "classNames": "column-span-12",
+            }
+          }
+          widgets={
+            Object {
+              "BaseInput": [Function],
+              "CheckboxWidget": [Function],
+              "CheckboxesWidget": [Function],
+              "DateTimeWidget": [Function],
+              "DateWidget": [Function],
+              "OtherRadioWidget": [Function],
+              "RadioWidget": [Function],
+              "SelectWidget": [Function],
+              "SignatureWidget": [Function],
+              "TextareaWidget": [Function],
+              "TimeWidget": [Function],
+            }
+          }
+        >
+          <form
+            className="StyledForm-dhnby8-0 jdmTMu"
+            noValidate={false}
+            onSubmit={[Function]}
+          >
+            <CustomSchemaField
+              disabled={false}
+              errorSchema={Object {}}
+              formData={
+                Object {
+                  "checkboxesOther": Array [],
+                }
+              }
+              idSchema={
+                Object {
+                  "$id": "root",
+                  "checkboxesOther": Object {
+                    "$id": "root_checkboxesOther",
+                  },
+                }
+              }
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              registry={
+                Object {
+                  "ArrayFieldTemplate": [Function],
+                  "FieldTemplate": [Function],
+                  "ObjectFieldTemplate": [Function],
+                  "definitions": Object {},
+                  "fields": Object {
+                    "AnyOfField": [Function],
+                    "ArrayField": [Function],
+                    "BooleanField": [Function],
+                    "BulletField": [Function],
+                    "DescriptionField": [Function],
+                    "NullField": [Function],
+                    "NumberField": [Function],
+                    "ObjectField": [Function],
+                    "OneOfField": [Function],
+                    "ParagraphField": [Function],
+                    "SchemaField": [Function],
+                    "StringField": [Function],
+                    "TitleField": [Function],
+                    "UnsupportedField": [Function],
+                  },
+                  "formContext": Object {},
+                  "rootSchema": Object {
+                    "properties": Object {
+                      "checkboxesOther": Object {
+                        "description": "Select all that apply",
+                        "items": Object {
+                          "enum": Array [
+                            "Option 1",
+                            "Option 2",
+                            "Option 3",
+                          ],
+                          "type": "string",
+                        },
+                        "minItems": 1,
+                        "title": "Options (ui:options flag: withOther + otherText)",
+                        "type": "array",
+                        "uniqueItems": true,
+                      },
+                    },
+                    "title": "Checkboxes",
+                    "type": "object",
+                  },
+                  "widgets": Object {
+                    "AltDateTimeWidget": [Function],
+                    "AltDateWidget": [Function],
+                    "BaseInput": [Function],
+                    "CheckboxWidget": [Function],
+                    "CheckboxesWidget": [Function],
+                    "ColorWidget": [Function],
+                    "DateTimeWidget": [Function],
+                    "DateWidget": [Function],
+                    "EmailWidget": [Function],
+                    "FileWidget": [Function],
+                    "HiddenWidget": [Function],
+                    "OtherRadioWidget": [Function],
+                    "PasswordWidget": [Function],
+                    "RadioWidget": [Function],
+                    "RangeWidget": [Function],
+                    "SelectWidget": [Function],
+                    "SignatureWidget": [Function],
+                    "TextWidget": [Function],
+                    "TextareaWidget": [Function],
+                    "TimeWidget": [Function],
+                    "URLWidget": [Function],
+                    "UpDownWidget": [Function],
+                  },
+                }
+              }
+              schema={
+                Object {
+                  "properties": Object {
+                    "checkboxesOther": Object {
+                      "description": "Select all that apply",
+                      "items": Object {
+                        "enum": Array [
+                          "Option 1",
+                          "Option 2",
+                          "Option 3",
+                        ],
+                        "type": "string",
+                      },
+                      "minItems": 1,
+                      "title": "Options (ui:options flag: withOther + otherText)",
+                      "type": "array",
+                      "uniqueItems": true,
+                    },
+                  },
+                  "title": "Checkboxes",
+                  "type": "object",
+                }
+              }
+              uiSchema={
+                Object {
+                  "checkboxesOther": Object {
+                    "classNames": "column-span-12",
+                    "ui:options": Object {
+                      "otherText": undefined,
+                      "withOther": true,
+                    },
+                    "ui:widget": "checkboxes",
+                  },
+                  "classNames": "column-span-12",
+                }
+              }
+            >
+              <SchemaField
+                autofocus={false}
+                disabled={false}
+                errorSchema={Object {}}
+                formData={
+                  Object {
+                    "checkboxesOther": Array [],
+                  }
+                }
+                idSchema={
+                  Object {
+                    "$id": "root",
+                    "checkboxesOther": Object {
+                      "$id": "root_checkboxesOther",
+                    },
+                  }
+                }
+                onBlur={[Function]}
+                onChange={[Function]}
+                onFocus={[Function]}
+                readonly={false}
+                registry={
+                  Object {
+                    "ArrayFieldTemplate": [Function],
+                    "FieldTemplate": [Function],
+                    "ObjectFieldTemplate": [Function],
+                    "definitions": Object {},
+                    "fields": Object {
+                      "AnyOfField": [Function],
+                      "ArrayField": [Function],
+                      "BooleanField": [Function],
+                      "BulletField": [Function],
+                      "DescriptionField": [Function],
+                      "NullField": [Function],
+                      "NumberField": [Function],
+                      "ObjectField": [Function],
+                      "OneOfField": [Function],
+                      "ParagraphField": [Function],
+                      "SchemaField": [Function],
+                      "StringField": [Function],
+                      "TitleField": [Function],
+                      "UnsupportedField": [Function],
+                    },
+                    "formContext": Object {},
+                    "rootSchema": Object {
+                      "properties": Object {
+                        "checkboxesOther": Object {
+                          "description": "Select all that apply",
+                          "items": Object {
+                            "enum": Array [
+                              "Option 1",
+                              "Option 2",
+                              "Option 3",
+                            ],
+                            "type": "string",
+                          },
+                          "minItems": 1,
+                          "title": "Options (ui:options flag: withOther + otherText)",
+                          "type": "array",
+                          "uniqueItems": true,
+                        },
+                      },
+                      "title": "Checkboxes",
+                      "type": "object",
+                    },
+                    "widgets": Object {
+                      "AltDateTimeWidget": [Function],
+                      "AltDateWidget": [Function],
+                      "BaseInput": [Function],
+                      "CheckboxWidget": [Function],
+                      "CheckboxesWidget": [Function],
+                      "ColorWidget": [Function],
+                      "DateTimeWidget": [Function],
+                      "DateWidget": [Function],
+                      "EmailWidget": [Function],
+                      "FileWidget": [Function],
+                      "HiddenWidget": [Function],
+                      "OtherRadioWidget": [Function],
+                      "PasswordWidget": [Function],
+                      "RadioWidget": [Function],
+                      "RangeWidget": [Function],
+                      "SelectWidget": [Function],
+                      "SignatureWidget": [Function],
+                      "TextWidget": [Function],
+                      "TextareaWidget": [Function],
+                      "TimeWidget": [Function],
+                      "URLWidget": [Function],
+                      "UpDownWidget": [Function],
+                    },
+                  }
+                }
+                schema={
+                  Object {
+                    "properties": Object {
+                      "checkboxesOther": Object {
+                        "description": "Select all that apply",
+                        "items": Object {
+                          "enum": Array [
+                            "Option 1",
+                            "Option 2",
+                            "Option 3",
+                          ],
+                          "type": "string",
+                        },
+                        "minItems": 1,
+                        "title": "Options (ui:options flag: withOther + otherText)",
+                        "type": "array",
+                        "uniqueItems": true,
+                      },
+                    },
+                    "title": "Checkboxes",
+                    "type": "object",
+                  }
+                }
+                uiSchema={
+                  Object {
+                    "checkboxesOther": Object {
+                      "classNames": "column-span-12",
+                      "ui:options": Object {
+                        "otherText": undefined,
+                        "withOther": true,
+                      },
+                      "ui:widget": "checkboxes",
+                    },
+                    "classNames": "column-span-12",
+                  }
+                }
+              >
+                <FieldTemplate
+                  classNames="form-group field field-object  column-span-12"
+                  description={
+                    <DescriptionField
+                      formContext={Object {}}
+                      id="root__description"
+                    />
+                  }
+                  disabled={false}
+                  displayLabel={false}
+                  errors={<ErrorList />}
+                  fields={
+                    Object {
+                      "AnyOfField": [Function],
+                      "ArrayField": [Function],
+                      "BooleanField": [Function],
+                      "BulletField": [Function],
+                      "DescriptionField": [Function],
+                      "NullField": [Function],
+                      "NumberField": [Function],
+                      "ObjectField": [Function],
+                      "OneOfField": [Function],
+                      "ParagraphField": [Function],
+                      "SchemaField": [Function],
+                      "StringField": [Function],
+                      "TitleField": [Function],
+                      "UnsupportedField": [Function],
+                    }
+                  }
+                  formContext={Object {}}
+                  help={<Help />}
+                  hidden={false}
+                  id="root"
+                  label="Checkboxes"
+                  readonly={false}
+                  registry={
+                    Object {
+                      "ArrayFieldTemplate": [Function],
+                      "FieldTemplate": [Function],
+                      "ObjectFieldTemplate": [Function],
+                      "definitions": Object {},
+                      "fields": Object {
+                        "AnyOfField": [Function],
+                        "ArrayField": [Function],
+                        "BooleanField": [Function],
+                        "BulletField": [Function],
+                        "DescriptionField": [Function],
+                        "NullField": [Function],
+                        "NumberField": [Function],
+                        "ObjectField": [Function],
+                        "OneOfField": [Function],
+                        "ParagraphField": [Function],
+                        "SchemaField": [Function],
+                        "StringField": [Function],
+                        "TitleField": [Function],
+                        "UnsupportedField": [Function],
+                      },
+                      "formContext": Object {},
+                      "rootSchema": Object {
+                        "properties": Object {
+                          "checkboxesOther": Object {
+                            "description": "Select all that apply",
+                            "items": Object {
+                              "enum": Array [
+                                "Option 1",
+                                "Option 2",
+                                "Option 3",
+                              ],
+                              "type": "string",
+                            },
+                            "minItems": 1,
+                            "title": "Options (ui:options flag: withOther + otherText)",
+                            "type": "array",
+                            "uniqueItems": true,
+                          },
+                        },
+                        "title": "Checkboxes",
+                        "type": "object",
+                      },
+                      "widgets": Object {
+                        "AltDateTimeWidget": [Function],
+                        "AltDateWidget": [Function],
+                        "BaseInput": [Function],
+                        "CheckboxWidget": [Function],
+                        "CheckboxesWidget": [Function],
+                        "ColorWidget": [Function],
+                        "DateTimeWidget": [Function],
+                        "DateWidget": [Function],
+                        "EmailWidget": [Function],
+                        "FileWidget": [Function],
+                        "HiddenWidget": [Function],
+                        "OtherRadioWidget": [Function],
+                        "PasswordWidget": [Function],
+                        "RadioWidget": [Function],
+                        "RangeWidget": [Function],
+                        "SelectWidget": [Function],
+                        "SignatureWidget": [Function],
+                        "TextWidget": [Function],
+                        "TextareaWidget": [Function],
+                        "TimeWidget": [Function],
+                        "URLWidget": [Function],
+                        "UpDownWidget": [Function],
+                      },
+                    }
+                  }
+                  required={false}
+                  schema={
+                    Object {
+                      "properties": Object {
+                        "checkboxesOther": Object {
+                          "description": "Select all that apply",
+                          "items": Object {
+                            "enum": Array [
+                              "Option 1",
+                              "Option 2",
+                              "Option 3",
+                            ],
+                            "type": "string",
+                          },
+                          "minItems": 1,
+                          "title": "Options (ui:options flag: withOther + otherText)",
+                          "type": "array",
+                          "uniqueItems": true,
+                        },
+                      },
+                      "title": "Checkboxes",
+                      "type": "object",
+                    }
+                  }
+                  uiSchema={
+                    Object {
+                      "checkboxesOther": Object {
+                        "classNames": "column-span-12",
+                        "ui:options": Object {
+                          "otherText": undefined,
+                          "withOther": true,
+                        },
+                        "ui:widget": "checkboxes",
+                      },
+                      "classNames": "column-span-12",
+                    }
+                  }
+                >
+                  <div
+                    className="form-group field field-object  column-span-12"
+                  >
+                    <DescriptionField
+                      formContext={Object {}}
+                      id="root__description"
+                    />
+                    <ObjectField
+                      autofocus={false}
+                      disabled={false}
+                      errorSchema={Object {}}
+                      formContext={Object {}}
+                      formData={
+                        Object {
+                          "checkboxesOther": Array [],
+                        }
+                      }
+                      idSchema={
+                        Object {
+                          "$id": "root",
+                          "checkboxesOther": Object {
+                            "$id": "root_checkboxesOther",
+                          },
+                        }
+                      }
+                      onBlur={[Function]}
+                      onChange={[Function]}
+                      onFocus={[Function]}
+                      readonly={false}
+                      registry={
+                        Object {
+                          "ArrayFieldTemplate": [Function],
+                          "FieldTemplate": [Function],
+                          "ObjectFieldTemplate": [Function],
+                          "definitions": Object {},
+                          "fields": Object {
+                            "AnyOfField": [Function],
+                            "ArrayField": [Function],
+                            "BooleanField": [Function],
+                            "BulletField": [Function],
+                            "DescriptionField": [Function],
+                            "NullField": [Function],
+                            "NumberField": [Function],
+                            "ObjectField": [Function],
+                            "OneOfField": [Function],
+                            "ParagraphField": [Function],
+                            "SchemaField": [Function],
+                            "StringField": [Function],
+                            "TitleField": [Function],
+                            "UnsupportedField": [Function],
+                          },
+                          "formContext": Object {},
+                          "rootSchema": Object {
+                            "properties": Object {
+                              "checkboxesOther": Object {
+                                "description": "Select all that apply",
+                                "items": Object {
+                                  "enum": Array [
+                                    "Option 1",
+                                    "Option 2",
+                                    "Option 3",
+                                  ],
+                                  "type": "string",
+                                },
+                                "minItems": 1,
+                                "title": "Options (ui:options flag: withOther + otherText)",
+                                "type": "array",
+                                "uniqueItems": true,
+                              },
+                            },
+                            "title": "Checkboxes",
+                            "type": "object",
+                          },
+                          "widgets": Object {
+                            "AltDateTimeWidget": [Function],
+                            "AltDateWidget": [Function],
+                            "BaseInput": [Function],
+                            "CheckboxWidget": [Function],
+                            "CheckboxesWidget": [Function],
+                            "ColorWidget": [Function],
+                            "DateTimeWidget": [Function],
+                            "DateWidget": [Function],
+                            "EmailWidget": [Function],
+                            "FileWidget": [Function],
+                            "HiddenWidget": [Function],
+                            "OtherRadioWidget": [Function],
+                            "PasswordWidget": [Function],
+                            "RadioWidget": [Function],
+                            "RangeWidget": [Function],
+                            "SelectWidget": [Function],
+                            "SignatureWidget": [Function],
+                            "TextWidget": [Function],
+                            "TextareaWidget": [Function],
+                            "TimeWidget": [Function],
+                            "URLWidget": [Function],
+                            "UpDownWidget": [Function],
+                          },
+                        }
+                      }
+                      required={false}
+                      schema={
+                        Object {
+                          "properties": Object {
+                            "checkboxesOther": Object {
+                              "description": "Select all that apply",
+                              "items": Object {
+                                "enum": Array [
+                                  "Option 1",
+                                  "Option 2",
+                                  "Option 3",
+                                ],
+                                "type": "string",
+                              },
+                              "minItems": 1,
+                              "title": "Options (ui:options flag: withOther + otherText)",
+                              "type": "array",
+                              "uniqueItems": true,
+                            },
+                          },
+                          "title": "Checkboxes",
+                          "type": "object",
+                        }
+                      }
+                      uiSchema={
+                        Object {
+                          "checkboxesOther": Object {
+                            "classNames": "column-span-12",
+                            "ui:options": Object {
+                              "otherText": undefined,
+                              "withOther": true,
+                            },
+                            "ui:widget": "checkboxes",
+                          },
+                          "classNames": undefined,
+                        }
+                      }
+                    >
+                      <ObjectFieldTemplate
+                        DescriptionField={[Function]}
+                        TitleField={[Function]}
+                        disabled={false}
+                        formContext={Object {}}
+                        formData={
+                          Object {
+                            "checkboxesOther": Array [],
+                          }
+                        }
+                        idSchema={
+                          Object {
+                            "$id": "root",
+                            "checkboxesOther": Object {
+                              "$id": "root_checkboxesOther",
+                            },
+                          }
+                        }
+                        onAddClick={[Function]}
+                        properties={
+                          Array [
+                            Object {
+                              "content": <CustomSchemaField
+                                disabled={false}
+                                formData={Array []}
+                                idSchema={
+                                  Object {
+                                    "$id": "root_checkboxesOther",
+                                  }
+                                }
+                                name="checkboxesOther"
+                                onBlur={[Function]}
+                                onChange={[Function]}
+                                onDropPropertyClick={[Function]}
+                                onFocus={[Function]}
+                                onKeyChange={[Function]}
+                                readonly={false}
+                                registry={
+                                  Object {
+                                    "ArrayFieldTemplate": [Function],
+                                    "FieldTemplate": [Function],
+                                    "ObjectFieldTemplate": [Function],
+                                    "definitions": Object {},
+                                    "fields": Object {
+                                      "AnyOfField": [Function],
+                                      "ArrayField": [Function],
+                                      "BooleanField": [Function],
+                                      "BulletField": [Function],
+                                      "DescriptionField": [Function],
+                                      "NullField": [Function],
+                                      "NumberField": [Function],
+                                      "ObjectField": [Function],
+                                      "OneOfField": [Function],
+                                      "ParagraphField": [Function],
+                                      "SchemaField": [Function],
+                                      "StringField": [Function],
+                                      "TitleField": [Function],
+                                      "UnsupportedField": [Function],
+                                    },
+                                    "formContext": Object {},
+                                    "rootSchema": Object {
+                                      "properties": Object {
+                                        "checkboxesOther": Object {
+                                          "description": "Select all that apply",
+                                          "items": Object {
+                                            "enum": Array [
+                                              "Option 1",
+                                              "Option 2",
+                                              "Option 3",
+                                            ],
+                                            "type": "string",
+                                          },
+                                          "minItems": 1,
+                                          "title": "Options (ui:options flag: withOther + otherText)",
+                                          "type": "array",
+                                          "uniqueItems": true,
+                                        },
+                                      },
+                                      "title": "Checkboxes",
+                                      "type": "object",
+                                    },
+                                    "widgets": Object {
+                                      "AltDateTimeWidget": [Function],
+                                      "AltDateWidget": [Function],
+                                      "BaseInput": [Function],
+                                      "CheckboxWidget": [Function],
+                                      "CheckboxesWidget": [Function],
+                                      "ColorWidget": [Function],
+                                      "DateTimeWidget": [Function],
+                                      "DateWidget": [Function],
+                                      "EmailWidget": [Function],
+                                      "FileWidget": [Function],
+                                      "HiddenWidget": [Function],
+                                      "OtherRadioWidget": [Function],
+                                      "PasswordWidget": [Function],
+                                      "RadioWidget": [Function],
+                                      "RangeWidget": [Function],
+                                      "SelectWidget": [Function],
+                                      "SignatureWidget": [Function],
+                                      "TextWidget": [Function],
+                                      "TextareaWidget": [Function],
+                                      "TimeWidget": [Function],
+                                      "URLWidget": [Function],
+                                      "UpDownWidget": [Function],
+                                    },
+                                  }
+                                }
+                                required={false}
+                                schema={
+                                  Object {
+                                    "description": "Select all that apply",
+                                    "items": Object {
+                                      "enum": Array [
+                                        "Option 1",
+                                        "Option 2",
+                                        "Option 3",
+                                      ],
+                                      "type": "string",
+                                    },
+                                    "minItems": 1,
+                                    "title": "Options (ui:options flag: withOther + otherText)",
+                                    "type": "array",
+                                    "uniqueItems": true,
+                                  }
+                                }
+                                uiSchema={
+                                  Object {
+                                    "classNames": "column-span-12",
+                                    "ui:options": Object {
+                                      "otherText": undefined,
+                                      "withOther": true,
+                                    },
+                                    "ui:widget": "checkboxes",
+                                  }
+                                }
+                                wasPropertyKeyModified={false}
+                              />,
+                              "disabled": false,
+                              "name": "checkboxesOther",
+                              "readonly": false,
+                              "required": false,
+                            },
+                          ]
+                        }
+                        readonly={false}
+                        required={false}
+                        schema={
+                          Object {
+                            "properties": Object {
+                              "checkboxesOther": Object {
+                                "description": "Select all that apply",
+                                "items": Object {
+                                  "enum": Array [
+                                    "Option 1",
+                                    "Option 2",
+                                    "Option 3",
+                                  ],
+                                  "type": "string",
+                                },
+                                "minItems": 1,
+                                "title": "Options (ui:options flag: withOther + otherText)",
+                                "type": "array",
+                                "uniqueItems": true,
+                              },
+                            },
+                            "title": "Checkboxes",
+                            "type": "object",
+                          }
+                        }
+                        title="Checkboxes"
+                        uiSchema={
+                          Object {
+                            "checkboxesOther": Object {
+                              "classNames": "column-span-12",
+                              "ui:options": Object {
+                                "otherText": undefined,
+                                "withOther": true,
+                              },
+                              "ui:widget": "checkboxes",
+                            },
+                            "classNames": undefined,
+                          }
+                        }
+                      >
+                        <div>
+                          <TitleField
+                            id="root__title"
+                            required={false}
+                            title="Checkboxes"
+                          >
+                            <legend
+                              id="root__title"
+                            >
+                              Checkboxes
+                            </legend>
+                          </TitleField>
+                          <CustomSchemaField
+                            disabled={false}
+                            formData={Array []}
+                            idSchema={
+                              Object {
+                                "$id": "root_checkboxesOther",
+                              }
+                            }
+                            key="checkboxesOther"
+                            name="checkboxesOther"
+                            onBlur={[Function]}
+                            onChange={[Function]}
+                            onDropPropertyClick={[Function]}
+                            onFocus={[Function]}
+                            onKeyChange={[Function]}
+                            readonly={false}
+                            registry={
+                              Object {
+                                "ArrayFieldTemplate": [Function],
+                                "FieldTemplate": [Function],
+                                "ObjectFieldTemplate": [Function],
+                                "definitions": Object {},
+                                "fields": Object {
+                                  "AnyOfField": [Function],
+                                  "ArrayField": [Function],
+                                  "BooleanField": [Function],
+                                  "BulletField": [Function],
+                                  "DescriptionField": [Function],
+                                  "NullField": [Function],
+                                  "NumberField": [Function],
+                                  "ObjectField": [Function],
+                                  "OneOfField": [Function],
+                                  "ParagraphField": [Function],
+                                  "SchemaField": [Function],
+                                  "StringField": [Function],
+                                  "TitleField": [Function],
+                                  "UnsupportedField": [Function],
+                                },
+                                "formContext": Object {},
+                                "rootSchema": Object {
+                                  "properties": Object {
+                                    "checkboxesOther": Object {
+                                      "description": "Select all that apply",
+                                      "items": Object {
+                                        "enum": Array [
+                                          "Option 1",
+                                          "Option 2",
+                                          "Option 3",
+                                        ],
+                                        "type": "string",
+                                      },
+                                      "minItems": 1,
+                                      "title": "Options (ui:options flag: withOther + otherText)",
+                                      "type": "array",
+                                      "uniqueItems": true,
+                                    },
+                                  },
+                                  "title": "Checkboxes",
+                                  "type": "object",
+                                },
+                                "widgets": Object {
+                                  "AltDateTimeWidget": [Function],
+                                  "AltDateWidget": [Function],
+                                  "BaseInput": [Function],
+                                  "CheckboxWidget": [Function],
+                                  "CheckboxesWidget": [Function],
+                                  "ColorWidget": [Function],
+                                  "DateTimeWidget": [Function],
+                                  "DateWidget": [Function],
+                                  "EmailWidget": [Function],
+                                  "FileWidget": [Function],
+                                  "HiddenWidget": [Function],
+                                  "OtherRadioWidget": [Function],
+                                  "PasswordWidget": [Function],
+                                  "RadioWidget": [Function],
+                                  "RangeWidget": [Function],
+                                  "SelectWidget": [Function],
+                                  "SignatureWidget": [Function],
+                                  "TextWidget": [Function],
+                                  "TextareaWidget": [Function],
+                                  "TimeWidget": [Function],
+                                  "URLWidget": [Function],
+                                  "UpDownWidget": [Function],
+                                },
+                              }
+                            }
+                            required={false}
+                            schema={
+                              Object {
+                                "description": "Select all that apply",
+                                "items": Object {
+                                  "enum": Array [
+                                    "Option 1",
+                                    "Option 2",
+                                    "Option 3",
+                                  ],
+                                  "type": "string",
+                                },
+                                "minItems": 1,
+                                "title": "Options (ui:options flag: withOther + otherText)",
+                                "type": "array",
+                                "uniqueItems": true,
+                              }
+                            }
+                            uiSchema={
+                              Object {
+                                "classNames": "column-span-12",
+                                "ui:options": Object {
+                                  "otherText": undefined,
+                                  "withOther": true,
+                                },
+                                "ui:widget": "checkboxes",
+                              }
+                            }
+                            wasPropertyKeyModified={false}
+                          >
+                            <SchemaField
+                              autofocus={false}
+                              disabled={false}
+                              errorSchema={Object {}}
+                              formData={Array []}
+                              idSchema={
+                                Object {
+                                  "$id": "root_checkboxesOther",
+                                }
+                              }
+                              name="checkboxesOther"
+                              onBlur={[Function]}
+                              onChange={[Function]}
+                              onDropPropertyClick={[Function]}
+                              onFocus={[Function]}
+                              onKeyChange={[Function]}
+                              readonly={false}
+                              registry={
+                                Object {
+                                  "ArrayFieldTemplate": [Function],
+                                  "FieldTemplate": [Function],
+                                  "ObjectFieldTemplate": [Function],
+                                  "definitions": Object {},
+                                  "fields": Object {
+                                    "AnyOfField": [Function],
+                                    "ArrayField": [Function],
+                                    "BooleanField": [Function],
+                                    "BulletField": [Function],
+                                    "DescriptionField": [Function],
+                                    "NullField": [Function],
+                                    "NumberField": [Function],
+                                    "ObjectField": [Function],
+                                    "OneOfField": [Function],
+                                    "ParagraphField": [Function],
+                                    "SchemaField": [Function],
+                                    "StringField": [Function],
+                                    "TitleField": [Function],
+                                    "UnsupportedField": [Function],
+                                  },
+                                  "formContext": Object {},
+                                  "rootSchema": Object {
+                                    "properties": Object {
+                                      "checkboxesOther": Object {
+                                        "description": "Select all that apply",
+                                        "items": Object {
+                                          "enum": Array [
+                                            "Option 1",
+                                            "Option 2",
+                                            "Option 3",
+                                          ],
+                                          "type": "string",
+                                        },
+                                        "minItems": 1,
+                                        "title": "Options (ui:options flag: withOther + otherText)",
+                                        "type": "array",
+                                        "uniqueItems": true,
+                                      },
+                                    },
+                                    "title": "Checkboxes",
+                                    "type": "object",
+                                  },
+                                  "widgets": Object {
+                                    "AltDateTimeWidget": [Function],
+                                    "AltDateWidget": [Function],
+                                    "BaseInput": [Function],
+                                    "CheckboxWidget": [Function],
+                                    "CheckboxesWidget": [Function],
+                                    "ColorWidget": [Function],
+                                    "DateTimeWidget": [Function],
+                                    "DateWidget": [Function],
+                                    "EmailWidget": [Function],
+                                    "FileWidget": [Function],
+                                    "HiddenWidget": [Function],
+                                    "OtherRadioWidget": [Function],
+                                    "PasswordWidget": [Function],
+                                    "RadioWidget": [Function],
+                                    "RangeWidget": [Function],
+                                    "SelectWidget": [Function],
+                                    "SignatureWidget": [Function],
+                                    "TextWidget": [Function],
+                                    "TextareaWidget": [Function],
+                                    "TimeWidget": [Function],
+                                    "URLWidget": [Function],
+                                    "UpDownWidget": [Function],
+                                  },
+                                }
+                              }
+                              required={false}
+                              schema={
+                                Object {
+                                  "description": "Select all that apply",
+                                  "items": Object {
+                                    "enum": Array [
+                                      "Option 1",
+                                      "Option 2",
+                                      "Option 3",
+                                    ],
+                                    "type": "string",
+                                  },
+                                  "minItems": 1,
+                                  "title": "Options (ui:options flag: withOther + otherText)",
+                                  "type": "array",
+                                  "uniqueItems": true,
+                                }
+                              }
+                              uiSchema={
+                                Object {
+                                  "classNames": "column-span-12",
+                                  "ui:options": Object {
+                                    "otherText": undefined,
+                                    "withOther": true,
+                                  },
+                                  "ui:widget": "checkboxes",
+                                }
+                              }
+                              wasPropertyKeyModified={false}
+                            >
+                              <FieldTemplate
+                                classNames="form-group field field-array  column-span-12"
+                                description={
+                                  <DescriptionField
+                                    description="Select all that apply"
+                                    formContext={Object {}}
+                                    id="root_checkboxesOther__description"
+                                  />
+                                }
+                                disabled={false}
+                                displayLabel={true}
+                                errors={<ErrorList />}
+                                fields={
+                                  Object {
+                                    "AnyOfField": [Function],
+                                    "ArrayField": [Function],
+                                    "BooleanField": [Function],
+                                    "BulletField": [Function],
+                                    "DescriptionField": [Function],
+                                    "NullField": [Function],
+                                    "NumberField": [Function],
+                                    "ObjectField": [Function],
+                                    "OneOfField": [Function],
+                                    "ParagraphField": [Function],
+                                    "SchemaField": [Function],
+                                    "StringField": [Function],
+                                    "TitleField": [Function],
+                                    "UnsupportedField": [Function],
+                                  }
+                                }
+                                formContext={Object {}}
+                                help={<Help />}
+                                hidden={false}
+                                id="root_checkboxesOther"
+                                label="Options (ui:options flag: withOther + otherText)"
+                                onDropPropertyClick={[Function]}
+                                onKeyChange={[Function]}
+                                rawDescription="Select all that apply"
+                                readonly={false}
+                                registry={
+                                  Object {
+                                    "ArrayFieldTemplate": [Function],
+                                    "FieldTemplate": [Function],
+                                    "ObjectFieldTemplate": [Function],
+                                    "definitions": Object {},
+                                    "fields": Object {
+                                      "AnyOfField": [Function],
+                                      "ArrayField": [Function],
+                                      "BooleanField": [Function],
+                                      "BulletField": [Function],
+                                      "DescriptionField": [Function],
+                                      "NullField": [Function],
+                                      "NumberField": [Function],
+                                      "ObjectField": [Function],
+                                      "OneOfField": [Function],
+                                      "ParagraphField": [Function],
+                                      "SchemaField": [Function],
+                                      "StringField": [Function],
+                                      "TitleField": [Function],
+                                      "UnsupportedField": [Function],
+                                    },
+                                    "formContext": Object {},
+                                    "rootSchema": Object {
+                                      "properties": Object {
+                                        "checkboxesOther": Object {
+                                          "description": "Select all that apply",
+                                          "items": Object {
+                                            "enum": Array [
+                                              "Option 1",
+                                              "Option 2",
+                                              "Option 3",
+                                            ],
+                                            "type": "string",
+                                          },
+                                          "minItems": 1,
+                                          "title": "Options (ui:options flag: withOther + otherText)",
+                                          "type": "array",
+                                          "uniqueItems": true,
+                                        },
+                                      },
+                                      "title": "Checkboxes",
+                                      "type": "object",
+                                    },
+                                    "widgets": Object {
+                                      "AltDateTimeWidget": [Function],
+                                      "AltDateWidget": [Function],
+                                      "BaseInput": [Function],
+                                      "CheckboxWidget": [Function],
+                                      "CheckboxesWidget": [Function],
+                                      "ColorWidget": [Function],
+                                      "DateTimeWidget": [Function],
+                                      "DateWidget": [Function],
+                                      "EmailWidget": [Function],
+                                      "FileWidget": [Function],
+                                      "HiddenWidget": [Function],
+                                      "OtherRadioWidget": [Function],
+                                      "PasswordWidget": [Function],
+                                      "RadioWidget": [Function],
+                                      "RangeWidget": [Function],
+                                      "SelectWidget": [Function],
+                                      "SignatureWidget": [Function],
+                                      "TextWidget": [Function],
+                                      "TextareaWidget": [Function],
+                                      "TimeWidget": [Function],
+                                      "URLWidget": [Function],
+                                      "UpDownWidget": [Function],
+                                    },
+                                  }
+                                }
+                                required={false}
+                                schema={
+                                  Object {
+                                    "description": "Select all that apply",
+                                    "items": Object {
+                                      "enum": Array [
+                                        "Option 1",
+                                        "Option 2",
+                                        "Option 3",
+                                      ],
+                                      "type": "string",
+                                    },
+                                    "minItems": 1,
+                                    "title": "Options (ui:options flag: withOther + otherText)",
+                                    "type": "array",
+                                    "uniqueItems": true,
+                                  }
+                                }
+                                uiSchema={
+                                  Object {
+                                    "classNames": "column-span-12",
+                                    "ui:options": Object {
+                                      "otherText": undefined,
+                                      "withOther": true,
+                                    },
+                                    "ui:widget": "checkboxes",
+                                  }
+                                }
+                              >
+                                <div
+                                  className="form-group field field-array  column-span-12"
+                                >
+                                  <FieldTemplate__FieldLabel
+                                    htmlFor="root_checkboxesOther"
+                                    required={false}
+                                  >
+                                    <label
+                                      className="sc-iBPRYJ FieldTemplate__FieldLabel-sc-1c6bjb1-1 gAhAcd eCHikR"
+                                      htmlFor="root_checkboxesOther"
+                                      required={false}
+                                    >
+                                      Options (ui:options flag: withOther + otherText)
+                                    </label>
+                                  </FieldTemplate__FieldLabel>
+                                  <DescriptionField
+                                    description="Select all that apply"
+                                    formContext={Object {}}
+                                    id="root_checkboxesOther__description"
+                                  >
+                                    <DescriptionField__DescriptionDiv
+                                      id="root_checkboxesOther__description"
+                                    >
+                                      <div
+                                        className="DescriptionField__DescriptionDiv-fzrkjp-0 dCRrAG"
+                                        id="root_checkboxesOther__description"
+                                      >
+                                        Select all that apply
+                                      </div>
+                                    </DescriptionField__DescriptionDiv>
+                                  </DescriptionField>
+                                  <ArrayField
+                                    autofocus={false}
+                                    disabled={false}
+                                    errorSchema={Object {}}
+                                    formContext={Object {}}
+                                    formData={Array []}
+                                    idSchema={
+                                      Object {
+                                        "$id": "root_checkboxesOther",
+                                      }
+                                    }
+                                    name="checkboxesOther"
+                                    onBlur={[Function]}
+                                    onChange={[Function]}
+                                    onDropPropertyClick={[Function]}
+                                    onFocus={[Function]}
+                                    onKeyChange={[Function]}
+                                    readonly={false}
+                                    registry={
+                                      Object {
+                                        "ArrayFieldTemplate": [Function],
+                                        "FieldTemplate": [Function],
+                                        "ObjectFieldTemplate": [Function],
+                                        "definitions": Object {},
+                                        "fields": Object {
+                                          "AnyOfField": [Function],
+                                          "ArrayField": [Function],
+                                          "BooleanField": [Function],
+                                          "BulletField": [Function],
+                                          "DescriptionField": [Function],
+                                          "NullField": [Function],
+                                          "NumberField": [Function],
+                                          "ObjectField": [Function],
+                                          "OneOfField": [Function],
+                                          "ParagraphField": [Function],
+                                          "SchemaField": [Function],
+                                          "StringField": [Function],
+                                          "TitleField": [Function],
+                                          "UnsupportedField": [Function],
+                                        },
+                                        "formContext": Object {},
+                                        "rootSchema": Object {
+                                          "properties": Object {
+                                            "checkboxesOther": Object {
+                                              "description": "Select all that apply",
+                                              "items": Object {
+                                                "enum": Array [
+                                                  "Option 1",
+                                                  "Option 2",
+                                                  "Option 3",
+                                                ],
+                                                "type": "string",
+                                              },
+                                              "minItems": 1,
+                                              "title": "Options (ui:options flag: withOther + otherText)",
+                                              "type": "array",
+                                              "uniqueItems": true,
+                                            },
+                                          },
+                                          "title": "Checkboxes",
+                                          "type": "object",
+                                        },
+                                        "widgets": Object {
+                                          "AltDateTimeWidget": [Function],
+                                          "AltDateWidget": [Function],
+                                          "BaseInput": [Function],
+                                          "CheckboxWidget": [Function],
+                                          "CheckboxesWidget": [Function],
+                                          "ColorWidget": [Function],
+                                          "DateTimeWidget": [Function],
+                                          "DateWidget": [Function],
+                                          "EmailWidget": [Function],
+                                          "FileWidget": [Function],
+                                          "HiddenWidget": [Function],
+                                          "OtherRadioWidget": [Function],
+                                          "PasswordWidget": [Function],
+                                          "RadioWidget": [Function],
+                                          "RangeWidget": [Function],
+                                          "SelectWidget": [Function],
+                                          "SignatureWidget": [Function],
+                                          "TextWidget": [Function],
+                                          "TextareaWidget": [Function],
+                                          "TimeWidget": [Function],
+                                          "URLWidget": [Function],
+                                          "UpDownWidget": [Function],
+                                        },
+                                      }
+                                    }
+                                    required={false}
+                                    schema={
+                                      Object {
+                                        "description": "Select all that apply",
+                                        "items": Object {
+                                          "enum": Array [
+                                            "Option 1",
+                                            "Option 2",
+                                            "Option 3",
+                                          ],
+                                          "type": "string",
+                                        },
+                                        "minItems": 1,
+                                        "title": "Options (ui:options flag: withOther + otherText)",
+                                        "type": "array",
+                                        "uniqueItems": true,
+                                      }
+                                    }
+                                    uiSchema={
+                                      Object {
+                                        "classNames": undefined,
+                                        "ui:options": Object {
+                                          "otherText": undefined,
+                                          "withOther": true,
+                                        },
+                                        "ui:widget": "checkboxes",
+                                      }
+                                    }
+                                    wasPropertyKeyModified={false}
+                                  >
+                                    <Component
+                                      autofocus={false}
+                                      disabled={false}
+                                      formContext={Object {}}
+                                      id="root_checkboxesOther"
+                                      multiple={true}
+                                      onBlur={[Function]}
+                                      onChange={[Function]}
+                                      onFocus={[Function]}
+                                      options={
+                                        Object {
+                                          "enumOptions": Array [
+                                            Object {
+                                              "label": "Option 1",
+                                              "value": "Option 1",
+                                            },
+                                            Object {
+                                              "label": "Option 2",
+                                              "value": "Option 2",
+                                            },
+                                            Object {
+                                              "label": "Option 3",
+                                              "value": "Option 3",
+                                            },
+                                          ],
+                                          "otherText": undefined,
+                                          "withOther": true,
+                                        }
+                                      }
+                                      readonly={false}
+                                      registry={
+                                        Object {
+                                          "ArrayFieldTemplate": [Function],
+                                          "FieldTemplate": [Function],
+                                          "ObjectFieldTemplate": [Function],
+                                          "definitions": Object {},
+                                          "fields": Object {
+                                            "AnyOfField": [Function],
+                                            "ArrayField": [Function],
+                                            "BooleanField": [Function],
+                                            "BulletField": [Function],
+                                            "DescriptionField": [Function],
+                                            "NullField": [Function],
+                                            "NumberField": [Function],
+                                            "ObjectField": [Function],
+                                            "OneOfField": [Function],
+                                            "ParagraphField": [Function],
+                                            "SchemaField": [Function],
+                                            "StringField": [Function],
+                                            "TitleField": [Function],
+                                            "UnsupportedField": [Function],
+                                          },
+                                          "formContext": Object {},
+                                          "rootSchema": Object {
+                                            "properties": Object {
+                                              "checkboxesOther": Object {
+                                                "description": "Select all that apply",
+                                                "items": Object {
+                                                  "enum": Array [
+                                                    "Option 1",
+                                                    "Option 2",
+                                                    "Option 3",
+                                                  ],
+                                                  "type": "string",
+                                                },
+                                                "minItems": 1,
+                                                "title": "Options (ui:options flag: withOther + otherText)",
+                                                "type": "array",
+                                                "uniqueItems": true,
+                                              },
+                                            },
+                                            "title": "Checkboxes",
+                                            "type": "object",
+                                          },
+                                          "widgets": Object {
+                                            "AltDateTimeWidget": [Function],
+                                            "AltDateWidget": [Function],
+                                            "BaseInput": [Function],
+                                            "CheckboxWidget": [Function],
+                                            "CheckboxesWidget": [Function],
+                                            "ColorWidget": [Function],
+                                            "DateTimeWidget": [Function],
+                                            "DateWidget": [Function],
+                                            "EmailWidget": [Function],
+                                            "FileWidget": [Function],
+                                            "HiddenWidget": [Function],
+                                            "OtherRadioWidget": [Function],
+                                            "PasswordWidget": [Function],
+                                            "RadioWidget": [Function],
+                                            "RangeWidget": [Function],
+                                            "SelectWidget": [Function],
+                                            "SignatureWidget": [Function],
+                                            "TextWidget": [Function],
+                                            "TextareaWidget": [Function],
+                                            "TimeWidget": [Function],
+                                            "URLWidget": [Function],
+                                            "UpDownWidget": [Function],
+                                          },
+                                        }
+                                      }
+                                      required={false}
+                                      schema={
+                                        Object {
+                                          "description": "Select all that apply",
+                                          "items": Object {
+                                            "enum": Array [
+                                              "Option 1",
+                                              "Option 2",
+                                              "Option 3",
+                                            ],
+                                            "type": "string",
+                                          },
+                                          "minItems": 1,
+                                          "title": "Options (ui:options flag: withOther + otherText)",
+                                          "type": "array",
+                                          "uniqueItems": true,
+                                        }
+                                      }
+                                      value={Array []}
+                                    >
+                                      <CheckboxesWidget
+                                        autofocus={false}
+                                        disabled={false}
+                                        formContext={Object {}}
+                                        id="root_checkboxesOther"
+                                        multiple={true}
+                                        onBlur={[Function]}
+                                        onChange={[Function]}
+                                        onFocus={[Function]}
+                                        options={
+                                          Object {
+                                            "enumOptions": Array [
+                                              Object {
+                                                "label": "Option 1",
+                                                "value": "Option 1",
+                                              },
+                                              Object {
+                                                "label": "Option 2",
+                                                "value": "Option 2",
+                                              },
+                                              Object {
+                                                "label": "Option 3",
+                                                "value": "Option 3",
+                                              },
+                                            ],
+                                            "otherText": undefined,
+                                            "withOther": true,
+                                          }
+                                        }
+                                        readonly={false}
+                                        registry={
+                                          Object {
+                                            "ArrayFieldTemplate": [Function],
+                                            "FieldTemplate": [Function],
+                                            "ObjectFieldTemplate": [Function],
+                                            "definitions": Object {},
+                                            "fields": Object {
+                                              "AnyOfField": [Function],
+                                              "ArrayField": [Function],
+                                              "BooleanField": [Function],
+                                              "BulletField": [Function],
+                                              "DescriptionField": [Function],
+                                              "NullField": [Function],
+                                              "NumberField": [Function],
+                                              "ObjectField": [Function],
+                                              "OneOfField": [Function],
+                                              "ParagraphField": [Function],
+                                              "SchemaField": [Function],
+                                              "StringField": [Function],
+                                              "TitleField": [Function],
+                                              "UnsupportedField": [Function],
+                                            },
+                                            "formContext": Object {},
+                                            "rootSchema": Object {
+                                              "properties": Object {
+                                                "checkboxesOther": Object {
+                                                  "description": "Select all that apply",
+                                                  "items": Object {
+                                                    "enum": Array [
+                                                      "Option 1",
+                                                      "Option 2",
+                                                      "Option 3",
+                                                    ],
+                                                    "type": "string",
+                                                  },
+                                                  "minItems": 1,
+                                                  "title": "Options (ui:options flag: withOther + otherText)",
+                                                  "type": "array",
+                                                  "uniqueItems": true,
+                                                },
+                                              },
+                                              "title": "Checkboxes",
+                                              "type": "object",
+                                            },
+                                            "widgets": Object {
+                                              "AltDateTimeWidget": [Function],
+                                              "AltDateWidget": [Function],
+                                              "BaseInput": [Function],
+                                              "CheckboxWidget": [Function],
+                                              "CheckboxesWidget": [Function],
+                                              "ColorWidget": [Function],
+                                              "DateTimeWidget": [Function],
+                                              "DateWidget": [Function],
+                                              "EmailWidget": [Function],
+                                              "FileWidget": [Function],
+                                              "HiddenWidget": [Function],
+                                              "OtherRadioWidget": [Function],
+                                              "PasswordWidget": [Function],
+                                              "RadioWidget": [Function],
+                                              "RangeWidget": [Function],
+                                              "SelectWidget": [Function],
+                                              "SignatureWidget": [Function],
+                                              "TextWidget": [Function],
+                                              "TextareaWidget": [Function],
+                                              "TimeWidget": [Function],
+                                              "URLWidget": [Function],
+                                              "UpDownWidget": [Function],
+                                            },
+                                          }
+                                        }
+                                        required={false}
+                                        schema={
+                                          Object {
+                                            "description": "Select all that apply",
+                                            "items": Object {
+                                              "enum": Array [
+                                                "Option 1",
+                                                "Option 2",
+                                                "Option 3",
+                                              ],
+                                              "type": "string",
+                                            },
+                                            "minItems": 1,
+                                            "title": "Options (ui:options flag: withOther + otherText)",
+                                            "type": "array",
+                                            "uniqueItems": true,
+                                          }
+                                        }
+                                        value={Array []}
+                                      >
+                                        <styled.div
+                                          className="checkboxes"
+                                          id="root_checkboxesOther"
+                                        >
+                                          <div
+                                            className="sc-crrsfI hUIwEa checkboxes"
+                                            id="root_checkboxesOther"
+                                          >
+                                            <Component
+                                              autoFocus={false}
+                                              disabled={false}
+                                              id="root_checkboxesOther_Option 1"
+                                              key="checkboxes_Option 1"
+                                              label="Option 1"
+                                              onBlur={[Function]}
+                                              onChange={[Function]}
+                                              onFocus={[Function]}
+                                              schema={
+                                                Object {
+                                                  "enum": Array [
+                                                    "Option 1",
+                                                    "Option 2",
+                                                    "Option 3",
+                                                  ],
+                                                  "type": "string",
+                                                }
+                                              }
+                                              value={false}
+                                            >
+                                              <CheckboxWidget
+                                                autoFocus={false}
+                                                disabled={false}
+                                                id="root_checkboxesOther_Option 1"
+                                                label="Option 1"
+                                                onBlur={[Function]}
+                                                onChange={[Function]}
+                                                onFocus={[Function]}
+                                                options={Object {}}
+                                                schema={
+                                                  Object {
+                                                    "enum": Array [
+                                                      "Option 1",
+                                                      "Option 2",
+                                                      "Option 3",
+                                                    ],
+                                                    "type": "string",
+                                                  }
+                                                }
+                                                value={false}
+                                              >
+                                                <ForwardRef
+                                                  checked={false}
+                                                  id="root_checkboxesOther_Option 1"
+                                                  label="Option 1"
+                                                  onChange={[Function]}
+                                                  onKeyDown={[Function]}
+                                                  type="checkbox"
+                                                  value={false}
+                                                >
+                                                  <Checkbox
+                                                    checked={false}
+                                                    disabled={false}
+                                                    forwardedRef={null}
+                                                    id="root_checkboxesOther_Option 1"
+                                                    label="Option 1"
+                                                    onChange={[Function]}
+                                                    onKeyDown={[Function]}
+                                                    type="checkbox"
+                                                    value={false}
+                                                  >
+                                                    <styled.label
+                                                      disabled={false}
+                                                      htmlFor="root_checkboxesOther_Option 1"
+                                                    >
+                                                      <label
+                                                        className="sc-dQppl fgZTVN"
+                                                        disabled={false}
+                                                        htmlFor="root_checkboxesOther_Option 1"
+                                                      >
+                                                        <styled.span>
+                                                          <span
+                                                            className="sc-fFubgz eTzfGp"
+                                                          >
+                                                            <styled.span>
+                                                              <span
+                                                                className="sc-bkzZxe iMUePn"
+                                                              >
+                                                                <styled.input
+                                                                  checked={false}
+                                                                  id="root_checkboxesOther_Option 1"
+                                                                  onChange={[Function]}
+                                                                  onKeyDown={[Function]}
+                                                                  type="checkbox"
+                                                                  value={false}
+                                                                >
+                                                                  <input
+                                                                    checked={false}
+                                                                    className="sc-fodVxV gYqSwY"
+                                                                    id="root_checkboxesOther_Option 1"
+                                                                    onChange={[Function]}
+                                                                    onKeyDown={[Function]}
+                                                                    type="checkbox"
+                                                                    value={false}
+                                                                  />
+                                                                </styled.input>
+                                                                <styled.span
+                                                                  onClick={[Function]}
+                                                                >
+                                                                  <span
+                                                                    className="sc-iqHYGH eqtWpo"
+                                                                    onClick={[Function]}
+                                                                  />
+                                                                </styled.span>
+                                                              </span>
+                                                            </styled.span>
+                                                          </span>
+                                                        </styled.span>
+                                                        <styled.span>
+                                                          <span
+                                                            className="sc-bqyKva bgdnkq"
+                                                          >
+                                                            Option 1
+                                                          </span>
+                                                        </styled.span>
+                                                      </label>
+                                                    </styled.label>
+                                                  </Checkbox>
+                                                </ForwardRef>
+                                              </CheckboxWidget>
+                                            </Component>
+                                            <Component
+                                              autoFocus={false}
+                                              disabled={false}
+                                              id="root_checkboxesOther_Option 2"
+                                              key="checkboxes_Option 2"
+                                              label="Option 2"
+                                              onBlur={[Function]}
+                                              onChange={[Function]}
+                                              onFocus={[Function]}
+                                              schema={
+                                                Object {
+                                                  "enum": Array [
+                                                    "Option 1",
+                                                    "Option 2",
+                                                    "Option 3",
+                                                  ],
+                                                  "type": "string",
+                                                }
+                                              }
+                                              value={false}
+                                            >
+                                              <CheckboxWidget
+                                                autoFocus={false}
+                                                disabled={false}
+                                                id="root_checkboxesOther_Option 2"
+                                                label="Option 2"
+                                                onBlur={[Function]}
+                                                onChange={[Function]}
+                                                onFocus={[Function]}
+                                                options={Object {}}
+                                                schema={
+                                                  Object {
+                                                    "enum": Array [
+                                                      "Option 1",
+                                                      "Option 2",
+                                                      "Option 3",
+                                                    ],
+                                                    "type": "string",
+                                                  }
+                                                }
+                                                value={false}
+                                              >
+                                                <ForwardRef
+                                                  checked={false}
+                                                  id="root_checkboxesOther_Option 2"
+                                                  label="Option 2"
+                                                  onChange={[Function]}
+                                                  onKeyDown={[Function]}
+                                                  type="checkbox"
+                                                  value={false}
+                                                >
+                                                  <Checkbox
+                                                    checked={false}
+                                                    disabled={false}
+                                                    forwardedRef={null}
+                                                    id="root_checkboxesOther_Option 2"
+                                                    label="Option 2"
+                                                    onChange={[Function]}
+                                                    onKeyDown={[Function]}
+                                                    type="checkbox"
+                                                    value={false}
+                                                  >
+                                                    <styled.label
+                                                      disabled={false}
+                                                      htmlFor="root_checkboxesOther_Option 2"
+                                                    >
+                                                      <label
+                                                        className="sc-dQppl fgZTVN"
+                                                        disabled={false}
+                                                        htmlFor="root_checkboxesOther_Option 2"
+                                                      >
+                                                        <styled.span>
+                                                          <span
+                                                            className="sc-fFubgz eTzfGp"
+                                                          >
+                                                            <styled.span>
+                                                              <span
+                                                                className="sc-bkzZxe iMUePn"
+                                                              >
+                                                                <styled.input
+                                                                  checked={false}
+                                                                  id="root_checkboxesOther_Option 2"
+                                                                  onChange={[Function]}
+                                                                  onKeyDown={[Function]}
+                                                                  type="checkbox"
+                                                                  value={false}
+                                                                >
+                                                                  <input
+                                                                    checked={false}
+                                                                    className="sc-fodVxV gYqSwY"
+                                                                    id="root_checkboxesOther_Option 2"
+                                                                    onChange={[Function]}
+                                                                    onKeyDown={[Function]}
+                                                                    type="checkbox"
+                                                                    value={false}
+                                                                  />
+                                                                </styled.input>
+                                                                <styled.span
+                                                                  onClick={[Function]}
+                                                                >
+                                                                  <span
+                                                                    className="sc-iqHYGH eqtWpo"
+                                                                    onClick={[Function]}
+                                                                  />
+                                                                </styled.span>
+                                                              </span>
+                                                            </styled.span>
+                                                          </span>
+                                                        </styled.span>
+                                                        <styled.span>
+                                                          <span
+                                                            className="sc-bqyKva bgdnkq"
+                                                          >
+                                                            Option 2
+                                                          </span>
+                                                        </styled.span>
+                                                      </label>
+                                                    </styled.label>
+                                                  </Checkbox>
+                                                </ForwardRef>
+                                              </CheckboxWidget>
+                                            </Component>
+                                            <Component
+                                              autoFocus={false}
+                                              disabled={false}
+                                              id="root_checkboxesOther_Option 3"
+                                              key="checkboxes_Option 3"
+                                              label="Option 3"
+                                              onBlur={[Function]}
+                                              onChange={[Function]}
+                                              onFocus={[Function]}
+                                              schema={
+                                                Object {
+                                                  "enum": Array [
+                                                    "Option 1",
+                                                    "Option 2",
+                                                    "Option 3",
+                                                  ],
+                                                  "type": "string",
+                                                }
+                                              }
+                                              value={false}
+                                            >
+                                              <CheckboxWidget
+                                                autoFocus={false}
+                                                disabled={false}
+                                                id="root_checkboxesOther_Option 3"
+                                                label="Option 3"
+                                                onBlur={[Function]}
+                                                onChange={[Function]}
+                                                onFocus={[Function]}
+                                                options={Object {}}
+                                                schema={
+                                                  Object {
+                                                    "enum": Array [
+                                                      "Option 1",
+                                                      "Option 2",
+                                                      "Option 3",
+                                                    ],
+                                                    "type": "string",
+                                                  }
+                                                }
+                                                value={false}
+                                              >
+                                                <ForwardRef
+                                                  checked={false}
+                                                  id="root_checkboxesOther_Option 3"
+                                                  label="Option 3"
+                                                  onChange={[Function]}
+                                                  onKeyDown={[Function]}
+                                                  type="checkbox"
+                                                  value={false}
+                                                >
+                                                  <Checkbox
+                                                    checked={false}
+                                                    disabled={false}
+                                                    forwardedRef={null}
+                                                    id="root_checkboxesOther_Option 3"
+                                                    label="Option 3"
+                                                    onChange={[Function]}
+                                                    onKeyDown={[Function]}
+                                                    type="checkbox"
+                                                    value={false}
+                                                  >
+                                                    <styled.label
+                                                      disabled={false}
+                                                      htmlFor="root_checkboxesOther_Option 3"
+                                                    >
+                                                      <label
+                                                        className="sc-dQppl fgZTVN"
+                                                        disabled={false}
+                                                        htmlFor="root_checkboxesOther_Option 3"
+                                                      >
+                                                        <styled.span>
+                                                          <span
+                                                            className="sc-fFubgz eTzfGp"
+                                                          >
+                                                            <styled.span>
+                                                              <span
+                                                                className="sc-bkzZxe iMUePn"
+                                                              >
+                                                                <styled.input
+                                                                  checked={false}
+                                                                  id="root_checkboxesOther_Option 3"
+                                                                  onChange={[Function]}
+                                                                  onKeyDown={[Function]}
+                                                                  type="checkbox"
+                                                                  value={false}
+                                                                >
+                                                                  <input
+                                                                    checked={false}
+                                                                    className="sc-fodVxV gYqSwY"
+                                                                    id="root_checkboxesOther_Option 3"
+                                                                    onChange={[Function]}
+                                                                    onKeyDown={[Function]}
+                                                                    type="checkbox"
+                                                                    value={false}
+                                                                  />
+                                                                </styled.input>
+                                                                <styled.span
+                                                                  onClick={[Function]}
+                                                                >
+                                                                  <span
+                                                                    className="sc-iqHYGH eqtWpo"
+                                                                    onClick={[Function]}
+                                                                  />
+                                                                </styled.span>
+                                                              </span>
+                                                            </styled.span>
+                                                          </span>
+                                                        </styled.span>
+                                                        <styled.span>
+                                                          <span
+                                                            className="sc-bqyKva bgdnkq"
+                                                          >
+                                                            Option 3
+                                                          </span>
+                                                        </styled.span>
+                                                      </label>
+                                                    </styled.label>
+                                                  </Checkbox>
+                                                </ForwardRef>
+                                              </CheckboxWidget>
+                                            </Component>
+                                            <Component
+                                              autoFocus={false}
+                                              disabled={false}
+                                              id="root_checkboxesOther_Other"
+                                              key="checkboxes_Other"
+                                              label="Other"
+                                              onBlur={[Function]}
+                                              onChange={[Function]}
+                                              onFocus={[Function]}
+                                              schema={
+                                                Object {
+                                                  "enum": Array [
+                                                    "Option 1",
+                                                    "Option 2",
+                                                    "Option 3",
+                                                  ],
+                                                  "type": "string",
+                                                }
+                                              }
+                                              value={false}
+                                            >
+                                              <CheckboxWidget
+                                                autoFocus={false}
+                                                disabled={false}
+                                                id="root_checkboxesOther_Other"
+                                                label="Other"
+                                                onBlur={[Function]}
+                                                onChange={[Function]}
+                                                onFocus={[Function]}
+                                                options={Object {}}
+                                                schema={
+                                                  Object {
+                                                    "enum": Array [
+                                                      "Option 1",
+                                                      "Option 2",
+                                                      "Option 3",
+                                                    ],
+                                                    "type": "string",
+                                                  }
+                                                }
+                                                value={false}
+                                              >
+                                                <ForwardRef
+                                                  checked={false}
+                                                  id="root_checkboxesOther_Other"
+                                                  label="Other"
+                                                  onChange={[Function]}
+                                                  onKeyDown={[Function]}
+                                                  type="checkbox"
+                                                  value={false}
+                                                >
+                                                  <Checkbox
+                                                    checked={false}
+                                                    disabled={false}
+                                                    forwardedRef={null}
+                                                    id="root_checkboxesOther_Other"
+                                                    label="Other"
+                                                    onChange={[Function]}
+                                                    onKeyDown={[Function]}
+                                                    type="checkbox"
+                                                    value={false}
+                                                  >
+                                                    <styled.label
+                                                      disabled={false}
+                                                      htmlFor="root_checkboxesOther_Other"
+                                                    >
+                                                      <label
+                                                        className="sc-dQppl fgZTVN"
+                                                        disabled={false}
+                                                        htmlFor="root_checkboxesOther_Other"
+                                                      >
+                                                        <styled.span>
+                                                          <span
+                                                            className="sc-fFubgz eTzfGp"
+                                                          >
+                                                            <styled.span>
+                                                              <span
+                                                                className="sc-bkzZxe iMUePn"
+                                                              >
+                                                                <styled.input
+                                                                  checked={false}
+                                                                  id="root_checkboxesOther_Other"
+                                                                  onChange={[Function]}
+                                                                  onKeyDown={[Function]}
+                                                                  type="checkbox"
+                                                                  value={false}
+                                                                >
+                                                                  <input
+                                                                    checked={false}
+                                                                    className="sc-fodVxV gYqSwY"
+                                                                    id="root_checkboxesOther_Other"
+                                                                    onChange={[Function]}
+                                                                    onKeyDown={[Function]}
+                                                                    type="checkbox"
+                                                                    value={false}
+                                                                  />
+                                                                </styled.input>
+                                                                <styled.span
+                                                                  onClick={[Function]}
+                                                                >
+                                                                  <span
+                                                                    className="sc-iqHYGH eqtWpo"
+                                                                    onClick={[Function]}
+                                                                  />
+                                                                </styled.span>
+                                                              </span>
+                                                            </styled.span>
+                                                          </span>
+                                                        </styled.span>
+                                                        <styled.span>
+                                                          <span
+                                                            className="sc-bqyKva bgdnkq"
+                                                          >
+                                                            Other
+                                                          </span>
+                                                        </styled.span>
+                                                      </label>
+                                                    </styled.label>
+                                                  </Checkbox>
+                                                </ForwardRef>
+                                              </CheckboxWidget>
+                                            </Component>
+                                          </div>
+                                        </styled.div>
+                                      </CheckboxesWidget>
+                                    </Component>
+                                  </ArrayField>
+                                  <Help />
+                                </div>
+                              </FieldTemplate>
+                            </SchemaField>
+                          </CustomSchemaField>
+                        </div>
+                      </ObjectFieldTemplate>
+                    </ObjectField>
+                    <Help />
+                  </div>
+                </FieldTemplate>
+              </SchemaField>
+            </CustomSchemaField>
+            <ActionGroup>
+              <div
+                className="ActionGroup-sc-1hp5mpm-0 cLrueF"
+              >
+                <ForwardRef
+                  color="primary"
+                  isLoading={false}
+                  type="submit"
+                  variant="contained"
+                >
+                  <Button
+                    color="primary"
+                    forwardRef={null}
+                    isLoading={false}
+                    type="submit"
+                    variant="contained"
+                  >
+                    <ForwardRef(WithStyles)
+                      className="jss13"
+                      color="default"
+                      disableElevation={false}
+                      disableRipple={true}
+                      disabled={false}
+                      type="submit"
+                      variant="contained"
+                    >
+                      <ForwardRef(Button)
+                        className="jss13"
+                        classes={
+                          Object {
+                            "colorInherit": "MuiButton-colorInherit",
+                            "contained": "MuiButton-contained",
+                            "containedPrimary": "MuiButton-containedPrimary",
+                            "containedSecondary": "MuiButton-containedSecondary",
+                            "containedSizeLarge": "MuiButton-containedSizeLarge",
+                            "containedSizeSmall": "MuiButton-containedSizeSmall",
+                            "disableElevation": "MuiButton-disableElevation",
+                            "disabled": "Mui-disabled",
+                            "endIcon": "MuiButton-endIcon",
+                            "focusVisible": "Mui-focusVisible",
+                            "fullWidth": "MuiButton-fullWidth",
+                            "iconSizeLarge": "MuiButton-iconSizeLarge",
+                            "iconSizeMedium": "MuiButton-iconSizeMedium",
+                            "iconSizeSmall": "MuiButton-iconSizeSmall",
+                            "label": "MuiButton-label",
+                            "outlined": "MuiButton-outlined",
+                            "outlinedPrimary": "MuiButton-outlinedPrimary",
+                            "outlinedSecondary": "MuiButton-outlinedSecondary",
+                            "outlinedSizeLarge": "MuiButton-outlinedSizeLarge",
+                            "outlinedSizeSmall": "MuiButton-outlinedSizeSmall",
+                            "root": "MuiButton-root",
+                            "sizeLarge": "MuiButton-sizeLarge",
+                            "sizeSmall": "MuiButton-sizeSmall",
+                            "startIcon": "MuiButton-startIcon",
+                            "text": "MuiButton-text",
+                            "textPrimary": "MuiButton-textPrimary",
+                            "textSecondary": "MuiButton-textSecondary",
+                            "textSizeLarge": "MuiButton-textSizeLarge",
+                            "textSizeSmall": "MuiButton-textSizeSmall",
+                          }
+                        }
+                        color="default"
+                        disableElevation={false}
+                        disableRipple={true}
+                        disabled={false}
+                        type="submit"
+                        variant="contained"
+                      >
+                        <ForwardRef(WithStyles)
+                          className="MuiButton-root MuiButton-contained jss13"
+                          component="button"
+                          disableRipple={true}
+                          disabled={false}
+                          focusRipple={true}
+                          focusVisibleClassName="Mui-focusVisible"
+                          type="submit"
+                        >
+                          <ForwardRef(ButtonBase)
+                            className="MuiButton-root MuiButton-contained jss13"
+                            classes={
+                              Object {
+                                "disabled": "Mui-disabled",
+                                "focusVisible": "Mui-focusVisible",
+                                "root": "MuiButtonBase-root",
+                              }
+                            }
+                            component="button"
+                            disableRipple={true}
+                            disabled={false}
+                            focusRipple={true}
+                            focusVisibleClassName="Mui-focusVisible"
+                            type="submit"
+                          >
+                            <button
+                              className="MuiButtonBase-root MuiButton-root MuiButton-contained jss13"
+                              disabled={false}
+                              onBlur={[Function]}
+                              onDragLeave={[Function]}
+                              onFocus={[Function]}
+                              onKeyDown={[Function]}
+                              onKeyUp={[Function]}
+                              onMouseDown={[Function]}
+                              onMouseLeave={[Function]}
+                              onMouseUp={[Function]}
+                              onTouchEnd={[Function]}
+                              onTouchMove={[Function]}
+                              onTouchStart={[Function]}
+                              tabIndex={0}
+                              type="submit"
+                            >
+                              <span
+                                className="MuiButton-label"
+                              >
+                                Submit
+                              </span>
+                            </button>
+                          </ForwardRef(ButtonBase)>
+                        </ForwardRef(WithStyles)>
+                      </ForwardRef(Button)>
+                    </ForwardRef(WithStyles)>
+                  </Button>
+                </ForwardRef>
+              </div>
+            </ActionGroup>
+          </form>
+        </Form>
+      </StyledForm>
+    </Form>
+  </ForwardRef>
+</MockForm>
+`;
