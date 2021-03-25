@@ -2,8 +2,6 @@
  * @flow
  */
 
-import React from 'react';
-
 import styled from 'styled-components';
 
 const Bullet = styled.li`

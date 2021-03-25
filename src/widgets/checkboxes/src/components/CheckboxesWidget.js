@@ -1,11 +1,12 @@
 // @flow
 
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 import { utils } from '@rjsf/core';
 import { ChoiceGroup } from 'lattice-ui-kit';
 
 import OtherInput from '../../../shared/OtherInput';
+import { isNonEmptyString } from '../../../../utils/LangUtils';
 import type { WidgetProps } from '../../../types';
 
 const {
@@ -14,8 +15,8 @@ const {
   retrieveSchema
 } = utils;
 
-const selectValue = (value, selected :any[], withNone :boolean) => {
-  if (withNone) return selected.filter((v) => v !== 'None').concat(value);
+const selectValue = (value, selected :any[], withNone :boolean, noneText = 'None') => {
+  if (withNone) return selected.filter((v) => v !== noneText).concat(value);
   return selected.concat(value);
 };
 
@@ -24,11 +25,11 @@ const deselectValue = (value, selected :any[]) => selected.filter((v) => v !== v
 const getOtherValueIndex = (value :Array<string>, enumOptions :Object[]) :number => value
   .findIndex((v) => !enumOptions.find((option) => option.value === v));
 
-const getOptionsList = (itemsSchema, withNone, withOther) => {
+const getOptionsList = (itemsSchema, withNone, withOther, noneText = 'None', otherText :string = 'Other') => {
   const options :Object[] = optionsList(itemsSchema);
   let shallowOptions = [...options];
-  if (withNone) shallowOptions = shallowOptions.concat({ label: 'None', value: 'None' });
-  if (withOther) shallowOptions = shallowOptions.concat({ label: 'Other', value: 'Other' });
+  if (withNone) shallowOptions = shallowOptions.concat({ label: noneText, value: noneText });
+  if (withOther) shallowOptions = shallowOptions.concat({ label: otherText, value: otherText });
 
   return shallowOptions;
 };
@@ -55,31 +56,33 @@ class CheckboxesWidget extends Component<WidgetProps> {
       schema,
     } = this.props;
     const {
+      noneText,
+      otherText,
       withNone = false,
-      withOther = false
+      withOther = false,
     } = options;
     const { value: prevFormData } = prevProps;
     const { definitions } = registry;
     const itemsSchema = retrieveSchema(schema.items, definitions, prevFormData);
-    const enumOptions = getOptionsList(itemsSchema, withNone, withOther);
+    const enumOptions = getOptionsList(itemsSchema, withNone, withOther, noneText, otherText);
     const otherValueIndex = getOtherValueIndex(value, enumOptions);
 
-    if (prevFormData.includes('Other') && !value.includes('Other') && otherValueIndex !== -1) {
+    if (prevFormData.includes(otherText) && !value.includes(otherText) && otherValueIndex !== -1) {
       const copyFormData = [...value];
       copyFormData.splice(otherValueIndex, 1);
       onChange(copyFormData);
     }
   }
 
-  getHandleChange = (option :Object, withNone :boolean) => (checked :boolean) => {
+  getHandleChange = (option :Object, withNone :boolean, noneText :string = 'None') => (checked :boolean) => {
     const { onChange, value } = this.props;
 
     if (checked) {
-      if (withNone && option.value === 'None') {
-        onChange(['None']);
+      if (withNone && option.value === noneText) {
+        onChange([noneText]);
       }
       else {
-        onChange(selectValue(option.value, value, withNone));
+        onChange(selectValue(option.value, value, withNone, noneText));
       }
     }
     else {
@@ -98,11 +101,13 @@ class CheckboxesWidget extends Component<WidgetProps> {
     const copyFormData = [...value];
     const {
       withNone = false,
-      withOther = false
+      withOther = false,
+      noneText,
+      otherText
     } = options;
     const { definitions } = registry;
     const itemsSchema = retrieveSchema(schema.items, definitions, otherValue);
-    const enumOptions = getOptionsList(itemsSchema, withNone, withOther);
+    const enumOptions = getOptionsList(itemsSchema, withNone, withOther, noneText, otherText);
     const otherIndex = getOtherValueIndex(value, enumOptions);
 
     if (otherIndex !== -1) {
@@ -136,14 +141,21 @@ class CheckboxesWidget extends Component<WidgetProps> {
       widget = 'CheckboxWidget',
       withNone = false,
       withOther = false,
+      noneText = 'None',
+      otherText = 'Other'
     } = options;
+
+    const otherTextValue = isNonEmptyString(otherText) ? otherText : 'Other';
+
+    const noneTextValue = isNonEmptyString(noneText) ? noneText : 'None';
+
     const { widgets, definitions } = registry;
     const itemsSchema = retrieveSchema(schema.items, definitions, value);
-    const enumOptions = getOptionsList(itemsSchema, withNone, withOther);
+    const enumOptions = getOptionsList(itemsSchema, withNone, withOther, noneTextValue, otherTextValue);
     const Widget = getWidget(schema, widget, widgets);
     const otherValueIndex :number = getOtherValueIndex(value, enumOptions);
     const otherValue = value[otherValueIndex];
-    const showOther = withOther && value.includes('Other');
+    const showOther = withOther && value.includes(otherTextValue);
 
     return (
       <>
@@ -159,7 +171,7 @@ class CheckboxesWidget extends Component<WidgetProps> {
                   disabled={disabled || readonly}
                   label={option.label}
                   onBlur={onBlur}
-                  onChange={this.getHandleChange(option, withNone)}
+                  onChange={this.getHandleChange(option, withNone, noneTextValue)}
                   onFocus={onFocus}
                   schema={itemsSchema}
                   value={checked} />

@@ -16,16 +16,17 @@ function mockUUID() {
   return fakeUUID;
 }
 
-const allEntitySetNames :FQN[] = Object.values(ENTITY_SET_NAMES)
-  .concat(Object.values(ASSOCIATION_ENTITY_SET_NAMES));
+const allEntitySetNames :string[] = (Object.values(ENTITY_SET_NAMES)
+  .concat(Object.values(ASSOCIATION_ENTITY_SET_NAMES)) :any);
 
 const entitySetIds = allEntitySetNames.reduce((acc, entitySetNames) => {
   acc[entitySetNames] = mockUUID();
   return acc;
 }, {});
 
-const allPropertyTypeFQNs :FQN[] = Object.values(PROPERTY_TYPE_FQNS);
+const allPropertyTypeFQNs :FQN[] = (Object.values(PROPERTY_TYPE_FQNS) :any);
 const propertyTypeIds = allPropertyTypeFQNs.reduce((acc, propertyTypeFQN) => {
+  // $FlowFixMe
   acc[propertyTypeFQN] = mockUUID();
   return acc;
 }, {});

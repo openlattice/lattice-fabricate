@@ -1,5 +1,5 @@
 // @flow
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { ChoiceGroup, Radio } from 'lattice-ui-kit';
 
@@ -11,10 +11,10 @@ const onKeyDown = (e :SyntheticKeyboardEvent<*>) => {
     e.preventDefault();
   }
 };
-const getOptionsList = (enumOptions, withNone, withOther) => {
+const getOptionsList = (enumOptions, withNone, withOther, otherText = 'Other') => {
   let shallowOptions = [...enumOptions];
   if (withNone) shallowOptions = shallowOptions.concat({ label: 'None', value: 'None' });
-  if (withOther) shallowOptions = shallowOptions.concat({ label: 'Other', value: 'Other' });
+  if (withOther) shallowOptions = shallowOptions.concat({ label: otherText, value: otherText });
 
   return shallowOptions;
 };
@@ -35,15 +35,16 @@ const RadioWidget = (props :WidgetProps) => {
   } = props;
   const {
     enumOptions,
-    row,
     mode,
+    otherText,
+    row,
     withNone = false,
     withOther = false,
   } = options;
   const [radioOptions, setRadioOptions] = useState(enumOptions);
   useEffect(() => {
-    setRadioOptions(getOptionsList(enumOptions, withNone, withOther));
-  }, [enumOptions, withNone, withOther]);
+    setRadioOptions(getOptionsList(enumOptions, withNone, withOther, otherText));
+  }, [enumOptions, withNone, withOther, otherText]);
 
   return (
     <ChoiceGroup row={row} id={id}>

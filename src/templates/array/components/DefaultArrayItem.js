@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import { Component, cloneElement } from 'react';
 import type { Element } from 'react';
 
 import findLast from 'lodash/findLast';
@@ -135,7 +135,7 @@ class DefaultArrayItem extends Component <Props> {
       additionalProps = Object.assign(additionalProps, { disabled: !addState });
     }
 
-    return React.cloneElement(children, {
+    return cloneElement(children, {
       ...children.props,
       ...additionalProps,
     });

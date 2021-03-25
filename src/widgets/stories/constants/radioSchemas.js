@@ -23,6 +23,17 @@ export const schema = {
       description: 'Select one',
       enum: ['Option 1', 'Option 2', 'Option 3'],
     },
+
+    radioOtherText: {
+      title: 'Options (ui:options flag: withOther, otherText)',
+      type: 'array',
+      description: 'Select one',
+      items: {
+        type: 'string',
+        enum: ['Option 1', 'Option 2', 'Option 3']
+      },
+      uniqueItems: true
+    },
     radioButtons: {
       title: 'Button (ui:options mode = \'button\')',
       type: 'string',
@@ -51,6 +62,14 @@ export const uiSchema = {
     'ui:options': {
       withNone: true,
       withOther: true,
+    }
+  },
+  radioOtherText: {
+    classNames: 'column-span-12',
+    'ui:widget': 'OtherRadioWidget',
+    'ui:options': {
+      withOther: true,
+      otherText: 'Other/I don\'t know'
     }
   },
   radioButtons: {

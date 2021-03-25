@@ -2,7 +2,7 @@
 // Override BaseInput
 // https://github.com/rjsf-team/react-jsonschema-form/blob/master/packages/core/src/components/widgets/BaseInput.js
 
-import React, { Component } from 'react';
+import { Component } from 'react';
 
 import { Input } from 'lattice-ui-kit';
 

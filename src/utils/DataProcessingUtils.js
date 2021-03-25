@@ -13,10 +13,10 @@ import {
   get,
   getIn,
   hasIn,
-  set
+  set,
 } from 'immutable';
 import { Models } from 'lattice';
-import type { FQN } from 'lattice';
+import type { UUID } from 'lattice';
 
 import Logger from './Logger';
 import {
@@ -40,9 +40,8 @@ const INDEX_MAPPERS :'INDEX_MAPPERS' = 'INDEX_MAPPERS';
 const VALUE_MAPPERS :'VALUE_MAPPERS' = 'VALUE_MAPPERS';
 const ENTITY_ADDRESS_KEY_PARTS = 3;
 
-const { FullyQualifiedName } = Models;
+const { FQN } = Models;
 
-declare type UUID = string;
 type IndexOrId = number | UUID;
 type EntityData = { [UUID] :any[] };
 type EdgeDefinition = [string, IndexOrId, string, IndexOrId, string, EntityData];
@@ -65,16 +64,16 @@ function isValidPageSectionKey(key :string) :boolean {
 }
 
 function parsePageSectionKey(key :string) :{page :string, section :string} | void {
-  if (typeof key === 'string') {
-    const errorMsg = 'invalid param: key must be a string';
+  if (!isValidPageSectionKey(key)) {
+    const errorMsg = 'invalid param: key must be a valid pageSection';
     LOG.error(errorMsg, key);
     throw new Error(errorMsg);
   }
 
-  const match = key.match(PAGE_SECTION_REGEX);
-  if (isPlainObject(match) && match.group) {
-    return match.group;
-  }
+  const matches = key.match(PAGE_SECTION_REGEX);
+  if (!matches) return undefined;
+
+  if (typeof matches === 'object' && matches.groups) return matches.groups;
 
   return undefined;
 }
@@ -93,14 +92,14 @@ function getEntityAddressKey(
     throw new Error(errorMsg);
   }
 
-  if (!(FullyQualifiedName.isValid(entitySetName) || isNonEmptyString(entitySetName))) {
-    errorMsg = 'invalid param: entitySetName must be a non-empty string or a valid FullyQualifiedName';
+  if (!(FQN.isValid(entitySetName) || isNonEmptyString(entitySetName))) {
+    errorMsg = 'invalid param: entitySetName must be a non-empty string or a valid FQN';
     LOG.error(errorMsg, entitySetName);
     throw new Error(errorMsg);
   }
 
-  if (!FullyQualifiedName.isValid(fqn)) {
-    errorMsg = 'invalid param: fqn must be a valid FullyQualifiedName';
+  if (!FQN.isValid(fqn)) {
+    errorMsg = 'invalid param: fqn must be a valid FQN';
     LOG.error(errorMsg, fqn);
     throw new Error(errorMsg);
   }
@@ -117,12 +116,12 @@ function parseEntityAddressKey(entityAddressKey :string) :EntityAddress {
     const entityKeyId :UUID = split[0];
     const entitySetName :string = split[1];
     const propertyTypeFQN :string = split[2];
-    if (isNonEmptyString(entitySetName) && FullyQualifiedName.isValid(propertyTypeFQN)) {
+    if (isNonEmptyString(entitySetName) && FQN.isValid(propertyTypeFQN)) {
       if (isValidUUID(entityKeyId)) {
         return {
           entityKeyId,
           entitySetName,
-          propertyTypeFQN: new FullyQualifiedName(propertyTypeFQN),
+          propertyTypeFQN: FQN.of(propertyTypeFQN),
         };
       }
       /*
@@ -142,7 +141,7 @@ function parseEntityAddressKey(entityAddressKey :string) :EntityAddress {
         return {
           entityIndex,
           entitySetName,
-          propertyTypeFQN: new FullyQualifiedName(propertyTypeFQN),
+          propertyTypeFQN: FQN.of(propertyTypeFQN),
         };
       }
     }
@@ -170,7 +169,7 @@ function isValidEntityAddressKey(value :any) :boolean {
     if (!isNonEmptyString(entitySetName)) {
       return false;
     }
-    if (FullyQualifiedName.isValid(propertyTypeFQN)) {
+    if (FQN.isValid(propertyTypeFQN)) {
       if (isValidUUID(entityKeyId)) {
         return true;
       }
