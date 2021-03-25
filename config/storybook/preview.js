@@ -1,3 +1,5 @@
+import './manager';
+
 import styled from 'styled-components';
 import { addDecorator } from '@storybook/react';
 import {
@@ -8,8 +10,6 @@ import {
   ThemeProvider,
   lightTheme,
 } from 'lattice-ui-kit';
-
-import storybookTheme from './manager';
 
 const { NEUTRAL } = Colors;
 
