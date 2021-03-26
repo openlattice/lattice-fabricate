@@ -82,6 +82,7 @@ module.exports = (env = {}) => {
           'loglevel',
           'react-signature-canvas',
           /babel/,
+          /fortawesome\/free-solid-svg-icons/,
           /rjsf/,
           /xstate/,
         ],
