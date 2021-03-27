@@ -119,6 +119,9 @@ module.exports = (env = {}) => {
       BANNER_PLUGIN,
     ],
     resolve: {
+      alias: {
+        '@rjsf/core$': path.resolve(NODE, '@rjsf/core/dist/cjs'),
+      },
       extensions: ['.js'],
       modules: [
         SOURCE,
