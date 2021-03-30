@@ -1,6 +1,6 @@
 {
   "name": "lattice-fabricate",
-  "version": "0.16.0-alpha.2",
+  "version": "0.16.0",
   "homepage": "https://github.com/openlattice/lattice-fabricate",
   "description": "React HOCs for components dependent on the OpenLattice EDM.",
   "author": {
@@ -95,7 +95,7 @@
     "terser-webpack-plugin": "~5.1.0",
     "uuid": "~8.3.0",
     "webpack": "~5.28.0",
-    "webpack-cli": "~4.5.0",
+    "webpack-cli": "~4.6.0",
     "webpack-node-externals": "~2.5.0"
   },
   "peerDependencies": {
