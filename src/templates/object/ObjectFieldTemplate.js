@@ -8,7 +8,7 @@ import { utils } from '@rjsf/core';
 import { fromJS, set } from 'immutable';
 import { Button } from 'lattice-ui-kit';
 
-import { parseIdIndex } from './utils';
+import { generateId, parseIdIndex } from './utils';
 
 import ActionGutter from '../components/styled/ActionGutter';
 import IconButton from '../components/IconButton';
@@ -34,6 +34,7 @@ type Props = {
   properties :Object[];
   readonly :boolean;
   required :string;
+  schema :Object;
   title :string;
   uiSchema :Object;
 };
@@ -209,11 +210,19 @@ class ObjectFieldTemplate extends Component<Props, State> {
   render() {
     const {
       disabled,
+      formData,
       properties,
+      schema,
       uiSchema,
     } = this.props;
     const { isEditing, draftFormData } = this.state;
     const { editable } :Object = getUiOptions(uiSchema);
+
+    /* eslint-disable no-underscore-dangle */
+    if (schema.attachments && !formData._id) {
+      formData._id = generateId();
+    }
+    /* eslint-enable no-underscore-dangle */
 
     return (
       <>
