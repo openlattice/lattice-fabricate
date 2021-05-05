@@ -1,4 +1,5 @@
 // @flow
+/* eslint no-underscore-dangle: ["error", { "allow": ["_id"] }] */
 import { Component, cloneElement } from 'react';
 import type { ComponentType } from 'react';
 
@@ -40,18 +41,25 @@ type Props = {
 };
 
 type State = {
-  isEditing :boolean;
   draftFormData :Object;
+  isEditing :boolean;
+  fieldId :string;
 }
 
 class ObjectFieldTemplate extends Component<Props, State> {
 
   constructor(props :Props) {
     super(props);
+    const { schema } = this.props;
     this.state = {
+      draftFormData: {},
       isEditing: false,
-      draftFormData: {}
+      fieldId: schema._id,
     };
+  }
+
+  componentDidMount() {
+    this.setFieldId();
   }
 
   componentDidUpdate(prevProps :Props) {
@@ -59,6 +67,19 @@ class ObjectFieldTemplate extends Component<Props, State> {
     const { formData: prevFormData } = prevProps;
     if (formData !== prevFormData) {
       this.disableFields();
+    }
+  }
+
+  setFieldId = () => {
+    const { schema, formData } = this.props;
+    const { fieldId } = this.state;
+    if (schema.attachments || schema.comments) {
+      if (!formData._id) {
+        this.setState({ fieldId: generateId() });
+      }
+      else if (!fieldId) {
+        this.setState({ fieldId: formData._id });
+      }
     }
   }
 
@@ -212,17 +233,14 @@ class ObjectFieldTemplate extends Component<Props, State> {
       disabled,
       formData,
       properties,
-      schema,
       uiSchema,
     } = this.props;
-    const { isEditing, draftFormData } = this.state;
+    const { isEditing, draftFormData, fieldId } = this.state;
     const { editable } :Object = getUiOptions(uiSchema);
 
-    /* eslint-disable no-underscore-dangle */
-    if (schema.attachments && !formData._id) {
-      formData._id = generateId();
+    if (fieldId) {
+      formData._id = fieldId;
     }
-    /* eslint-enable no-underscore-dangle */
 
     return (
       <>
