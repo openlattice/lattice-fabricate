@@ -4,6 +4,7 @@ export const schema = {
   type: 'object',
   properties: {
     personSection: {
+      attachments: true,
       type: 'object',
       title: 'Personal Information',
       properties: {
@@ -46,6 +47,7 @@ export const schema = {
       ],
     },
     mailingAddress: {
+      attachments: true,
       type: 'object',
       title: 'Mailing Address',
       properties: {
@@ -91,6 +93,7 @@ export const schema = {
       },
     },
     billingAddress: {
+      attachments: true,
       type: 'object',
       title: 'Billing Address',
       properties: {
