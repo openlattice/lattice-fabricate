@@ -4,5 +4,6 @@
 
 export { default as BulletField } from './BulletField';
 export { default as DescriptionField } from './DescriptionField';
+export { default as ObjectField } from './ObjectField';
 export { default as ParagraphField } from './ParagraphField';
 export { default as SchemaField } from './SchemaField';
