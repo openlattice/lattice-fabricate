@@ -23,13 +23,25 @@ type OnDrop = (
 ) => void;
 
 type OnDeleteAttachment = (
-  entityKeyId :string,
   attachment :Object,
   formData :Object
 ) => void;
 
+type Attachment = {
+  date :string;
+  fieldId :string;
+  href :string;
+  id :UUID; // entity key id of file
+  name :string;
+  type :string;
+};
+
+type Attachments = {
+  [fieldId :string] :Attachment[];
+}
+
 type FormContext = {
-  attachments :{ [string] :Object[] };
+  attachments :Attachments;
   attachmentDestinationId :string;
   onDrop :OnDrop;
   onDeleteAttachment :OnDeleteAttachment;
@@ -63,12 +75,12 @@ class AttachmentsField extends Component<Props> {
     }
   }
 
-  onDelete = (item :Object) => {
+  onDelete = (attachment :Object) => {
     const { formContext } = this.props;
     const { onDeleteAttachment, formRef } = formContext;
     if (isFunction(onDeleteAttachment)) {
       const currentFormData = getCurrentFormData(formRef);
-      onDeleteAttachment(item, currentFormData);
+      onDeleteAttachment(attachment, currentFormData);
     }
     else {
       console.error('formContext.onDropAttachment is not a function');
