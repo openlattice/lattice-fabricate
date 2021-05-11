@@ -80,6 +80,7 @@ exports[`RadioWidget should match snapshot 1`] = `
           Object {
             "BulletField": [Function],
             "DescriptionField": [Function],
+            "ObjectField": [Function],
             "ParagraphField": [Function],
             "SchemaField": [Function],
           }
@@ -137,12 +138,13 @@ exports[`RadioWidget should match snapshot 1`] = `
           ErrorList={[Function]}
           FieldTemplate={[Function]}
           ObjectFieldTemplate={[Function]}
-          className="StyledForm-dhnby8-0 jdmTMu"
+          className="StyledForm-dhnby8-0 gdCqme"
           disabled={false}
           fields={
             Object {
               "BulletField": [Function],
               "DescriptionField": [Function],
+              "ObjectField": [Function],
               "ParagraphField": [Function],
               "SchemaField": [Function],
             }
@@ -200,7 +202,7 @@ exports[`RadioWidget should match snapshot 1`] = `
           }
         >
           <form
-            className="StyledForm-dhnby8-0 jdmTMu"
+            className="StyledForm-dhnby8-0 gdCqme"
             noValidate={false}
             onSubmit={[Function]}
           >
@@ -456,10 +458,12 @@ exports[`RadioWidget should match snapshot 1`] = `
                     }
                   }
                   formContext={Object {}}
+                  formData={Object {}}
                   help={<Help />}
                   hidden={false}
                   id="root"
                   label="radio"
+                  onChange={[Function]}
                   readonly={false}
                   registry={
                     Object {
@@ -806,6 +810,70 @@ exports[`RadioWidget should match snapshot 1`] = `
                           ]
                         }
                         readonly={false}
+                        registry={
+                          Object {
+                            "ArrayFieldTemplate": [Function],
+                            "FieldTemplate": [Function],
+                            "ObjectFieldTemplate": [Function],
+                            "definitions": Object {},
+                            "fields": Object {
+                              "AnyOfField": [Function],
+                              "ArrayField": [Function],
+                              "BooleanField": [Function],
+                              "BulletField": [Function],
+                              "DescriptionField": [Function],
+                              "NullField": [Function],
+                              "NumberField": [Function],
+                              "ObjectField": [Function],
+                              "OneOfField": [Function],
+                              "ParagraphField": [Function],
+                              "SchemaField": [Function],
+                              "StringField": [Function],
+                              "TitleField": [Function],
+                              "UnsupportedField": [Function],
+                            },
+                            "formContext": Object {},
+                            "rootSchema": Object {
+                              "properties": Object {
+                                "radio": Object {
+                                  "enum": Array [
+                                    "Option 1",
+                                    "Option 2",
+                                    "Option 3",
+                                  ],
+                                  "title": "ui:widget: OtherRadioWidget",
+                                  "type": "string",
+                                },
+                              },
+                              "title": "radio",
+                              "type": "object",
+                            },
+                            "widgets": Object {
+                              "AltDateTimeWidget": [Function],
+                              "AltDateWidget": [Function],
+                              "BaseInput": [Function],
+                              "CheckboxWidget": [Function],
+                              "CheckboxesWidget": [Function],
+                              "ColorWidget": [Function],
+                              "DateTimeWidget": [Function],
+                              "DateWidget": [Function],
+                              "EmailWidget": [Function],
+                              "FileWidget": [Function],
+                              "HiddenWidget": [Function],
+                              "OtherRadioWidget": [Function],
+                              "PasswordWidget": [Function],
+                              "RadioWidget": [Function],
+                              "RangeWidget": [Function],
+                              "SelectWidget": [Function],
+                              "SignatureWidget": [Function],
+                              "TextWidget": [Function],
+                              "TextareaWidget": [Function],
+                              "TimeWidget": [Function],
+                              "URLWidget": [Function],
+                              "UpDownWidget": [Function],
+                            },
+                          }
+                        }
                         required={false}
                         schema={
                           Object {
@@ -1092,6 +1160,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                 hidden={false}
                                 id="root_radio"
                                 label="ui:widget: OtherRadioWidget"
+                                onChange={[Function]}
                                 onDropPropertyClick={[Function]}
                                 onKeyChange={[Function]}
                                 readonly={false}
