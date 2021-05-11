@@ -12,7 +12,7 @@ import { Button } from 'lattice-ui-kit';
 import { generateId, parseIdIndex } from './utils';
 
 import ActionGutter from '../components/styled/ActionGutter';
-import AttachmentsField from '../../fields/AttachmentsField';
+import DefaultAttachmentsField from '../../fields/AttachmentsField';
 import IconButton from '../components/IconButton';
 import { ActionGroup } from '../../form/src/components/styled';
 import {
@@ -35,6 +35,7 @@ type Props = {
   idSchema :Object;
   properties :Object[];
   readonly :boolean;
+  registry :Object;
   required :string;
   schema :Object;
   title :string;
@@ -236,6 +237,7 @@ class ObjectFieldTemplate extends Component<Props, State> {
       properties,
       schema,
       uiSchema,
+      registry,
     } = this.props;
     const { isEditing, draftFormData, fieldId } = this.state;
     const { editable } :Object = getUiOptions(uiSchema);
@@ -243,6 +245,8 @@ class ObjectFieldTemplate extends Component<Props, State> {
     if (fieldId) {
       formData._id = fieldId;
     }
+
+    const { AttachmentsField = DefaultAttachmentsField } = registry.fields;
 
     return (
       <>
