@@ -73,6 +73,7 @@ exports[`DateWidget should match snapshot 1`] = `
           disabled={false}
           fields={
             Object {
+              "AttachmentsField": [Function],
               "BulletField": [Function],
               "DescriptionField": [Function],
               "ObjectField": [Function],
@@ -133,6 +134,7 @@ exports[`DateWidget should match snapshot 1`] = `
             disabled={false}
             fields={
               Object {
+                "AttachmentsField": [Function],
                 "BulletField": [Function],
                 "DescriptionField": [Function],
                 "ObjectField": [Function],
@@ -217,6 +219,7 @@ exports[`DateWidget should match snapshot 1`] = `
                     "fields": Object {
                       "AnyOfField": [Function],
                       "ArrayField": [Function],
+                      "AttachmentsField": [Function],
                       "BooleanField": [Function],
                       "BulletField": [Function],
                       "DescriptionField": [Function],
@@ -320,6 +323,7 @@ exports[`DateWidget should match snapshot 1`] = `
                       "fields": Object {
                         "AnyOfField": [Function],
                         "ArrayField": [Function],
+                        "AttachmentsField": [Function],
                         "BooleanField": [Function],
                         "BulletField": [Function],
                         "DescriptionField": [Function],
@@ -412,6 +416,7 @@ exports[`DateWidget should match snapshot 1`] = `
                       Object {
                         "AnyOfField": [Function],
                         "ArrayField": [Function],
+                        "AttachmentsField": [Function],
                         "BooleanField": [Function],
                         "BulletField": [Function],
                         "DescriptionField": [Function],
@@ -443,6 +448,7 @@ exports[`DateWidget should match snapshot 1`] = `
                         "fields": Object {
                           "AnyOfField": [Function],
                           "ArrayField": [Function],
+                          "AttachmentsField": [Function],
                           "BooleanField": [Function],
                           "BulletField": [Function],
                           "DescriptionField": [Function],
@@ -555,6 +561,7 @@ exports[`DateWidget should match snapshot 1`] = `
                             "fields": Object {
                               "AnyOfField": [Function],
                               "ArrayField": [Function],
+                              "AttachmentsField": [Function],
                               "BooleanField": [Function],
                               "BulletField": [Function],
                               "DescriptionField": [Function],
@@ -674,6 +681,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                       "fields": Object {
                                         "AnyOfField": [Function],
                                         "ArrayField": [Function],
+                                        "AttachmentsField": [Function],
                                         "BooleanField": [Function],
                                         "BulletField": [Function],
                                         "DescriptionField": [Function],
@@ -761,6 +769,7 @@ exports[`DateWidget should match snapshot 1`] = `
                               "fields": Object {
                                 "AnyOfField": [Function],
                                 "ArrayField": [Function],
+                                "AttachmentsField": [Function],
                                 "BooleanField": [Function],
                                 "BulletField": [Function],
                                 "DescriptionField": [Function],
@@ -876,6 +885,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                   "fields": Object {
                                     "AnyOfField": [Function],
                                     "ArrayField": [Function],
+                                    "AttachmentsField": [Function],
                                     "BooleanField": [Function],
                                     "BulletField": [Function],
                                     "DescriptionField": [Function],
@@ -971,6 +981,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                     "fields": Object {
                                       "AnyOfField": [Function],
                                       "ArrayField": [Function],
+                                      "AttachmentsField": [Function],
                                       "BooleanField": [Function],
                                       "BulletField": [Function],
                                       "DescriptionField": [Function],
@@ -1056,6 +1067,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                     Object {
                                       "AnyOfField": [Function],
                                       "ArrayField": [Function],
+                                      "AttachmentsField": [Function],
                                       "BooleanField": [Function],
                                       "BulletField": [Function],
                                       "DescriptionField": [Function],
@@ -1088,6 +1100,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                       "fields": Object {
                                         "AnyOfField": [Function],
                                         "ArrayField": [Function],
+                                        "AttachmentsField": [Function],
                                         "BooleanField": [Function],
                                         "BulletField": [Function],
                                         "DescriptionField": [Function],
@@ -1202,6 +1215,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                           "fields": Object {
                                             "AnyOfField": [Function],
                                             "ArrayField": [Function],
+                                            "AttachmentsField": [Function],
                                             "BooleanField": [Function],
                                             "BulletField": [Function],
                                             "DescriptionField": [Function],
@@ -1299,6 +1313,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                             "fields": Object {
                                               "AnyOfField": [Function],
                                               "ArrayField": [Function],
+                                              "AttachmentsField": [Function],
                                               "BooleanField": [Function],
                                               "BulletField": [Function],
                                               "DescriptionField": [Function],
@@ -1395,6 +1410,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                               "fields": Object {
                                                 "AnyOfField": [Function],
                                                 "ArrayField": [Function],
+                                                "AttachmentsField": [Function],
                                                 "BooleanField": [Function],
                                                 "BulletField": [Function],
                                                 "DescriptionField": [Function],
