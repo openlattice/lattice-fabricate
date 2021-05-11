@@ -62,13 +62,11 @@ const reducer = (state, reducerAction) => {
     }
 
     case 'delete': {
-      const {
-        id, attachment, formData
-      } = reducerAction.value;
+      const { attachment, formData } = reducerAction.value;
       const fieldAttachments = state.attachments[attachment.fieldId];
       const newAttachments = {
         ...state.attachments,
-        [attachment.fieldId]: fieldAttachments.filter((item) => item.id !== id)
+        [attachment.fieldId]: fieldAttachments.filter((item) => item.id !== attachment.id)
       };
       return {
         attachments: newAttachments,
@@ -98,17 +96,16 @@ const Template = () => {
     action('drop file')(file, _, fieldId, formData);
   };
 
-  const onDeleteAttachment = (id, attachment, formData) => {
+  const onDeleteAttachment = (attachment, formData) => {
     dispatch({
       type: 'delete',
       value: {
-        id,
         attachment,
         formData,
       },
     });
 
-    action('delete attachment')(id, attachment, formData);
+    action('delete attachment')(attachment, formData);
   };
 
   const formContext = {

@@ -63,12 +63,12 @@ class AttachmentsField extends Component<Props> {
     }
   }
 
-  onDelete = (itemId :UUID, item :Object) => {
+  onDelete = (item :Object) => {
     const { formContext } = this.props;
     const { onDeleteAttachment, formRef } = formContext;
     if (isFunction(onDeleteAttachment)) {
       const currentFormData = getCurrentFormData(formRef);
-      onDeleteAttachment(itemId, item, currentFormData);
+      onDeleteAttachment(item, currentFormData);
     }
     else {
       console.error('formContext.onDropAttachment is not a function');
@@ -101,7 +101,6 @@ class AttachmentsField extends Component<Props> {
                     key={`document-${attachment.id}`}
                     divider={hasDivider}
                     file={attachment}
-                    itemId={attachment.id}
                     onDelete={this.onDelete} />
               );
             })

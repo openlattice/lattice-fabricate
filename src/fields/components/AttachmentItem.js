@@ -5,11 +5,8 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   IconButton,
-  // $FlowFixMe
   ListItem,
-  // $FlowFixMe
   ListItemSecondaryAction,
-  // $FlowFixMe
   ListItemText,
   Typography
 } from 'lattice-ui-kit';
@@ -32,7 +29,6 @@ type Props = {
     name :string;
     type :string;
   };
-  itemId :string;
   onDelete :Function;
 }
 
@@ -40,11 +36,10 @@ const AttachmentItem = ({
   divider,
   file,
   onDelete,
-  itemId,
 } :Props) => {
 
   const handleDelete = () => {
-    onDelete(itemId, file);
+    onDelete(file);
   };
 
   const {
