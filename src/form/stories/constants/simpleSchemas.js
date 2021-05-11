@@ -39,12 +39,6 @@ export const schema = {
           title: 'Social Security #',
         },
       },
-      required: [
-        'firstName',
-        'lastName',
-        'sex',
-        'dob'
-      ],
     },
     mailingAddress: {
       attachments: true,
@@ -134,6 +128,9 @@ export const schema = {
 
 export const uiSchema = {
   personSection: {
+    'ui:options': {
+      accept: 'application/pdf'
+    },
     classNames: 'column-span-12 grid-container',
     firstName: {
       classNames: 'column-span-4'
