@@ -5,8 +5,11 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   IconButton,
+  // $FlowFixMe
   ListItem,
+  // $FlowFixMe
   ListItemSecondaryAction,
+  // $FlowFixMe
   ListItemText,
   Typography
 } from 'lattice-ui-kit';
