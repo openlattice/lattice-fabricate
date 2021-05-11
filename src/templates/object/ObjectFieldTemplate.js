@@ -12,6 +12,7 @@ import { Button } from 'lattice-ui-kit';
 import { generateId, parseIdIndex } from './utils';
 
 import ActionGutter from '../components/styled/ActionGutter';
+import AttachmentsField from '../../fields/AttachmentsField';
 import IconButton from '../components/IconButton';
 import { ActionGroup } from '../../form/src/components/styled';
 import {
@@ -233,6 +234,7 @@ class ObjectFieldTemplate extends Component<Props, State> {
       disabled,
       formData,
       properties,
+      schema,
       uiSchema,
     } = this.props;
     const { isEditing, draftFormData, fieldId } = this.state;
@@ -270,6 +272,8 @@ class ObjectFieldTemplate extends Component<Props, State> {
           { this.renderActionSection() }
         </div>
         { this.renderActionGutter() }
+        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+        { schema.attachments && <AttachmentsField {...this.props} /> }
       </>
     );
   }

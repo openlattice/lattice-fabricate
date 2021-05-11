@@ -30,7 +30,7 @@ const getColor = (props) => {
 
 const DropzoneWrapper = styled.div`
   align-items: center;
-  background-color: ${NEUTRAL.N50};
+  background-color: ${NEUTRAL.N00};
   border-color: ${(props) => getColor(props)};
   border-radius: 3px;
   border-style: dashed;
@@ -39,17 +39,18 @@ const DropzoneWrapper = styled.div`
   flex-direction: column;
   flex: 1;
   outline: none;
-  padding: 32px;
+  padding: 16px;
   transition: border 250ms ease-in-out;
 `;
 
 type Props = {
-  accept :string;
+  accept ?:string;
+  disabled ?:boolean;
   onDrop :Function;
 };
 
 const Dropzone = (props :Props) => {
-  const { accept, onDrop } = props;
+  const { accept, disabled, onDrop } = props;
   const {
     getRootProps,
     getInputProps,
@@ -58,7 +59,8 @@ const Dropzone = (props :Props) => {
     isDragReject
   } = useDropzone({
     accept,
-    onDrop
+    disabled,
+    onDrop,
   });
 
   const {
@@ -114,6 +116,11 @@ const Dropzone = (props :Props) => {
       <Typography component="span">Drop files here or click to select.</Typography>
     </DropzoneWrapper>
   );
+};
+
+Dropzone.defaultProps = {
+  accept: undefined,
+  disabled: false,
 };
 
 export default Dropzone;
