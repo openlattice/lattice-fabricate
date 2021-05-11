@@ -15,11 +15,24 @@ import FileUpload from './components/FileUpload';
 
 import { getCurrentFormData } from '../form/src/components/PageUtils';
 
+type OnDrop = (
+  file :Object,
+  attachmentDestinationId :UUID,
+  fieldId :string,
+  formData :Object,
+) => void;
+
+type OnDeleteAttachment = (
+  entityKeyId :string,
+  attachment :Object,
+  formData :Object
+) => void;
+
 type FormContext = {
   attachments :{ [string] :Object[] };
   attachmentDestinationId :string;
-  onDrop :(any) => void;
-  onDeleteAttachment :(entityKeyId :string) => void;
+  onDrop :OnDrop;
+  onDeleteAttachment :OnDeleteAttachment;
   formRef :Ref<Form>;
 };
 
@@ -38,12 +51,12 @@ class AttachmentsField extends Component<Props> {
     const { _id } = formData;
     const currentFormData = getCurrentFormData(formRef);
     if (isFunction(onDrop)) {
-      onDrop({
-        attachmentDestinationId,
-        fieldId: _id,
+      onDrop(
         file,
-        formData: currentFormData
-      });
+        attachmentDestinationId,
+        _id,
+        currentFormData,
+      );
     }
     else {
       console.error('formContext.onDrop is not a function');
@@ -52,9 +65,10 @@ class AttachmentsField extends Component<Props> {
 
   onDelete = (itemId :UUID, item :Object) => {
     const { formContext } = this.props;
-    const { onDeleteAttachment } = formContext;
+    const { onDeleteAttachment, formRef } = formContext;
     if (isFunction(onDeleteAttachment)) {
-      onDeleteAttachment(itemId, item);
+      const currentFormData = getCurrentFormData(formRef);
+      onDeleteAttachment(itemId, item, currentFormData);
     }
     else {
       console.error('formContext.onDropAttachment is not a function');

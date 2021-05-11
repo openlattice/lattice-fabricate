@@ -44,7 +44,7 @@ const AttachmentItem = ({
 } :Props) => {
 
   const handleDelete = () => {
-    onDelete(itemId);
+    onDelete(itemId, file);
   };
 
   const {

@@ -20,6 +20,7 @@ const defaultFormData = {
 const defaultAttachments = {
   1234567890: [{
     date: '01-01-1970 10:10 PM',
+    fieldId: '1234567890',
     href: 'reallyreallyreallylongtesthrefthing',
     id: '0',
     name: 'reallyreallyreallylongtesthrefthing.pdf',
@@ -27,6 +28,7 @@ const defaultAttachments = {
   },
   {
     date: '01-01-1970 10:10 PM',
+    fieldId: '1234567890',
     href: 'test2',
     id: '1',
     name: 'test2.pdf',
@@ -59,6 +61,21 @@ const reducer = (state, reducerAction) => {
       return { attachments: newAttachments, formData };
     }
 
+    case 'delete': {
+      const {
+        id, attachment, formData
+      } = reducerAction.value;
+      const fieldAttachments = state.attachments[attachment.fieldId];
+      const newAttachments = {
+        ...state.attachments,
+        [attachment.fieldId]: fieldAttachments.filter((item) => item.id !== id)
+      };
+      return {
+        attachments: newAttachments,
+        formData
+      };
+    }
+
     default:
       return state;
   }
@@ -67,16 +84,37 @@ const reducer = (state, reducerAction) => {
 const Template = () => {
   const [state, dispatch] = useReducer(reducer, defaultState);
   const formRef = useRef();
-  const logAttachmentAction = action('attachment drop');
 
-  const onDrop = (payload) => {
-    dispatch({ type: 'drop', value: payload });
-    logAttachmentAction(payload);
+  const onDrop = (file, _, fieldId, formData) => {
+    dispatch({
+      type: 'drop',
+      value: {
+        file,
+        fieldId,
+        formData
+      }
+    });
+
+    action('drop file')(file, _, fieldId, formData);
+  };
+
+  const onDeleteAttachment = (id, attachment, formData) => {
+    dispatch({
+      type: 'delete',
+      value: {
+        id,
+        attachment,
+        formData,
+      },
+    });
+
+    action('delete attachment')(id, attachment, formData);
   };
 
   const formContext = {
     attachmentDestinationId: NIL,
     onDrop,
+    onDeleteAttachment,
     attachments: state.attachments,
     formRef,
   };
