@@ -52,10 +52,11 @@ const reducer = (state, reducerAction) => {
       const newAttachments = {
         ...state.attachments,
         [fieldId]: (state.attachments[fieldId] || []).concat({
+          date: DateTime.local().toLocaleString(DateTime.DATETIME_FULL),
+          fieldId,
+          href: 'test',
           name: file.name,
           type: file.type,
-          href: 'test',
-          date: DateTime.local().toLocaleString(DateTime.DATETIME_FULL)
         })
       };
       return { attachments: newAttachments, formData };
