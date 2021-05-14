@@ -17,7 +17,6 @@ import { getCurrentFormData } from '../form/src/components/PageUtils';
 
 type OnDrop = (
   file :Object,
-  attachmentDestinationId :UUID,
   fieldId :string,
   formData :Object,
 ) => void;
@@ -42,7 +41,6 @@ type Attachments = {
 
 type FormContext = {
   attachments :Attachments;
-  attachmentDestinationId :string;
   onDrop :OnDrop;
   onDeleteAttachment :OnDeleteAttachment;
   formRef :Ref<Form>;
@@ -59,13 +57,12 @@ class AttachmentsField extends Component<Props> {
 
   handleDrop = ({ file } :{ file :any }) => {
     const { formContext, formData } = this.props;
-    const { attachmentDestinationId, onDrop, formRef } = formContext;
+    const { onDrop, formRef } = formContext;
     const { _id } = formData;
     const currentFormData = getCurrentFormData(formRef);
     if (isFunction(onDrop)) {
       onDrop(
         file,
-        attachmentDestinationId,
         _id,
         currentFormData,
       );

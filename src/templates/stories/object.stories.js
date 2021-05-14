@@ -84,7 +84,7 @@ const Template = () => {
   const [state, dispatch] = useReducer(reducer, defaultState);
   const formRef = useRef();
 
-  const onDrop = (file, _, fieldId, formData) => {
+  const onDrop = (file, fieldId, formData) => {
     dispatch({
       type: 'drop',
       value: {
@@ -94,7 +94,7 @@ const Template = () => {
       }
     });
 
-    action('drop file')(file, _, fieldId, formData);
+    action('drop file')(file, fieldId, formData);
   };
 
   const onDeleteAttachment = (attachment, formData) => {
@@ -110,7 +110,6 @@ const Template = () => {
   };
 
   const formContext = {
-    attachmentDestinationId: NIL,
     onDrop,
     onDeleteAttachment,
     attachments: state.attachments,
