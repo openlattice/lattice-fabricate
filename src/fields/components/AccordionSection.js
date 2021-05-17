@@ -14,17 +14,17 @@ import {
 } from 'lattice-ui-kit';
 
 const HeaderWrapper = styled.div`
+  align-items: center;
+  cursor: pointer;
   display: flex;
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
-  cursor: pointer;
 `;
 
 const LabelWrapper = styled.div`
+  align-items: center;
   display: flex;
   flex: 0 1 auto;
-  align-items: center;
 `;
 
 const ToggleIcon = styled(FontAwesomeIcon)`
@@ -49,12 +49,14 @@ const AccordionSection = ({
 
   return (
     <CardSegment padding="20px 0 0">
-      <HeaderWrapper onClick={toggleOpen}>
-        <LabelWrapper>
-          <Typography variant="subtitle2">{title}</Typography>
+      <HeaderWrapper aria-expanded={isOpen ? 'true' : 'false'} onClick={toggleOpen}>
+        <LabelWrapper aria-labelledby="accordion-title">
+          <Typography id="accordion-title" variant="subtitle2">{title}</Typography>
         </LabelWrapper>
         <IconButton variant="text" size="small">
           <ToggleIcon
+              aria-expanded={isOpen ? 'true' : 'false'}
+              aria-label={isOpen ? 'Collapse' : 'Expand'}
               fixedWidth
               icon={faChevronDown}
               onClick={toggleOpen}

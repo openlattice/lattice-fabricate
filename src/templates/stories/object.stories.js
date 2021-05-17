@@ -2,7 +2,6 @@ import { useReducer, useRef } from 'react';
 
 import { action } from '@storybook/addon-actions';
 import { DateTime } from 'luxon';
-import { NIL } from 'uuid';
 
 import Form from '../../form';
 import { schema as simpleSchema, uiSchema as simpleUiSchema } from '../../form/stories/constants/simpleSchemas';
@@ -118,10 +117,10 @@ const Template = () => {
 
   return (
     <Form
-        formData={state.formData}
-        ref={formRef}
         formContext={formContext}
+        formData={state.formData}
         onSubmit={action('Submit Form')}
+        ref={formRef}
         schema={simpleSchema}
         uiSchema={simpleUiSchema} />
   );

@@ -105,6 +105,7 @@ const Dropzone = (props :Props) => {
         tabIndex={tabIndex}>
       <input
           accept={acceptInput}
+          aria-labelledby="dropzone"
           autoComplete={autoComplete}
           multiple={multiple}
           onChange={onChange}
@@ -113,7 +114,7 @@ const Dropzone = (props :Props) => {
           style={style}
           tabIndex={tabIndexInput}
           type={type} />
-      <Typography component="span">Drop files here or click to select.</Typography>
+      <Typography component="span" id="dropzone">Drop files here or click to select.</Typography>
     </DropzoneWrapper>
   );
 };

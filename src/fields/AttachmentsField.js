@@ -16,8 +16,8 @@ import FileUpload from './components/FileUpload';
 import { getCurrentFormData } from '../form/src/components/PageUtils';
 
 type OnDrop = (
-  file :Object,
   fieldId :string,
+  file :Object,
   formData :Object,
 ) => void;
 
@@ -41,13 +41,13 @@ type Attachments = {
 
 type FormContext = {
   attachments :Attachments;
-  onDrop :OnDrop;
-  onDeleteAttachment :OnDeleteAttachment;
   formRef :Ref<Form>;
+  onDeleteAttachment :OnDeleteAttachment;
+  onDrop :OnDrop;
 };
 
 type Props = {
-  disabled :boolean,
+  disabled :boolean;
   formContext :FormContext;
   formData :Object;
   uiSchema :Object;
@@ -107,9 +107,9 @@ class AttachmentsField extends Component<Props> {
               const hasDivider = index !== fieldAttachments.length - 1;
               return (
                 <AttachmentItem
-                    key={`document-${attachment.id}`}
                     divider={hasDivider}
                     file={attachment}
+                    key={`document-${attachment.id}`}
                     onDelete={this.onDelete} />
               );
             })
