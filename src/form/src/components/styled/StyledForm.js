@@ -93,6 +93,7 @@ const StyledForm = styled(Form)`
   .grid-container {
     display: flex;
     flex: 1;
+    flex-direction: column;
 
     > :first-child {
       display: grid;

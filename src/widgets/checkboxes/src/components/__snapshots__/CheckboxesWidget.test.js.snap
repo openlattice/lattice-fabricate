@@ -94,8 +94,10 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
         disabled={false}
         fields={
           Object {
+            "AttachmentsField": [Function],
             "BulletField": [Function],
             "DescriptionField": [Function],
+            "ObjectField": [Function],
             "ParagraphField": [Function],
             "SchemaField": [Function],
           }
@@ -161,12 +163,14 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
           ErrorList={[Function]}
           FieldTemplate={[Function]}
           ObjectFieldTemplate={[Function]}
-          className="StyledForm-dhnby8-0 jdmTMu"
+          className="StyledForm-dhnby8-0 gdCqme"
           disabled={false}
           fields={
             Object {
+              "AttachmentsField": [Function],
               "BulletField": [Function],
               "DescriptionField": [Function],
+              "ObjectField": [Function],
               "ParagraphField": [Function],
               "SchemaField": [Function],
             }
@@ -232,7 +236,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
           }
         >
           <form
-            className="StyledForm-dhnby8-0 jdmTMu"
+            className="StyledForm-dhnby8-0 gdCqme"
             noValidate={false}
             onSubmit={[Function]}
           >
@@ -264,6 +268,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                   "fields": Object {
                     "AnyOfField": [Function],
                     "ArrayField": [Function],
+                    "AttachmentsField": [Function],
                     "BooleanField": [Function],
                     "BulletField": [Function],
                     "DescriptionField": [Function],
@@ -394,6 +399,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                     "fields": Object {
                       "AnyOfField": [Function],
                       "ArrayField": [Function],
+                      "AttachmentsField": [Function],
                       "BooleanField": [Function],
                       "BulletField": [Function],
                       "DescriptionField": [Function],
@@ -509,6 +515,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                     Object {
                       "AnyOfField": [Function],
                       "ArrayField": [Function],
+                      "AttachmentsField": [Function],
                       "BooleanField": [Function],
                       "BulletField": [Function],
                       "DescriptionField": [Function],
@@ -524,10 +531,16 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                     }
                   }
                   formContext={Object {}}
+                  formData={
+                    Object {
+                      "checkboxesOther": Array [],
+                    }
+                  }
                   help={<Help />}
                   hidden={false}
                   id="root"
                   label="Checkboxes"
+                  onChange={[Function]}
                   readonly={false}
                   registry={
                     Object {
@@ -538,6 +551,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                       "fields": Object {
                         "AnyOfField": [Function],
                         "ArrayField": [Function],
+                        "AttachmentsField": [Function],
                         "BooleanField": [Function],
                         "BulletField": [Function],
                         "DescriptionField": [Function],
@@ -677,6 +691,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                           "fields": Object {
                             "AnyOfField": [Function],
                             "ArrayField": [Function],
+                            "AttachmentsField": [Function],
                             "BooleanField": [Function],
                             "BulletField": [Function],
                             "DescriptionField": [Function],
@@ -824,6 +839,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                     "fields": Object {
                                       "AnyOfField": [Function],
                                       "ArrayField": [Function],
+                                      "AttachmentsField": [Function],
                                       "BooleanField": [Function],
                                       "BulletField": [Function],
                                       "DescriptionField": [Function],
@@ -925,6 +941,77 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                           ]
                         }
                         readonly={false}
+                        registry={
+                          Object {
+                            "ArrayFieldTemplate": [Function],
+                            "FieldTemplate": [Function],
+                            "ObjectFieldTemplate": [Function],
+                            "definitions": Object {},
+                            "fields": Object {
+                              "AnyOfField": [Function],
+                              "ArrayField": [Function],
+                              "AttachmentsField": [Function],
+                              "BooleanField": [Function],
+                              "BulletField": [Function],
+                              "DescriptionField": [Function],
+                              "NullField": [Function],
+                              "NumberField": [Function],
+                              "ObjectField": [Function],
+                              "OneOfField": [Function],
+                              "ParagraphField": [Function],
+                              "SchemaField": [Function],
+                              "StringField": [Function],
+                              "TitleField": [Function],
+                              "UnsupportedField": [Function],
+                            },
+                            "formContext": Object {},
+                            "rootSchema": Object {
+                              "properties": Object {
+                                "checkboxesOther": Object {
+                                  "description": "Select all that apply",
+                                  "items": Object {
+                                    "enum": Array [
+                                      "Option 1",
+                                      "Option 2",
+                                      "Option 3",
+                                    ],
+                                    "type": "string",
+                                  },
+                                  "minItems": 1,
+                                  "title": "Options (ui:options flag: withOther + otherText)",
+                                  "type": "array",
+                                  "uniqueItems": true,
+                                },
+                              },
+                              "title": "Checkboxes",
+                              "type": "object",
+                            },
+                            "widgets": Object {
+                              "AltDateTimeWidget": [Function],
+                              "AltDateWidget": [Function],
+                              "BaseInput": [Function],
+                              "CheckboxWidget": [Function],
+                              "CheckboxesWidget": [Function],
+                              "ColorWidget": [Function],
+                              "DateTimeWidget": [Function],
+                              "DateWidget": [Function],
+                              "EmailWidget": [Function],
+                              "FileWidget": [Function],
+                              "HiddenWidget": [Function],
+                              "OtherRadioWidget": [Function],
+                              "PasswordWidget": [Function],
+                              "RadioWidget": [Function],
+                              "RangeWidget": [Function],
+                              "SelectWidget": [Function],
+                              "SignatureWidget": [Function],
+                              "TextWidget": [Function],
+                              "TextareaWidget": [Function],
+                              "TimeWidget": [Function],
+                              "URLWidget": [Function],
+                              "UpDownWidget": [Function],
+                            },
+                          }
+                        }
                         required={false}
                         schema={
                           Object {
@@ -1003,6 +1090,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                 "fields": Object {
                                   "AnyOfField": [Function],
                                   "ArrayField": [Function],
+                                  "AttachmentsField": [Function],
                                   "BooleanField": [Function],
                                   "BulletField": [Function],
                                   "DescriptionField": [Function],
@@ -1122,6 +1210,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                   "fields": Object {
                                     "AnyOfField": [Function],
                                     "ArrayField": [Function],
+                                    "AttachmentsField": [Function],
                                     "BooleanField": [Function],
                                     "BulletField": [Function],
                                     "DescriptionField": [Function],
@@ -1231,6 +1320,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                   Object {
                                     "AnyOfField": [Function],
                                     "ArrayField": [Function],
+                                    "AttachmentsField": [Function],
                                     "BooleanField": [Function],
                                     "BulletField": [Function],
                                     "DescriptionField": [Function],
@@ -1246,10 +1336,12 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                   }
                                 }
                                 formContext={Object {}}
+                                formData={Array []}
                                 help={<Help />}
                                 hidden={false}
                                 id="root_checkboxesOther"
                                 label="Options (ui:options flag: withOther + otherText)"
+                                onChange={[Function]}
                                 onDropPropertyClick={[Function]}
                                 onKeyChange={[Function]}
                                 rawDescription="Select all that apply"
@@ -1263,6 +1355,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                     "fields": Object {
                                       "AnyOfField": [Function],
                                       "ArrayField": [Function],
+                                      "AttachmentsField": [Function],
                                       "BooleanField": [Function],
                                       "BulletField": [Function],
                                       "DescriptionField": [Function],
@@ -1413,6 +1506,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                         "fields": Object {
                                           "AnyOfField": [Function],
                                           "ArrayField": [Function],
+                                          "AttachmentsField": [Function],
                                           "BooleanField": [Function],
                                           "BulletField": [Function],
                                           "DescriptionField": [Function],
@@ -1547,6 +1641,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                           "fields": Object {
                                             "AnyOfField": [Function],
                                             "ArrayField": [Function],
+                                            "AttachmentsField": [Function],
                                             "BooleanField": [Function],
                                             "BulletField": [Function],
                                             "DescriptionField": [Function],
@@ -1669,6 +1764,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                             "fields": Object {
                                               "AnyOfField": [Function],
                                               "ArrayField": [Function],
+                                              "AttachmentsField": [Function],
                                               "BooleanField": [Function],
                                               "BulletField": [Function],
                                               "DescriptionField": [Function],
