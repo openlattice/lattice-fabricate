@@ -80,7 +80,7 @@ class AttachmentsField extends Component<Props> {
       onDeleteAttachment(attachment, currentFormData);
     }
     else {
-      console.error('formContext.onDropAttachment is not a function');
+      console.error('formContext.onDeleteAttachment is not a function');
     }
   };
 
