@@ -1,4 +1,5 @@
 // @flow
+/* eslint no-underscore-dangle: ["error", { "allow": ["_id"] }] */
 import { Component, cloneElement } from 'react';
 import type { ComponentType } from 'react';
 
@@ -8,9 +9,10 @@ import { utils } from '@rjsf/core';
 import { fromJS, set } from 'immutable';
 import { Button } from 'lattice-ui-kit';
 
-import { parseIdIndex } from './utils';
+import { generateId, parseIdIndex } from './utils';
 
 import ActionGutter from '../components/styled/ActionGutter';
+import DefaultAttachmentsField from '../../fields/AttachmentsField';
 import IconButton from '../components/IconButton';
 import { ActionGroup } from '../../form/src/components/styled';
 import {
@@ -33,24 +35,33 @@ type Props = {
   idSchema :Object;
   properties :Object[];
   readonly :boolean;
+  registry :Object;
   required :string;
+  schema :Object;
   title :string;
   uiSchema :Object;
 };
 
 type State = {
-  isEditing :boolean;
   draftFormData :Object;
+  isEditing :boolean;
+  fieldId :string;
 }
 
 class ObjectFieldTemplate extends Component<Props, State> {
 
   constructor(props :Props) {
     super(props);
+    const { schema } = this.props;
     this.state = {
+      draftFormData: {},
       isEditing: false,
-      draftFormData: {}
+      fieldId: schema._id,
     };
+  }
+
+  componentDidMount() {
+    this.setFieldId();
   }
 
   componentDidUpdate(prevProps :Props) {
@@ -58,6 +69,19 @@ class ObjectFieldTemplate extends Component<Props, State> {
     const { formData: prevFormData } = prevProps;
     if (formData !== prevFormData) {
       this.disableFields();
+    }
+  }
+
+  setFieldId = () => {
+    const { schema, formData } = this.props;
+    const { fieldId } = this.state;
+    if (schema.attachments || schema.comments) {
+      if (!formData._id) {
+        this.setState({ fieldId: generateId() });
+      }
+      else if (!fieldId) {
+        this.setState({ fieldId: formData._id });
+      }
     }
   }
 
@@ -209,11 +233,20 @@ class ObjectFieldTemplate extends Component<Props, State> {
   render() {
     const {
       disabled,
+      formData,
       properties,
+      schema,
       uiSchema,
+      registry,
     } = this.props;
-    const { isEditing, draftFormData } = this.state;
+    const { isEditing, draftFormData, fieldId } = this.state;
     const { editable } :Object = getUiOptions(uiSchema);
+
+    if (fieldId) {
+      formData._id = fieldId;
+    }
+
+    const { AttachmentsField = DefaultAttachmentsField } = registry.fields;
 
     return (
       <>
@@ -243,6 +276,8 @@ class ObjectFieldTemplate extends Component<Props, State> {
           { this.renderActionSection() }
         </div>
         { this.renderActionGutter() }
+        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+        { schema.attachments && <AttachmentsField {...this.props} /> }
       </>
     );
   }

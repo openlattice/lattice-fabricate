@@ -4,6 +4,7 @@ export const schema = {
   type: 'object',
   properties: {
     personSection: {
+      attachments: true,
       type: 'object',
       title: 'Personal Information',
       properties: {
@@ -38,14 +39,9 @@ export const schema = {
           title: 'Social Security #',
         },
       },
-      required: [
-        'firstName',
-        'lastName',
-        'sex',
-        'dob'
-      ],
     },
     mailingAddress: {
+      attachments: true,
       type: 'object',
       title: 'Mailing Address',
       properties: {
@@ -91,6 +87,7 @@ export const schema = {
       },
     },
     billingAddress: {
+      attachments: true,
       type: 'object',
       title: 'Billing Address',
       properties: {
@@ -131,6 +128,9 @@ export const schema = {
 
 export const uiSchema = {
   personSection: {
+    'ui:options': {
+      accept: 'application/pdf'
+    },
     classNames: 'column-span-12 grid-container',
     firstName: {
       classNames: 'column-span-4'

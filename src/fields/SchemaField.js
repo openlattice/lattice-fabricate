@@ -28,6 +28,7 @@ type Props = {
   readonly :boolean;
   registry :Object;
   required :string;
+  schema :Object;
   title :string;
   uiSchema :Object;
 }
@@ -77,10 +78,15 @@ class CustomSchemaField extends Component<Props, State> {
   }
 
   render() {
-    const { hasRemove, readonly, idSchema } = this.props;
+    const {
+      hasRemove,
+      idSchema,
+      readonly,
+    } = this.props;
     const { isVisible } = this.state;
     /* eslint-disable react/jsx-props-no-spreading */
     const { $id } = idSchema;
+
     return (
       <>
         <SchemaField {...this.props} />

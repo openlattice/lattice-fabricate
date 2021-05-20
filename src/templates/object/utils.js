@@ -9,7 +9,10 @@ const parseIdIndex = (idSchema :{ $id :string }) :number | void => {
   return undefined;
 };
 
+const generateId = () => Math.random().toString(36).slice(2);
+
 export {
   // eslint-disable-next-line import/prefer-default-export
-  parseIdIndex
+  parseIdIndex,
+  generateId,
 };

@@ -2,6 +2,7 @@ export const schema = {
   definitions: {
     taskItems: {
       type: 'object',
+      attachments: true,
       properties: {
         taskName: {
           type: 'number',
