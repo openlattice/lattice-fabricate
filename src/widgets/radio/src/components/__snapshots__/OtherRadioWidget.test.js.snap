@@ -87,7 +87,6 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
             "AttachmentsField": [Function],
             "BulletField": [Function],
             "DescriptionField": [Function],
-            "ObjectField": [Function],
             "ParagraphField": [Function],
             "SchemaField": [Function],
           }
@@ -134,6 +133,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
             "CheckboxesWidget": [Function],
             "DateTimeWidget": [Function],
             "DateWidget": [Function],
+            "MarkdownEditorWidget": [Function],
             "OtherRadioWidget": [Function],
             "RadioWidget": [Function],
             "SelectWidget": [Function],
@@ -148,14 +148,13 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
           ErrorList={[Function]}
           FieldTemplate={[Function]}
           ObjectFieldTemplate={[Function]}
-          className="StyledForm-sc-dhnby8-0 iDZmDL"
+          className="StyledForm-sc-dhnby8-0 hefeIB"
           disabled={false}
           fields={
             Object {
               "AttachmentsField": [Function],
               "BulletField": [Function],
               "DescriptionField": [Function],
-              "ObjectField": [Function],
               "ParagraphField": [Function],
               "SchemaField": [Function],
             }
@@ -206,6 +205,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
               "CheckboxesWidget": [Function],
               "DateTimeWidget": [Function],
               "DateWidget": [Function],
+              "MarkdownEditorWidget": [Function],
               "OtherRadioWidget": [Function],
               "RadioWidget": [Function],
               "SelectWidget": [Function],
@@ -216,7 +216,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
           }
         >
           <form
-            className="StyledForm-sc-dhnby8-0 iDZmDL"
+            className="StyledForm-sc-dhnby8-0 hefeIB"
             noValidate={false}
             onSubmit={[Function]}
           >
@@ -290,6 +290,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                     "EmailWidget": [Function],
                     "FileWidget": [Function],
                     "HiddenWidget": [Function],
+                    "MarkdownEditorWidget": [Function],
                     "OtherRadioWidget": [Function],
                     "PasswordWidget": [Function],
                     "RadioWidget": [Function],
@@ -410,6 +411,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                       "EmailWidget": [Function],
                       "FileWidget": [Function],
                       "HiddenWidget": [Function],
+                      "MarkdownEditorWidget": [Function],
                       "OtherRadioWidget": [Function],
                       "PasswordWidget": [Function],
                       "RadioWidget": [Function],
@@ -555,6 +557,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                         "EmailWidget": [Function],
                         "FileWidget": [Function],
                         "HiddenWidget": [Function],
+                        "MarkdownEditorWidget": [Function],
                         "OtherRadioWidget": [Function],
                         "PasswordWidget": [Function],
                         "RadioWidget": [Function],
@@ -684,6 +687,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                             "EmailWidget": [Function],
                             "FileWidget": [Function],
                             "HiddenWidget": [Function],
+                            "MarkdownEditorWidget": [Function],
                             "OtherRadioWidget": [Function],
                             "PasswordWidget": [Function],
                             "RadioWidget": [Function],
@@ -820,6 +824,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                       "EmailWidget": [Function],
                                       "FileWidget": [Function],
                                       "HiddenWidget": [Function],
+                                      "MarkdownEditorWidget": [Function],
                                       "OtherRadioWidget": [Function],
                                       "PasswordWidget": [Function],
                                       "RadioWidget": [Function],
@@ -862,6 +867,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                 wasPropertyKeyModified={false}
                               />,
                               "disabled": false,
+                              "hidden": false,
                               "name": "radioOther",
                               "readonly": false,
                               "required": false,
@@ -924,6 +930,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                               "EmailWidget": [Function],
                               "FileWidget": [Function],
                               "HiddenWidget": [Function],
+                              "MarkdownEditorWidget": [Function],
                               "OtherRadioWidget": [Function],
                               "PasswordWidget": [Function],
                               "RadioWidget": [Function],
@@ -1056,6 +1063,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                   "EmailWidget": [Function],
                                   "FileWidget": [Function],
                                   "HiddenWidget": [Function],
+                                  "MarkdownEditorWidget": [Function],
                                   "OtherRadioWidget": [Function],
                                   "PasswordWidget": [Function],
                                   "RadioWidget": [Function],
@@ -1168,6 +1176,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                     "EmailWidget": [Function],
                                     "FileWidget": [Function],
                                     "HiddenWidget": [Function],
+                                    "MarkdownEditorWidget": [Function],
                                     "OtherRadioWidget": [Function],
                                     "PasswordWidget": [Function],
                                     "RadioWidget": [Function],
@@ -1307,6 +1316,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                       "EmailWidget": [Function],
                                       "FileWidget": [Function],
                                       "HiddenWidget": [Function],
+                                      "MarkdownEditorWidget": [Function],
                                       "OtherRadioWidget": [Function],
                                       "PasswordWidget": [Function],
                                       "RadioWidget": [Function],
@@ -1439,6 +1449,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                           "EmailWidget": [Function],
                                           "FileWidget": [Function],
                                           "HiddenWidget": [Function],
+                                          "MarkdownEditorWidget": [Function],
                                           "OtherRadioWidget": [Function],
                                           "PasswordWidget": [Function],
                                           "RadioWidget": [Function],
@@ -1564,6 +1575,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                             "EmailWidget": [Function],
                                             "FileWidget": [Function],
                                             "HiddenWidget": [Function],
+                                            "MarkdownEditorWidget": [Function],
                                             "OtherRadioWidget": [Function],
                                             "PasswordWidget": [Function],
                                             "RadioWidget": [Function],
@@ -1680,6 +1692,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                               "EmailWidget": [Function],
                                               "FileWidget": [Function],
                                               "HiddenWidget": [Function],
+                                              "MarkdownEditorWidget": [Function],
                                               "OtherRadioWidget": [Function],
                                               "PasswordWidget": [Function],
                                               "RadioWidget": [Function],
@@ -1796,6 +1809,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                                 "EmailWidget": [Function],
                                                 "FileWidget": [Function],
                                                 "HiddenWidget": [Function],
+                                                "MarkdownEditorWidget": [Function],
                                                 "OtherRadioWidget": [Function],
                                                 "PasswordWidget": [Function],
                                                 "RadioWidget": [Function],
@@ -1905,6 +1919,7 @@ exports[`OtherRadioWidget should match snapshot 1`] = `
                                                   "EmailWidget": [Function],
                                                   "FileWidget": [Function],
                                                   "HiddenWidget": [Function],
+                                                  "MarkdownEditorWidget": [Function],
                                                   "OtherRadioWidget": [Function],
                                                   "PasswordWidget": [Function],
                                                   "RadioWidget": [Function],
