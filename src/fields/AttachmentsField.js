@@ -4,6 +4,7 @@ import { Component } from 'react';
 import type { Ref } from 'react';
 
 import Form from '@rjsf/core';
+import styled from 'styled-components';
 // $FlowFixMe
 import { List } from 'lattice-ui-kit';
 import { isFunction } from 'lodash';
@@ -14,6 +15,10 @@ import AttachmentItem from './components/AttachmentItem';
 import FileUpload from './components/FileUpload';
 
 import { getCurrentFormData } from '../form/src/components/PageUtils';
+
+const StyledAccordionSection = styled(AccordionSection)`
+  grid-row-start: 2;
+`;
 
 type OnDrop = (
   fieldId :string,
@@ -99,7 +104,7 @@ class AttachmentsField extends Component<Props> {
     const title = count ? `Attachments (${count})` : 'Attachments';
 
     return (
-      <AccordionSection title={title}>
+      <StyledAccordionSection title={title}>
         <FileUpload disabled={disabled} accept={accept} onChange={this.handleDrop} />
         <List dense>
           {
@@ -115,7 +120,7 @@ class AttachmentsField extends Component<Props> {
             })
           }
         </List>
-      </AccordionSection>
+      </StyledAccordionSection>
     );
   }
 }
