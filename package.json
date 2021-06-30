@@ -83,7 +83,7 @@
     "jest": "~27.0.6",
     "jest-styled-components": "~7.0.4",
     "lattice": "~0.93.4",
-    "lattice-ui-kit": "~0.45.0",
+    "lattice-ui-kit": "~0.45.1",
     "luxon": "~1.27.0",
     "npm-run-all": "~4.1.5",
     "react": "~16.14.0",
