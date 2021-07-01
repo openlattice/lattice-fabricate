@@ -81,7 +81,6 @@ exports[`RadioWidget should match snapshot 1`] = `
             "AttachmentsField": [Function],
             "BulletField": [Function],
             "DescriptionField": [Function],
-            "ObjectField": [Function],
             "ParagraphField": [Function],
             "SchemaField": [Function],
           }
@@ -125,6 +124,7 @@ exports[`RadioWidget should match snapshot 1`] = `
             "CheckboxesWidget": [Function],
             "DateTimeWidget": [Function],
             "DateWidget": [Function],
+            "MarkdownEditorWidget": [Function],
             "OtherRadioWidget": [Function],
             "RadioWidget": [Function],
             "SelectWidget": [Function],
@@ -139,14 +139,13 @@ exports[`RadioWidget should match snapshot 1`] = `
           ErrorList={[Function]}
           FieldTemplate={[Function]}
           ObjectFieldTemplate={[Function]}
-          className="StyledForm-dhnby8-0 gdCqme"
+          className="StyledForm-sc-dhnby8-0 hefeIB"
           disabled={false}
           fields={
             Object {
               "AttachmentsField": [Function],
               "BulletField": [Function],
               "DescriptionField": [Function],
-              "ObjectField": [Function],
               "ParagraphField": [Function],
               "SchemaField": [Function],
             }
@@ -194,6 +193,7 @@ exports[`RadioWidget should match snapshot 1`] = `
               "CheckboxesWidget": [Function],
               "DateTimeWidget": [Function],
               "DateWidget": [Function],
+              "MarkdownEditorWidget": [Function],
               "OtherRadioWidget": [Function],
               "RadioWidget": [Function],
               "SelectWidget": [Function],
@@ -204,7 +204,7 @@ exports[`RadioWidget should match snapshot 1`] = `
           }
         >
           <form
-            className="StyledForm-dhnby8-0 gdCqme"
+            className="StyledForm-sc-dhnby8-0 hefeIB"
             noValidate={false}
             onSubmit={[Function]}
           >
@@ -274,6 +274,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                     "EmailWidget": [Function],
                     "FileWidget": [Function],
                     "HiddenWidget": [Function],
+                    "MarkdownEditorWidget": [Function],
                     "OtherRadioWidget": [Function],
                     "PasswordWidget": [Function],
                     "RadioWidget": [Function],
@@ -387,6 +388,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                       "EmailWidget": [Function],
                       "FileWidget": [Function],
                       "HiddenWidget": [Function],
+                      "MarkdownEditorWidget": [Function],
                       "OtherRadioWidget": [Function],
                       "PasswordWidget": [Function],
                       "RadioWidget": [Function],
@@ -464,7 +466,11 @@ exports[`RadioWidget should match snapshot 1`] = `
                   }
                   formContext={Object {}}
                   formData={Object {}}
-                  help={<Help />}
+                  help={
+                    <Help
+                      id="root__help"
+                    />
+                  }
                   hidden={false}
                   id="root"
                   label="radio"
@@ -521,6 +527,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                         "EmailWidget": [Function],
                         "FileWidget": [Function],
                         "HiddenWidget": [Function],
+                        "MarkdownEditorWidget": [Function],
                         "OtherRadioWidget": [Function],
                         "PasswordWidget": [Function],
                         "RadioWidget": [Function],
@@ -643,6 +650,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                             "EmailWidget": [Function],
                             "FileWidget": [Function],
                             "HiddenWidget": [Function],
+                            "MarkdownEditorWidget": [Function],
                             "OtherRadioWidget": [Function],
                             "PasswordWidget": [Function],
                             "RadioWidget": [Function],
@@ -772,6 +780,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                       "EmailWidget": [Function],
                                       "FileWidget": [Function],
                                       "HiddenWidget": [Function],
+                                      "MarkdownEditorWidget": [Function],
                                       "OtherRadioWidget": [Function],
                                       "PasswordWidget": [Function],
                                       "RadioWidget": [Function],
@@ -811,6 +820,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                 wasPropertyKeyModified={false}
                               />,
                               "disabled": false,
+                              "hidden": false,
                               "name": "radio",
                               "readonly": false,
                               "required": false,
@@ -869,6 +879,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                               "EmailWidget": [Function],
                               "FileWidget": [Function],
                               "HiddenWidget": [Function],
+                              "MarkdownEditorWidget": [Function],
                               "OtherRadioWidget": [Function],
                               "PasswordWidget": [Function],
                               "RadioWidget": [Function],
@@ -994,6 +1005,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                   "EmailWidget": [Function],
                                   "FileWidget": [Function],
                                   "HiddenWidget": [Function],
+                                  "MarkdownEditorWidget": [Function],
                                   "OtherRadioWidget": [Function],
                                   "PasswordWidget": [Function],
                                   "RadioWidget": [Function],
@@ -1099,6 +1111,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                     "EmailWidget": [Function],
                                     "FileWidget": [Function],
                                     "HiddenWidget": [Function],
+                                    "MarkdownEditorWidget": [Function],
                                     "OtherRadioWidget": [Function],
                                     "PasswordWidget": [Function],
                                     "RadioWidget": [Function],
@@ -1168,7 +1181,11 @@ exports[`RadioWidget should match snapshot 1`] = `
                                   }
                                 }
                                 formContext={Object {}}
-                                help={<Help />}
+                                help={
+                                  <Help
+                                    id="root_radio__help"
+                                  />
+                                }
                                 hidden={false}
                                 id="root_radio"
                                 label="ui:widget: OtherRadioWidget"
@@ -1227,6 +1244,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                       "EmailWidget": [Function],
                                       "FileWidget": [Function],
                                       "HiddenWidget": [Function],
+                                      "MarkdownEditorWidget": [Function],
                                       "OtherRadioWidget": [Function],
                                       "PasswordWidget": [Function],
                                       "RadioWidget": [Function],
@@ -1272,7 +1290,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                     required={false}
                                   >
                                     <label
-                                      className="sc-iBPRYJ FieldTemplate__FieldLabel-sc-1c6bjb1-1 gAhAcd eCHikR"
+                                      className="sc-iCoGMd FieldTemplate__FieldLabel-sc-1c6bjb1-1 cJpiAY kUmlnF"
                                       htmlFor="root_radio"
                                       required={false}
                                     >
@@ -1351,6 +1369,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                           "EmailWidget": [Function],
                                           "FileWidget": [Function],
                                           "HiddenWidget": [Function],
+                                          "MarkdownEditorWidget": [Function],
                                           "OtherRadioWidget": [Function],
                                           "PasswordWidget": [Function],
                                           "RadioWidget": [Function],
@@ -1471,6 +1490,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                             "EmailWidget": [Function],
                                             "FileWidget": [Function],
                                             "HiddenWidget": [Function],
+                                            "MarkdownEditorWidget": [Function],
                                             "OtherRadioWidget": [Function],
                                             "PasswordWidget": [Function],
                                             "RadioWidget": [Function],
@@ -1590,6 +1610,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                               "EmailWidget": [Function],
                                               "FileWidget": [Function],
                                               "HiddenWidget": [Function],
+                                              "MarkdownEditorWidget": [Function],
                                               "OtherRadioWidget": [Function],
                                               "PasswordWidget": [Function],
                                               "RadioWidget": [Function],
@@ -1631,10 +1652,10 @@ exports[`RadioWidget should match snapshot 1`] = `
                                           id="root_radio"
                                         >
                                           <div
-                                            className="sc-crrsfI hUIwEa"
+                                            className="sc-bqGGPW eClCJx"
                                             id="root_radio"
                                           >
-                                            <Radio
+                                            <IS
                                               autoFocus={false}
                                               checked={false}
                                               disabled={false}
@@ -1654,17 +1675,17 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                 htmlFor="root_radio_Option 1"
                                               >
                                                 <label
-                                                  className="sc-dQppl fgZTVN"
+                                                  className="sc-ksluID kOcqbI"
                                                   disabled={false}
                                                   htmlFor="root_radio_Option 1"
                                                 >
                                                   <styled.span>
                                                     <span
-                                                      className="sc-fFubgz eTzfGp"
+                                                      className="sc-hHEiqL hyjhdy"
                                                     >
                                                       <styled.span>
                                                         <span
-                                                          className="sc-bkzZxe iMUePn"
+                                                          className="sc-dlMDgC djIEPC"
                                                         >
                                                           <styled.input
                                                             autoFocus={false}
@@ -1681,7 +1702,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                             <input
                                                               autoFocus={false}
                                                               checked={false}
-                                                              className="sc-hBEYos jpjufB"
+                                                              className="sc-iemWCZ eFKJdo"
                                                               id="root_radio_Option 1"
                                                               onBlur={[Function]}
                                                               onChange={[Function]}
@@ -1694,7 +1715,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                           </styled.input>
                                                           <styled.span>
                                                             <span
-                                                              className="sc-kstrdz jPewgR"
+                                                              className="sc-fnVZcZ ijlvvl"
                                                             />
                                                           </styled.span>
                                                         </span>
@@ -1703,15 +1724,15 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                   </styled.span>
                                                   <styled.span>
                                                     <span
-                                                      className="sc-bqyKva bgdnkq"
+                                                      className="sc-hBMUJo edPbTv"
                                                     >
                                                       Option 1
                                                     </span>
                                                   </styled.span>
                                                 </label>
                                               </styled.label>
-                                            </Radio>
-                                            <Radio
+                                            </IS>
+                                            <IS
                                               autoFocus={false}
                                               checked={false}
                                               disabled={false}
@@ -1731,17 +1752,17 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                 htmlFor="root_radio_Option 2"
                                               >
                                                 <label
-                                                  className="sc-dQppl fgZTVN"
+                                                  className="sc-ksluID kOcqbI"
                                                   disabled={false}
                                                   htmlFor="root_radio_Option 2"
                                                 >
                                                   <styled.span>
                                                     <span
-                                                      className="sc-fFubgz eTzfGp"
+                                                      className="sc-hHEiqL hyjhdy"
                                                     >
                                                       <styled.span>
                                                         <span
-                                                          className="sc-bkzZxe iMUePn"
+                                                          className="sc-dlMDgC djIEPC"
                                                         >
                                                           <styled.input
                                                             autoFocus={false}
@@ -1758,7 +1779,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                             <input
                                                               autoFocus={false}
                                                               checked={false}
-                                                              className="sc-hBEYos jpjufB"
+                                                              className="sc-iemWCZ eFKJdo"
                                                               id="root_radio_Option 2"
                                                               onBlur={[Function]}
                                                               onChange={[Function]}
@@ -1771,7 +1792,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                           </styled.input>
                                                           <styled.span>
                                                             <span
-                                                              className="sc-kstrdz jPewgR"
+                                                              className="sc-fnVZcZ ijlvvl"
                                                             />
                                                           </styled.span>
                                                         </span>
@@ -1780,15 +1801,15 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                   </styled.span>
                                                   <styled.span>
                                                     <span
-                                                      className="sc-bqyKva bgdnkq"
+                                                      className="sc-hBMUJo edPbTv"
                                                     >
                                                       Option 2
                                                     </span>
                                                   </styled.span>
                                                 </label>
                                               </styled.label>
-                                            </Radio>
-                                            <Radio
+                                            </IS>
+                                            <IS
                                               autoFocus={false}
                                               checked={false}
                                               disabled={false}
@@ -1808,17 +1829,17 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                 htmlFor="root_radio_Option 3"
                                               >
                                                 <label
-                                                  className="sc-dQppl fgZTVN"
+                                                  className="sc-ksluID kOcqbI"
                                                   disabled={false}
                                                   htmlFor="root_radio_Option 3"
                                                 >
                                                   <styled.span>
                                                     <span
-                                                      className="sc-fFubgz eTzfGp"
+                                                      className="sc-hHEiqL hyjhdy"
                                                     >
                                                       <styled.span>
                                                         <span
-                                                          className="sc-bkzZxe iMUePn"
+                                                          className="sc-dlMDgC djIEPC"
                                                         >
                                                           <styled.input
                                                             autoFocus={false}
@@ -1835,7 +1856,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                             <input
                                                               autoFocus={false}
                                                               checked={false}
-                                                              className="sc-hBEYos jpjufB"
+                                                              className="sc-iemWCZ eFKJdo"
                                                               id="root_radio_Option 3"
                                                               onBlur={[Function]}
                                                               onChange={[Function]}
@@ -1848,7 +1869,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                           </styled.input>
                                                           <styled.span>
                                                             <span
-                                                              className="sc-kstrdz jPewgR"
+                                                              className="sc-fnVZcZ ijlvvl"
                                                             />
                                                           </styled.span>
                                                         </span>
@@ -1857,15 +1878,15 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                   </styled.span>
                                                   <styled.span>
                                                     <span
-                                                      className="sc-bqyKva bgdnkq"
+                                                      className="sc-hBMUJo edPbTv"
                                                     >
                                                       Option 3
                                                     </span>
                                                   </styled.span>
                                                 </label>
                                               </styled.label>
-                                            </Radio>
-                                            <Radio
+                                            </IS>
+                                            <IS
                                               autoFocus={false}
                                               checked={false}
                                               disabled={false}
@@ -1885,17 +1906,17 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                 htmlFor="root_radio_None"
                                               >
                                                 <label
-                                                  className="sc-dQppl fgZTVN"
+                                                  className="sc-ksluID kOcqbI"
                                                   disabled={false}
                                                   htmlFor="root_radio_None"
                                                 >
                                                   <styled.span>
                                                     <span
-                                                      className="sc-fFubgz eTzfGp"
+                                                      className="sc-hHEiqL hyjhdy"
                                                     >
                                                       <styled.span>
                                                         <span
-                                                          className="sc-bkzZxe iMUePn"
+                                                          className="sc-dlMDgC djIEPC"
                                                         >
                                                           <styled.input
                                                             autoFocus={false}
@@ -1912,7 +1933,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                             <input
                                                               autoFocus={false}
                                                               checked={false}
-                                                              className="sc-hBEYos jpjufB"
+                                                              className="sc-iemWCZ eFKJdo"
                                                               id="root_radio_None"
                                                               onBlur={[Function]}
                                                               onChange={[Function]}
@@ -1925,7 +1946,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                           </styled.input>
                                                           <styled.span>
                                                             <span
-                                                              className="sc-kstrdz jPewgR"
+                                                              className="sc-fnVZcZ ijlvvl"
                                                             />
                                                           </styled.span>
                                                         </span>
@@ -1934,15 +1955,15 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                   </styled.span>
                                                   <styled.span>
                                                     <span
-                                                      className="sc-bqyKva bgdnkq"
+                                                      className="sc-hBMUJo edPbTv"
                                                     >
                                                       None
                                                     </span>
                                                   </styled.span>
                                                 </label>
                                               </styled.label>
-                                            </Radio>
-                                            <Radio
+                                            </IS>
+                                            <IS
                                               autoFocus={false}
                                               checked={false}
                                               disabled={false}
@@ -1962,17 +1983,17 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                 htmlFor="root_radio_Other"
                                               >
                                                 <label
-                                                  className="sc-dQppl fgZTVN"
+                                                  className="sc-ksluID kOcqbI"
                                                   disabled={false}
                                                   htmlFor="root_radio_Other"
                                                 >
                                                   <styled.span>
                                                     <span
-                                                      className="sc-fFubgz eTzfGp"
+                                                      className="sc-hHEiqL hyjhdy"
                                                     >
                                                       <styled.span>
                                                         <span
-                                                          className="sc-bkzZxe iMUePn"
+                                                          className="sc-dlMDgC djIEPC"
                                                         >
                                                           <styled.input
                                                             autoFocus={false}
@@ -1989,7 +2010,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                             <input
                                                               autoFocus={false}
                                                               checked={false}
-                                                              className="sc-hBEYos jpjufB"
+                                                              className="sc-iemWCZ eFKJdo"
                                                               id="root_radio_Other"
                                                               onBlur={[Function]}
                                                               onChange={[Function]}
@@ -2002,7 +2023,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                           </styled.input>
                                                           <styled.span>
                                                             <span
-                                                              className="sc-kstrdz jPewgR"
+                                                              className="sc-fnVZcZ ijlvvl"
                                                             />
                                                           </styled.span>
                                                         </span>
@@ -2011,20 +2032,22 @@ exports[`RadioWidget should match snapshot 1`] = `
                                                   </styled.span>
                                                   <styled.span>
                                                     <span
-                                                      className="sc-bqyKva bgdnkq"
+                                                      className="sc-hBMUJo edPbTv"
                                                     >
                                                       Other
                                                     </span>
                                                   </styled.span>
                                                 </label>
                                               </styled.label>
-                                            </Radio>
+                                            </IS>
                                           </div>
                                         </styled.div>
                                       </RadioWidget>
                                     </Component>
                                   </StringField>
-                                  <Help />
+                                  <Help
+                                    id="root_radio__help"
+                                  />
                                 </div>
                               </FieldTemplate>
                             </SchemaField>
@@ -2032,14 +2055,16 @@ exports[`RadioWidget should match snapshot 1`] = `
                         </div>
                       </ObjectFieldTemplate>
                     </ObjectField>
-                    <Help />
+                    <Help
+                      id="root__help"
+                    />
                   </div>
                 </FieldTemplate>
               </SchemaField>
             </CustomSchemaField>
             <ActionGroup>
               <div
-                className="ActionGroup-sc-1hp5mpm-0 cLrueF"
+                className="ActionGroup-sc-1hp5mpm-0 cEaQxJ"
               >
                 <ForwardRef
                   color="primary"
@@ -2047,14 +2072,14 @@ exports[`RadioWidget should match snapshot 1`] = `
                   type="submit"
                   variant="contained"
                 >
-                  <Button
+                  <NE
                     color="primary"
                     forwardRef={null}
                     isLoading={false}
                     type="submit"
                     variant="contained"
                   >
-                    <ForwardRef(WithStyles)
+                    <ForwardRef
                       className="jss13"
                       color="default"
                       disableElevation={false}
@@ -2063,7 +2088,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                       type="submit"
                       variant="contained"
                     >
-                      <ForwardRef(Button)
+                      <ForwardRef
                         className="jss13"
                         classes={
                           Object {
@@ -2105,7 +2130,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                         type="submit"
                         variant="contained"
                       >
-                        <ForwardRef(WithStyles)
+                        <ForwardRef
                           className="MuiButton-root MuiButton-contained jss13"
                           component="button"
                           disableRipple={true}
@@ -2114,7 +2139,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                           focusVisibleClassName="Mui-focusVisible"
                           type="submit"
                         >
-                          <ForwardRef(ButtonBase)
+                          <ForwardRef
                             className="MuiButton-root MuiButton-contained jss13"
                             classes={
                               Object {
@@ -2153,11 +2178,11 @@ exports[`RadioWidget should match snapshot 1`] = `
                                 Submit
                               </span>
                             </button>
-                          </ForwardRef(ButtonBase)>
-                        </ForwardRef(WithStyles)>
-                      </ForwardRef(Button)>
-                    </ForwardRef(WithStyles)>
-                  </Button>
+                          </ForwardRef>
+                        </ForwardRef>
+                      </ForwardRef>
+                    </ForwardRef>
+                  </NE>
                 </ForwardRef>
               </div>
             </ActionGroup>

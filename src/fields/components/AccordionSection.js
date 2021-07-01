@@ -33,11 +33,13 @@ const ToggleIcon = styled(FontAwesomeIcon)`
 `;
 
 export type props = {
+  className :?string;
   children :Node;
   title :string;
 };
 
 const AccordionSection = ({
+  className,
   children,
   title,
 } :props) => {
@@ -48,7 +50,7 @@ const AccordionSection = ({
   };
 
   return (
-    <CardSegment padding="20px 0 0">
+    <CardSegment className={className} padding="20px 0 0">
       <HeaderWrapper aria-expanded={isOpen ? 'true' : 'false'} onClick={toggleOpen}>
         <LabelWrapper aria-labelledby="accordion-title">
           <Typography id="accordion-title" variant="subtitle2">{title}</Typography>
