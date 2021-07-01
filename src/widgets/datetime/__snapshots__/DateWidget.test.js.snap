@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DateWidget should match snapshot 1`] = `
-<MuiPickersUtilsProvider
+<_n
   utils={[Function]}
 >
   <MockForm>
@@ -76,7 +76,6 @@ exports[`DateWidget should match snapshot 1`] = `
               "AttachmentsField": [Function],
               "BulletField": [Function],
               "DescriptionField": [Function],
-              "ObjectField": [Function],
               "ParagraphField": [Function],
               "SchemaField": [Function],
             }
@@ -116,6 +115,7 @@ exports[`DateWidget should match snapshot 1`] = `
               "CheckboxesWidget": [Function],
               "DateTimeWidget": [Function],
               "DateWidget": [Function],
+              "MarkdownEditorWidget": [Function],
               "OtherRadioWidget": [Function],
               "RadioWidget": [Function],
               "SelectWidget": [Function],
@@ -130,14 +130,13 @@ exports[`DateWidget should match snapshot 1`] = `
             ErrorList={[Function]}
             FieldTemplate={[Function]}
             ObjectFieldTemplate={[Function]}
-            className="StyledForm-dhnby8-0 gdCqme"
+            className="StyledForm-sc-dhnby8-0 hefeIB"
             disabled={false}
             fields={
               Object {
                 "AttachmentsField": [Function],
                 "BulletField": [Function],
                 "DescriptionField": [Function],
-                "ObjectField": [Function],
                 "ParagraphField": [Function],
                 "SchemaField": [Function],
               }
@@ -181,6 +180,7 @@ exports[`DateWidget should match snapshot 1`] = `
                 "CheckboxesWidget": [Function],
                 "DateTimeWidget": [Function],
                 "DateWidget": [Function],
+                "MarkdownEditorWidget": [Function],
                 "OtherRadioWidget": [Function],
                 "RadioWidget": [Function],
                 "SelectWidget": [Function],
@@ -191,7 +191,7 @@ exports[`DateWidget should match snapshot 1`] = `
             }
           >
             <form
-              className="StyledForm-dhnby8-0 gdCqme"
+              className="StyledForm-sc-dhnby8-0 hefeIB"
               noValidate={false}
               onSubmit={[Function]}
             >
@@ -256,6 +256,7 @@ exports[`DateWidget should match snapshot 1`] = `
                       "EmailWidget": [Function],
                       "FileWidget": [Function],
                       "HiddenWidget": [Function],
+                      "MarkdownEditorWidget": [Function],
                       "OtherRadioWidget": [Function],
                       "PasswordWidget": [Function],
                       "RadioWidget": [Function],
@@ -360,6 +361,7 @@ exports[`DateWidget should match snapshot 1`] = `
                         "EmailWidget": [Function],
                         "FileWidget": [Function],
                         "HiddenWidget": [Function],
+                        "MarkdownEditorWidget": [Function],
                         "OtherRadioWidget": [Function],
                         "PasswordWidget": [Function],
                         "RadioWidget": [Function],
@@ -433,7 +435,11 @@ exports[`DateWidget should match snapshot 1`] = `
                     }
                     formContext={Object {}}
                     formData={Object {}}
-                    help={<Help />}
+                    help={
+                      <Help
+                        id="root__help"
+                      />
+                    }
                     hidden={false}
                     id="root"
                     label="dateWidget"
@@ -485,6 +491,7 @@ exports[`DateWidget should match snapshot 1`] = `
                           "EmailWidget": [Function],
                           "FileWidget": [Function],
                           "HiddenWidget": [Function],
+                          "MarkdownEditorWidget": [Function],
                           "OtherRadioWidget": [Function],
                           "PasswordWidget": [Function],
                           "RadioWidget": [Function],
@@ -598,6 +605,7 @@ exports[`DateWidget should match snapshot 1`] = `
                               "EmailWidget": [Function],
                               "FileWidget": [Function],
                               "HiddenWidget": [Function],
+                              "MarkdownEditorWidget": [Function],
                               "OtherRadioWidget": [Function],
                               "PasswordWidget": [Function],
                               "RadioWidget": [Function],
@@ -718,6 +726,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                         "EmailWidget": [Function],
                                         "FileWidget": [Function],
                                         "HiddenWidget": [Function],
+                                        "MarkdownEditorWidget": [Function],
                                         "OtherRadioWidget": [Function],
                                         "PasswordWidget": [Function],
                                         "RadioWidget": [Function],
@@ -753,6 +762,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                   wasPropertyKeyModified={false}
                                 />,
                                 "disabled": false,
+                                "hidden": false,
                                 "name": "dateWidget",
                                 "readonly": false,
                                 "required": false,
@@ -806,6 +816,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                 "EmailWidget": [Function],
                                 "FileWidget": [Function],
                                 "HiddenWidget": [Function],
+                                "MarkdownEditorWidget": [Function],
                                 "OtherRadioWidget": [Function],
                                 "PasswordWidget": [Function],
                                 "RadioWidget": [Function],
@@ -922,6 +933,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                     "EmailWidget": [Function],
                                     "FileWidget": [Function],
                                     "HiddenWidget": [Function],
+                                    "MarkdownEditorWidget": [Function],
                                     "OtherRadioWidget": [Function],
                                     "PasswordWidget": [Function],
                                     "RadioWidget": [Function],
@@ -1018,6 +1030,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                       "EmailWidget": [Function],
                                       "FileWidget": [Function],
                                       "HiddenWidget": [Function],
+                                      "MarkdownEditorWidget": [Function],
                                       "OtherRadioWidget": [Function],
                                       "PasswordWidget": [Function],
                                       "RadioWidget": [Function],
@@ -1083,7 +1096,11 @@ exports[`DateWidget should match snapshot 1`] = `
                                     }
                                   }
                                   formContext={Object {}}
-                                  help={<Help />}
+                                  help={
+                                    <Help
+                                      id="root_dateWidget__help"
+                                    />
+                                  }
                                   hidden={false}
                                   id="root_dateWidget"
                                   label="ui:widget: DateWidget"
@@ -1137,6 +1154,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                         "EmailWidget": [Function],
                                         "FileWidget": [Function],
                                         "HiddenWidget": [Function],
+                                        "MarkdownEditorWidget": [Function],
                                         "OtherRadioWidget": [Function],
                                         "PasswordWidget": [Function],
                                         "RadioWidget": [Function],
@@ -1178,7 +1196,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                       required={false}
                                     >
                                       <label
-                                        className="sc-iBPRYJ FieldTemplate__FieldLabel-sc-1c6bjb1-1 gAhAcd eCHikR"
+                                        className="sc-iCoGMd FieldTemplate__FieldLabel-sc-1c6bjb1-1 cJpiAY kUmlnF"
                                         htmlFor="root_dateWidget"
                                         required={false}
                                       >
@@ -1252,6 +1270,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                             "EmailWidget": [Function],
                                             "FileWidget": [Function],
                                             "HiddenWidget": [Function],
+                                            "MarkdownEditorWidget": [Function],
                                             "OtherRadioWidget": [Function],
                                             "PasswordWidget": [Function],
                                             "RadioWidget": [Function],
@@ -1350,6 +1369,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                               "EmailWidget": [Function],
                                               "FileWidget": [Function],
                                               "HiddenWidget": [Function],
+                                              "MarkdownEditorWidget": [Function],
                                               "OtherRadioWidget": [Function],
                                               "PasswordWidget": [Function],
                                               "RadioWidget": [Function],
@@ -1447,6 +1467,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                 "EmailWidget": [Function],
                                                 "FileWidget": [Function],
                                                 "HiddenWidget": [Function],
+                                                "MarkdownEditorWidget": [Function],
                                                 "OtherRadioWidget": [Function],
                                                 "PasswordWidget": [Function],
                                                 "RadioWidget": [Function],
@@ -1480,7 +1501,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                             }
                                           }
                                         >
-                                          <DatePicker
+                                          <lk
                                             disabled={false}
                                             format="yyyy/MM/dd"
                                             fullWidth={true}
@@ -1490,7 +1511,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                             placeholder="YYYY/MM/DD"
                                             value=""
                                           >
-                                            <PickerWithState
+                                            <Component
                                               InputProps={
                                                 Object {
                                                   "onBlur": [Function],
@@ -1554,7 +1575,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                 ]
                                               }
                                             >
-                                              <Wrapper
+                                              <AD
                                                 DateInputProps={
                                                   Object {
                                                     "format": "yyyy/MM/dd",
@@ -1618,7 +1639,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                 placeholder="YYYY/MM/DD"
                                                 variant="inline"
                                               >
-                                                <InlineWrapper
+                                                <xD
                                                   DateInputProps={
                                                     Object {
                                                       "format": "yyyy/MM/dd",
@@ -1681,7 +1702,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                   open={false}
                                                   placeholder="YYYY/MM/DD"
                                                 >
-                                                  <KeyboardDateInput
+                                                  <HM
                                                     InputProps={
                                                       Object {
                                                         "onBlur": [Function],
@@ -1745,20 +1766,20 @@ exports[`DateWidget should match snapshot 1`] = `
                                                     placeholder="YYYY/MM/DD"
                                                     validationError=""
                                                   >
-                                                    <Rifm
+                                                    <t
                                                       format={[Function]}
                                                       key="____/__/__"
                                                       onChange={[Function]}
                                                       refuse={/\\[\\^\\\\d\\]\\+/gi}
                                                       value=""
                                                     >
-                                                      <ForwardRef(WithStyles)
+                                                      <ForwardRef
                                                         InputProps={
                                                           Object {
-                                                            "endAdornment": <ForwardRef(WithStyles)
+                                                            "endAdornment": <ForwardRef
                                                               position="end"
                                                             >
-                                                              <ForwardRef(WithStyles)
+                                                              <ForwardRef
                                                                 disabled={false}
                                                                 onClick={[Function]}
                                                               >
@@ -1793,8 +1814,8 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                   title=""
                                                                   transform={null}
                                                                 />
-                                                              </ForwardRef(WithStyles)>
-                                                            </ForwardRef(WithStyles)>,
+                                                              </ForwardRef>
+                                                            </ForwardRef>,
                                                             "onBlur": [Function],
                                                             "onKeyDown": [Function],
                                                           }
@@ -1821,13 +1842,13 @@ exports[`DateWidget should match snapshot 1`] = `
                                                         value=""
                                                         variant="filled"
                                                       >
-                                                        <ForwardRef(TextField)
+                                                        <ForwardRef
                                                           InputProps={
                                                             Object {
-                                                              "endAdornment": <ForwardRef(WithStyles)
+                                                              "endAdornment": <ForwardRef
                                                                 position="end"
                                                               >
-                                                                <ForwardRef(WithStyles)
+                                                                <ForwardRef
                                                                   disabled={false}
                                                                   onClick={[Function]}
                                                                 >
@@ -1862,8 +1883,8 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                     title=""
                                                                     transform={null}
                                                                   />
-                                                                </ForwardRef(WithStyles)>
-                                                              </ForwardRef(WithStyles)>,
+                                                                </ForwardRef>
+                                                              </ForwardRef>,
                                                               "onBlur": [Function],
                                                               "onKeyDown": [Function],
                                                             }
@@ -1895,7 +1916,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                           value=""
                                                           variant="filled"
                                                         >
-                                                          <ForwardRef(WithStyles)
+                                                          <ForwardRef
                                                             className="MuiTextField-root"
                                                             color="primary"
                                                             disabled={false}
@@ -1904,7 +1925,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                             required={false}
                                                             variant="filled"
                                                           >
-                                                            <ForwardRef(FormControl)
+                                                            <ForwardRef
                                                               className="MuiTextField-root"
                                                               classes={
                                                                 Object {
@@ -1924,13 +1945,13 @@ exports[`DateWidget should match snapshot 1`] = `
                                                               <div
                                                                 className="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
                                                               >
-                                                                <ForwardRef(WithStyles)
+                                                                <ForwardRef
                                                                   autoFocus={false}
                                                                   endAdornment={
-                                                                    <ForwardRef(WithStyles)
+                                                                    <ForwardRef
                                                                       position="end"
                                                                     >
-                                                                      <ForwardRef(WithStyles)
+                                                                      <ForwardRef
                                                                         disabled={false}
                                                                         onClick={[Function]}
                                                                       >
@@ -1965,8 +1986,8 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                           title=""
                                                                           transform={null}
                                                                         />
-                                                                      </ForwardRef(WithStyles)>
-                                                                    </ForwardRef(WithStyles)>
+                                                                      </ForwardRef>
+                                                                    </ForwardRef>
                                                                   }
                                                                   fullWidth={true}
                                                                   id="root_dateWidget"
@@ -1989,7 +2010,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                   placeholder="YYYY/MM/DD"
                                                                   value=""
                                                                 >
-                                                                  <ForwardRef(FilledInput)
+                                                                  <ForwardRef
                                                                     autoFocus={false}
                                                                     classes={
                                                                       Object {
@@ -2012,10 +2033,10 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                       }
                                                                     }
                                                                     endAdornment={
-                                                                      <ForwardRef(WithStyles)
+                                                                      <ForwardRef
                                                                         position="end"
                                                                       >
-                                                                        <ForwardRef(WithStyles)
+                                                                        <ForwardRef
                                                                           disabled={false}
                                                                           onClick={[Function]}
                                                                         >
@@ -2050,8 +2071,8 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                             title=""
                                                                             transform={null}
                                                                           />
-                                                                        </ForwardRef(WithStyles)>
-                                                                      </ForwardRef(WithStyles)>
+                                                                        </ForwardRef>
+                                                                      </ForwardRef>
                                                                     }
                                                                     fullWidth={true}
                                                                     id="root_dateWidget"
@@ -2074,7 +2095,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                     placeholder="YYYY/MM/DD"
                                                                     value=""
                                                                   >
-                                                                    <ForwardRef(WithStyles)
+                                                                    <ForwardRef
                                                                       autoFocus={false}
                                                                       classes={
                                                                         Object {
@@ -2097,10 +2118,10 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                         }
                                                                       }
                                                                       endAdornment={
-                                                                        <ForwardRef(WithStyles)
+                                                                        <ForwardRef
                                                                           position="end"
                                                                         >
-                                                                          <ForwardRef(WithStyles)
+                                                                          <ForwardRef
                                                                             disabled={false}
                                                                             onClick={[Function]}
                                                                           >
@@ -2135,8 +2156,8 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                               title=""
                                                                               transform={null}
                                                                             />
-                                                                          </ForwardRef(WithStyles)>
-                                                                        </ForwardRef(WithStyles)>
+                                                                          </ForwardRef>
+                                                                        </ForwardRef>
                                                                       }
                                                                       fullWidth={true}
                                                                       id="root_dateWidget"
@@ -2161,7 +2182,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                       type="text"
                                                                       value=""
                                                                     >
-                                                                      <ForwardRef(InputBase)
+                                                                      <ForwardRef
                                                                         autoFocus={false}
                                                                         classes={
                                                                           Object {
@@ -2186,10 +2207,10 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                           }
                                                                         }
                                                                         endAdornment={
-                                                                          <ForwardRef(WithStyles)
+                                                                          <ForwardRef
                                                                             position="end"
                                                                           >
-                                                                            <ForwardRef(WithStyles)
+                                                                            <ForwardRef
                                                                               disabled={false}
                                                                               onClick={[Function]}
                                                                             >
@@ -2224,8 +2245,8 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                                 title=""
                                                                                 transform={null}
                                                                               />
-                                                                            </ForwardRef(WithStyles)>
-                                                                          </ForwardRef(WithStyles)>
+                                                                            </ForwardRef>
+                                                                          </ForwardRef>
                                                                         }
                                                                         fullWidth={true}
                                                                         id="root_dateWidget"
@@ -2270,10 +2291,10 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                             type="text"
                                                                             value=""
                                                                           />
-                                                                          <ForwardRef(WithStyles)
+                                                                          <ForwardRef
                                                                             position="end"
                                                                           >
-                                                                            <ForwardRef(InputAdornment)
+                                                                            <ForwardRef
                                                                               classes={
                                                                                 Object {
                                                                                   "disablePointerEvents": "MuiInputAdornment-disablePointerEvents",
@@ -2290,11 +2311,11 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                               <div
                                                                                 className="MuiInputAdornment-root MuiInputAdornment-filled MuiInputAdornment-positionEnd"
                                                                               >
-                                                                                <ForwardRef(WithStyles)
+                                                                                <ForwardRef
                                                                                   disabled={false}
                                                                                   onClick={[Function]}
                                                                                 >
-                                                                                  <ForwardRef(IconButton)
+                                                                                  <ForwardRef
                                                                                     classes={
                                                                                       Object {
                                                                                         "colorInherit": "MuiIconButton-colorInherit",
@@ -2311,14 +2332,14 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                                     disabled={false}
                                                                                     onClick={[Function]}
                                                                                   >
-                                                                                    <ForwardRef(WithStyles)
+                                                                                    <ForwardRef
                                                                                       centerRipple={true}
                                                                                       className="MuiIconButton-root"
                                                                                       disabled={false}
                                                                                       focusRipple={true}
                                                                                       onClick={[Function]}
                                                                                     >
-                                                                                      <ForwardRef(ButtonBase)
+                                                                                      <ForwardRef
                                                                                         centerRipple={true}
                                                                                         className="MuiIconButton-root"
                                                                                         classes={
@@ -2403,10 +2424,10 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                                               </svg>
                                                                                             </FontAwesomeIcon>
                                                                                           </span>
-                                                                                          <ForwardRef(WithStyles)
+                                                                                          <ForwardRef
                                                                                             center={true}
                                                                                           >
-                                                                                            <ForwardRef(TouchRipple)
+                                                                                            <ForwardRef
                                                                                               center={true}
                                                                                               classes={
                                                                                                 Object {
@@ -2423,35 +2444,35 @@ exports[`DateWidget should match snapshot 1`] = `
                                                                                               <span
                                                                                                 className="MuiTouchRipple-root"
                                                                                               >
-                                                                                                <TransitionGroup
+                                                                                                <t
                                                                                                   childFactory={[Function]}
                                                                                                   component={null}
                                                                                                   exit={true}
                                                                                                 />
                                                                                               </span>
-                                                                                            </ForwardRef(TouchRipple)>
-                                                                                          </ForwardRef(WithStyles)>
+                                                                                            </ForwardRef>
+                                                                                          </ForwardRef>
                                                                                         </button>
-                                                                                      </ForwardRef(ButtonBase)>
-                                                                                    </ForwardRef(WithStyles)>
-                                                                                  </ForwardRef(IconButton)>
-                                                                                </ForwardRef(WithStyles)>
+                                                                                      </ForwardRef>
+                                                                                    </ForwardRef>
+                                                                                  </ForwardRef>
+                                                                                </ForwardRef>
                                                                               </div>
-                                                                            </ForwardRef(InputAdornment)>
-                                                                          </ForwardRef(WithStyles)>
+                                                                            </ForwardRef>
+                                                                          </ForwardRef>
                                                                         </div>
-                                                                      </ForwardRef(InputBase)>
-                                                                    </ForwardRef(WithStyles)>
-                                                                  </ForwardRef(FilledInput)>
-                                                                </ForwardRef(WithStyles)>
+                                                                      </ForwardRef>
+                                                                    </ForwardRef>
+                                                                  </ForwardRef>
+                                                                </ForwardRef>
                                                               </div>
-                                                            </ForwardRef(FormControl)>
-                                                          </ForwardRef(WithStyles)>
-                                                        </ForwardRef(TextField)>
-                                                      </ForwardRef(WithStyles)>
-                                                    </Rifm>
-                                                  </KeyboardDateInput>
-                                                  <ForwardRef(WithStyles)
+                                                            </ForwardRef>
+                                                          </ForwardRef>
+                                                        </ForwardRef>
+                                                      </ForwardRef>
+                                                    </t>
+                                                  </HM>
+                                                  <ForwardRef
                                                     anchorOrigin={
                                                       Object {
                                                         "horizontal": "center",
@@ -2467,7 +2488,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                       }
                                                     }
                                                   >
-                                                    <ForwardRef(Popover)
+                                                    <ForwardRef
                                                       anchorOrigin={
                                                         Object {
                                                           "horizontal": "center",
@@ -2489,7 +2510,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                         }
                                                       }
                                                     >
-                                                      <ForwardRef(Modal)
+                                                      <ForwardRef
                                                         BackdropProps={
                                                           Object {
                                                             "invisible": true,
@@ -2499,16 +2520,18 @@ exports[`DateWidget should match snapshot 1`] = `
                                                         onClose={[Function]}
                                                         open={false}
                                                       />
-                                                    </ForwardRef(Popover)>
-                                                  </ForwardRef(WithStyles)>
-                                                </InlineWrapper>
-                                              </Wrapper>
-                                            </PickerWithState>
-                                          </DatePicker>
+                                                    </ForwardRef>
+                                                  </ForwardRef>
+                                                </xD>
+                                              </AD>
+                                            </Component>
+                                          </lk>
                                         </DateWidget>
                                       </Component>
                                     </StringField>
-                                    <Help />
+                                    <Help
+                                      id="root_dateWidget__help"
+                                    />
                                   </div>
                                 </FieldTemplate>
                               </SchemaField>
@@ -2516,14 +2539,16 @@ exports[`DateWidget should match snapshot 1`] = `
                           </div>
                         </ObjectFieldTemplate>
                       </ObjectField>
-                      <Help />
+                      <Help
+                        id="root__help"
+                      />
                     </div>
                   </FieldTemplate>
                 </SchemaField>
               </CustomSchemaField>
               <ActionGroup>
                 <div
-                  className="ActionGroup-sc-1hp5mpm-0 cLrueF"
+                  className="ActionGroup-sc-1hp5mpm-0 cEaQxJ"
                 >
                   <ForwardRef
                     color="primary"
@@ -2531,14 +2556,14 @@ exports[`DateWidget should match snapshot 1`] = `
                     type="submit"
                     variant="contained"
                   >
-                    <Button
+                    <NE
                       color="primary"
                       forwardRef={null}
                       isLoading={false}
                       type="submit"
                       variant="contained"
                     >
-                      <ForwardRef(WithStyles)
+                      <ForwardRef
                         className="jss13"
                         color="default"
                         disableElevation={false}
@@ -2547,7 +2572,7 @@ exports[`DateWidget should match snapshot 1`] = `
                         type="submit"
                         variant="contained"
                       >
-                        <ForwardRef(Button)
+                        <ForwardRef
                           className="jss13"
                           classes={
                             Object {
@@ -2589,7 +2614,7 @@ exports[`DateWidget should match snapshot 1`] = `
                           type="submit"
                           variant="contained"
                         >
-                          <ForwardRef(WithStyles)
+                          <ForwardRef
                             className="MuiButton-root MuiButton-contained jss13"
                             component="button"
                             disableRipple={true}
@@ -2598,7 +2623,7 @@ exports[`DateWidget should match snapshot 1`] = `
                             focusVisibleClassName="Mui-focusVisible"
                             type="submit"
                           >
-                            <ForwardRef(ButtonBase)
+                            <ForwardRef
                               className="MuiButton-root MuiButton-contained jss13"
                               classes={
                                 Object {
@@ -2637,11 +2662,11 @@ exports[`DateWidget should match snapshot 1`] = `
                                   Submit
                                 </span>
                               </button>
-                            </ForwardRef(ButtonBase)>
-                          </ForwardRef(WithStyles)>
-                        </ForwardRef(Button)>
-                      </ForwardRef(WithStyles)>
-                    </Button>
+                            </ForwardRef>
+                          </ForwardRef>
+                        </ForwardRef>
+                      </ForwardRef>
+                    </NE>
                   </ForwardRef>
                 </div>
               </ActionGroup>
@@ -2651,5 +2676,5 @@ exports[`DateWidget should match snapshot 1`] = `
       </Form>
     </ForwardRef>
   </MockForm>
-</MuiPickersUtilsProvider>
+</_n>
 `;

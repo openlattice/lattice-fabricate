@@ -91,9 +91,9 @@ const StyledForm = styled(Form)`
   }
 
   .grid-container {
-    display: flex;
+    display: grid;
     flex: 1;
-    flex-direction: column;
+    grid-template-columns: auto min-content;
 
     > :first-child {
       display: grid;

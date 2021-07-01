@@ -1,35 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RadioWidget should match snapshot 1`] = `
+exports[`MarkdownEditorWidget should match snapshot 1`] = `
 <MockForm>
   <ForwardRef
     schema={
       Object {
         "properties": Object {
-          "radio": Object {
-            "enum": Array [
-              "Option 1",
-              "Option 2",
-              "Option 3",
-            ],
-            "title": "ui:widget: OtherRadioWidget",
+          "markdownWidget": Object {
+            "title": "ui:widget: MarkdownEditorWidget",
             "type": "string",
           },
         },
-        "title": "radio",
+        "title": "markdown",
         "type": "object",
       }
     }
     uiSchema={
       Object {
         "classNames": "column-span-12",
-        "radio": Object {
+        "markdownWidget": Object {
           "classNames": "column-span-12",
-          "ui:options": Object {
-            "withNone": true,
-            "withOther": true,
-          },
-          "ui:widget": "radio",
+          "ui:widget": "MarkdownEditorWidget",
         },
       }
     }
@@ -43,30 +34,21 @@ exports[`RadioWidget should match snapshot 1`] = `
       schema={
         Object {
           "properties": Object {
-            "radio": Object {
-              "enum": Array [
-                "Option 1",
-                "Option 2",
-                "Option 3",
-              ],
-              "title": "ui:widget: OtherRadioWidget",
+            "markdownWidget": Object {
+              "title": "ui:widget: MarkdownEditorWidget",
               "type": "string",
             },
           },
-          "title": "radio",
+          "title": "markdown",
           "type": "object",
         }
       }
       uiSchema={
         Object {
           "classNames": "column-span-12",
-          "radio": Object {
+          "markdownWidget": Object {
             "classNames": "column-span-12",
-            "ui:options": Object {
-              "withNone": true,
-              "withOther": true,
-            },
-            "ui:widget": "radio",
+            "ui:widget": "MarkdownEditorWidget",
           },
         }
       }
@@ -88,17 +70,12 @@ exports[`RadioWidget should match snapshot 1`] = `
         schema={
           Object {
             "properties": Object {
-              "radio": Object {
-                "enum": Array [
-                  "Option 1",
-                  "Option 2",
-                  "Option 3",
-                ],
-                "title": "ui:widget: OtherRadioWidget",
+              "markdownWidget": Object {
+                "title": "ui:widget: MarkdownEditorWidget",
                 "type": "string",
               },
             },
-            "title": "radio",
+            "title": "markdown",
             "type": "object",
           }
         }
@@ -107,13 +84,9 @@ exports[`RadioWidget should match snapshot 1`] = `
         uiSchema={
           Object {
             "classNames": "column-span-12",
-            "radio": Object {
+            "markdownWidget": Object {
               "classNames": "column-span-12",
-              "ui:options": Object {
-                "withNone": true,
-                "withOther": true,
-              },
-              "ui:widget": "radio",
+              "ui:widget": "MarkdownEditorWidget",
             },
           }
         }
@@ -157,17 +130,12 @@ exports[`RadioWidget should match snapshot 1`] = `
           schema={
             Object {
               "properties": Object {
-                "radio": Object {
-                  "enum": Array [
-                    "Option 1",
-                    "Option 2",
-                    "Option 3",
-                  ],
-                  "title": "ui:widget: OtherRadioWidget",
+                "markdownWidget": Object {
+                  "title": "ui:widget: MarkdownEditorWidget",
                   "type": "string",
                 },
               },
-              "title": "radio",
+              "title": "markdown",
               "type": "object",
             }
           }
@@ -176,13 +144,9 @@ exports[`RadioWidget should match snapshot 1`] = `
           uiSchema={
             Object {
               "classNames": "column-span-12",
-              "radio": Object {
+              "markdownWidget": Object {
                 "classNames": "column-span-12",
-                "ui:options": Object {
-                  "withNone": true,
-                  "withOther": true,
-                },
-                "ui:widget": "radio",
+                "ui:widget": "MarkdownEditorWidget",
               },
             }
           }
@@ -215,8 +179,8 @@ exports[`RadioWidget should match snapshot 1`] = `
               idSchema={
                 Object {
                   "$id": "root",
-                  "radio": Object {
-                    "$id": "root_radio",
+                  "markdownWidget": Object {
+                    "$id": "root_markdownWidget",
                   },
                 }
               }
@@ -249,17 +213,12 @@ exports[`RadioWidget should match snapshot 1`] = `
                   "formContext": Object {},
                   "rootSchema": Object {
                     "properties": Object {
-                      "radio": Object {
-                        "enum": Array [
-                          "Option 1",
-                          "Option 2",
-                          "Option 3",
-                        ],
-                        "title": "ui:widget: OtherRadioWidget",
+                      "markdownWidget": Object {
+                        "title": "ui:widget: MarkdownEditorWidget",
                         "type": "string",
                       },
                     },
-                    "title": "radio",
+                    "title": "markdown",
                     "type": "object",
                   },
                   "widgets": Object {
@@ -292,30 +251,21 @@ exports[`RadioWidget should match snapshot 1`] = `
               schema={
                 Object {
                   "properties": Object {
-                    "radio": Object {
-                      "enum": Array [
-                        "Option 1",
-                        "Option 2",
-                        "Option 3",
-                      ],
-                      "title": "ui:widget: OtherRadioWidget",
+                    "markdownWidget": Object {
+                      "title": "ui:widget: MarkdownEditorWidget",
                       "type": "string",
                     },
                   },
-                  "title": "radio",
+                  "title": "markdown",
                   "type": "object",
                 }
               }
               uiSchema={
                 Object {
                   "classNames": "column-span-12",
-                  "radio": Object {
+                  "markdownWidget": Object {
                     "classNames": "column-span-12",
-                    "ui:options": Object {
-                      "withNone": true,
-                      "withOther": true,
-                    },
-                    "ui:widget": "radio",
+                    "ui:widget": "MarkdownEditorWidget",
                   },
                 }
               }
@@ -328,8 +278,8 @@ exports[`RadioWidget should match snapshot 1`] = `
                 idSchema={
                   Object {
                     "$id": "root",
-                    "radio": Object {
-                      "$id": "root_radio",
+                    "markdownWidget": Object {
+                      "$id": "root_markdownWidget",
                     },
                   }
                 }
@@ -363,17 +313,12 @@ exports[`RadioWidget should match snapshot 1`] = `
                     "formContext": Object {},
                     "rootSchema": Object {
                       "properties": Object {
-                        "radio": Object {
-                          "enum": Array [
-                            "Option 1",
-                            "Option 2",
-                            "Option 3",
-                          ],
-                          "title": "ui:widget: OtherRadioWidget",
+                        "markdownWidget": Object {
+                          "title": "ui:widget: MarkdownEditorWidget",
                           "type": "string",
                         },
                       },
-                      "title": "radio",
+                      "title": "markdown",
                       "type": "object",
                     },
                     "widgets": Object {
@@ -406,30 +351,21 @@ exports[`RadioWidget should match snapshot 1`] = `
                 schema={
                   Object {
                     "properties": Object {
-                      "radio": Object {
-                        "enum": Array [
-                          "Option 1",
-                          "Option 2",
-                          "Option 3",
-                        ],
-                        "title": "ui:widget: OtherRadioWidget",
+                      "markdownWidget": Object {
+                        "title": "ui:widget: MarkdownEditorWidget",
                         "type": "string",
                       },
                     },
-                    "title": "radio",
+                    "title": "markdown",
                     "type": "object",
                   }
                 }
                 uiSchema={
                   Object {
                     "classNames": "column-span-12",
-                    "radio": Object {
+                    "markdownWidget": Object {
                       "classNames": "column-span-12",
-                      "ui:options": Object {
-                        "withNone": true,
-                        "withOther": true,
-                      },
-                      "ui:widget": "radio",
+                      "ui:widget": "MarkdownEditorWidget",
                     },
                   }
                 }
@@ -473,7 +409,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                   }
                   hidden={false}
                   id="root"
-                  label="radio"
+                  label="markdown"
                   onChange={[Function]}
                   readonly={false}
                   registry={
@@ -502,17 +438,12 @@ exports[`RadioWidget should match snapshot 1`] = `
                       "formContext": Object {},
                       "rootSchema": Object {
                         "properties": Object {
-                          "radio": Object {
-                            "enum": Array [
-                              "Option 1",
-                              "Option 2",
-                              "Option 3",
-                            ],
-                            "title": "ui:widget: OtherRadioWidget",
+                          "markdownWidget": Object {
+                            "title": "ui:widget: MarkdownEditorWidget",
                             "type": "string",
                           },
                         },
-                        "title": "radio",
+                        "title": "markdown",
                         "type": "object",
                       },
                       "widgets": Object {
@@ -546,30 +477,21 @@ exports[`RadioWidget should match snapshot 1`] = `
                   schema={
                     Object {
                       "properties": Object {
-                        "radio": Object {
-                          "enum": Array [
-                            "Option 1",
-                            "Option 2",
-                            "Option 3",
-                          ],
-                          "title": "ui:widget: OtherRadioWidget",
+                        "markdownWidget": Object {
+                          "title": "ui:widget: MarkdownEditorWidget",
                           "type": "string",
                         },
                       },
-                      "title": "radio",
+                      "title": "markdown",
                       "type": "object",
                     }
                   }
                   uiSchema={
                     Object {
                       "classNames": "column-span-12",
-                      "radio": Object {
+                      "markdownWidget": Object {
                         "classNames": "column-span-12",
-                        "ui:options": Object {
-                          "withNone": true,
-                          "withOther": true,
-                        },
-                        "ui:widget": "radio",
+                        "ui:widget": "MarkdownEditorWidget",
                       },
                     }
                   }
@@ -590,8 +512,8 @@ exports[`RadioWidget should match snapshot 1`] = `
                       idSchema={
                         Object {
                           "$id": "root",
-                          "radio": Object {
-                            "$id": "root_radio",
+                          "markdownWidget": Object {
+                            "$id": "root_markdownWidget",
                           },
                         }
                       }
@@ -625,17 +547,12 @@ exports[`RadioWidget should match snapshot 1`] = `
                           "formContext": Object {},
                           "rootSchema": Object {
                             "properties": Object {
-                              "radio": Object {
-                                "enum": Array [
-                                  "Option 1",
-                                  "Option 2",
-                                  "Option 3",
-                                ],
-                                "title": "ui:widget: OtherRadioWidget",
+                              "markdownWidget": Object {
+                                "title": "ui:widget: MarkdownEditorWidget",
                                 "type": "string",
                               },
                             },
-                            "title": "radio",
+                            "title": "markdown",
                             "type": "object",
                           },
                           "widgets": Object {
@@ -669,30 +586,21 @@ exports[`RadioWidget should match snapshot 1`] = `
                       schema={
                         Object {
                           "properties": Object {
-                            "radio": Object {
-                              "enum": Array [
-                                "Option 1",
-                                "Option 2",
-                                "Option 3",
-                              ],
-                              "title": "ui:widget: OtherRadioWidget",
+                            "markdownWidget": Object {
+                              "title": "ui:widget: MarkdownEditorWidget",
                               "type": "string",
                             },
                           },
-                          "title": "radio",
+                          "title": "markdown",
                           "type": "object",
                         }
                       }
                       uiSchema={
                         Object {
                           "classNames": undefined,
-                          "radio": Object {
+                          "markdownWidget": Object {
                             "classNames": "column-span-12",
-                            "ui:options": Object {
-                              "withNone": true,
-                              "withOther": true,
-                            },
-                            "ui:widget": "radio",
+                            "ui:widget": "MarkdownEditorWidget",
                           },
                         }
                       }
@@ -706,8 +614,8 @@ exports[`RadioWidget should match snapshot 1`] = `
                         idSchema={
                           Object {
                             "$id": "root",
-                            "radio": Object {
-                              "$id": "root_radio",
+                            "markdownWidget": Object {
+                              "$id": "root_markdownWidget",
                             },
                           }
                         }
@@ -719,10 +627,10 @@ exports[`RadioWidget should match snapshot 1`] = `
                                 disabled={false}
                                 idSchema={
                                   Object {
-                                    "$id": "root_radio",
+                                    "$id": "root_markdownWidget",
                                   }
                                 }
-                                name="radio"
+                                name="markdownWidget"
                                 onBlur={[Function]}
                                 onChange={[Function]}
                                 onDropPropertyClick={[Function]}
@@ -755,17 +663,12 @@ exports[`RadioWidget should match snapshot 1`] = `
                                     "formContext": Object {},
                                     "rootSchema": Object {
                                       "properties": Object {
-                                        "radio": Object {
-                                          "enum": Array [
-                                            "Option 1",
-                                            "Option 2",
-                                            "Option 3",
-                                          ],
-                                          "title": "ui:widget: OtherRadioWidget",
+                                        "markdownWidget": Object {
+                                          "title": "ui:widget: MarkdownEditorWidget",
                                           "type": "string",
                                         },
                                       },
-                                      "title": "radio",
+                                      "title": "markdown",
                                       "type": "object",
                                     },
                                     "widgets": Object {
@@ -798,30 +701,21 @@ exports[`RadioWidget should match snapshot 1`] = `
                                 required={false}
                                 schema={
                                   Object {
-                                    "enum": Array [
-                                      "Option 1",
-                                      "Option 2",
-                                      "Option 3",
-                                    ],
-                                    "title": "ui:widget: OtherRadioWidget",
+                                    "title": "ui:widget: MarkdownEditorWidget",
                                     "type": "string",
                                   }
                                 }
                                 uiSchema={
                                   Object {
                                     "classNames": "column-span-12",
-                                    "ui:options": Object {
-                                      "withNone": true,
-                                      "withOther": true,
-                                    },
-                                    "ui:widget": "radio",
+                                    "ui:widget": "MarkdownEditorWidget",
                                   }
                                 }
                                 wasPropertyKeyModified={false}
                               />,
                               "disabled": false,
                               "hidden": false,
-                              "name": "radio",
+                              "name": "markdownWidget",
                               "readonly": false,
                               "required": false,
                             },
@@ -854,17 +748,12 @@ exports[`RadioWidget should match snapshot 1`] = `
                             "formContext": Object {},
                             "rootSchema": Object {
                               "properties": Object {
-                                "radio": Object {
-                                  "enum": Array [
-                                    "Option 1",
-                                    "Option 2",
-                                    "Option 3",
-                                  ],
-                                  "title": "ui:widget: OtherRadioWidget",
+                                "markdownWidget": Object {
+                                  "title": "ui:widget: MarkdownEditorWidget",
                                   "type": "string",
                                 },
                               },
-                              "title": "radio",
+                              "title": "markdown",
                               "type": "object",
                             },
                             "widgets": Object {
@@ -898,31 +787,22 @@ exports[`RadioWidget should match snapshot 1`] = `
                         schema={
                           Object {
                             "properties": Object {
-                              "radio": Object {
-                                "enum": Array [
-                                  "Option 1",
-                                  "Option 2",
-                                  "Option 3",
-                                ],
-                                "title": "ui:widget: OtherRadioWidget",
+                              "markdownWidget": Object {
+                                "title": "ui:widget: MarkdownEditorWidget",
                                 "type": "string",
                               },
                             },
-                            "title": "radio",
+                            "title": "markdown",
                             "type": "object",
                           }
                         }
-                        title="radio"
+                        title="markdown"
                         uiSchema={
                           Object {
                             "classNames": undefined,
-                            "radio": Object {
+                            "markdownWidget": Object {
                               "classNames": "column-span-12",
-                              "ui:options": Object {
-                                "withNone": true,
-                                "withOther": true,
-                              },
-                              "ui:widget": "radio",
+                              "ui:widget": "MarkdownEditorWidget",
                             },
                           }
                         }
@@ -931,23 +811,23 @@ exports[`RadioWidget should match snapshot 1`] = `
                           <TitleField
                             id="root__title"
                             required={false}
-                            title="radio"
+                            title="markdown"
                           >
                             <legend
                               id="root__title"
                             >
-                              radio
+                              markdown
                             </legend>
                           </TitleField>
                           <CustomSchemaField
                             disabled={false}
                             idSchema={
                               Object {
-                                "$id": "root_radio",
+                                "$id": "root_markdownWidget",
                               }
                             }
-                            key="radio"
-                            name="radio"
+                            key="markdownWidget"
+                            name="markdownWidget"
                             onBlur={[Function]}
                             onChange={[Function]}
                             onDropPropertyClick={[Function]}
@@ -980,17 +860,12 @@ exports[`RadioWidget should match snapshot 1`] = `
                                 "formContext": Object {},
                                 "rootSchema": Object {
                                   "properties": Object {
-                                    "radio": Object {
-                                      "enum": Array [
-                                        "Option 1",
-                                        "Option 2",
-                                        "Option 3",
-                                      ],
-                                      "title": "ui:widget: OtherRadioWidget",
+                                    "markdownWidget": Object {
+                                      "title": "ui:widget: MarkdownEditorWidget",
                                       "type": "string",
                                     },
                                   },
-                                  "title": "radio",
+                                  "title": "markdown",
                                   "type": "object",
                                 },
                                 "widgets": Object {
@@ -1023,23 +898,14 @@ exports[`RadioWidget should match snapshot 1`] = `
                             required={false}
                             schema={
                               Object {
-                                "enum": Array [
-                                  "Option 1",
-                                  "Option 2",
-                                  "Option 3",
-                                ],
-                                "title": "ui:widget: OtherRadioWidget",
+                                "title": "ui:widget: MarkdownEditorWidget",
                                 "type": "string",
                               }
                             }
                             uiSchema={
                               Object {
                                 "classNames": "column-span-12",
-                                "ui:options": Object {
-                                  "withNone": true,
-                                  "withOther": true,
-                                },
-                                "ui:widget": "radio",
+                                "ui:widget": "MarkdownEditorWidget",
                               }
                             }
                             wasPropertyKeyModified={false}
@@ -1050,10 +916,10 @@ exports[`RadioWidget should match snapshot 1`] = `
                               errorSchema={Object {}}
                               idSchema={
                                 Object {
-                                  "$id": "root_radio",
+                                  "$id": "root_markdownWidget",
                                 }
                               }
-                              name="radio"
+                              name="markdownWidget"
                               onBlur={[Function]}
                               onChange={[Function]}
                               onDropPropertyClick={[Function]}
@@ -1086,17 +952,12 @@ exports[`RadioWidget should match snapshot 1`] = `
                                   "formContext": Object {},
                                   "rootSchema": Object {
                                     "properties": Object {
-                                      "radio": Object {
-                                        "enum": Array [
-                                          "Option 1",
-                                          "Option 2",
-                                          "Option 3",
-                                        ],
-                                        "title": "ui:widget: OtherRadioWidget",
+                                      "markdownWidget": Object {
+                                        "title": "ui:widget: MarkdownEditorWidget",
                                         "type": "string",
                                       },
                                     },
-                                    "title": "radio",
+                                    "title": "markdown",
                                     "type": "object",
                                   },
                                   "widgets": Object {
@@ -1129,23 +990,14 @@ exports[`RadioWidget should match snapshot 1`] = `
                               required={false}
                               schema={
                                 Object {
-                                  "enum": Array [
-                                    "Option 1",
-                                    "Option 2",
-                                    "Option 3",
-                                  ],
-                                  "title": "ui:widget: OtherRadioWidget",
+                                  "title": "ui:widget: MarkdownEditorWidget",
                                   "type": "string",
                                 }
                               }
                               uiSchema={
                                 Object {
                                   "classNames": "column-span-12",
-                                  "ui:options": Object {
-                                    "withNone": true,
-                                    "withOther": true,
-                                  },
-                                  "ui:widget": "radio",
+                                  "ui:widget": "MarkdownEditorWidget",
                                 }
                               }
                               wasPropertyKeyModified={false}
@@ -1155,7 +1007,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                                 description={
                                   <DescriptionField
                                     formContext={Object {}}
-                                    id="root_radio__description"
+                                    id="root_markdownWidget__description"
                                   />
                                 }
                                 disabled={false}
@@ -1183,12 +1035,12 @@ exports[`RadioWidget should match snapshot 1`] = `
                                 formContext={Object {}}
                                 help={
                                   <Help
-                                    id="root_radio__help"
+                                    id="root_markdownWidget__help"
                                   />
                                 }
                                 hidden={false}
-                                id="root_radio"
-                                label="ui:widget: OtherRadioWidget"
+                                id="root_markdownWidget"
+                                label="ui:widget: MarkdownEditorWidget"
                                 onChange={[Function]}
                                 onDropPropertyClick={[Function]}
                                 onKeyChange={[Function]}
@@ -1219,17 +1071,12 @@ exports[`RadioWidget should match snapshot 1`] = `
                                     "formContext": Object {},
                                     "rootSchema": Object {
                                       "properties": Object {
-                                        "radio": Object {
-                                          "enum": Array [
-                                            "Option 1",
-                                            "Option 2",
-                                            "Option 3",
-                                          ],
-                                          "title": "ui:widget: OtherRadioWidget",
+                                        "markdownWidget": Object {
+                                          "title": "ui:widget: MarkdownEditorWidget",
                                           "type": "string",
                                         },
                                       },
-                                      "title": "radio",
+                                      "title": "markdown",
                                       "type": "object",
                                     },
                                     "widgets": Object {
@@ -1262,23 +1109,14 @@ exports[`RadioWidget should match snapshot 1`] = `
                                 required={false}
                                 schema={
                                   Object {
-                                    "enum": Array [
-                                      "Option 1",
-                                      "Option 2",
-                                      "Option 3",
-                                    ],
-                                    "title": "ui:widget: OtherRadioWidget",
+                                    "title": "ui:widget: MarkdownEditorWidget",
                                     "type": "string",
                                   }
                                 }
                                 uiSchema={
                                   Object {
                                     "classNames": "column-span-12",
-                                    "ui:options": Object {
-                                      "withNone": true,
-                                      "withOther": true,
-                                    },
-                                    "ui:widget": "radio",
+                                    "ui:widget": "MarkdownEditorWidget",
                                   }
                                 }
                               >
@@ -1286,20 +1124,20 @@ exports[`RadioWidget should match snapshot 1`] = `
                                   className="form-group field field-string  column-span-12"
                                 >
                                   <FieldTemplate__FieldLabel
-                                    htmlFor="root_radio"
+                                    htmlFor="root_markdownWidget"
                                     required={false}
                                   >
                                     <label
                                       className="sc-iCoGMd FieldTemplate__FieldLabel-sc-1c6bjb1-1 cJpiAY kUmlnF"
-                                      htmlFor="root_radio"
+                                      htmlFor="root_markdownWidget"
                                       required={false}
                                     >
-                                      ui:widget: OtherRadioWidget
+                                      ui:widget: MarkdownEditorWidget
                                     </label>
                                   </FieldTemplate__FieldLabel>
                                   <DescriptionField
                                     formContext={Object {}}
-                                    id="root_radio__description"
+                                    id="root_markdownWidget__description"
                                   />
                                   <StringField
                                     autofocus={false}
@@ -1308,10 +1146,10 @@ exports[`RadioWidget should match snapshot 1`] = `
                                     formContext={Object {}}
                                     idSchema={
                                       Object {
-                                        "$id": "root_radio",
+                                        "$id": "root_markdownWidget",
                                       }
                                     }
-                                    name="radio"
+                                    name="markdownWidget"
                                     onBlur={[Function]}
                                     onChange={[Function]}
                                     onDropPropertyClick={[Function]}
@@ -1344,17 +1182,12 @@ exports[`RadioWidget should match snapshot 1`] = `
                                         "formContext": Object {},
                                         "rootSchema": Object {
                                           "properties": Object {
-                                            "radio": Object {
-                                              "enum": Array [
-                                                "Option 1",
-                                                "Option 2",
-                                                "Option 3",
-                                              ],
-                                              "title": "ui:widget: OtherRadioWidget",
+                                            "markdownWidget": Object {
+                                              "title": "ui:widget: MarkdownEditorWidget",
                                               "type": "string",
                                             },
                                           },
-                                          "title": "radio",
+                                          "title": "markdown",
                                           "type": "object",
                                         },
                                         "widgets": Object {
@@ -1387,23 +1220,14 @@ exports[`RadioWidget should match snapshot 1`] = `
                                     required={false}
                                     schema={
                                       Object {
-                                        "enum": Array [
-                                          "Option 1",
-                                          "Option 2",
-                                          "Option 3",
-                                        ],
-                                        "title": "ui:widget: OtherRadioWidget",
+                                        "title": "ui:widget: MarkdownEditorWidget",
                                         "type": "string",
                                       }
                                     }
                                     uiSchema={
                                       Object {
                                         "classNames": undefined,
-                                        "ui:options": Object {
-                                          "withNone": true,
-                                          "withOther": true,
-                                        },
-                                        "ui:widget": "radio",
+                                        "ui:widget": "MarkdownEditorWidget",
                                       }
                                     }
                                     wasPropertyKeyModified={false}
@@ -1412,29 +1236,14 @@ exports[`RadioWidget should match snapshot 1`] = `
                                       autofocus={false}
                                       disabled={false}
                                       formContext={Object {}}
-                                      id="root_radio"
-                                      label="ui:widget: OtherRadioWidget"
+                                      id="root_markdownWidget"
+                                      label="ui:widget: MarkdownEditorWidget"
                                       onBlur={[Function]}
                                       onChange={[Function]}
                                       onFocus={[Function]}
                                       options={
                                         Object {
-                                          "enumOptions": Array [
-                                            Object {
-                                              "label": "Option 1",
-                                              "value": "Option 1",
-                                            },
-                                            Object {
-                                              "label": "Option 2",
-                                              "value": "Option 2",
-                                            },
-                                            Object {
-                                              "label": "Option 3",
-                                              "value": "Option 3",
-                                            },
-                                          ],
-                                          "withNone": true,
-                                          "withOther": true,
+                                          "enumOptions": false,
                                         }
                                       }
                                       placeholder=""
@@ -1465,17 +1274,12 @@ exports[`RadioWidget should match snapshot 1`] = `
                                           "formContext": Object {},
                                           "rootSchema": Object {
                                             "properties": Object {
-                                              "radio": Object {
-                                                "enum": Array [
-                                                  "Option 1",
-                                                  "Option 2",
-                                                  "Option 3",
-                                                ],
-                                                "title": "ui:widget: OtherRadioWidget",
+                                              "markdownWidget": Object {
+                                                "title": "ui:widget: MarkdownEditorWidget",
                                                 "type": "string",
                                               },
                                             },
-                                            "title": "radio",
+                                            "title": "markdown",
                                             "type": "object",
                                           },
                                           "widgets": Object {
@@ -1508,53 +1312,29 @@ exports[`RadioWidget should match snapshot 1`] = `
                                       required={false}
                                       schema={
                                         Object {
-                                          "enum": Array [
-                                            "Option 1",
-                                            "Option 2",
-                                            "Option 3",
-                                          ],
-                                          "title": "ui:widget: OtherRadioWidget",
+                                          "title": "ui:widget: MarkdownEditorWidget",
                                           "type": "string",
                                         }
                                       }
                                       uiSchema={
                                         Object {
                                           "classNames": undefined,
-                                          "ui:options": Object {
-                                            "withNone": true,
-                                            "withOther": true,
-                                          },
-                                          "ui:widget": "radio",
+                                          "ui:widget": "MarkdownEditorWidget",
                                         }
                                       }
                                     >
-                                      <RadioWidget
+                                      <MarkdownEditorWidget
                                         autofocus={false}
                                         disabled={false}
                                         formContext={Object {}}
-                                        id="root_radio"
-                                        label="ui:widget: OtherRadioWidget"
+                                        id="root_markdownWidget"
+                                        label="ui:widget: MarkdownEditorWidget"
                                         onBlur={[Function]}
                                         onChange={[Function]}
                                         onFocus={[Function]}
                                         options={
                                           Object {
-                                            "enumOptions": Array [
-                                              Object {
-                                                "label": "Option 1",
-                                                "value": "Option 1",
-                                              },
-                                              Object {
-                                                "label": "Option 2",
-                                                "value": "Option 2",
-                                              },
-                                              Object {
-                                                "label": "Option 3",
-                                                "value": "Option 3",
-                                              },
-                                            ],
-                                            "withNone": true,
-                                            "withOther": true,
+                                            "enumOptions": false,
                                           }
                                         }
                                         placeholder=""
@@ -1585,17 +1365,12 @@ exports[`RadioWidget should match snapshot 1`] = `
                                             "formContext": Object {},
                                             "rootSchema": Object {
                                               "properties": Object {
-                                                "radio": Object {
-                                                  "enum": Array [
-                                                    "Option 1",
-                                                    "Option 2",
-                                                    "Option 3",
-                                                  ],
-                                                  "title": "ui:widget: OtherRadioWidget",
+                                                "markdownWidget": Object {
+                                                  "title": "ui:widget: MarkdownEditorWidget",
                                                   "type": "string",
                                                 },
                                               },
-                                              "title": "radio",
+                                              "title": "markdown",
                                               "type": "object",
                                             },
                                             "widgets": Object {
@@ -1628,425 +1403,763 @@ exports[`RadioWidget should match snapshot 1`] = `
                                         required={false}
                                         schema={
                                           Object {
-                                            "enum": Array [
-                                              "Option 1",
-                                              "Option 2",
-                                              "Option 3",
-                                            ],
-                                            "title": "ui:widget: OtherRadioWidget",
+                                            "title": "ui:widget: MarkdownEditorWidget",
                                             "type": "string",
                                           }
                                         }
                                         uiSchema={
                                           Object {
                                             "classNames": undefined,
-                                            "ui:options": Object {
-                                              "withNone": true,
-                                              "withOther": true,
-                                            },
-                                            "ui:widget": "radio",
+                                            "ui:widget": "MarkdownEditorWidget",
                                           }
                                         }
                                       >
-                                        <styled.div
-                                          id="root_radio"
+                                        <EI
+                                          autoFocus={false}
+                                          disabled={false}
+                                          id="root_markdownWidget"
+                                          onBlur={[Function]}
+                                          onChange={[Function]}
+                                          onFocus={[Function]}
+                                          readOnly={false}
+                                          rows={4}
                                         >
-                                          <div
-                                            className="sc-bqGGPW eClCJx"
-                                            id="root_radio"
-                                          >
-                                            <IS
-                                              autoFocus={false}
-                                              checked={false}
-                                              disabled={false}
-                                              id="root_radio_Option 1"
-                                              key="radio_Option 1"
-                                              label="Option 1"
-                                              onBlur={[Function]}
+                                          <div>
+                                            <ForwardRef
+                                              aria-label="markdown editor tabs"
+                                              indicatorColor="primary"
                                               onChange={[Function]}
-                                              onFocus={[Function]}
-                                              onKeyDown={[Function]}
-                                              required={false}
-                                              type="radio"
-                                              value="Option 1"
+                                              textColor="primary"
+                                              value="edit"
                                             >
-                                              <styled.label
-                                                disabled={false}
-                                                htmlFor="root_radio_Option 1"
+                                              <ForwardRef
+                                                aria-label="markdown editor tabs"
+                                                classes={
+                                                  Object {
+                                                    "centered": "MuiTabs-centered",
+                                                    "fixed": "MuiTabs-fixed",
+                                                    "flexContainer": "MuiTabs-flexContainer",
+                                                    "flexContainerVertical": "MuiTabs-flexContainerVertical",
+                                                    "indicator": "MuiTabs-indicator",
+                                                    "root": "MuiTabs-root",
+                                                    "scrollButtons": "MuiTabs-scrollButtons",
+                                                    "scrollButtonsDesktop": "MuiTabs-scrollButtonsDesktop",
+                                                    "scrollable": "MuiTabs-scrollable",
+                                                    "scroller": "MuiTabs-scroller",
+                                                    "vertical": "MuiTabs-vertical",
+                                                  }
+                                                }
+                                                indicatorColor="primary"
+                                                onChange={[Function]}
+                                                textColor="primary"
+                                                value="edit"
                                               >
-                                                <label
-                                                  className="sc-ksluID kOcqbI"
-                                                  disabled={false}
-                                                  htmlFor="root_radio_Option 1"
+                                                <div
+                                                  className="MuiTabs-root"
                                                 >
-                                                  <styled.span>
-                                                    <span
-                                                      className="sc-hHEiqL hyjhdy"
+                                                  <div
+                                                    className="MuiTabs-scroller MuiTabs-fixed"
+                                                    onScroll={[Function]}
+                                                    style={
+                                                      Object {
+                                                        "marginBottom": null,
+                                                        "overflow": "hidden",
+                                                      }
+                                                    }
+                                                  >
+                                                    <div
+                                                      aria-label="markdown editor tabs"
+                                                      className="MuiTabs-flexContainer"
+                                                      onKeyDown={[Function]}
+                                                      role="tablist"
                                                     >
-                                                      <styled.span>
-                                                        <span
-                                                          className="sc-dlMDgC djIEPC"
+                                                      <ForwardRef
+                                                        fullWidth={false}
+                                                        indicator={false}
+                                                        key=".0"
+                                                        label="Edit"
+                                                        onChange={[Function]}
+                                                        selected={true}
+                                                        textColor="primary"
+                                                        value="edit"
+                                                      >
+                                                        <ForwardRef
+                                                          classes={
+                                                            Object {
+                                                              "disabled": "Mui-disabled",
+                                                              "fullWidth": "MuiTab-fullWidth",
+                                                              "labelIcon": "MuiTab-labelIcon",
+                                                              "root": "MuiTab-root",
+                                                              "selected": "Mui-selected",
+                                                              "textColorInherit": "MuiTab-textColorInherit",
+                                                              "textColorPrimary": "MuiTab-textColorPrimary",
+                                                              "textColorSecondary": "MuiTab-textColorSecondary",
+                                                              "wrapped": "MuiTab-wrapped",
+                                                              "wrapper": "MuiTab-wrapper",
+                                                            }
+                                                          }
+                                                          fullWidth={false}
+                                                          indicator={false}
+                                                          label="Edit"
+                                                          onChange={[Function]}
+                                                          selected={true}
+                                                          textColor="primary"
+                                                          value="edit"
                                                         >
-                                                          <styled.input
-                                                            autoFocus={false}
-                                                            checked={false}
-                                                            id="root_radio_Option 1"
-                                                            onBlur={[Function]}
-                                                            onChange={[Function]}
+                                                          <ForwardRef
+                                                            aria-selected={true}
+                                                            className="MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                                                            disabled={false}
+                                                            focusRipple={true}
+                                                            onClick={[Function]}
                                                             onFocus={[Function]}
-                                                            onKeyDown={[Function]}
-                                                            required={false}
-                                                            type="radio"
-                                                            value="Option 1"
+                                                            role="tab"
+                                                            tabIndex={0}
                                                           >
-                                                            <input
-                                                              autoFocus={false}
-                                                              checked={false}
-                                                              className="sc-iemWCZ eFKJdo"
-                                                              id="root_radio_Option 1"
-                                                              onBlur={[Function]}
-                                                              onChange={[Function]}
+                                                            <ForwardRef
+                                                              aria-selected={true}
+                                                              className="MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                                                              classes={
+                                                                Object {
+                                                                  "disabled": "Mui-disabled",
+                                                                  "focusVisible": "Mui-focusVisible",
+                                                                  "root": "MuiButtonBase-root",
+                                                                }
+                                                              }
+                                                              disabled={false}
+                                                              focusRipple={true}
+                                                              onClick={[Function]}
                                                               onFocus={[Function]}
-                                                              onKeyDown={[Function]}
-                                                              required={false}
-                                                              type="radio"
-                                                              value="Option 1"
-                                                            />
-                                                          </styled.input>
-                                                          <styled.span>
-                                                            <span
-                                                              className="sc-fnVZcZ ijlvvl"
-                                                            />
-                                                          </styled.span>
-                                                        </span>
-                                                      </styled.span>
-                                                    </span>
-                                                  </styled.span>
-                                                  <styled.span>
-                                                    <span
-                                                      className="sc-hBMUJo edPbTv"
+                                                              role="tab"
+                                                              tabIndex={0}
+                                                            >
+                                                              <button
+                                                                aria-selected={true}
+                                                                className="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected"
+                                                                disabled={false}
+                                                                onBlur={[Function]}
+                                                                onClick={[Function]}
+                                                                onDragLeave={[Function]}
+                                                                onFocus={[Function]}
+                                                                onKeyDown={[Function]}
+                                                                onKeyUp={[Function]}
+                                                                onMouseDown={[Function]}
+                                                                onMouseLeave={[Function]}
+                                                                onMouseUp={[Function]}
+                                                                onTouchEnd={[Function]}
+                                                                onTouchMove={[Function]}
+                                                                onTouchStart={[Function]}
+                                                                role="tab"
+                                                                tabIndex={0}
+                                                                type="button"
+                                                              >
+                                                                <span
+                                                                  className="MuiTab-wrapper"
+                                                                >
+                                                                  Edit
+                                                                </span>
+                                                                <ForwardRef
+                                                                  center={false}
+                                                                >
+                                                                  <ForwardRef
+                                                                    center={false}
+                                                                    classes={
+                                                                      Object {
+                                                                        "child": "MuiTouchRipple-child",
+                                                                        "childLeaving": "MuiTouchRipple-childLeaving",
+                                                                        "childPulsate": "MuiTouchRipple-childPulsate",
+                                                                        "ripple": "MuiTouchRipple-ripple",
+                                                                        "ripplePulsate": "MuiTouchRipple-ripplePulsate",
+                                                                        "rippleVisible": "MuiTouchRipple-rippleVisible",
+                                                                        "root": "MuiTouchRipple-root",
+                                                                      }
+                                                                    }
+                                                                  >
+                                                                    <span
+                                                                      className="MuiTouchRipple-root"
+                                                                    >
+                                                                      <t
+                                                                        childFactory={[Function]}
+                                                                        component={null}
+                                                                        exit={true}
+                                                                      />
+                                                                    </span>
+                                                                  </ForwardRef>
+                                                                </ForwardRef>
+                                                              </button>
+                                                            </ForwardRef>
+                                                          </ForwardRef>
+                                                        </ForwardRef>
+                                                      </ForwardRef>
+                                                      <ForwardRef
+                                                        fullWidth={false}
+                                                        indicator={false}
+                                                        key=".1"
+                                                        label="Preview"
+                                                        onChange={[Function]}
+                                                        selected={false}
+                                                        textColor="primary"
+                                                        value="preview"
+                                                      >
+                                                        <ForwardRef
+                                                          classes={
+                                                            Object {
+                                                              "disabled": "Mui-disabled",
+                                                              "fullWidth": "MuiTab-fullWidth",
+                                                              "labelIcon": "MuiTab-labelIcon",
+                                                              "root": "MuiTab-root",
+                                                              "selected": "Mui-selected",
+                                                              "textColorInherit": "MuiTab-textColorInherit",
+                                                              "textColorPrimary": "MuiTab-textColorPrimary",
+                                                              "textColorSecondary": "MuiTab-textColorSecondary",
+                                                              "wrapped": "MuiTab-wrapped",
+                                                              "wrapper": "MuiTab-wrapper",
+                                                            }
+                                                          }
+                                                          fullWidth={false}
+                                                          indicator={false}
+                                                          label="Preview"
+                                                          onChange={[Function]}
+                                                          selected={false}
+                                                          textColor="primary"
+                                                          value="preview"
+                                                        >
+                                                          <ForwardRef
+                                                            aria-selected={false}
+                                                            className="MuiTab-root MuiTab-textColorPrimary"
+                                                            disabled={false}
+                                                            focusRipple={true}
+                                                            onClick={[Function]}
+                                                            onFocus={[Function]}
+                                                            role="tab"
+                                                            tabIndex={-1}
+                                                          >
+                                                            <ForwardRef
+                                                              aria-selected={false}
+                                                              className="MuiTab-root MuiTab-textColorPrimary"
+                                                              classes={
+                                                                Object {
+                                                                  "disabled": "Mui-disabled",
+                                                                  "focusVisible": "Mui-focusVisible",
+                                                                  "root": "MuiButtonBase-root",
+                                                                }
+                                                              }
+                                                              disabled={false}
+                                                              focusRipple={true}
+                                                              onClick={[Function]}
+                                                              onFocus={[Function]}
+                                                              role="tab"
+                                                              tabIndex={-1}
+                                                            >
+                                                              <button
+                                                                aria-selected={false}
+                                                                className="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary"
+                                                                disabled={false}
+                                                                onBlur={[Function]}
+                                                                onClick={[Function]}
+                                                                onDragLeave={[Function]}
+                                                                onFocus={[Function]}
+                                                                onKeyDown={[Function]}
+                                                                onKeyUp={[Function]}
+                                                                onMouseDown={[Function]}
+                                                                onMouseLeave={[Function]}
+                                                                onMouseUp={[Function]}
+                                                                onTouchEnd={[Function]}
+                                                                onTouchMove={[Function]}
+                                                                onTouchStart={[Function]}
+                                                                role="tab"
+                                                                tabIndex={-1}
+                                                                type="button"
+                                                              >
+                                                                <span
+                                                                  className="MuiTab-wrapper"
+                                                                >
+                                                                  Preview
+                                                                </span>
+                                                                <ForwardRef
+                                                                  center={false}
+                                                                >
+                                                                  <ForwardRef
+                                                                    center={false}
+                                                                    classes={
+                                                                      Object {
+                                                                        "child": "MuiTouchRipple-child",
+                                                                        "childLeaving": "MuiTouchRipple-childLeaving",
+                                                                        "childPulsate": "MuiTouchRipple-childPulsate",
+                                                                        "ripple": "MuiTouchRipple-ripple",
+                                                                        "ripplePulsate": "MuiTouchRipple-ripplePulsate",
+                                                                        "rippleVisible": "MuiTouchRipple-rippleVisible",
+                                                                        "root": "MuiTouchRipple-root",
+                                                                      }
+                                                                    }
+                                                                  >
+                                                                    <span
+                                                                      className="MuiTouchRipple-root"
+                                                                    >
+                                                                      <t
+                                                                        childFactory={[Function]}
+                                                                        component={null}
+                                                                        exit={true}
+                                                                      />
+                                                                    </span>
+                                                                  </ForwardRef>
+                                                                </ForwardRef>
+                                                              </button>
+                                                            </ForwardRef>
+                                                          </ForwardRef>
+                                                        </ForwardRef>
+                                                      </ForwardRef>
+                                                    </div>
+                                                    <ForwardRef
+                                                      className="MuiTabs-indicator"
+                                                      color="primary"
+                                                      orientation="horizontal"
+                                                      style={
+                                                        Object {
+                                                          "left": 0,
+                                                          "width": 0,
+                                                        }
+                                                      }
                                                     >
-                                                      Option 1
-                                                    </span>
-                                                  </styled.span>
-                                                </label>
-                                              </styled.label>
-                                            </IS>
-                                            <IS
-                                              autoFocus={false}
-                                              checked={false}
-                                              disabled={false}
-                                              id="root_radio_Option 2"
-                                              key="radio_Option 2"
-                                              label="Option 2"
-                                              onBlur={[Function]}
-                                              onChange={[Function]}
-                                              onFocus={[Function]}
-                                              onKeyDown={[Function]}
-                                              required={false}
-                                              type="radio"
-                                              value="Option 2"
+                                                      <ForwardRef
+                                                        className="MuiTabs-indicator"
+                                                        classes={
+                                                          Object {
+                                                            "colorPrimary": "jss2",
+                                                            "colorSecondary": "jss3",
+                                                            "root": "jss1",
+                                                            "vertical": "jss4",
+                                                          }
+                                                        }
+                                                        color="primary"
+                                                        orientation="horizontal"
+                                                        style={
+                                                          Object {
+                                                            "left": 0,
+                                                            "width": 0,
+                                                          }
+                                                        }
+                                                      >
+                                                        <span
+                                                          className="jss1 jss2 MuiTabs-indicator"
+                                                          style={
+                                                            Object {
+                                                              "left": 0,
+                                                              "width": 0,
+                                                            }
+                                                          }
+                                                        />
+                                                      </ForwardRef>
+                                                    </ForwardRef>
+                                                  </div>
+                                                </div>
+                                              </ForwardRef>
+                                            </ForwardRef>
+                                            <styled.div
+                                              show={true}
                                             >
-                                              <styled.label
-                                                disabled={false}
-                                                htmlFor="root_radio_Option 2"
+                                              <div
+                                                className="sc-eJocfa bQgvBF"
                                               >
-                                                <label
-                                                  className="sc-ksluID kOcqbI"
+                                                <Styled(Component)
+                                                  autoFocus={false}
                                                   disabled={false}
-                                                  htmlFor="root_radio_Option 2"
+                                                  id="root_markdownWidget"
+                                                  inputRef={
+                                                    Object {
+                                                      "current": <textarea
+                                                        aria-invalid="false"
+                                                        class="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputMultiline MuiFilledInput-inputMultiline"
+                                                        id="root_markdownWidget"
+                                                        rows="4"
+                                                        style="resize: vertical;"
+                                                      />,
+                                                    }
+                                                  }
+                                                  onBlur={[Function]}
+                                                  onChange={[Function]}
+                                                  onFocus={[Function]}
+                                                  readOnly={false}
+                                                  rows={4}
                                                 >
-                                                  <styled.span>
-                                                    <span
-                                                      className="sc-hHEiqL hyjhdy"
+                                                  <ForwardRef
+                                                    autoFocus={false}
+                                                    className="sc-oeezt hkNutY"
+                                                    disabled={false}
+                                                    id="root_markdownWidget"
+                                                    inputRef={
+                                                      Object {
+                                                        "current": <textarea
+                                                          aria-invalid="false"
+                                                          class="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputMultiline MuiFilledInput-inputMultiline"
+                                                          id="root_markdownWidget"
+                                                          rows="4"
+                                                          style="resize: vertical;"
+                                                        />,
+                                                      }
+                                                    }
+                                                    onBlur={[Function]}
+                                                    onChange={[Function]}
+                                                    onFocus={[Function]}
+                                                    readOnly={false}
+                                                    rows={4}
+                                                  >
+                                                    <ForwardRef
+                                                      autoFocus={false}
+                                                      className="sc-oeezt hkNutY"
+                                                      disabled={false}
+                                                      fullWidth={true}
+                                                      id="root_markdownWidget"
+                                                      inputProps={
+                                                        Object {
+                                                          "style": Object {
+                                                            "resize": "vertical",
+                                                          },
+                                                        }
+                                                      }
+                                                      inputRef={
+                                                        Object {
+                                                          "current": <textarea
+                                                            aria-invalid="false"
+                                                            class="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputMultiline MuiFilledInput-inputMultiline"
+                                                            id="root_markdownWidget"
+                                                            rows="4"
+                                                            style="resize: vertical;"
+                                                          />,
+                                                        }
+                                                      }
+                                                      multiline={true}
+                                                      onBlur={[Function]}
+                                                      onChange={[Function]}
+                                                      onFocus={[Function]}
+                                                      readOnly={false}
+                                                      rows={4}
+                                                      variant="filled"
                                                     >
-                                                      <styled.span>
-                                                        <span
-                                                          className="sc-dlMDgC djIEPC"
+                                                      <ForwardRef
+                                                        autoFocus={false}
+                                                        className="sc-oeezt hkNutY"
+                                                        classes={
+                                                          Object {
+                                                            "root": "MuiTextField-root",
+                                                          }
+                                                        }
+                                                        disabled={false}
+                                                        fullWidth={true}
+                                                        id="root_markdownWidget"
+                                                        inputProps={
+                                                          Object {
+                                                            "style": Object {
+                                                              "resize": "vertical",
+                                                            },
+                                                          }
+                                                        }
+                                                        inputRef={
+                                                          Object {
+                                                            "current": <textarea
+                                                              aria-invalid="false"
+                                                              class="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputMultiline MuiFilledInput-inputMultiline"
+                                                              id="root_markdownWidget"
+                                                              rows="4"
+                                                              style="resize: vertical;"
+                                                            />,
+                                                          }
+                                                        }
+                                                        multiline={true}
+                                                        onBlur={[Function]}
+                                                        onChange={[Function]}
+                                                        onFocus={[Function]}
+                                                        readOnly={false}
+                                                        rows={4}
+                                                        variant="filled"
+                                                      >
+                                                        <ForwardRef
+                                                          className="MuiTextField-root sc-oeezt hkNutY"
+                                                          color="primary"
+                                                          disabled={false}
+                                                          error={false}
+                                                          fullWidth={true}
+                                                          readOnly={false}
+                                                          required={false}
+                                                          variant="filled"
                                                         >
-                                                          <styled.input
-                                                            autoFocus={false}
-                                                            checked={false}
-                                                            id="root_radio_Option 2"
-                                                            onBlur={[Function]}
-                                                            onChange={[Function]}
-                                                            onFocus={[Function]}
-                                                            onKeyDown={[Function]}
+                                                          <ForwardRef
+                                                            className="MuiTextField-root sc-oeezt hkNutY"
+                                                            classes={
+                                                              Object {
+                                                                "fullWidth": "MuiFormControl-fullWidth",
+                                                                "marginDense": "MuiFormControl-marginDense",
+                                                                "marginNormal": "MuiFormControl-marginNormal",
+                                                                "root": "MuiFormControl-root",
+                                                              }
+                                                            }
+                                                            color="primary"
+                                                            disabled={false}
+                                                            error={false}
+                                                            fullWidth={true}
+                                                            readOnly={false}
                                                             required={false}
-                                                            type="radio"
-                                                            value="Option 2"
+                                                            variant="filled"
                                                           >
-                                                            <input
-                                                              autoFocus={false}
-                                                              checked={false}
-                                                              className="sc-iemWCZ eFKJdo"
-                                                              id="root_radio_Option 2"
-                                                              onBlur={[Function]}
-                                                              onChange={[Function]}
-                                                              onFocus={[Function]}
-                                                              onKeyDown={[Function]}
-                                                              required={false}
-                                                              type="radio"
-                                                              value="Option 2"
-                                                            />
-                                                          </styled.input>
-                                                          <styled.span>
-                                                            <span
-                                                              className="sc-fnVZcZ ijlvvl"
-                                                            />
-                                                          </styled.span>
-                                                        </span>
-                                                      </styled.span>
-                                                    </span>
-                                                  </styled.span>
-                                                  <styled.span>
-                                                    <span
-                                                      className="sc-hBMUJo edPbTv"
-                                                    >
-                                                      Option 2
-                                                    </span>
-                                                  </styled.span>
-                                                </label>
-                                              </styled.label>
-                                            </IS>
-                                            <IS
-                                              autoFocus={false}
-                                              checked={false}
-                                              disabled={false}
-                                              id="root_radio_Option 3"
-                                              key="radio_Option 3"
-                                              label="Option 3"
-                                              onBlur={[Function]}
-                                              onChange={[Function]}
-                                              onFocus={[Function]}
-                                              onKeyDown={[Function]}
-                                              required={false}
-                                              type="radio"
-                                              value="Option 3"
+                                                            <div
+                                                              className="MuiFormControl-root MuiTextField-root sc-oeezt hkNutY MuiFormControl-fullWidth"
+                                                              readOnly={false}
+                                                            >
+                                                              <ForwardRef
+                                                                autoFocus={false}
+                                                                fullWidth={true}
+                                                                id="root_markdownWidget"
+                                                                inputProps={
+                                                                  Object {
+                                                                    "style": Object {
+                                                                      "resize": "vertical",
+                                                                    },
+                                                                  }
+                                                                }
+                                                                inputRef={
+                                                                  Object {
+                                                                    "current": <textarea
+                                                                      aria-invalid="false"
+                                                                      class="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputMultiline MuiFilledInput-inputMultiline"
+                                                                      id="root_markdownWidget"
+                                                                      rows="4"
+                                                                      style="resize: vertical;"
+                                                                    />,
+                                                                  }
+                                                                }
+                                                                multiline={true}
+                                                                onBlur={[Function]}
+                                                                onChange={[Function]}
+                                                                onFocus={[Function]}
+                                                                rows={4}
+                                                              >
+                                                                <ForwardRef
+                                                                  autoFocus={false}
+                                                                  classes={
+                                                                    Object {
+                                                                      "adornedEnd": "MuiFilledInput-adornedEnd",
+                                                                      "adornedStart": "MuiFilledInput-adornedStart",
+                                                                      "colorSecondary": "MuiFilledInput-colorSecondary",
+                                                                      "disabled": "Mui-disabled",
+                                                                      "error": "Mui-error",
+                                                                      "focused": "Mui-focused",
+                                                                      "input": "MuiFilledInput-input",
+                                                                      "inputAdornedEnd": "MuiFilledInput-inputAdornedEnd",
+                                                                      "inputAdornedStart": "MuiFilledInput-inputAdornedStart",
+                                                                      "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
+                                                                      "inputMarginDense": "MuiFilledInput-inputMarginDense",
+                                                                      "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                                      "marginDense": "MuiFilledInput-marginDense",
+                                                                      "multiline": "MuiFilledInput-multiline",
+                                                                      "root": "MuiFilledInput-root",
+                                                                      "underline": "MuiFilledInput-underline",
+                                                                    }
+                                                                  }
+                                                                  fullWidth={true}
+                                                                  id="root_markdownWidget"
+                                                                  inputProps={
+                                                                    Object {
+                                                                      "style": Object {
+                                                                        "resize": "vertical",
+                                                                      },
+                                                                    }
+                                                                  }
+                                                                  inputRef={
+                                                                    Object {
+                                                                      "current": <textarea
+                                                                        aria-invalid="false"
+                                                                        class="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputMultiline MuiFilledInput-inputMultiline"
+                                                                        id="root_markdownWidget"
+                                                                        rows="4"
+                                                                        style="resize: vertical;"
+                                                                      />,
+                                                                    }
+                                                                  }
+                                                                  multiline={true}
+                                                                  onBlur={[Function]}
+                                                                  onChange={[Function]}
+                                                                  onFocus={[Function]}
+                                                                  rows={4}
+                                                                >
+                                                                  <ForwardRef
+                                                                    autoFocus={false}
+                                                                    classes={
+                                                                      Object {
+                                                                        "adornedEnd": "MuiFilledInput-adornedEnd",
+                                                                        "adornedStart": "MuiFilledInput-adornedStart",
+                                                                        "colorSecondary": "MuiFilledInput-colorSecondary",
+                                                                        "disabled": "Mui-disabled",
+                                                                        "error": "Mui-error",
+                                                                        "focused": "Mui-focused",
+                                                                        "input": "MuiFilledInput-input",
+                                                                        "inputAdornedEnd": "MuiFilledInput-inputAdornedEnd",
+                                                                        "inputAdornedStart": "MuiFilledInput-inputAdornedStart",
+                                                                        "inputHiddenLabel": "MuiFilledInput-inputHiddenLabel",
+                                                                        "inputMarginDense": "MuiFilledInput-inputMarginDense",
+                                                                        "inputMultiline": "MuiFilledInput-inputMultiline",
+                                                                        "marginDense": "MuiFilledInput-marginDense",
+                                                                        "multiline": "MuiFilledInput-multiline",
+                                                                        "root": "MuiFilledInput-root MuiFilledInput-underline",
+                                                                        "underline": null,
+                                                                      }
+                                                                    }
+                                                                    fullWidth={true}
+                                                                    id="root_markdownWidget"
+                                                                    inputComponent="input"
+                                                                    inputProps={
+                                                                      Object {
+                                                                        "style": Object {
+                                                                          "resize": "vertical",
+                                                                        },
+                                                                      }
+                                                                    }
+                                                                    inputRef={
+                                                                      Object {
+                                                                        "current": <textarea
+                                                                          aria-invalid="false"
+                                                                          class="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputMultiline MuiFilledInput-inputMultiline"
+                                                                          id="root_markdownWidget"
+                                                                          rows="4"
+                                                                          style="resize: vertical;"
+                                                                        />,
+                                                                      }
+                                                                    }
+                                                                    multiline={true}
+                                                                    onBlur={[Function]}
+                                                                    onChange={[Function]}
+                                                                    onFocus={[Function]}
+                                                                    rows={4}
+                                                                    type="text"
+                                                                  >
+                                                                    <ForwardRef
+                                                                      autoFocus={false}
+                                                                      classes={
+                                                                        Object {
+                                                                          "adornedEnd": "MuiInputBase-adornedEnd MuiFilledInput-adornedEnd",
+                                                                          "adornedStart": "MuiInputBase-adornedStart MuiFilledInput-adornedStart",
+                                                                          "colorSecondary": "MuiInputBase-colorSecondary MuiFilledInput-colorSecondary",
+                                                                          "disabled": "Mui-disabled Mui-disabled",
+                                                                          "error": "Mui-error Mui-error",
+                                                                          "focused": "Mui-focused Mui-focused",
+                                                                          "formControl": "MuiInputBase-formControl",
+                                                                          "fullWidth": "MuiInputBase-fullWidth",
+                                                                          "input": "MuiInputBase-input MuiFilledInput-input",
+                                                                          "inputAdornedEnd": "MuiInputBase-inputAdornedEnd MuiFilledInput-inputAdornedEnd",
+                                                                          "inputAdornedStart": "MuiInputBase-inputAdornedStart MuiFilledInput-inputAdornedStart",
+                                                                          "inputHiddenLabel": "MuiInputBase-inputHiddenLabel MuiFilledInput-inputHiddenLabel",
+                                                                          "inputMarginDense": "MuiInputBase-inputMarginDense MuiFilledInput-inputMarginDense",
+                                                                          "inputMultiline": "MuiInputBase-inputMultiline MuiFilledInput-inputMultiline",
+                                                                          "inputTypeSearch": "MuiInputBase-inputTypeSearch",
+                                                                          "marginDense": "MuiInputBase-marginDense MuiFilledInput-marginDense",
+                                                                          "multiline": "MuiInputBase-multiline MuiFilledInput-multiline",
+                                                                          "root": "MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline",
+                                                                        }
+                                                                      }
+                                                                      fullWidth={true}
+                                                                      id="root_markdownWidget"
+                                                                      inputComponent="input"
+                                                                      inputProps={
+                                                                        Object {
+                                                                          "style": Object {
+                                                                            "resize": "vertical",
+                                                                          },
+                                                                        }
+                                                                      }
+                                                                      inputRef={
+                                                                        Object {
+                                                                          "current": <textarea
+                                                                            aria-invalid="false"
+                                                                            class="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputMultiline MuiFilledInput-inputMultiline"
+                                                                            id="root_markdownWidget"
+                                                                            rows="4"
+                                                                            style="resize: vertical;"
+                                                                          />,
+                                                                        }
+                                                                      }
+                                                                      multiline={true}
+                                                                      onBlur={[Function]}
+                                                                      onChange={[Function]}
+                                                                      onFocus={[Function]}
+                                                                      rows={4}
+                                                                      type="text"
+                                                                    >
+                                                                      <div
+                                                                        className="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-multiline MuiFilledInput-multiline"
+                                                                        onClick={[Function]}
+                                                                      >
+                                                                        <textarea
+                                                                          aria-invalid={false}
+                                                                          autoFocus={false}
+                                                                          className="MuiInputBase-input MuiFilledInput-input MuiInputBase-inputMultiline MuiFilledInput-inputMultiline"
+                                                                          disabled={false}
+                                                                          id="root_markdownWidget"
+                                                                          onAnimationStart={[Function]}
+                                                                          onBlur={[Function]}
+                                                                          onChange={[Function]}
+                                                                          onFocus={[Function]}
+                                                                          required={false}
+                                                                          rows={4}
+                                                                          style={
+                                                                            Object {
+                                                                              "resize": "vertical",
+                                                                            }
+                                                                          }
+                                                                        />
+                                                                      </div>
+                                                                    </ForwardRef>
+                                                                  </ForwardRef>
+                                                                </ForwardRef>
+                                                              </ForwardRef>
+                                                            </div>
+                                                          </ForwardRef>
+                                                        </ForwardRef>
+                                                      </ForwardRef>
+                                                    </ForwardRef>
+                                                  </ForwardRef>
+                                                </Styled(Component)>
+                                              </div>
+                                            </styled.div>
+                                            <styled.div
+                                              show={false}
                                             >
-                                              <styled.label
-                                                disabled={false}
-                                                htmlFor="root_radio_Option 3"
+                                              <div
+                                                className="sc-eJocfa dikmgq"
                                               >
-                                                <label
-                                                  className="sc-ksluID kOcqbI"
-                                                  disabled={false}
-                                                  htmlFor="root_radio_Option 3"
-                                                >
-                                                  <styled.span>
-                                                    <span
-                                                      className="sc-hHEiqL hyjhdy"
+                                                <pI>
+                                                  <styled.div>
+                                                    <div
+                                                      className="sc-jffHpj eSArFH"
                                                     >
-                                                      <styled.span>
-                                                        <span
-                                                          className="sc-dlMDgC djIEPC"
-                                                        >
-                                                          <styled.input
-                                                            autoFocus={false}
-                                                            checked={false}
-                                                            id="root_radio_Option 3"
-                                                            onBlur={[Function]}
-                                                            onChange={[Function]}
-                                                            onFocus={[Function]}
-                                                            onKeyDown={[Function]}
-                                                            required={false}
-                                                            type="radio"
-                                                            value="Option 3"
-                                                          >
-                                                            <input
-                                                              autoFocus={false}
-                                                              checked={false}
-                                                              className="sc-iemWCZ eFKJdo"
-                                                              id="root_radio_Option 3"
-                                                              onBlur={[Function]}
-                                                              onChange={[Function]}
-                                                              onFocus={[Function]}
-                                                              onKeyDown={[Function]}
-                                                              required={false}
-                                                              type="radio"
-                                                              value="Option 3"
-                                                            />
-                                                          </styled.input>
-                                                          <styled.span>
-                                                            <span
-                                                              className="sc-fnVZcZ ijlvvl"
-                                                            />
-                                                          </styled.span>
-                                                        </span>
-                                                      </styled.span>
-                                                    </span>
-                                                  </styled.span>
-                                                  <styled.span>
-                                                    <span
-                                                      className="sc-hBMUJo edPbTv"
-                                                    >
-                                                      Option 3
-                                                    </span>
-                                                  </styled.span>
-                                                </label>
-                                              </styled.label>
-                                            </IS>
-                                            <IS
-                                              autoFocus={false}
-                                              checked={false}
-                                              disabled={false}
-                                              id="root_radio_None"
-                                              key="radio_None"
-                                              label="None"
-                                              onBlur={[Function]}
-                                              onChange={[Function]}
-                                              onFocus={[Function]}
-                                              onKeyDown={[Function]}
-                                              required={false}
-                                              type="radio"
-                                              value="None"
-                                            >
-                                              <styled.label
-                                                disabled={false}
-                                                htmlFor="root_radio_None"
-                                              >
-                                                <label
-                                                  className="sc-ksluID kOcqbI"
-                                                  disabled={false}
-                                                  htmlFor="root_radio_None"
-                                                >
-                                                  <styled.span>
-                                                    <span
-                                                      className="sc-hHEiqL hyjhdy"
-                                                    >
-                                                      <styled.span>
-                                                        <span
-                                                          className="sc-dlMDgC djIEPC"
-                                                        >
-                                                          <styled.input
-                                                            autoFocus={false}
-                                                            checked={false}
-                                                            id="root_radio_None"
-                                                            onBlur={[Function]}
-                                                            onChange={[Function]}
-                                                            onFocus={[Function]}
-                                                            onKeyDown={[Function]}
-                                                            required={false}
-                                                            type="radio"
-                                                            value="None"
-                                                          >
-                                                            <input
-                                                              autoFocus={false}
-                                                              checked={false}
-                                                              className="sc-iemWCZ eFKJdo"
-                                                              id="root_radio_None"
-                                                              onBlur={[Function]}
-                                                              onChange={[Function]}
-                                                              onFocus={[Function]}
-                                                              onKeyDown={[Function]}
-                                                              required={false}
-                                                              type="radio"
-                                                              value="None"
-                                                            />
-                                                          </styled.input>
-                                                          <styled.span>
-                                                            <span
-                                                              className="sc-fnVZcZ ijlvvl"
-                                                            />
-                                                          </styled.span>
-                                                        </span>
-                                                      </styled.span>
-                                                    </span>
-                                                  </styled.span>
-                                                  <styled.span>
-                                                    <span
-                                                      className="sc-hBMUJo edPbTv"
-                                                    >
-                                                      None
-                                                    </span>
-                                                  </styled.span>
-                                                </label>
-                                              </styled.label>
-                                            </IS>
-                                            <IS
-                                              autoFocus={false}
-                                              checked={false}
-                                              disabled={false}
-                                              id="root_radio_Other"
-                                              key="radio_Other"
-                                              label="Other"
-                                              onBlur={[Function]}
-                                              onChange={[Function]}
-                                              onFocus={[Function]}
-                                              onKeyDown={[Function]}
-                                              required={false}
-                                              type="radio"
-                                              value="Other"
-                                            >
-                                              <styled.label
-                                                disabled={false}
-                                                htmlFor="root_radio_Other"
-                                              >
-                                                <label
-                                                  className="sc-ksluID kOcqbI"
-                                                  disabled={false}
-                                                  htmlFor="root_radio_Other"
-                                                >
-                                                  <styled.span>
-                                                    <span
-                                                      className="sc-hHEiqL hyjhdy"
-                                                    >
-                                                      <styled.span>
-                                                        <span
-                                                          className="sc-dlMDgC djIEPC"
-                                                        >
-                                                          <styled.input
-                                                            autoFocus={false}
-                                                            checked={false}
-                                                            id="root_radio_Other"
-                                                            onBlur={[Function]}
-                                                            onChange={[Function]}
-                                                            onFocus={[Function]}
-                                                            onKeyDown={[Function]}
-                                                            required={false}
-                                                            type="radio"
-                                                            value="Other"
-                                                          >
-                                                            <input
-                                                              autoFocus={false}
-                                                              checked={false}
-                                                              className="sc-iemWCZ eFKJdo"
-                                                              id="root_radio_Other"
-                                                              onBlur={[Function]}
-                                                              onChange={[Function]}
-                                                              onFocus={[Function]}
-                                                              onKeyDown={[Function]}
-                                                              required={false}
-                                                              type="radio"
-                                                              value="Other"
-                                                            />
-                                                          </styled.input>
-                                                          <styled.span>
-                                                            <span
-                                                              className="sc-fnVZcZ ijlvvl"
-                                                            />
-                                                          </styled.span>
-                                                        </span>
-                                                      </styled.span>
-                                                    </span>
-                                                  </styled.span>
-                                                  <styled.span>
-                                                    <span
-                                                      className="sc-hBMUJo edPbTv"
-                                                    >
-                                                      Other
-                                                    </span>
-                                                  </styled.span>
-                                                </label>
-                                              </styled.label>
-                                            </IS>
+                                                      <_
+                                                        rehypePlugins={
+                                                          Array [
+                                                            Array [
+                                                              [Function],
+                                                              Object {
+                                                                "ignoreMissing": true,
+                                                              },
+                                                            ],
+                                                          ]
+                                                        }
+                                                        remarkPlugins={
+                                                          Array [
+                                                            [Function],
+                                                          ]
+                                                        }
+                                                        transformLinkUri={[Function]}
+                                                      />
+                                                    </div>
+                                                  </styled.div>
+                                                </pI>
+                                              </div>
+                                            </styled.div>
                                           </div>
-                                        </styled.div>
-                                      </RadioWidget>
+                                        </EI>
+                                      </MarkdownEditorWidget>
                                     </Component>
                                   </StringField>
                                   <Help
-                                    id="root_radio__help"
+                                    id="root_markdownWidget__help"
                                   />
                                 </div>
                               </FieldTemplate>
@@ -2080,7 +2193,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                     variant="contained"
                   >
                     <ForwardRef
-                      className="jss13"
+                      className="jss17"
                       color="default"
                       disableElevation={false}
                       disableRipple={true}
@@ -2089,7 +2202,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                       variant="contained"
                     >
                       <ForwardRef
-                        className="jss13"
+                        className="jss17"
                         classes={
                           Object {
                             "colorInherit": "MuiButton-colorInherit",
@@ -2131,7 +2244,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                         variant="contained"
                       >
                         <ForwardRef
-                          className="MuiButton-root MuiButton-contained jss13"
+                          className="MuiButton-root MuiButton-contained jss17"
                           component="button"
                           disableRipple={true}
                           disabled={false}
@@ -2140,7 +2253,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                           type="submit"
                         >
                           <ForwardRef
-                            className="MuiButton-root MuiButton-contained jss13"
+                            className="MuiButton-root MuiButton-contained jss17"
                             classes={
                               Object {
                                 "disabled": "Mui-disabled",
@@ -2156,7 +2269,7 @@ exports[`RadioWidget should match snapshot 1`] = `
                             type="submit"
                           >
                             <button
-                              className="MuiButtonBase-root MuiButton-root MuiButton-contained jss13"
+                              className="MuiButtonBase-root MuiButton-root MuiButton-contained jss17"
                               disabled={false}
                               onBlur={[Function]}
                               onDragLeave={[Function]}
