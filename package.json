@@ -28,7 +28,7 @@
   "license": "Apache-2.0",
   "main": "build/index.js",
   "dependencies": {
-    "@babel/runtime-corejs3": "~7.14.7",
+    "@babel/runtime-corejs3": "~7.15.4",
     "@fortawesome/free-solid-svg-icons": "~5.15.3",
     "@rjsf/core": "~3.0.0",
     "@xstate/react": "~1.4.0",
