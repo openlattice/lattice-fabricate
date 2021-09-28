@@ -130,7 +130,7 @@ exports[`DateTimeWidget should match snapshot 1`] = `
             ErrorList={[Function]}
             FieldTemplate={[Function]}
             ObjectFieldTemplate={[Function]}
-            className="StyledForm-sc-dhnby8-0 hefeIB"
+            className="StyledForm-sc-dhnby8-0 dreEFw"
             disabled={false}
             fields={
               Object {
@@ -191,7 +191,7 @@ exports[`DateTimeWidget should match snapshot 1`] = `
             }
           >
             <form
-              className="StyledForm-sc-dhnby8-0 hefeIB"
+              className="StyledForm-sc-dhnby8-0 dreEFw"
               noValidate={false}
               onSubmit={[Function]}
             >
@@ -1196,7 +1196,7 @@ exports[`DateTimeWidget should match snapshot 1`] = `
                                       required={false}
                                     >
                                       <label
-                                        className="sc-iCoGMd FieldTemplate__FieldLabel-sc-1c6bjb1-1 cJpiAY kUmlnF"
+                                        className="sc-iBPTik FieldTemplate__FieldLabel-sc-1c6bjb1-1 ajZQf jrwPqI"
                                         htmlFor="root_dateTimeWidget"
                                         required={false}
                                       >
@@ -2562,7 +2562,7 @@ exports[`DateTimeWidget should match snapshot 1`] = `
               </CustomSchemaField>
               <ActionGroup>
                 <div
-                  className="ActionGroup-sc-1hp5mpm-0 cEaQxJ"
+                  className="ActionGroup-sc-1hp5mpm-0 bjhchc"
                 >
                   <ForwardRef
                     color="primary"
