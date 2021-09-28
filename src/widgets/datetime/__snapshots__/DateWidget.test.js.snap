@@ -1501,7 +1501,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                             }
                                           }
                                         >
-                                          <lk
+                                          <fk
                                             disabled={false}
                                             format="yyyy/MM/dd"
                                             fullWidth={true}
@@ -1575,7 +1575,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                 ]
                                               }
                                             >
-                                              <AD
+                                              <kD
                                                 DateInputProps={
                                                   Object {
                                                     "format": "yyyy/MM/dd",
@@ -1639,7 +1639,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                 placeholder="YYYY/MM/DD"
                                                 variant="inline"
                                               >
-                                                <xD
+                                                <DD
                                                   DateInputProps={
                                                     Object {
                                                       "format": "yyyy/MM/dd",
@@ -1702,7 +1702,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                   open={false}
                                                   placeholder="YYYY/MM/DD"
                                                 >
-                                                  <HM
+                                                  <QM
                                                     InputProps={
                                                       Object {
                                                         "onBlur": [Function],
@@ -2471,7 +2471,7 @@ exports[`DateWidget should match snapshot 1`] = `
                                                         </ForwardRef>
                                                       </ForwardRef>
                                                     </t>
-                                                  </HM>
+                                                  </QM>
                                                   <ForwardRef
                                                     anchorOrigin={
                                                       Object {
@@ -2522,10 +2522,10 @@ exports[`DateWidget should match snapshot 1`] = `
                                                       />
                                                     </ForwardRef>
                                                   </ForwardRef>
-                                                </xD>
-                                              </AD>
+                                                </DD>
+                                              </kD>
                                             </Component>
-                                          </lk>
+                                          </fk>
                                         </DateWidget>
                                       </Component>
                                     </StringField>

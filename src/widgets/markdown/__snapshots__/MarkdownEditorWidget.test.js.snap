@@ -1414,7 +1414,7 @@ exports[`MarkdownEditorWidget should match snapshot 1`] = `
                                           }
                                         }
                                       >
-                                        <EI
+                                        <OI
                                           autoFocus={false}
                                           disabled={false}
                                           id="root_markdownWidget"
@@ -1759,7 +1759,7 @@ exports[`MarkdownEditorWidget should match snapshot 1`] = `
                                               show={true}
                                             >
                                               <div
-                                                className="sc-eJMPIT iieyFv"
+                                                className="sc-nFqVA eqQqcy"
                                               >
                                                 <Styled(Component)
                                                   autoFocus={false}
@@ -1784,7 +1784,7 @@ exports[`MarkdownEditorWidget should match snapshot 1`] = `
                                                 >
                                                   <ForwardRef
                                                     autoFocus={false}
-                                                    className="sc-nFqVA bGEImq"
+                                                    className="sc-higWrZ bqZlmx"
                                                     disabled={false}
                                                     id="root_markdownWidget"
                                                     inputRef={
@@ -1806,7 +1806,7 @@ exports[`MarkdownEditorWidget should match snapshot 1`] = `
                                                   >
                                                     <ForwardRef
                                                       autoFocus={false}
-                                                      className="sc-nFqVA bGEImq"
+                                                      className="sc-higWrZ bqZlmx"
                                                       disabled={false}
                                                       fullWidth={true}
                                                       id="root_markdownWidget"
@@ -1838,7 +1838,7 @@ exports[`MarkdownEditorWidget should match snapshot 1`] = `
                                                     >
                                                       <ForwardRef
                                                         autoFocus={false}
-                                                        className="sc-nFqVA bGEImq"
+                                                        className="sc-higWrZ bqZlmx"
                                                         classes={
                                                           Object {
                                                             "root": "MuiTextField-root",
@@ -1874,7 +1874,7 @@ exports[`MarkdownEditorWidget should match snapshot 1`] = `
                                                         variant="filled"
                                                       >
                                                         <ForwardRef
-                                                          className="MuiTextField-root sc-nFqVA bGEImq"
+                                                          className="MuiTextField-root sc-higWrZ bqZlmx"
                                                           color="primary"
                                                           disabled={false}
                                                           error={false}
@@ -1884,7 +1884,7 @@ exports[`MarkdownEditorWidget should match snapshot 1`] = `
                                                           variant="filled"
                                                         >
                                                           <ForwardRef
-                                                            className="MuiTextField-root sc-nFqVA bGEImq"
+                                                            className="MuiTextField-root sc-higWrZ bqZlmx"
                                                             classes={
                                                               Object {
                                                                 "fullWidth": "MuiFormControl-fullWidth",
@@ -1902,7 +1902,7 @@ exports[`MarkdownEditorWidget should match snapshot 1`] = `
                                                             variant="filled"
                                                           >
                                                             <div
-                                                              className="MuiFormControl-root MuiTextField-root sc-nFqVA bGEImq MuiFormControl-fullWidth"
+                                                              className="MuiFormControl-root MuiTextField-root sc-higWrZ bqZlmx MuiFormControl-fullWidth"
                                                               readOnly={false}
                                                             >
                                                               <ForwardRef
@@ -2123,12 +2123,12 @@ exports[`MarkdownEditorWidget should match snapshot 1`] = `
                                               show={false}
                                             >
                                               <div
-                                                className="sc-eJMPIT iCDRsQ"
+                                                className="sc-nFqVA jmpIzp"
                                               >
-                                                <pI>
+                                                <hI>
                                                   <styled.div>
                                                     <div
-                                                      className="sc-jeGTLq kprzVj"
+                                                      className="sc-eJMPIT fbEdwd"
                                                     >
                                                       <_
                                                         rehypePlugins={
@@ -2150,11 +2150,11 @@ exports[`MarkdownEditorWidget should match snapshot 1`] = `
                                                       />
                                                     </div>
                                                   </styled.div>
-                                                </pI>
+                                                </hI>
                                               </div>
                                             </styled.div>
                                           </div>
-                                        </EI>
+                                        </OI>
                                       </MarkdownEditorWidget>
                                     </Component>
                                   </StringField>
