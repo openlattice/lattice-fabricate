@@ -31,12 +31,12 @@
     "@babel/runtime-corejs3": "~7.15.4",
     "@fortawesome/free-solid-svg-icons": "~5.15.3",
     "@rjsf/core": "~3.0.0",
-    "@xstate/react": "~1.4.0",
+    "@xstate/react": "~1.6.0",
     "lodash": "~4.17.21",
     "loglevel": "~1.7.1",
     "react-dropzone": "~11.4.0",
     "react-signature-canvas": "~1.0.3",
-    "xstate": "~4.20.1"
+    "xstate": "~4.25.0"
   },
   "devDependencies": {
     "@babel/cli": "~7.15.7",
