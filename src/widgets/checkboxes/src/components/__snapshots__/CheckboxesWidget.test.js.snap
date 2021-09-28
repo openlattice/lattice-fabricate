@@ -163,7 +163,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
           ErrorList={[Function]}
           FieldTemplate={[Function]}
           ObjectFieldTemplate={[Function]}
-          className="StyledForm-sc-dhnby8-0 hefeIB"
+          className="StyledForm-sc-dhnby8-0 dreEFw"
           disabled={false}
           fields={
             Object {
@@ -236,7 +236,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
           }
         >
           <form
-            className="StyledForm-sc-dhnby8-0 hefeIB"
+            className="StyledForm-sc-dhnby8-0 dreEFw"
             noValidate={false}
             onSubmit={[Function]}
           >
@@ -1474,7 +1474,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                     required={false}
                                   >
                                     <label
-                                      className="sc-iCoGMd FieldTemplate__FieldLabel-sc-1c6bjb1-1 cJpiAY kUmlnF"
+                                      className="sc-iBPTik FieldTemplate__FieldLabel-sc-1c6bjb1-1 ajZQf jrwPqI"
                                       htmlFor="root_checkboxesOther"
                                       required={false}
                                     >
@@ -1490,7 +1490,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                       id="root_checkboxesOther__description"
                                     >
                                       <div
-                                        className="DescriptionField__DescriptionDiv-sc-fzrkjp-0 igjeHr"
+                                        className="DescriptionField__DescriptionDiv-sc-fzrkjp-0 eZechy"
                                         id="root_checkboxesOther__description"
                                       >
                                         Select all that apply
@@ -1624,6 +1624,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                       disabled={false}
                                       formContext={Object {}}
                                       id="root_checkboxesOther"
+                                      label="Options (ui:options flag: withOther + otherText)"
                                       multiple={true}
                                       onBlur={[Function]}
                                       onChange={[Function]}
@@ -1748,6 +1749,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                         disabled={false}
                                         formContext={Object {}}
                                         id="root_checkboxesOther"
+                                        label="Options (ui:options flag: withOther + otherText)"
                                         multiple={true}
                                         onBlur={[Function]}
                                         onChange={[Function]}
@@ -1872,7 +1874,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                           id="root_checkboxesOther"
                                         >
                                           <div
-                                            className="sc-bqGGPW eClCJx checkboxes"
+                                            className="sc-bqyKOL boCa-Da checkboxes"
                                             id="root_checkboxesOther"
                                           >
                                             <Component
@@ -1942,17 +1944,17 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                                       htmlFor="root_checkboxesOther_Option 1"
                                                     >
                                                       <label
-                                                        className="sc-ksluID kOcqbI"
+                                                        className="sc-kstqJO kbDZZx"
                                                         disabled={false}
                                                         htmlFor="root_checkboxesOther_Option 1"
                                                       >
                                                         <styled.span>
                                                           <span
-                                                            className="sc-hHEiqL hyjhdy"
+                                                            className="sc-hHfuMS dfGWVn"
                                                           >
                                                             <styled.span>
                                                               <span
-                                                                className="sc-dlMDgC djIEPC"
+                                                                className="sc-dmlqKv jGNklH"
                                                               >
                                                                 <styled.input
                                                                   checked={false}
@@ -1964,7 +1966,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                                                 >
                                                                   <input
                                                                     checked={false}
-                                                                    className="sc-dIvrsQ bBKQfW"
+                                                                    className="sc-dIUeWJ ckCIgg"
                                                                     id="root_checkboxesOther_Option 1"
                                                                     onChange={[Function]}
                                                                     onKeyDown={[Function]}
@@ -1974,7 +1976,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                                                 </styled.input>
                                                                 <styled.span>
                                                                   <span
-                                                                    className="sc-crzoAE flAKXO"
+                                                                    className="sc-crrszt eaPsCt"
                                                                   />
                                                                 </styled.span>
                                                               </span>
@@ -1983,7 +1985,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                                         </styled.span>
                                                         <styled.span>
                                                           <span
-                                                            className="sc-hBMUJo edPbTv"
+                                                            className="sc-hBEYId lnIrnq"
                                                           >
                                                             Option 1
                                                           </span>
@@ -2061,17 +2063,17 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                                       htmlFor="root_checkboxesOther_Option 2"
                                                     >
                                                       <label
-                                                        className="sc-ksluID kOcqbI"
+                                                        className="sc-kstqJO kbDZZx"
                                                         disabled={false}
                                                         htmlFor="root_checkboxesOther_Option 2"
                                                       >
                                                         <styled.span>
                                                           <span
-                                                            className="sc-hHEiqL hyjhdy"
+                                                            className="sc-hHfuMS dfGWVn"
                                                           >
                                                             <styled.span>
                                                               <span
-                                                                className="sc-dlMDgC djIEPC"
+                                                                className="sc-dmlqKv jGNklH"
                                                               >
                                                                 <styled.input
                                                                   checked={false}
@@ -2083,7 +2085,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                                                 >
                                                                   <input
                                                                     checked={false}
-                                                                    className="sc-dIvrsQ bBKQfW"
+                                                                    className="sc-dIUeWJ ckCIgg"
                                                                     id="root_checkboxesOther_Option 2"
                                                                     onChange={[Function]}
                                                                     onKeyDown={[Function]}
@@ -2093,7 +2095,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                                                 </styled.input>
                                                                 <styled.span>
                                                                   <span
-                                                                    className="sc-crzoAE flAKXO"
+                                                                    className="sc-crrszt eaPsCt"
                                                                   />
                                                                 </styled.span>
                                                               </span>
@@ -2102,7 +2104,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                                         </styled.span>
                                                         <styled.span>
                                                           <span
-                                                            className="sc-hBMUJo edPbTv"
+                                                            className="sc-hBEYId lnIrnq"
                                                           >
                                                             Option 2
                                                           </span>
@@ -2180,17 +2182,17 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                                       htmlFor="root_checkboxesOther_Option 3"
                                                     >
                                                       <label
-                                                        className="sc-ksluID kOcqbI"
+                                                        className="sc-kstqJO kbDZZx"
                                                         disabled={false}
                                                         htmlFor="root_checkboxesOther_Option 3"
                                                       >
                                                         <styled.span>
                                                           <span
-                                                            className="sc-hHEiqL hyjhdy"
+                                                            className="sc-hHfuMS dfGWVn"
                                                           >
                                                             <styled.span>
                                                               <span
-                                                                className="sc-dlMDgC djIEPC"
+                                                                className="sc-dmlqKv jGNklH"
                                                               >
                                                                 <styled.input
                                                                   checked={false}
@@ -2202,7 +2204,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                                                 >
                                                                   <input
                                                                     checked={false}
-                                                                    className="sc-dIvrsQ bBKQfW"
+                                                                    className="sc-dIUeWJ ckCIgg"
                                                                     id="root_checkboxesOther_Option 3"
                                                                     onChange={[Function]}
                                                                     onKeyDown={[Function]}
@@ -2212,7 +2214,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                                                 </styled.input>
                                                                 <styled.span>
                                                                   <span
-                                                                    className="sc-crzoAE flAKXO"
+                                                                    className="sc-crrszt eaPsCt"
                                                                   />
                                                                 </styled.span>
                                                               </span>
@@ -2221,7 +2223,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
                                                         </styled.span>
                                                         <styled.span>
                                                           <span
-                                                            className="sc-hBMUJo edPbTv"
+                                                            className="sc-hBEYId lnIrnq"
                                                           >
                                                             Option 3
                                                           </span>
@@ -2256,7 +2258,7 @@ exports[`CheckboxesWidget should match snapshot 1`] = `
             </CustomSchemaField>
             <ActionGroup>
               <div
-                className="ActionGroup-sc-1hp5mpm-0 cEaQxJ"
+                className="ActionGroup-sc-1hp5mpm-0 bjhchc"
               >
                 <ForwardRef
                   color="primary"
