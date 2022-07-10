@@ -114,7 +114,7 @@ function parseEntityAddressKey(entityAddressKey :string) :EntityAddress {
     const entityKeyId :UUID = split[0];
     const entitySetName :string = split[1];
     const propertyTypeFQN :string = split[2];
-    if (isNonEmptyString(entitySetName)) {
+    if (isNonEmptyString(entitySetName) && isNonEmptyString(propertyTypeFQN)) {
       if (isValidUUID(entityKeyId)) {
         return {
           entityKeyId,
