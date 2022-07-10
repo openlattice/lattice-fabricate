@@ -1,20 +1,20 @@
 // @flow
 /* eslint-disable no-underscore-dangle */
+
 import { Component } from 'react';
 import type { Ref } from 'react';
 
 import Form from '@rjsf/core';
 import styled from 'styled-components';
-// $FlowFixMe
 import { List } from 'lattice-ui-kit';
 import { isFunction } from 'lodash';
-import type { UUID } from 'lattice';
 
 import AccordionSection from './components/AccordionSection';
 import AttachmentItem from './components/AttachmentItem';
 import FileUpload from './components/FileUpload';
 
 import { getCurrentFormData } from '../form/src/components/PageUtils';
+import type { UUID } from '../types';
 
 const StyledAccordionSection = styled(AccordionSection)`
   grid-row-start: 2;

@@ -1,5 +1,4 @@
 // @flow
-import type { FQN } from 'lattice';
 
 import {
   ASSOCIATION_ENTITY_SET_NAMES,
@@ -24,7 +23,7 @@ const entitySetIds = allEntitySetNames.reduce((acc, entitySetNames) => {
   return acc;
 }, {});
 
-const allPropertyTypeFQNs :FQN[] = (Object.values(PROPERTY_TYPE_FQNS) :any);
+const allPropertyTypeFQNs :string[] = (Object.values(PROPERTY_TYPE_FQNS) :any);
 const propertyTypeIds = allPropertyTypeFQNs.reduce((acc, propertyTypeFQN) => {
   // $FlowFixMe
   acc[propertyTypeFQN] = mockUUID();

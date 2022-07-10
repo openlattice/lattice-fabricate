@@ -3,7 +3,6 @@
  */
 
 import { List, Map } from 'immutable';
-import { Models } from 'lattice';
 
 import {
   VALUE_MAPPERS,
@@ -22,11 +21,9 @@ import {
 import mockExternalFormData from '../form/stories/constants/mockExternalFormData';
 import { entitySetIds, propertyTypeIds } from '../form/stories/constants/mockEDM';
 
-const { FQN } = Models;
-
 const MOCK_EKID = '9b93bc80-79c3-44c8-807c-ada1a8d6484f';
 const MOCK_ESN = 'MockEntitySetName';
-const MOCK_FQN = FQN.of('ol.mock');
+const MOCK_FQN = 'ol.mock';
 
 describe('DataProcessingUtils', () => {
 

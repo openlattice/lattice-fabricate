@@ -15,8 +15,6 @@ import {
   hasIn,
   set,
 } from 'immutable';
-import { Models } from 'lattice';
-import type { UUID } from 'lattice';
 
 import Logger from './Logger';
 import {
@@ -32,6 +30,8 @@ import {
   validateArrayOrListWith,
 } from './ValidationUtils';
 
+import type { UUID } from '../types';
+
 const LOG :Logger = new Logger('DataProcessingUtils');
 
 const ATAT :string = '__@@__';
@@ -39,8 +39,6 @@ const KEY_MAPPERS :'KEY_MAPPERS' = 'KEY_MAPPERS';
 const INDEX_MAPPERS :'INDEX_MAPPERS' = 'INDEX_MAPPERS';
 const VALUE_MAPPERS :'VALUE_MAPPERS' = 'VALUE_MAPPERS';
 const ENTITY_ADDRESS_KEY_PARTS = 3;
-
-const { FQN } = Models;
 
 type IndexOrId = number | UUID;
 type EntityData = { [UUID] :any[] };
@@ -50,7 +48,7 @@ type EntityAddress = {|
   entityIndex ?:number;
   entityKeyId ?:UUID;
   entitySetName :string;
-  propertyTypeFQN :FQN;
+  propertyTypeFQN :string;
 |};
 
 function getPageSectionKey(page :number, section :number) :string {
@@ -80,8 +78,8 @@ function parsePageSectionKey(key :string) :{page :string, section :string} | voi
 
 function getEntityAddressKey(
   indexOrEntityKeyId :IndexOrId,
-  entitySetName :FQN | string,
-  fqn :FQN | string
+  entitySetName :string,
+  fqn :string
 ) :string {
 
   let errorMsg :string = '';
@@ -92,14 +90,14 @@ function getEntityAddressKey(
     throw new Error(errorMsg);
   }
 
-  if (!(FQN.isValid(entitySetName) || isNonEmptyString(entitySetName))) {
-    errorMsg = 'invalid param: entitySetName must be a non-empty string or a valid FQN';
+  if (!isNonEmptyString(entitySetName)) {
+    errorMsg = 'invalid param: entitySetName must be a non-empty string';
     LOG.error(errorMsg, entitySetName);
     throw new Error(errorMsg);
   }
 
-  if (!FQN.isValid(fqn)) {
-    errorMsg = 'invalid param: fqn must be a valid FQN';
+  if (!isNonEmptyString(fqn)) {
+    errorMsg = 'invalid param: fqn must be a non-empty string';
     LOG.error(errorMsg, fqn);
     throw new Error(errorMsg);
   }
@@ -116,12 +114,12 @@ function parseEntityAddressKey(entityAddressKey :string) :EntityAddress {
     const entityKeyId :UUID = split[0];
     const entitySetName :string = split[1];
     const propertyTypeFQN :string = split[2];
-    if (isNonEmptyString(entitySetName) && FQN.isValid(propertyTypeFQN)) {
+    if (isNonEmptyString(entitySetName)) {
       if (isValidUUID(entityKeyId)) {
         return {
           entityKeyId,
           entitySetName,
-          propertyTypeFQN: FQN.of(propertyTypeFQN),
+          propertyTypeFQN,
         };
       }
       /*
@@ -141,7 +139,7 @@ function parseEntityAddressKey(entityAddressKey :string) :EntityAddress {
         return {
           entityIndex,
           entitySetName,
-          propertyTypeFQN: FQN.of(propertyTypeFQN),
+          propertyTypeFQN,
         };
       }
     }
@@ -169,7 +167,7 @@ function isValidEntityAddressKey(value :any) :boolean {
     if (!isNonEmptyString(entitySetName)) {
       return false;
     }
-    if (FQN.isValid(propertyTypeFQN)) {
+    if (isNonEmptyString(propertyTypeFQN)) {
       if (isValidUUID(entityKeyId)) {
         return true;
       }
@@ -436,8 +434,8 @@ function processAssociationEntityData(
 
     const rawAssociationData :Object | Map = get(parts, 5, {});
     const associationData = Map.isMap(rawAssociationData)
-      ? rawAssociationData.mapKeys((key :FQN) => get(propertyTypeIds, key)).toJS()
-      : mapKeys(rawAssociationData, (value :any, key :FQN) => get(propertyTypeIds, key));
+      ? rawAssociationData.mapKeys((key :string) => get(propertyTypeIds, key)).toJS()
+      : mapKeys(rawAssociationData, (value :any, key :string) => get(propertyTypeIds, key));
 
     const associationEntity = {};
     associationEntity.data = associationData;
