@@ -1,14 +1,10 @@
-import { Models } from 'lattice';
-
-const { FQN } = Models;
-
 const PROPERTY_TYPE_FQNS = {
-  COMPLETED_DT_FQN: FQN.of('mock.completeddatetime'),
-  DESCRIPTION_FQN: FQN.of('mock.description'),
-  IMAGE_DATA_FQN: FQN.of('mock.imagedata'),
-  INDEX_FQN: FQN.of('mock.index'),
-  NAME_FQN: FQN.of('mock.name'),
-  TYPE_FQN: FQN.of('mock.type'),
+  COMPLETED_DT_FQN: 'mock.completeddatetime',
+  DESCRIPTION_FQN: 'mock.description',
+  IMAGE_DATA_FQN: 'mock.imagedata',
+  INDEX_FQN: 'mock.index',
+  NAME_FQN: 'mock.name',
+  TYPE_FQN: 'mock.type',
 };
 
 const ENTITY_SET_NAMES = {

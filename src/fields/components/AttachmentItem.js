@@ -5,15 +5,13 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   IconButton,
-  // $FlowFixMe
   ListItem,
-  // $FlowFixMe
   ListItemSecondaryAction,
-  // $FlowFixMe
   ListItemText,
-  Typography
+  Typography,
 } from 'lattice-ui-kit';
-import type { UUID } from 'lattice';
+
+import type { UUID } from '../../types';
 
 const ItemTextWrapper = styled.div`
   padding-right: ${(props) => (props.paddingRight ? props.paddingRight : '16px')};
